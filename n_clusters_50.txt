@@ -1,0 +1,6183 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	content
+	jquery
+	100
+	iframe
+	function
+	javascript
+	script
+	page
+	table
+	text
+	facebook
+	width
+	height
+	td
+	div
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.95
+	Min zscore: -1.91
+	n_outliers(|z|>2): 0
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Fix height of a table row in HTML Table
+	Id: 593849
+	Rank: 0  -  Distance: 0.59870
+	Tags: html
+	Body: Kindly look at the following code:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-tr
+
+Title: Convert JSON format to CSV format (for MS Excel)
+	Id: 4130849
+	Rank: 1  -  Distance: 0.62260
+	Tags: json
+	Body: A friend has sent me a JSON file but unfortunately I have no clue how to read it. Is there a converter where I can produce a nice CSV file s
+
+Title: Table cell widths - fixing width, wrapping/truncating long words
+	Id: 446624
+	Rank: 2  -  Distance: 0.62687
+	Tags: html, css, gui, table
+	Body: I have a table containing cells with text of various lengths. It is essential that all of the table cells are of the same width. If this mea
+
+Title: IE7 relative/absolute positioning bug with dynamically modified page content
+	Id: 2473171
+	Rank: 3  -  Distance: 0.63606
+	Tags: css, internet-explorer-7, relative, absolute
+	Body: I was wondering if there's anyone having an idea how to tackle with the following problem in IE7:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1
+
+Title: window.onload() is not firing with IE 8 in first shot
+	Id: 886668
+	Rank: 4  -  Distance: 0.65643
+	Tags: javascript, html, internet-explorer, xhtml, internet-explorer-8
+	Body: I am trying to make my pages work correctly with IE 8, I found out from here: http://www.masykur.web.id/post/How-to-Make-Our-Website-to-be-R
+
+Title: iPhone UIWebView local resources using Javascript and handling onorientationChange
+	Id: 843820
+	Rank: 5  -  Distance: 0.66667
+	Tags: iphone, uiwebview, iphone-web
+	Body: I'm trying to server HTML Javascript and CSS content from an iPhone application's local resources, and I'm having trouble handling onOrienta
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Simplest JQuery validation rules example
+	Id: 650336
+	Rank: 0  -  Distance: 0.92874
+	Tags: javascript, jquery, form-validation, rules, declarative
+	Body: The following HTML form successfully utilizes jQuery's form validation, displaying "This field is required" to the right of the form field i
+
+Title: Positioning a div near bottom side of another div
+	Id: 857916
+	Rank: 1  -  Distance: 0.94075
+	Tags: html, css, layout
+	Body: I have outer div and inner div. I need to place inner div at the bottom of the outer one.
+Outer div is elastic (width: 70% for example). I a
+
+Title: How does Facebook Sharer select Images?
+	Id: 1138460
+	Rank: 2  -  Distance: 0.94153
+	Tags: facebook, algorithm, opengraph, facebook-sharer
+	Body: When using Facebook Sharer, Facebook will offer the user the option of using 1 of a few images pulled from the source as a preview for their
+
+Title: Multiple pages tutorial in Google Web Toolkit (GWT)
+	Id: 1061705
+	Rank: 3  -  Distance: 0.96736
+	Tags: gwt, navigation
+	Body: I just started learning Google Web Toolkit (GWT). How do I make different HTML pages in my GWT application?
+For example, I want to create an
+
+Title: Passing arguments to JavaScript function from code-behind
+	Id: 788330
+	Rank: 4  -  Distance: 0.97116
+	Tags: c#, javascript, .net, asp.net, code-behind
+	Body: I would like to call a javascript function from an aspx control.  For instance, suppose I had:
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+
+Title: Autosizing textarea using prototype
+	Id: 7477
+	Rank: 5  -  Distance: 0.97259
+	Tags: javascript, html, css, prototypejs
+	Body: I'm currently working on an internal sales application for the company I work for, and I've got a form that allows the user to change the de
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	classpath
+	ant
+	files
+	version
+	resource
+	build
+	jar file
+	android
+	class
+	maven
+	project
+	file
+	eclipse
+	java
+	jar
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.56
+	Min zscore: -3.15
+	n_outliers(|z|>2): 4
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Eclipse: How to build an executable jar with external jar?
+	Id: 502960
+	Rank: 0  -  Distance: 0.84056
+	Tags: java, eclipse, jar, classpath, external
+	Body: I am trying to build an executable jar program which depends on external jar downloaded. In my project, I included them in the build path an
+
+Title: Adding a JAR to an Eclipse Java library
+	Id: 179024
+	Rank: 1  -  Distance: 0.84400
+	Tags: eclipse, jar
+	Body: How do you add a JAR file to an already existing Java library in Eclipse?  Note that this is not a user library.
+That is, if you look at the
+
+Title: How can I use external JARs in an Android project?
+	Id: 1334802
+	Rank: 2  -  Distance: 0.85688
+	Tags: eclipse, android, class-library
+	Body: I have created an Android project and added an external JAR (hessian-4.0.1.jar) to my project. I then add the JAR to the buildpath and check
+
+Title: Build project into a Jar Automatically in eclipse
+	Id: 1062941
+	Rank: 3  -  Distance: 0.87424
+	Tags: eclipse, jar
+	Body: I have an eclipse project where I want to keep my java project built into a Jar automatically. I know I have an option to export the project
+
+Title: Eclipse Java; export jar, include referenced libraries, without fatjar
+	Id: 528007
+	Rank: 4  -  Distance: 0.88299
+	Tags: java, eclipse, jar, exporting
+	Body: I need to export jar from my Eclipse Java project and I want to include the referenced libraries. I can't use fatjar for this, which is what
+
+Title: How to exclude jars generated by maven war plugin?
+	Id: 1031695
+	Rank: 5  -  Distance: 0.88347
+	Tags: java, maven-2
+	Body: Because of transitive dependencies, my wars are getting populated by xml-apis, xerces jars.
+I tried following the instructions on the refere
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: File to byte[] in Java
+	Id: 858980
+	Rank: 0  -  Distance: 0.98943
+	Tags: java, file-io
+	Body: What is the best way to convert a java.io.File to a byte[]?
+
+Title: loading properties file from java package
+	Id: 333363
+	Rank: 1  -  Distance: 0.99059
+	Tags: properties-file
+	Body: I need to read a properties files that's buried in my package structure.
+com.al.common.email.templates
+I've tried everything and I can't fig
+
+Title: Fail to launch application (CreateProcess error=87), can't use shorten classpath workaround
+	Id: 2893970
+	Rank: 2  -  Distance: 0.99109
+	Tags: eclipse, windows-xp
+	Body: When I launch our application in Eclipse on Windows I receive the following error:
+
+Exception occured executing command line. 
+Cannot run pr
+
+Title: Environment variable to control java.io.tmpdir?
+	Id: 1924136
+	Rank: 3  -  Distance: 0.99132
+	Tags: java, environment-variables
+	Body: I've used the TMP environment variable to control things like where gcc writes it's temporary files, but I can't seem to find an equivalent 
+
+Title: ant warning: "'includeantruntime' was not set"
+	Id: 5103384
+	Rank: 4  -  Distance: 0.99206
+	Tags: java, ant
+	Body: I receive the following warning:
+[javac] build.xml:9: warning: 'includeantruntime' was not set, 
+defaulting to build.sysclasspath=last; set 
+
+Title: How do I read all classes from a Java package in the classpath?
+	Id: 1456930
+	Rank: 5  -  Distance: 0.99588
+	Tags: java, reflection, scanning
+	Body: I need to read classes contained in a Java package. Those classes are in classpath. I need to do this task from a Java program directly. Do 
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	memory
+	garbage collection
+	string
+	javascript
+	collection
+	ini
+	script
+	file
+	use
+	using
+	echo
+	garbage
+	curl
+	function
+	php
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.42
+	Min zscore: -3.87
+	n_outliers(|z|>2): 7
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I install cURL on Windows?
+	Id: 181082
+	Rank: 0  -  Distance: 0.84105
+	Tags: php, windows, curl, windows-xp, installation
+	Body: I have followed all the instructions here: http://www.tonyspencer.com/2003/10/22/curl-with-php-and-apache-on-windows/
+to install & config ap
+
+Title: how to run php script in eclipse
+	Id: 888500
+	Rank: 1  -  Distance: 0.87186
+	Tags: php, eclipse, scripting, pdt
+	Body: I installed Eclipse PDT-all-in-one-win32-2.0.0GA  and WampServer 2.0.
+I try to run as PHP Script in eclipse  but I have this error:
+"The cur
+
+Title: php.ini & SMTP= - how do you pass username & password
+	Id: 112190
+	Rank: 2  -  Distance: 0.87922
+	Tags: php, smtp, email
+	Body: My ISP account requires that I send a username & password for outbound SMTP mail. 
+How do I get PHP to use this when executing php.mail()? T
+
+Title: Using XAMPP, how do i swap out PHP 5.3 for PHP 5.2?
+	Id: 1302168
+	Rank: 3  -  Distance: 0.88329
+	Tags: php, xampp, downgrade
+	Body: I'm using XAMPP 1.7.2, but need to swap out PHP 5.3 for PHP 5.2 - how do I do this?
+
+Title: How to enable PHP short tags?
+	Id: 2185320
+	Rank: 4  -  Distance: 0.89009
+	Tags: php, tags, php.ini, shorttags
+	Body: I have a web application on a Linux server which starts with <?
+I needed to copy this application to a windows environment and everything is
+
+Title: Getting PEAR to work on XAMPP (Apache/MySQL stack on Windows)
+	Id: 62658
+	Rank: 5  -  Distance: 0.89058
+	Tags: php, pear, laconica
+	Body: I'm trying to install Laconica, an open-source Microblogging application on my Windows development server using XAMPP as per the instruction
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: What does the error-message 'java.lang.OutOfMemoryError: GC overhead limit exceeded' mean in Java?
+	Id: 1393486
+	Rank: 0  -  Distance: 0.98559
+	Tags: java, garbage-collection, outofmemoryerror
+	Body: I get this error message as I execute my JUnit tests:
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+
+I know what an OutOfMemoryErro
+
+Title: Deleting Objects in JavaScript
+	Id: 742623
+	Rank: 1  -  Distance: 0.98591
+	Tags: javascript, pointers, delete, garbage-collection, object
+	Body: I'm a bit confused with JavaScript's delete operator. Take the following piece of code:
+var obj = {
+    helloText: "Hello World!"
+};
+
+var fo
+
+Title: PHP Fatal error: Cannot redeclare class
+	Id: 708140
+	Rank: 2  -  Distance: 0.98629
+	Tags: php
+	Body: Any one know what to cause this problem?? 
+PHP Fatal error: Cannot redeclare class
+
+Title: How to escape strings in MSSQL using PHP?
+	Id: 574805
+	Rank: 3  -  Distance: 0.99048
+	Tags: php, sql-server, escaping, input-sanitization
+	Body: I'm looking for the alternative of mysql_real_escape_string() for MSSQL. Is addslashes() my best option or there is another alternative func
+
+Title: Why is char[] preferred over string for passwords?
+	Id: 8881291
+	Rank: 4  -  Distance: 0.99091
+	Tags: java, string, security, passwords, char
+	Body: In Swing, the password field has a getPassword() (returns char[]) method instead of the usual getText() (returns String) method. Similarly, 
+
+Title: Is there a destructor for Java?
+	Id: 171952
+	Rank: 5  -  Distance: 0.99326
+	Tags: java, destructor
+	Body: Is there a destructor for Java? I don't seem to be able to find any documentation on this. If there isn't, how can I achieve the same effect
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	vs
+	thread
+	function
+	way
+	data
+	python
+	object
+	case
+	byte
+	int
+	use
+	file
+	java
+	array
+	string
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 2.08
+	Min zscore: -3.74
+	n_outliers(|z|>2): 23
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Why doesn't Java offer operator overloading?
+	Id: 77718
+	Rank: 0  -  Distance: 0.95612
+	Tags: java, c++, operator-overloading
+	Body: Coming from C++ to Java, the obvious unanswered question is why didn't Java include operator overloading?
+Isn't Complex a, b, c; a = b + c; 
+
+Title: What is node.js?
+	Id: 1884724
+	Rank: 1  -  Distance: 0.95918
+	Tags: javascript, node.js, v8, evented-io
+	Body: I don't fully get what node.js is all about. Maybe it's because I am mainly a web based business app developer. Can someone please explain w
+
+Title: What are the applications of binary trees?
+	Id: 2130416
+	Rank: 2  -  Distance: 0.95963
+	Tags: binary-tree
+	Body: I am wondering what the particular applications of binary trees are.  Could you give some real examples?
+Thanks.
+
+Title: Accurracy of technical arguments in JWZ's 1997 "java sucks" article with today's Java?
+	Id: 577943
+	Rank: 3  -  Distance: 0.95992
+	Tags: java
+	Body: I'm currently using Java in a larger project and was curious which of the technical arguments in JWZ's famous "java sucks" article were stil
+
+Title: Twitter image encoding challenge
+	Id: 891643
+	Rank: 4  -  Distance: 0.96045
+	Tags: unicode, twitter, compression, code-golf, challenge
+	Body: If a picture's worth 1000 words, how much of a picture can you fit in 140 characters?
+Note: That's it folks! Bounty deadline is here, and af
+
+Title: Why do we use arrays instead of other data structures?
+	Id: 392397
+	Rank: 5  -  Distance: 0.96254
+	Tags: arrays, language-agnostic
+	Body: As I was programming, I haven't seen an instance where an array is better for storing information than another form thereof.  I had indeed f
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Python - Create a list with initial capacity
+	Id: 311775
+	Rank: 0  -  Distance: 0.99869
+	Tags: java, python, list, initialization, dictionary
+	Body: Code like this often happens:
+l = []
+while foo:
+    #baz
+    l.append(bar)
+    #qux
+
+This is really slow if you're about to append thousands
+
+Title: Syntax for a single-line BASH infinite while loop
+	Id: 1289026
+	Rank: 1  -  Distance: 0.99882
+	Tags: bash, loops
+	Body: Having trouble coming up with the right combination of semicolons and/or braces.  I'd like to do this, but as a one-liner from the command l
+
+Title: Hidden features of Eclipse
+	Id: 54886
+	Rank: 2  -  Distance: 0.99894
+	Tags: java, eclipse, ide, polls
+	Body: Alright it can be a lame question, but everybody uses these things differently.  What's some of the best time savers out there for this IDE.
+
+Title: JQuery Object to String
+	Id: 652763
+	Rank: 3  -  Distance: 0.99958
+	Tags: jquery
+	Body: How do you get convert a JQuery object to string?
+
+Title: In C#, why is String a reference type that behaves like a value type?
+	Id: 636932
+	Rank: 4  -  Distance: 0.99977
+	Tags: c#, string, clr, value-type, reference-type
+	Body: A String is a reference type even though it has most of the characteristics of a value type such as being immutable and having == overloaded
+
+Title: difference between abstraction and encapsulation?
+	Id: 742341
+	Rank: 5  -  Distance: 1.00112
+	Tags: homework, oop, encapsulation, abstraction
+	Body: What is the precise difference between encapsulation and abstraction?
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	tbody
+	css
+	rows
+	column
+	text
+	td td td
+	border
+	id
+	html
+	jquery
+	div
+	class
+	row
+	th
+	td td
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.71
+	Min zscore: -2.12
+	n_outliers(|z|>2): 1
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Two HTML tables side by side, centered on the page
+	Id: 346940
+	Rank: 0  -  Distance: 0.49413
+	Tags: css, center, horizontal-alignment
+	Body: I have two tables on a page that I want to display side by side, and then center them within the page (actually within another div, but this
+
+Title: How to get a table cell value using jquery?
+	Id: 376081
+	Rank: 1  -  Distance: 0.55681
+	Tags: jquery
+	Body: I am trying to work out how to get the value of table cell for each row using jquery.
+My table looks like this...
+<table id="mytable">
+<tr><
+
+Title: jQuery add HTML table column
+	Id: 1075415
+	Rank: 2  -  Distance: 0.57208
+	Tags: jquery, html, table, columns
+	Body: I have a HTML table like this:
+<table border="1">
+    <tbody>
+        <tr>
+            <td><a href="#" class="delete">DELETE ROW</a>COL 1</t
+
+Title: How do I hide the middle of a table using jQuery?
+	Id: 215219
+	Rank: 3  -  Distance: 0.60061
+	Tags: jquery, html, table
+	Body: I have a really long 3 column table. I would like to 
+<table>
+    <tr><td>Column1</td><td>Column2</td></tr>
+    <tr><td>Column1</td><td>Colu
+
+Title: CSS - Border only inside the table
+	Id: 1257430
+	Rank: 4  -  Distance: 0.62124
+	Tags: html, css, xhtml, table, border
+	Body: I am trying to figure out how to add border only inside the table. When I do:
+table {
+    border: 0;
+}
+table td, table th {
+    border: 1px 
+
+Title: How can I get an element by name with jquery?
+	Id: 1107220
+	Rank: 5  -  Distance: 0.62243
+	Tags: javascript, jquery, html, dom
+	Body: I have a table column I am trying to expand and hide. jQuery seems to hide the column when I select it by class but not by element name.  
+W
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Building an HTML table on the fly using jQuery
+	Id: 103489
+	Rank: 0  -  Distance: 0.93357
+	Tags: javascript, jquery
+	Body: Below is the code I use to build an HTML table on the fly (using JSON data received from the server).
+I display an animated pleasewait (.gif
+
+Title: How can I hide an HTML table row <tr> so that it takes up no space?
+	Id: 1144123
+	Rank: 1  -  Distance: 0.93706
+	Tags: html, css, table
+	Body: How can I hide an HTML table row <tr> so that it takes up no space?  I have several <tr>'s set to style="display:none;", but they still affe
+
+Title: Replace HTML Table with Divs
+	Id: 702181
+	Rank: 2  -  Distance: 0.94041
+	Tags: html, css, table
+	Body: Alright, I'm trying to buy into the idea that html tables should not be used, and that divs should be. However, I often have code that resem
+
+Title: Ajax - How refresh <DIV> after submit
+	Id: 868890
+	Rank: 3  -  Distance: 0.94798
+	Tags: jquery, ajax, refresh, submit
+	Body: How refresh part of page ("DIV") after my application release a submit?
+I'm use JQuery with plugin ajaxForm.
+I set my target with "divResult
+
+Title: Mininum and Maximum value of Z-INDEX
+	Id: 491052
+	Rank: 4  -  Distance: 0.98162
+	Tags: html, css
+	Body: I have a DIV in my HTML page. I am showing this DIV based on some condition. But DIV is displaying behind any HTML element where I pointed t
+
+Title: Why are cellspacing and cellpadding not CSS styles
+	Id: 339146
+	Rank: 5  -  Distance: 0.98678
+	Tags: html, css, table, cellpadding, cellspacing
+	Body: I don't know why this bothers me so much, but when I create websites, I always try to do all my styling with CSS.  However one thing I alway
+
+
+
+E========== CLUSTER 4 ==========
+
+B========== CLUSTER 5 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	oracle sql
+	select
+	framework
+	create
+	tables
+	stored procedure
+	data
+	mysql
+	table
+	entity
+	procedure
+	stored
+	sql
+	database
+	oracle
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.40
+	Min zscore: -2.89
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How can I find which tables reference a given table in Oracle SQL Developer?
+	Id: 1143728
+	Rank: 0  -  Distance: 0.85176
+	Tags: sql, oracle, foreign-keys, sql-developer
+	Body: In Oracle SQL Developer, if I'm viewing the information on a table, I can view the constraints, which let me see the foreign keys (and thus 
+
+Title: How to return multiple rows from the stored procedure? (Oracle PL/SQL)
+	Id: 101033
+	Rank: 1  -  Distance: 0.85769
+	Tags: sql, oracle, plsql
+	Body: I want to create a stored procedure with one argument which will return different sets of records depending on the argument. What is the way
+
+Title: How to create a dump with Oracle PL/SQL Developer?
+	Id: 852261
+	Rank: 2  -  Distance: 0.85920
+	Tags: oracle, plsqldeveloper
+	Body: I need to take dump of a user (including tables, procedures ,etc.) as FILENAME.dmp.
+If I create a new user and import that FILENAME.dmp, the
+
+Title: How can I use Oracle SQL developer to run stored procedures?
+	Id: 3134923
+	Rank: 3  -  Distance: 0.85985
+	Tags: oracle, stored-procedures, plsql, sql-developer, sys-refcursor
+	Body: * EDIT6: * This is what ended up working for me (from accepted answer):
+var ret1 number
+var tran_cnt number
+var msg_cnt number
+var rc refcur
+
+Title: Run Stored Procedure in SQL Developer?
+	Id: 3991721
+	Rank: 4  -  Distance: 0.86105
+	Tags: oracle, stored-procedures, sql-developer
+	Body: I am trying to run a stored procedure that has multiple in and out paramaters. The procedure can only be viewed in my Connections panel by n
+
+Title: How do you connect to a MySQL database using Oracle SQL Developer?
+	Id: 89696
+	Rank: 5  -  Distance: 0.86137
+	Tags: mysql, oracle, sql-developer
+	Body: I have Oracle SQL Developer already installed and am able to connect to and query Oracle databases.
+Using Help -> Check for Updates I was ab
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to Connect Database in Silverlight applications
+	Id: 994616
+	Rank: 0  -  Distance: 0.98874
+	Tags: silverlight, database-connectivity
+	Body: I am a newbie in silverlight. and I want to know that how can we connect our application to a Database. I am using a SQL 2005 server as a Da
+
+Title: Oracle: how to set user password unexpire?
+	Id: 1766445
+	Rank: 1  -  Distance: 0.98909
+	Tags: sql, oracle
+	Body: There is some construction
+ALTER USER scott PASSWORD EXPIRE
+
+But how can I similair set password to unexpired state?
+
+Title: PHP + MySQL transactions examples
+	Id: 2708237
+	Rank: 2  -  Distance: 0.99087
+	Tags: php, mysql, transactions
+	Body: I really haven't found normal example of PHP file where MySQL transactions are being used. Can you show me simple example of that? 
+And one 
+
+Title: How do I shrink my SQL Server Database?
+	Id: 439071
+	Rank: 3  -  Distance: 0.99131
+	Tags: sql-server, database, shrink, msde2000
+	Body: I have a Database nearly 1.9Gb Database in size
+MSDE2000 does not allow DBs that exceed 2.0Gb
+I need to shrink this DB (and many like it at 
+
+Title: ORA-03113: end-of-file on communication channel after long inactivity in ASP.Net app
+	Id: 83068
+	Rank: 4  -  Distance: 0.99286
+	Tags: oracle, odp.net, oracleexception
+	Body: I've got a load-balanced (not using Session state) ASP.Net 2.0 app on IIS5 running back to a single Oracle 10g server, using version 10.1.0.
+
+Title: Detach an entity from JPA/EJB3 persistence context
+	Id: 31446
+	Rank: 5  -  Distance: 0.99621
+	Tags: java, orm, jpa
+	Body: What would be the easiest way to detach a specific JPA Entity Bean that was acquired through an EntityManager. Alternatively, could I have a
+
+
+
+E========== CLUSTER 5 ==========
+
+B========== CLUSTER 6 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	jpg
+	src
+	convert
+	file
+	using
+	img
+	css
+	png
+	background
+	open source
+	open
+	bitmap
+	images
+	source
+	image
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.46
+	Min zscore: -3.27
+	n_outliers(|z|>2): 14
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Capture HTML Canvas as gif/jpg/png/pdf?
+	Id: 923885
+	Rank: 0  -  Distance: 0.86601
+	Tags: javascript, html5, canvas
+	Body: Is it possible to capture or print what's displayed in an html canvas as an image or pdf? I'd like to generate an image via canvas, and I'd 
+
+Title: jQuery: How can I show an image popup onclick of the thumbnail?
+	Id: 2063199
+	Rank: 1  -  Distance: 0.87891
+	Tags: jquery, jquery-plugins, popup
+	Body: In my aspx page I have a thumbnail image <img>. When the user clicks on that image I would like a popup to show that blocks out the rest of 
+
+Title: How to convert bytearray to image or image to bytearray?
+	Id: 906791
+	Rank: 2  -  Distance: 0.88180
+	Tags: actionscript-3, flex3
+	Body: How  to assign bytearray value to panel background image.  If anybody have idea or experiance plz help me to overcome the problem. BRIEF EXP
+
+Title: How to crop an image using C#?
+	Id: 734930
+	Rank: 3  -  Distance: 0.88362
+	Tags: c#, image-processing
+	Body: How can I write an application that will crop images in C#?
+
+Title: WPF Image Dynamically changing Image source during runtime
+	Id: 397117
+	Rank: 4  -  Distance: 0.88740
+	Tags: wpf, image, dynamic, source, execution
+	Body: I have a window with a title on it. When the user selects a choice from a drop down list, the title image can change. The problem is when th
+
+Title: Get image data in Javascript?
+	Id: 934012
+	Rank: 5  -  Distance: 0.89292
+	Tags: javascript, image, firefox, greasemonkey, base64
+	Body: I have a regular HTML page with some images (just regular IMG HTML tags). I'd like to get their content, base64 encoded preferably, without 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Image UriSource and Data Binding
+	Id: 20586
+	Rank: 0  -  Distance: 0.99060
+	Tags: .net, wpf, data-binding, xaml
+	Body: I'm trying to bind a list of custom objects to a WPF Image like this:
+<Image>
+    <Image.Source>
+        <BitmapImage UriSource="{Binding Pa
+
+Title: How do I decompile a .NET EXE into readable C# source code?
+	Id: 179741
+	Rank: 1  -  Distance: 0.99097
+	Tags: c#, .net, reverse-engineering, decompiling
+	Body: I wrote a C# application for a client a couple of years ago, but I no longer have the source code.  All I have is the EXE that I deployed on
+
+Title: Which jQuery plugin should be used to fix the IE6 PNG transparency issue?
+	Id: 60740
+	Rank: 2  -  Distance: 0.99249
+	Tags: jquery, internet-explorer-6, png
+	Body: Is there an IE6/PNG fix that is officially developed by the jQuery team?
+If not which of the available plugins should I use?
+
+Title: How to manipulate images at pixel level in C#?
+	Id: 190385
+	Rank: 3  -  Distance: 0.99275
+	Tags: c#, image-processing, image-manipulation
+	Body: How to manipulate images at pixel level in C#?
+I need to be able to read/modify each bitmap pixel RGB values separately. 
+Code sample apprec
+
+Title: How to open VCE files?
+	Id: 1250006
+	Rank: 4  -  Distance: 0.99451
+	Tags: file-format
+	Body: Can anyone give directions on opening VCE files? Any freeware?
+
+Title: light weight ER diagram tool
+	Id: 674911
+	Rank: 5  -  Distance: 0.99722
+	Tags: database, diagram, project-planning, er-diagrams
+	Body: Looking for a light weight ER Diagram tool. We are only looking to visualize our tables and their relationships, however none of them have p
+
+
+
+E========== CLUSTER 6 ==========
+
+B========== CLUSTER 7 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	git repository
+	trunk
+	add
+	checkout
+	push
+	subversion
+	files
+	remote
+	master
+	file
+	repository
+	merge
+	commit
+	svn
+	branch
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.64
+	Min zscore: -3.04
+	n_outliers(|z|>2): 5
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to export revision history from mercurial or git to cvs?
+	Id: 584522
+	Rank: 0  -  Distance: 0.76112
+	Tags: git, mercurial, export, cvs, git-cvs
+	Body: I'm going to be working with other people on code from a project that uses cvs. We want to use a distributed vcs to make our work and when w
+
+Title: How to migrate SVN with history to a new Git repository?
+	Id: 79165
+	Rank: 1  -  Distance: 0.77528
+	Tags: svn, git, version-control, git-svn
+	Body: I read git manual, FAQ, Git - SVN crash course, etc. and they all explain this and that, but nowhere can you find a simple instruction like:
+
+Title: how to clone an old git-commit (and some more questions about git)
+	Id: 1655361
+	Rank: 2  -  Distance: 0.80614
+	Tags: git
+	Body: I have a git-repository of my project with about 20 commits. I know how to clone the actual commit with git clone,  
+
+but how can I "clone" 
+
+Title: How to get the changes on a branch in git
+	Id: 53569
+	Rank: 3  -  Distance: 0.80788
+	Tags: git, branch
+	Body: What is the best way to get a log of commits on a branch since the time it was branched from the current branch? My solution so far is:
+git 
+
+Title: How do you organise multiple git repositories?
+	Id: 36862
+	Rank: 4  -  Distance: 0.81106
+	Tags: git, organizing
+	Body: With SVN, I had a single big repository I kept on a server, and checked-out on a few machines. This was a pretty good backup system, and all
+
+Title: How do I revert one file to the last commit in git?
+	Id: 692246
+	Rank: 5  -  Distance: 0.81393
+	Tags: git, version-control, dvcs, undo
+	Body: I have a git repository, After the last commit, I modified a bunch of file. but I want to undo the changes to one of these file, as in reset
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: SVN - Not a working copy error
+	Id: 368281
+	Rank: 0  -  Distance: 0.98290
+	Tags: svn, aptana, working-copy
+	Body: I'm pulling my hair out on this one.
+I have a site which is version controlled using Subversion. I use aptana (eclipse, subclipse) to do the
+
+Title: Permission denied (publickey). fatal: The remote end hung up unexpectedly while pushing back to git repository
+	Id: 7065257
+	Rank: 1  -  Distance: 0.98342
+	Tags: github
+	Body: 
+Possible Duplicate:
+github: newbie problems -> Permission denied (publickey). fatal: The remote end hung up unexpectedly 
+
+please see the b
+
+Title: what is the best way to backup subversion repositories?
+	Id: 33055
+	Rank: 2  -  Distance: 0.98369
+	Tags: svn, backup
+	Body: I'm new to svn and I'd like to know what are common methods of backing up repositories in a windows environment?
+
+Title: .gitignore file not ignoring
+	Id: 1139762
+	Rank: 3  -  Distance: 0.98620
+	Tags: git, version-control, gitignore
+	Body: I have an already initialized git repo that I added a .gitignore file to, how can I refresh the file index so the files I want ignored get i
+
+Title: Getting the last revision number in SVN?
+	Id: 579196
+	Rank: 4  -  Distance: 0.98620
+	Tags: svn, version
+	Body: Using PHP, Perl, or Python (preferably PHP) I need a way to query an SVN database and find out the last revision number sent to SVN. I don't
+
+Title: github: newbie problems -> Permission denied (publickey). fatal: The remote end hung up unexpectedly
+	Id: 3617113
+	Rank: 5  -  Distance: 0.98812
+	Tags: git, github, publickey
+	Body: i have followed this instructions below to upload a project. 
+Global setup:
+ Download and install Git
+  git config --global user.name "Your 
+
+
+
+E========== CLUSTER 7 ==========
+
+B========== CLUSTER 8 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	server
+	convert
+	number
+	color
+	div
+	want
+	jquery
+	file
+	domain
+	html
+	using
+	android
+	string
+	python
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.22
+	Min zscore: -2.84
+	n_outliers(|z|>2): 5
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Graph drawing C++ library?
+	Id: 492893
+	Rank: 0  -  Distance: 0.61462
+	Tags: c++, graph, plot
+	Body: Does anyone know any (preferably FOSS) C++ libraries that can draw basic graphs?
+I'm looking for something rather simplistic. Everything I c
+
+Title: Best book to learn python?
+	Id: 317983
+	Rank: 1  -  Distance: 0.62978
+	Tags: python, books
+	Body: I've never developed on python.. Can you please tell me what is the best book to learn how to program in python? 
+Thanks a lot
+DUPLICATE: ht
+
+Title: Line break in title attribute of span
+	Id: 360192
+	Rank: 2  -  Distance: 0.67175
+	Tags: html, tooltip, title
+	Body: I've got a span that I'm using as a tooltip for a checkbox on a web page, and I want there to be a line break in the tooltip. None of the fo
+
+Title: Regex to get string between curly braces "{I want what's between the curly braces}"
+	Id: 413071
+	Rank: 3  -  Distance: 0.67257
+	Tags: javascript, regex
+	Body: unfortunately despite having tried to learn regex at least one time a year for as many years as I can remember, I always forget as I use the
+
+Title: How do I get the HTML code of a web page in PHP?
+	Id: 819182
+	Rank: 4  -  Distance: 0.68117
+	Tags: php, html
+	Body: I want to retrieve the HTML code of a link (web page) in PHP. For example, if the link is 
+http://stackoverflow.com/questions/ask
+then I wan
+
+Title: String concatenation vs. string substitution in Python
+	Id: 376461
+	Rank: 5  -  Distance: 0.69829
+	Tags: python, string, string-concatenation
+	Body: In Python, the where and when of using string concatenation versus string substitution eludes me. As the string concatenation has seen large
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to write a simple Html.DropDownListFor()?
+	Id: 3057873
+	Rank: 0  -  Distance: 0.98305
+	Tags: asp.net, asp.net-mvc-2, html.dropdownlistfor
+	Body: I'm new in ASP.NET MVC 2 and I'd like to write a very simple dropdown list which gives static options. For example I'd like to provide choic
+
+Title: What is the proper way to re-throw an exception in C#?
+	Id: 178456
+	Rank: 1  -  Distance: 0.98443
+	Tags: c#, .net, exception-handling
+	Body: Duplicate: http://stackoverflow.com/questions/22623/net-throwing-exceptions-best-practices
+I have a question for you that stems from my part
+
+Title: Singletons vs. Application Context in Android?
+	Id: 3826905
+	Rank: 2  -  Distance: 0.98532
+	Tags: java, android, patterns
+	Body: Recalling this post enumerating several problems of using singletons
+and having seen several examples of Android applications using singleto
+
+Title: c# WebRequest class and headers
+	Id: 239725
+	Rank: 3  -  Distance: 0.98779
+	Tags: c#, header, webrequest
+	Body: When I try to add a HTTP header key/value pair on a WebRequest object, I get the following exception:
+
+This header must be modified using th
+
+Title: How can I add reflection to a C++ application?
+	Id: 41453
+	Rank: 4  -  Distance: 0.98878
+	Tags: c++, reflection, templates, sfinae
+	Body: I'd like to be able to introspect a C++ class for its name, contents (i.e. members and their types) etc. I'm talking native C++ here, not ma
+
+Title: jQuery Scrollable, Sortable, Filterable table
+	Id: 192608
+	Rank: 5  -  Distance: 0.99544
+	Tags: javascript, jquery, html
+	Body: I'm looking to utilize jQuery to handle a few very common requests we get for data tables of varying sizes: scrolling, sorting, and dynamic 
+
+
+
+E========== CLUSTER 8 ==========
+
+B========== CLUSTER 9 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	image
+	browsers
+	html5
+	html
+	using
+	ie8
+	firefox
+	css
+	internet explorer
+	browser
+	chrome
+	internet
+	explorer
+	javascript
+	video
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.72
+	Min zscore: -3.45
+	n_outliers(|z|>2): 12
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Does Internet Explorer 8 support HTML 5?
+	Id: 289225
+	Rank: 0  -  Distance: 0.89190
+	Tags: internet-explorer, internet-explorer-8, html5
+	Body: Is there any HTML5 support in IE8?  Is it on the IE8 roadmap?
+
+Title: Does IE7 have a "developer mode" or plugin like Firefox/Chrome/Safari?
+	Id: 56615
+	Rank: 1  -  Distance: 0.90471
+	Tags: html, css, browser, internet-explorer-7
+	Body: 
+Possible Duplicate:
+Debugging JavaScript in IE7 
+
+Firefox has Web Developer plugin and Firebug for troubleshooting html/css/javascript issu
+
+Title: HTML5 video (mp4 and ogv) problems in Safari and Firefox - but Chrome is all good
+	Id: 2643447
+	Rank: 2  -  Distance: 0.90601
+	Tags: firefox, video, safari, html5, ogg-theora
+	Body: I have the following code:
+<video width="640" height="360" controls id="video-player" poster="/movies/poster.png">
+ <source src="/movies/640
+
+Title: Add to browser favorites/bookmarks from javascript but for all browsers (mine doesn't work in CHROME)?
+	Id: 992844
+	Rank: 3  -  Distance: 0.91174
+	Tags: javascript, firefox, google-chrome, cross-browser, bookmarks
+	Body: can anyone help, i am using the following for adding a bookmark to IE and firefox but its not working in CHROME and i don't get my error msg
+
+Title: test website with internet explorer 7
+	Id: 1250168
+	Rank: 4  -  Distance: 0.91311
+	Tags: browser, internet-explorer-7
+	Body: Is there a program or website that can show me what my website will look like in Internet Explorer 7? I know there's one out there, I just c
+
+Title: Detect Internet Explorer 6 or below in jQuery
+	Id: 566303
+	Rank: 5  -  Distance: 0.91504
+	Tags: jquery, internet-explorer-6
+	Body: I'm new to jquery and was wondering: is a simple way to detect whether a browser is Internet Explorer 6 or below?
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Making sure a web page is not cached, across all browsers
+	Id: 49547
+	Rank: 0  -  Distance: 0.99110
+	Tags: caching, https, http-headers, header-fields
+	Body: Our investigations have shown us that not all browsers respect the http cache directives in a uniform manner.
+For security reasons we do not
+
+Title: IE8 css selector
+	Id: 660652
+	Rank: 1  -  Distance: 0.99156
+	Tags: css, internet-explorer
+	Body: To target elements only in IE browsers i'll use
+IE6:
+* html #nav li ul {
+    left:                                 -39px!important;
+    bord
+
+Title: How to make CSS visible only for Opera
+	Id: 1120335
+	Rank: 2  -  Distance: 0.99234
+	Tags: css, opera, hack
+	Body: Is there a way to make some CSS rules visible only for Opera (9.5 +)?
+Thank you!
+
+Title: How to Target IE7 IE8 with CSS valid code.?
+	Id: 814219
+	Rank: 3  -  Distance: 0.99324
+	Tags: css, internet-explorer, internet-explorer-8, web-standards
+	Body: I want to Target with CSS valid code. to IE7 and IE8,
+Please Give me some Information about this Issue and CSS code should be W3C Valid.
+IE8
+
+Title: What happened to console.log in IE8?
+	Id: 690251
+	Rank: 4  -  Distance: 0.99530
+	Tags: javascript, logging, internet-explorer-8, console
+	Body: According to this post it was in the beta, but it's not in the release?
+
+Title: Force Internet Explorer to use a specific Java Runtime Environment install?
+	Id: 71254
+	Rank: 5  -  Distance: 0.99728
+	Tags: java, internet-explorer, internet-explorer-6, jre, plugins
+	Body: When viewing someone else's webpage containing an applet, how can I force Internet Explorer 6.0 to use a a particular JRE when I have severa
+
+
+
+E========== CLUSTER 9 ==========
+
+B========== CLUSTER 10 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	php
+	framework
+	net
+	javascript
+	programming
+	windows
+	library
+	android
+	python
+	use
+	good
+	code
+	best
+	java
+	vs
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.81
+	Min zscore: -4.85
+	n_outliers(|z|>2): 29
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is node.js?
+	Id: 1884724
+	Rank: 0  -  Distance: 0.91909
+	Tags: javascript, node.js, v8, evented-io
+	Body: I don't fully get what node.js is all about. Maybe it's because I am mainly a web based business app developer. Can someone please explain w
+
+Title: Choosing Java vs Python on Google App Engine
+	Id: 1085898
+	Rank: 1  -  Distance: 0.92975
+	Tags: java, python, google-app-engine
+	Body: Currently Google App Engine supports both Python & Java. Java support is less mature. However, Java seems to have a longer list of libraries
+
+Title: Java Swing or Java Qt?
+	Id: 422956
+	Rank: 2  -  Distance: 0.93504
+	Tags: java, qt, gui, swing
+	Body: Can someone with extensive experience with both Qt and Java Swing please discuss whether you would use Swing or Qt under Java, and why?
+Seco
+
+Title: Getting started with Haskell
+	Id: 1012573
+	Rank: 3  -  Distance: 0.93609
+	Tags: haskell, functional-programming, self-improvement
+	Body: For a few days I've tried to wrap my head around the functional programming paradigm in Haskell. I've done this by reading tutorials and wat
+
+Title: What are good open source GUI SQLite database managers?
+	Id: 1507506
+	Rank: 4  -  Distance: 0.93636
+	Tags: gui, database-design, sqlite
+	Body: Is there any good open source SQLite database manager around?
+I am using sqlitebrowser now but I have to say the interface is not really fri
+
+Title: List of freely available programming books
+	Id: 194812
+	Rank: 5  -  Distance: 0.94036
+	Tags: books, ebook, creative-commons
+	Body: I'm trying to amass a list of programming books that are freely available on the Internet. The books can be about a particular programming l
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Time stamp in the C programming language
+	Id: 1444428
+	Rank: 0  -  Distance: 0.99880
+	Tags: c, time, timestamp
+	Body: How do I stamp two times t1 and t2 and get the difference in milliseconds in C?
+
+Title: Biggest differences of Thrift vs Protocol Buffers?
+	Id: 69316
+	Rank: 1  -  Distance: 0.99882
+	Tags: serialization, protocol-buffers, thrift
+	Body: What are the biggest pros and cons of Apache Thrift vs Google's Protocol Buffers?
+
+Title: Has reCaptcha been cracked / hacked / OCR'd / defeated / broken?
+	Id: 448963
+	Rank: 2  -  Distance: 0.99966
+	Tags: security, captcha, ocr, recaptcha
+	Body: Have any programming methods have been used to defeat reCAPTCHA?
+I'm interested in seeing evidence and potentially demonstrations that reCAP
+
+Title: What would you regard as the best performing ORM for .NET?
+	Id: 146087
+	Rank: 3  -  Distance: 0.99973
+	Tags: .net, performance, orm
+	Body: I'm curious if anyone has done any performance comparisons with any or all of the main players in the .NET ORM space. Specifically I'm inter
+
+Title: What is the difference between MVC and MVVM?
+	Id: 667781
+	Rank: 4  -  Distance: 0.99984
+	Tags: mvc, design-patterns, mvvm
+	Body: Is there a difference between the standard "Model View Controller" pattern and Microsoft's Model/View/ViewModel pattern?
+
+Title: Difference between events and delegates and its respective applications
+	Id: 563549
+	Rank: 5  -  Distance: 1.00042
+	Tags: c#, design, events, delegates
+	Body: I don't see advantages of using events over delegates, other than being syntactical sugar . Perhaps I am misunderstanding, but it seems that
+
+
+
+E========== CLUSTER 10 ==========
+
+B========== CLUSTER 11 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	windows
+	mail
+	error
+	gmail
+	http
+	client
+	web service
+	soap
+	email
+	wsdl
+	binding
+	smtp
+	web
+	wcf
+	service
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.69
+	Min zscore: -2.40
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Increasing the timeout value in a WCF service
+	Id: 424358
+	Rank: 0  -  Distance: 0.85178
+	Tags: wcf
+	Body: How do I increase the default timeout to larger than 1 minute on a WCF service?
+
+Title: Resolving Configuration Error in WCF AddressFilter Mismatch
+	Id: 339421
+	Rank: 1  -  Distance: 0.85940
+	Tags: .net, wcf, pox
+	Body: I am getting the following error and could use some help resolving it. Anyone have any ideas?
+The message with To 'http://localhost:60078/Bi
+
+Title: Large WCF web service request failing with (400) HTTP Bad Request
+	Id: 784606
+	Rank: 2  -  Distance: 0.87342
+	Tags: c#, .net, wcf, web-services
+	Body: I've encountered this apparently common problem and have been unable to resolve it.
+If I call my WCF web service with a relatively small num
+
+Title: IIS hosted WCF-service + Windows auth in IIS + TransportCredentialOnly/Windows auth in basicHttpBinding
+	Id: 219151
+	Rank: 3  -  Distance: 0.87617
+	Tags: wcf, iis
+	Body: I want to create a WCF-service hosted in IIS6 and disable anonymous authentication in IIS. And don't use SSL.
+So only way I have is to use b
+
+Title: https with WCF error: "Could not find base address that matches scheme https"
+	Id: 363285
+	Rank: 4  -  Distance: 0.87801
+	Tags: wcf, https
+	Body: I go to https://mywebsite/MyApp/Myservice.svc and get the following error:
+(The link works if I use http:// )
+"The service '/MyApp/MyService
+
+Title: Deploying WCF Tutorial App on IIS7: "The type could not be found"
+	Id: 2739465
+	Rank: 5  -  Distance: 0.87855
+	Tags: wcf, iis7, iis-manager
+	Body: I've been trying to follow this tutorial for deploying a WCF sample to IIS .
+I can't get it to work. This is a hosted site, but I do have II
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Server did not recognize the value of HTTP Header SOAPAction
+	Id: 352174
+	Rank: 0  -  Distance: 0.98642
+	Tags: c#, javascript, web-services
+	Body:    [SoapRpcMethod(Action = "http://cyberindigo/TempWebService/InsertXML",
+    RequestNamespace = "http://cyberindigo/TempWebService/Request"
+
+Title: Accessing Imap in C#
+	Id: 670183
+	Rank: 1  -  Distance: 0.98662
+	Tags: c#, imap
+	Body: Is there a built-in method to access an Imap server (with SSL) in C# or is there a good free library?
+
+Title: How can I make SMTP authenticated in C#
+	Id: 298363
+	Rank: 2  -  Distance: 0.98776
+	Tags: c#, authentication, smtp
+	Body: I create new ASP.NET web application that use SMTP to send message. The problem is the smtp was not authenticated from who send the message.
+
+Title: How to make sure you don't get WCF Faulted state exception?
+	Id: 530731
+	Rank: 3  -  Distance: 0.98823
+	Tags: wcf, exception, wcf-client
+	Body: I am getting this exception: 
+
+The communication object,
+  System.ServiceModel.Channels.ServiceChannel,
+  cannot be used for communication
+ 
+
+Title: How to check if an email address exists without sending an email?
+	Id: 565504
+	Rank: 4  -  Distance: 0.99340
+	Tags: php, email, smtp, telnet, email-validation
+	Body: I have come across this PHP code to check email address using SMTP without sending an email.
+Has anyone tried anything similar or does it wo
+
+Title: WCF Service Client: The content type text/html; charset=utf-8 of the response message does not match the content type of the binding
+	Id: 5243929
+	Rank: 5  -  Distance: 0.99478
+	Tags: c#, .net, wcf, web-services
+	Body: I've got a WCF Service running on my local IIS server. I've added it as a service reference to a C# Website Project and it adds fine and gen
+
+
+
+E========== CLUSTER 11 ==========
+
+B========== CLUSTER 12 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	files
+	device
+	break
+	text file
+	apk
+	string
+	android emulator
+	spaces
+	vim
+	lines
+	emulator
+	text
+	android
+	file
+	line
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.69
+	Min zscore: -3.17
+	n_outliers(|z|>2): 7
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to replace a character for a newline in Vim?
+	Id: 71323
+	Rank: 0  -  Distance: 0.90303
+	Tags: vim, replace
+	Body: I'm trying
+:%s/,/\n/g 
+
+but it inserts what looks like a ^@ instead of an actual newline. The file is not in DOS mode or anything.
+What shou
+
+Title: Adding line break in C# Code behind page
+	Id: 1783310
+	Rank: 1  -  Distance: 0.90789
+	Tags: c#
+	Body: I have written a code in C# which is exceeding page width, so i want it to be broken into next line according to my formatting. I tried to s
+
+Title: How do I indent multiple lines quickly in vi?
+	Id: 235839
+	Rank: 2  -  Distance: 0.91066
+	Tags: vim, vi, indent
+	Body: Should be trivial, and it might even be in the help, but I can't figure out how to navigate it.
+
+Title: How do I split a mult-line string into multiple lines?
+	Id: 172439
+	Rank: 3  -  Distance: 0.91401
+	Tags: python, string
+	Body: I have a multi-line string literal that I want to do an operation on each line, like so.
+inputString = """Line 1
+Line 2
+Line 3"""
+
+I want to
+
+Title: VI editor: Copy all the lines to clipboard
+	Id: 1620018
+	Rank: 4  -  Distance: 0.92016
+	Tags: vim
+	Body: Is there any way to copy all lines from open file to clipboard in VI editor. I tried yG but its not using clipboard to store those lines. 
+S
+
+Title: How to put string in array, split by new line?
+	Id: 1483497
+	Rank: 5  -  Distance: 0.92606
+	Tags: php, string, line-breaks
+	Body: I have a string, with line breaks in my database. 
+I want to put that string in an array, and for every new line, jump one index place in th
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Text cleaning and replacement: delete \n from a text in Java
+	Id: 542226
+	Rank: 0  -  Distance: 0.99707
+	Tags: java, string
+	Body: I'm cleaning an incoming text in my Java code. The text includes a lot of "\n", but not as in a new line, but literally "\n". I was using re
+
+Title: Replacing spaces with underscores in JavaScript?
+	Id: 441018
+	Rank: 1  -  Distance: 0.99710
+	Tags: javascript, string
+	Body: I'm trying to use this code to replace spaces with _, it works for the first space in the string but all the other instances of spaces remai
+
+Title: Growing Amazon EBS Volume sizes
+	Id: 550790
+	Rank: 2  -  Distance: 0.99726
+	Tags: amazon-web-services, amazon-ebs
+	Body: I'm quite impressed with Amazon's EC2 and EBS services. I wanted to know if it is possible to grow an EBS Volume.
+For example: If I have a 5
+
+Title: Favorite (G)Vim plugins/scripts?
+	Id: 21725
+	Rank: 3  -  Distance: 0.99744
+	Tags: vim, editor
+	Body: What are your favorite (G)Vim plugins/scripts?
+
+Title: A comprehensive regex for phone number validation
+	Id: 123559
+	Rank: 4  -  Distance: 0.99770
+	Tags: regex, validation, phone-number, telephone
+	Body: I'm trying to put together a comprehensive regex to validate phone numbers. Ideally it would handle international formats, but it must handl
+
+Title: Remove whitespace in Python using string.whitespace
+	Id: 1898656
+	Rank: 5  -  Distance: 0.99992
+	Tags: python, string, whitespace
+	Body: Python's string.whitespace is great:
+>>> string.whitespace
+'\t\n\x0b\x0c\r '
+
+How do I use this with a string without resorting to manually 
+
+
+
+E========== CLUSTER 12 ==========
+
+B========== CLUSTER 13 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	cout
+	include
+	using
+	file
+	str
+	vector
+	long
+	std string
+	convert
+	const
+	unsigned
+	int
+	char
+	std
+	string
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.54
+	Min zscore: -3.02
+	n_outliers(|z|>2): 4
+
+
+-----Closest 6 questions in cluster-----
+
+Title: std::wstring VS std::string
+	Id: 402283
+	Rank: 0  -  Distance: 0.79058
+	Tags: c++, unicode, stl, string, wstring
+	Body: I am not able to understand the differences between std::string and std::wstring. I know wstring supports wide characters such as Unicode ch
+
+Title: CSV parser in C++
+	Id: 1120140
+	Rank: 1  -  Distance: 0.79087
+	Tags: c++, parsing, text, csv
+	Body: All I need is a good CSV file parser for C++.  At this point it can really just be a comma-delimited parser (ie don't worry about escaping n
+
+Title: C++ stringstream, string, and char* conversion confusion
+	Id: 1374468
+	Rank: 2  -  Distance: 0.81905
+	Tags: c++, string, memory, stringstream
+	Body: My question can be boiled down to, where does the string returned from stringstream.str().c_str() live in memory, and why can't it be assign
+
+Title: How to convert std::string to LPCSTR?
+	Id: 1200188
+	Rank: 3  -  Distance: 0.82109
+	Tags: c++, windows, string
+	Body: How can I convert a std::string to LPCSTR? Also, how can I convert a std::string to LPWSTR?
+I am totally confused with these LPCSTR LPSTR LP
+
+Title: c++ integer->std::string conversion. Simple function?
+	Id: 273908
+	Rank: 4  -  Distance: 0.84241
+	Tags: c++, integer, stdstring
+	Body: Problem: I have an integer; this integer needs to be converted to a stl::string type. 
+In the past, I've used stringstream to do a conversio
+
+Title: How to convert CString and ::std::string  ::std::wstring to each other?
+	Id: 258050
+	Rank: 5  -  Distance: 0.84304
+	Tags: c++, mfc, cstring, stdstring
+	Body: CString is quite handy, while std::string is more compatible with STL container.
+I am using hash_map. However, hash_map does not support CSt
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: "static const" vs "#define" in c
+	Id: 1674032
+	Rank: 0  -  Distance: 0.97972
+	Tags: c, constants
+	Body: Which one is better to use among the  below statements in c:
+static const int var=5;
+
+or 
+#define var 5
+
+
+Title: What is the difference between const and readonly?
+	Id: 55984
+	Rank: 1  -  Distance: 0.97976
+	Tags: c#, .net, const, constants, readonly
+	Body: What is the difference between const and readonly and do you use one over the other?
+
+Title: GCC - "expected unqualified-id before ')' token"
+	Id: 106117
+	Rank: 2  -  Distance: 0.98073
+	Tags: c++
+	Body: Please bear with me, I'm just learning C++. 
+I'm trying to write my header file (for class) and I'm running into an odd error.
+cards.h:21: e
+
+Title: Concatenating strings in C, which method is more efficient?
+	Id: 1383649
+	Rank: 3  -  Distance: 0.98281
+	Tags: c, string, performance, concatenation
+	Body: I came across these two methods to concatenate strings:
+Common part:
+char* first= "First";
+char* second = "Second";
+char* both = malloc(strl
+
+Title: strdup() - what does it do in C?
+	Id: 252782
+	Rank: 4  -  Distance: 0.98701
+	Tags: c, function, strdup
+	Body: What is the purpose of the strdup() function in C?
+
+Title: C++ concatenate string and int
+	Id: 191757
+	Rank: 5  -  Distance: 0.98827
+	Tags: c++, int, concatenation, stdstring
+	Body: I thought this would be really simple but it's presenting some difficulties. If I have
+string name = "John";
+int age = 21;
+
+How do I combine
+
+
+
+E========== CLUSTER 13 ==========
+
+B========== CLUSTER 14 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	macro
+	end
+	text
+	files
+	sheet
+	string
+	range
+	function
+	column
+	cells
+	data
+	cell
+	vba
+	csv
+	file
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.42
+	Min zscore: -2.74
+	n_outliers(|z|>2): 4
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Macro to save each sheet in an Excel workbook to separate CSV files
+	Id: 59075
+	Rank: 0  -  Distance: 0.73658
+	Tags: excel, vba, csv, macros
+	Body: How do I save each sheet in an Excel workbook to separate CSV files with a macro?
+I have an excel with multiple sheets and I was looking for
+
+Title: How can I find last row that contains data in the excel sheet with a macro?
+	Id: 71180
+	Rank: 1  -  Distance: 0.73816
+	Tags: excel, vba, macros
+	Body: How can I find the last row that contains data in a specific column and on a specific sheet?
+
+Title: How can I refresh all the pivot tables in my excel workbook with a macro?
+	Id: 70947
+	Rank: 2  -  Distance: 0.75973
+	Tags: excel, vba, macros, refresh, pivot-table
+	Body: I have a workbook with 20 different pivot tables. Is there any easy way to find all the pivot tables and refresh them in VBA?
+
+Title: How do I get a range's address including the worksheet name, but not the workbook name, in Excel VBA?
+	Id: 131121
+	Rank: 3  -  Distance: 0.76592
+	Tags: excel, vba
+	Body: If I have a Range object--for example, let's say it refers to cell A1 on a worksheet called Book1.  So I know that calling Address()  will g
+
+Title: how to load csv files faster in excel vba?
+	Id: 228680
+	Rank: 4  -  Distance: 0.79663
+	Tags: excel, vba, csv
+	Body: how to import the data/files in csv format to excel vba in a much faster way?
+so far,i could get the files n display in excel but it is one 
+
+Title: Open Excel file for reading with VBA without display
+	Id: 579797
+	Rank: 5  -  Distance: 0.79711
+	Tags: file-io, excel-vba, display
+	Body: I want to search through existing Excel files with a macro, but I don't want to display those files when they're opened by the code.  Is the
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Relative instead of Absolute paths in Excel VBA
+	Id: 213584
+	Rank: 0  -  Distance: 0.98064
+	Tags: excel, vba, macros, absolute-path
+	Body: I have written an Excel VBA macro which imports data from a HTML file (stored locally) before performing calculations on the data.
+At the mo
+
+Title: How to convert a column number (eg. 127) into an excel column (eg. AA)
+	Id: 181596
+	Rank: 1  -  Distance: 0.98281
+	Tags: c#, excel, excel-2007
+	Body: How do you convert a numerical number to an Excel column name in C# without using automation getting the value directly from Excel.
+Excel 20
+
+Title: How do I make a ListBox refresh its item text?
+	Id: 61421
+	Rank: 2  -  Distance: 0.98353
+	Tags: .net, winforms, gui
+	Body: I'm making an example for someone who hasn't yet realized that controls like ListBox don't have to contain strings; he had been storing form
+
+Title: How can I modify a saved Microsoft Access 2007 Import Specification
+	Id: 143420
+	Rank: 3  -  Distance: 0.98501
+	Tags: ms-access
+	Body: Does anyone know how to modify an existing import specification in Microsoft Access 2007?  In older versions there used to be an Advanced bu
+
+Title: How do I display a ratio in Excel in the format A:B?
+	Id: 472989
+	Rank: 4  -  Distance: 0.98640
+	Tags: excel
+	Body: I have an Excel spreadsheet of data like:
+ColumnA ColumnB
+33        11
+25        5
+6         4
+
+What i would like to do is add a third colum
+
+Title: handling dbnull data in vb.net
+	Id: 222834
+	Rank: 5  -  Distance: 0.99284
+	Tags: vb.net, dbnull
+	Body: I want to generate some formatted output of data retrieved from an MS-Access database and stored in a DataTable object/variable, myDataTable
+
+
+
+E========== CLUSTER 14 ==========
+
+B========== CLUSTER 15 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	exe
+	set
+	windows command
+	run
+	cmd
+	files
+	path
+	batch file
+	bat
+	batch
+	command line
+	line
+	file
+	windows
+	command
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.60
+	Min zscore: -2.17
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to sleep for 5 seconds in Windows's Command Prompt? (or DOS)
+	Id: 1672338
+	Rank: 0  -  Distance: 0.83634
+	Tags: windows, command-line, batch-file, sleep
+	Body: Windows's Snipping tool can capture the screen, but sometimes I want to capture the screen after 5 seconds, such as taking an image being di
+
+Title: How do you list all processes on the command line in Windows?
+	Id: 53489
+	Rank: 1  -  Distance: 0.84188
+	Tags: windows, command-line, process-management
+	Body: Is there a command equivalent to 'ps' on Unix that can list all processes on a Windows machine?
+
+Title: How to create batch file in Windows using "start" with a path and command with spaces
+	Id: 72671
+	Rank: 2  -  Distance: 0.84741
+	Tags: windows, batch, scripting, start
+	Body: I need to create a batch file which starts multiple console applications in a Windows .cmd file.  This can be done using the start command.
+
+
+Title: What does %~d0 mean in a Windows batch file?
+	Id: 112055
+	Rank: 3  -  Distance: 0.84769
+	Tags: windows, batch-file
+	Body: I'm looking at a batch file which defines the following variables:
+set _SCRIPT_DRIVE=%~d0 set
+set _SCRIPT_PATH=%~p0
+
+What do %~d0 or %~p0 ac
+
+Title: Calling powershell cmdlets from Windows batch file
+	Id: 932291
+	Rank: 4  -  Distance: 0.85012
+	Tags: powershell
+	Body: Ok something so simple is just not working for me.  I got a cmdlet that accepts a single parameter.  I am trying to call a cmdlet within a W
+
+Title: How do I create a batch file timer to execute / call another batch throughout the day
+	Id: 299392
+	Rank: 5  -  Distance: 0.85059
+	Tags: batch, timer, cmd
+	Body: How do I create a batch file timer to execute / call another batch through out the day    Maybe on given times to run but not to run on week
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: CMD.exe replacement
+	Id: 19772
+	Rank: 0  -  Distance: 0.98812
+	Tags: command-line, terminal
+	Body: Does anyone know of a good Command Prompt replacement?  I've tried bash/Cygwin, but that does not really meet my needs at work because it's 
+
+Title: Logical operators ("and", "or") in DOS batch
+	Id: 2143187
+	Rank: 1  -  Distance: 0.99062
+	Tags: shell, dos, batch-file
+	Body: How would you implement logical operators in DOS Batch files?
+
+Title: What encoding/code page is cmd.exe using
+	Id: 1259084
+	Rank: 2  -  Distance: 0.99112
+	Tags: windows, command-line, encoding
+	Body: When I open cmd.exe in Windows, what encoding is it using? How can I check which encoding it is currently using? Does it depend on my region
+
+Title: What's the fastest way to delete a large folder in Windows?
+	Id: 186737
+	Rank: 3  -  Distance: 0.99179
+	Tags: windows, delete, windows-xp, file-management
+	Body: I want to delete a folder that contains thousands of files and folders.  If I use Windows Explorer to delete the folder it can take 10-15 mi
+
+Title: Android SDK install problem
+	Id: 4394584
+	Rank: 4  -  Distance: 0.99365
+	Tags: android, sdk, install
+	Body: 
+Possible Duplicate:
+Android SDK installation doesn't find JDK 
+
+I have installed Java runtime 6 to C:\src\libraries\jre6.
+I installed Java 
+
+Title: /dev/null in Windows?
+	Id: 313111
+	Rank: 5  -  Distance: 0.99708
+	Tags: windows
+	Body: What is the equivalent to /dev/null in Windows?
+
+
+
+E========== CLUSTER 15 ==========
+
+B========== CLUSTER 16 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	update
+	null
+	id
+	group
+	table
+	column
+	count
+	clause
+	rows
+	distinct
+	query
+	join
+	multiple
+	linq
+	sql
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.66
+	Min zscore: -3.34
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Using DISTINCT inner join in SQL
+	Id: 161404
+	Rank: 0  -  Distance: 0.87942
+	Tags: sql, distinct, inner-join
+	Body: I have three tables, A, B, C, where A is many to one B, and B is many to one C. I'd like a list of all C's in A. 
+My tables are something li
+
+Title: What is the syntax for an inner join in linq to sql?
+	Id: 37324
+	Rank: 1  -  Distance: 0.87988
+	Tags: c#, .net, linq-to-sql
+	Body: I'm writing a linq to sql statement & I'm just after the standard syntax for a normal inner join with an 'on' clause in C#.
+ie how do you re
+
+Title: LINQ to SQL using GROUP BY and COUNT(DISTINCT)
+	Id: 448203
+	Rank: 2  -  Distance: 0.88364
+	Tags: vb.net, linq, linq-to-sql
+	Body: I have to perform the following SQL query:
+select answer_nbr, count(distinct user_nbr)
+from tpoll_answer
+where poll_nbr = 16
+group by answer
+
+Title: How can I select multiple columns from a subquery (in SQL Server) that should have one record (select top 1) for each record in the main query?
+	Id: 583954
+	Rank: 3  -  Distance: 0.89305
+	Tags: sql
+	Body: I Know I can select a column from a subquery using this syntax:
+SELECT A.SalesOrderID, A.OrderDate,
+       (
+       SELECT TOP 1 B.Foo
+     
+
+Title: How do you create a Distinct query in HQL
+	Id: 263850
+	Rank: 4  -  Distance: 0.89341
+	Tags: hibernate, hql, distinct
+	Body: Is there a way to create a Distinct query in HQL.  Either by using the "distinct" keyword or some other method.  I am not sure if distinct i
+
+Title: linq to sql: join multiple columns from the same table
+	Id: 345427
+	Rank: 5  -  Distance: 0.89753
+	Tags: linq-to-sql, join
+	Body: How do I inner join multiple columns from the same tables via Linq?  
+For example:
+I already have this...
+join c in db.table2 on table2.ID e
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How do you use script variables in PostgreSQL?
+	Id: 36959
+	Rank: 0  -  Distance: 0.99439
+	Tags: sql, postgresql, variables
+	Body: In MS SQL Server, create my scripts to use customizable variables:
+declare @somevariable int
+select @somevariable = -1
+insert into foo value
+
+Title: Update using linq
+	Id: 909960
+	Rank: 1  -  Distance: 0.99459
+	Tags: linq, linq-to-sql, query, update
+	Body: how can i update a record against specific id in (Linq to sql)
+
+Title: Oracle Delete Rows Matching On Multiple Values
+	Id: 504060
+	Rank: 2  -  Distance: 0.99493
+	Tags: sql, oracle, delete
+	Body: I want to do something like:
+DELETE FROM student WHERE
+student.course, student.major IN
+(SELECT schedule.course, schedule.major FROM schedul
+
+Title: Mysql: Select all data between two dates
+	Id: 1080207
+	Rank: 3  -  Distance: 0.99538
+	Tags: mysql, query, date, between
+	Body: I have a mysql table with data connected to dates. Each row has data and a date, like this:
+2009-06-25    75
+2009-07-01    100
+2009-07-02   
+
+Title: LINQ to read XML
+	Id: 670563
+	Rank: 4  -  Distance: 0.99869
+	Tags: c#, xml, linq, linq-to-xml
+	Body: I got this XML file
+<root>
+    <level1 name="A">
+        <level2 name="A1" />
+        <level2 name="A2" />
+    </level1>
+    <level1 name="B
+
+Title: Select values from XML field in SQL Server 2008
+	Id: 899313
+	Rank: 5  -  Distance: 0.99927
+	Tags: sql-server, xml, xpath
+	Body: Just looking at my XML field, my rows look like this:
+<person><firstName>Jon</firstName><lastName>Johnson</lastName></person>
+<person><first
+
+
+
+E========== CLUSTER 16 ==========
+
+B========== CLUSTER 17 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	view
+	transparent
+	android
+	set
+	row
+	text
+	style
+	uitableview
+	cell
+	change
+	css
+	border
+	background color
+	background
+	color
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.32
+	Min zscore: -3.04
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Android color xml resource file
+	Id: 3769762
+	Rank: 0  -  Distance: 0.80871
+	Tags: android, xml
+	Body: Does anyone have or know where I might get an Android color xml resource file containing all the X11/w3c color codes?
+
+Title: Change iPhone tableview (style grouped) background color while preserving texture
+	Id: 933808
+	Rank: 1  -  Distance: 0.81839
+	Tags: iphone, uitableview
+	Body: How can we change the background color of tableview (style grouped) while still preserving texture of thin columns/lines effect that we can 
+
+Title: Set background color of WPF Textbox in C# code
+	Id: 979876
+	Rank: 2  -  Distance: 0.83098
+	Tags: c#, .net, wpf, background-color
+	Body: How can I change the background and foreground colors of a WPF Textbox programatically in c#?
+
+Title: Changing border color in iPhone UITableView cells (non-grouped)
+	Id: 1408126
+	Rank: 3  -  Distance: 0.83298
+	Tags: iphone, uitableview, uitableviewcell
+	Body: I've read (and used) the code here which illustrates how to change the background color and border color of a UITableViewCell in grouped mod
+
+Title: Jqgrid set cell background color
+	Id: 1302006
+	Rank: 4  -  Distance: 0.84567
+	Tags: jquery, colors, jqgrid
+	Body: In "Custom data tooltips in jqGrid 3.4" discussion, came to know how to use setcell to change the color of the text inside a cell of jqgrid.
+
+Title: How to set background color of a View
+	Id: 2173936
+	Rank: 5  -  Distance: 0.84867
+	Tags: android, view, colors, background, set
+	Body: I'm trying to set the background color of a View (in this case a Button).
+I use this code:
+// set the background to green
+v.setBackgroundCol
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: CSS3 Fade Effect
+	Id: 3079330
+	Rank: 0  -  Distance: 0.99385
+	Tags: css, css3, fade, css-transitions
+	Body: a {
+    float: left;
+    width: 32px;
+    height: 32px;
+    text-align: left;
+    text-indent:-9999px;
+    background: url('../img/button.pn
+
+Title: jQuery animate backgroundColor
+	Id: 190560
+	Rank: 1  -  Distance: 0.99393
+	Tags: javascript, jquery, colors, animate
+	Body: I am trying to animate a change in backgroundColor using jQuery on mouseover.
+I have checked some example and I seem to have it right, it wo
+
+Title: Plot logarithmic axes with matplotlib in python
+	Id: 773814
+	Rank: 2  -  Distance: 0.99396
+	Tags: python, matplotlib, scale, logarithm
+	Body: I want to plot a graph with one logarithmic axis using matplotlib. 
+I've been reading the docs, but can't figure out the syntax. I know that
+
+Title: Alternate background colors for list items
+	Id: 358350
+	Rank: 3  -  Distance: 0.99596
+	Tags: html, css
+	Body: I have a list, and each item is linked, is there a way I can alternate the background colors for each item?
+<ul>
+    <li><a href="link">Link
+
+Title: CSS: two color borders
+	Id: 3906983
+	Rank: 4  -  Distance: 0.99755
+	Tags: css, border
+	Body: Client wants two color borders for an embossed look. Can I do this on one element? I was hoping to avoid stacking two DOM elements with indi
+
+Title: How to change checkbox's border style in CSS?
+	Id: 2460501
+	Rank: 5  -  Distance: 0.99767
+	Tags: html, css
+	Body: How can I change checkbox (input) border's style? I've put border:1px solid #1e5180 upon it, but in FireFox 3.5, nothing happens!
+
+
+
+E========== CLUSTER 17 ==========
+
+B========== CLUSTER 18 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	data
+	management studio
+	sql server management
+	express
+	server management
+	studio
+	management
+	table
+	sql server 2005
+	sql server 2008
+	server 2008
+	server 2005
+	2005
+	database
+	2008
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.49
+	Min zscore: -3.32
+	n_outliers(|z|>2): 5
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Importing Sql Server 2005 database into Sql Server express 2008
+	Id: 294136
+	Rank: 0  -  Distance: 0.70188
+	Tags: sql, sql-server-2008
+	Body: Is there any way to import a database backup from 2005 into 2008 express edition. What I've had to resort to is doing a script the database,
+
+Title: How to connect to local instance of SQL Server 2008 Express
+	Id: 360141
+	Rank: 1  -  Distance: 0.76076
+	Tags: sql-server-2008
+	Body: I just installed SQL Server 2008 Express on my Vista SP1 machine. I previously had 2005 on here and used it just fine with the old SQL Serve
+
+Title: SQL Server 2005 - Export table programatically (run a .sql file to rebuild it)
+	Id: 20363
+	Rank: 2  -  Distance: 0.76477
+	Tags: sql, sql-server, sql-server-2005, table
+	Body: I have a database with a table Customers that have some data
+I have another database in the office that everything is the same, but my table
+
+Title: Restore SQL Server 2008 DB *to* SQL Server 2005
+	Id: 413699
+	Rank: 3  -  Distance: 0.77028
+	Tags: sql-server-2005, sql-server-2008
+	Body: Got myself in a bit of a pickle here ... working on a CMS project, under the assumption that sql server 2008 was greenlighted as the db of c
+
+Title: Advantages of SQL Server 2008 over SQL Server 2005?
+	Id: 198478
+	Rank: 4  -  Distance: 0.77468
+	Tags: sql-server-2005, sql-server-2008, comparison
+	Body: What are the key differences between Microsoft's SQL Server 2005 and SQL Server 2008?  
+Are there any compelling reasons for upgrading (any 
+
+Title: Where is SQL Profiler in my SQL Server 2008?
+	Id: 633213
+	Rank: 5  -  Distance: 0.78226
+	Tags: sql-server, sqlprofiler, profiling
+	Body: I downloaded SQL Server 2008 and can't seem to find SQL Profiler anywhere.
+I believe I installed the SQL Server Enterprise Express/trial ver
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to decrypt a password from SQL server?
+	Id: 173329
+	Rank: 0  -  Distance: 0.98362
+	Tags: sql-server, encryption, hash, passwords
+	Body: I have this query in sql server 2000:
+select pwdencrypt('AAAA')
+
+which outputs an encrypted string of 'AAAA':
+
+0x0100CF465B7B12625EF019E1571
+
+Title: How to find a text inside SQL Server procedures / triggers?
+	Id: 674623
+	Rank: 1  -  Distance: 0.98409
+	Tags: sql-server, stored-procedures, triggers, linked-server
+	Body: I have a linkedserver that will change. Some procedures call the linked server like this: "[10.10.100.50].dbo.SPROCEDURE_EXAMPLE". We have t
+
+Title: What is the T-SQL syntax to connect to another SQL Server?
+	Id: 125457
+	Rank: 2  -  Distance: 0.98482
+	Tags: sql-server, tsql, stored-procedures, management-studio
+	Body: If I need to copy a stored procedure (SP) from one SQL Server to another I right click on the SP in SSMS and select Script Stored Procedure 
+
+Title: LIMIT 10..20 in sqlserver
+	Id: 971964
+	Rank: 3  -  Distance: 0.98623
+	Tags: sql, sql-server, pagination, limit
+	Body: I'm trying to do something like :
+SELECT * FROM table LIMIT 10,20
+
+or
+SELECT * FROM table LIMIT 10 OFFSET 10
+
+but using SQLServer
+The only s
+
+Title: Should I use != or <> for not equal in TSQL?
+	Id: 723195
+	Rank: 4  -  Distance: 0.99141
+	Tags: sql, sql-server, tsql
+	Body: 
+Possible Duplicate:
+Testing for inequality in T-SQL 
+
+I have seen SQL that uses both != and <> for not equal. What is the prefigured syntax
+
+Title: Restore DB - Error RESTORE HEADERONLY is terminating abnormally
+	Id: 3037682
+	Rank: 5  -  Distance: 0.99171
+	Tags: sql, sql-server, restore
+	Body: I have taken backup of SQL Server 2008 DB on server, and download them to local environment.
+I am trying to restore that database and it is 
+
+
+
+E========== CLUSTER 18 ==========
+
+B========== CLUSTER 19 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	eclipse
+	jvm
+	size
+	process
+	usage
+	heap
+	cpu
+	32 bit
+	32
+	windows
+	java
+	64 bit
+	memory
+	64
+	bit
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.19
+	Min zscore: -2.21
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Maximum Java heap size of a 32-bit JVM on a 64-bit OS
+	Id: 1434779
+	Rank: 0  -  Distance: 0.69434
+	Tags: java, jvm
+	Body: The question is not about the maximum heap size on a 32-bit OS, given that 32-bit OSes have a maximum addressable memory size of 4GB, and th
+
+Title: Java 32-bit vs 64-bit compatibility
+	Id: 783662
+	Rank: 1  -  Distance: 0.70353
+	Tags: java, 64bit, jvm, 32bit, environment
+	Body: Will Java code built and compiled against a 32-bit JDK into 32-bit byte code work in a 64-bit JVM?  Or does a 64-bit JVM require 64-bit byte
+
+Title: How can I tell if I'm running in 64-bit JVM or 32-bit JVM?
+	Id: 2062020
+	Rank: 2  -  Distance: 0.70974
+	Tags: java, 64bit, jvm, 32bit
+	Body: How can I tell if the JVM my application runs in is 32 bit or 64-bit?  Specifically, what function or  preference do I access to detect this
+
+Title: How to compile a 32-bit binary on a 64-bit linux machine with gcc/cmake
+	Id: 1272357
+	Rank: 3  -  Distance: 0.71360
+	Tags: linux, gcc, 64bit, cmake, 32bit
+	Body: Is it possible to compile a project in 32-bit with cmake and gcc on a 64-bit system? It probably is, but how do I do it?
+When I tried it the
+
+Title: Can I run a 64-bit VMware image on a 32-bit machine?
+	Id: 56124
+	Rank: 4  -  Distance: 0.71965
+	Tags: 64bit, vmware, virtualization, virtual-machine
+	Body: Can I run a 64-bit VMware image on a 32-bit machine?
+I've googled this, but there doesn't seem to be a conclusive answer.
+I know that it wou
+
+Title: How to determine whether a given Linux is 32 bit or 64 bit?
+	Id: 246007
+	Rank: 5  -  Distance: 0.72329
+	Tags: linux, shell, 32bit-64bit, processor
+	Body: When I type uname -a, it gives the following output.
+Linux mars 2.6.9-67.0.15.ELsmp #1 SMP Tue Apr 22 13:50:33 EDT 2008 i686 i686 i386 GNU/L
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: C# - How do you get total amount of RAM the computer has?
+	Id: 105031
+	Rank: 0  -  Distance: 0.97900
+	Tags: c#, memory, performancecounter
+	Body: I'm wanting to get the total amount of RAM my computer has using C#.
+Using the PerformanceCounter I can get the amount of Available ram, by 
+
+Title: IIS: How to disable Data Execution Prevention in Windows Server 2008?
+	Id: 1209052
+	Rank: 1  -  Distance: 0.98158
+	Tags: windows, iis, windows-server-2008, dep
+	Body: I've been trying to disable DEP on my windows 2008 dev box and have not succeeded.  
+I've tried:
+System Properties->Performance Options->Dat
+
+Title: Maximum number of threads per process in Linux?
+	Id: 344203
+	Rank: 2  -  Distance: 0.98463
+	Tags: linux, multithreading
+	Body: What is the maximum number of threads that can be created by a process under Linux?
+How (if possible) can this value be modified?
+
+Title: Allowed memory size of 33554432 bytes exhausted (tried to allocate 43148176 bytes) in php
+	Id: 415801
+	Rank: 3  -  Distance: 0.98551
+	Tags: php, memory-management
+	Body: Allowed memory size of 33554432 bytes exhausted (tried to allocate 43148176 bytes) in php
+any suggestion 
+
+Title: Installing PIL (Python Imaging Library) in Win7 64 bits, Python 2.6.4
+	Id: 2088304
+	Rank: 4  -  Distance: 0.99610
+	Tags: python, pil, windows-7-x64, python-imaging-library
+	Body: I'm trying to install said library for use with Python. I tried downloading the executable installer for Windows, which runs, but says it do
+
+Title: How do I set Java's min and max heap size through environment variables?
+	Id: 417152
+	Rank: 5  -  Distance: 0.99771
+	Tags: java
+	Body: How do I set Java's min and max heap size through environment variables?
+I know that the heap sizes can be set when launching java, but I wo
+
+
+
+E========== CLUSTER 19 ==========
+
+B========== CLUSTER 20 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	dialog
+	use
+	iframe
+	button
+	using
+	click
+	var
+	js
+	google
+	html
+	file
+	id
+	value
+	div
+	jquery
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.60
+	Min zscore: -3.09
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: how to close colorbox within iframe?
+	Id: 2101011
+	Rank: 0  -  Distance: 0.82961
+	Tags: jquery, colorbox
+	Body: i have a page manageGroup.php, where user can also add member to group. I used colorbox to show the addGroupMember.php. Now i need to close 
+
+Title: How to change Jquery UI Slider handle
+	Id: 1207307
+	Rank: 1  -  Distance: 0.83824
+	Tags: jquery, jquery-ui, jquery-plugins, slider
+	Body: I want to modify the stock JQuery UI slider so that the handle has a arrow on it rather than being a square. i.e. I want to use a custom ima
+
+Title: open jquery modal dialog on page load
+	Id: 522864
+	Rank: 2  -  Distance: 0.84320
+	Tags: javascript, jquery, jquery-ui
+	Body: I have a page, i want it to disploay display it content in a modal dialog (jquery UI dialog) as soon as the page is loaded.
+  $(document).re
+
+Title: jQuery Autocomplete and ASP.NET
+	Id: 305994
+	Rank: 3  -  Distance: 0.85388
+	Tags: asp.net, jquery, subsonic, autocomplete
+	Body: I searched all over this site and the web for a good and simple example of autocomplete using jQuery and ASP.NET. I wanted to expose the dat
+
+Title: What's a good AJAX Autocomplete Plugin for jQuery?
+	Id: 188442
+	Rank: 4  -  Distance: 0.86374
+	Tags: javascript, jquery, ajax, autocomplete, jquery-autocomplete
+	Body: I usually use jQuery as my JS library on my sites, and I would like to stick with it since I'm familiar with it.
+I need to implement an AJAX
+
+Title: JavaScript: changing the value of onclick with or without jQuery
+	Id: 826628
+	Rank: 5  -  Distance: 0.86628
+	Tags: javascript, jquery, onclick, attributes
+	Body: I'd like to change the value of the onclick attribute on an anchor. I want to set it to a new string that contains JavaScript. (That string 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Customize Google Maps info window?
+	Id: 429763
+	Rank: 0  -  Distance: 0.98538
+	Tags: google-maps
+	Body: I'm working on a website of a client, a local church.  I've embedded a Google Map using the Link feature on the Maps page.  The info window 
+
+Title: twitter bootstrap date picker
+	Id: 8267858
+	Rank: 1  -  Distance: 0.98586
+	Tags: twitter-bootstrap
+	Body: How to use the Twitter Bootstrap date picker, I used the above code but its not working.
+<html>
+    <head>
+    <title>DatePicker Demo</title
+
+Title: How to get iFrame src content using javascript?
+	Id: 1264569
+	Rank: 2  -  Distance: 0.98605
+	Tags: javascript, iframe
+	Body: I have an iFrame, content of which is inside another iFrame. I want to get the inside iFrame's src content. How can I do this using javascri
+
+Title: JavaScript: var functionName = function() {} vs function functionName() {}
+	Id: 336859
+	Rank: 3  -  Distance: 0.98803
+	Tags: javascript, function
+	Body: I've recently started maintaining someone else's JavaScript code. I'm fixing bugs, adding features and also trying to tidy up the code and m
+
+Title: Restricting input to textbox: allowing only numbers and decimal point
+	Id: 2808184
+	Rank: 4  -  Distance: 0.98994
+	Tags: javascript, html
+	Body: How can I restrict input to a text-box so that it accepts only numbers and the decimal point?
+
+Title: When is a CDATA section necessary within a script tag?
+	Id: 66837
+	Rank: 5  -  Distance: 0.99085
+	Tags: javascript, html, xhtml, cdata
+	Body: Are CDATA tags ever necessary in script tags and if so when?
+In other words, when and where is this:
+<script type="text/javascript">
+//<![CD
+
+
+
+E========== CLUSTER 20 ==========
+
+B========== CLUSTER 21 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	use
+	format
+	utf
+	escape
+	python
+	encoding
+	ascii
+	javascript
+	split
+	byte
+	html
+	convert
+	characters
+	character
+	java
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.51
+	Min zscore: -4.34
+	n_outliers(|z|>2): 12
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to check if a string in Python is in ASCII?
+	Id: 196345
+	Rank: 0  -  Distance: 0.87277
+	Tags: python, unicode, ascii
+	Body: I am fighting with Python to understand how do I check whether a string is in ASCII or not.
+I am aware of ord(), however when I try ord('é')
+
+Title: How to convert Strings to and from UTF8 byte arrays in Java
+	Id: 88838
+	Rank: 1  -  Distance: 0.89880
+	Tags: java, syntax
+	Body: In Java, I have a String and I want to encode it as a byte array (in UTF8, or some other encoding). Alternately, I have a byte array (in som
+
+Title: How to get first character of a string in SQL?
+	Id: 792294
+	Rank: 2  -  Distance: 0.90204
+	Tags: sql, sql-server, sql-server-2005
+	Body: I have a SQL column with length of 6. Now want to take only first char of that column. Is the any string function in SQL to do this?
+
+Title: Change one character in a string in python?
+	Id: 1228299
+	Rank: 3  -  Distance: 0.90229
+	Tags: python
+	Body: What is the easiest way in python to replace a character in a string like: 
+text = "abcdefg";
+text[1] = "Z";
+           ^
+
+
+Title: How can you strip non-ASCII characters from a string? (in C#)
+	Id: 123336
+	Rank: 4  -  Distance: 0.90385
+	Tags: c#, ascii
+	Body: How can you strip non-ASCII characters from a string? (in C#)
+
+Title: JAVA: check a string if there is a special character in it
+	Id: 1795402
+	Rank: 5  -  Distance: 0.90398
+	Tags: java, string, special-characters, special
+	Body: How do you check a string if there is a special character like: [,],{,},{,),*,|,:,>,etc.?
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: oracle varchar to number
+	Id: 1154612
+	Rank: 0  -  Distance: 0.99199
+	Tags: oracle, numbers, varchar
+	Body: How do i convert a oracle varchar value to number
+eg
+table - exception
+exception_value 555 where exception_value is a varchar type
+
+I would 
+
+Title: SQL Server: Make all UPPER case to Proper Case/Title Case
+	Id: 230138
+	Rank: 1  -  Distance: 0.99210
+	Tags: sql, sql-server, uppercase, title-case
+	Body: I have a table that was imported as all UPPER CASE and I would like to turn it into Proper Case. What script have any of you used to complet
+
+Title: How to Truncate a string in PHP to the word closest to a certain number of characters?
+	Id: 79960
+	Rank: 2  -  Distance: 0.99254
+	Tags: php, string, function
+	Body: I have a code snippet written in PHP that pulls a block of text from a database and sends it out to a widget on a webpage.  The original blo
+
+Title: Calling a function from a string with the function's name in Python
+	Id: 3061
+	Rank: 3  -  Distance: 0.99323
+	Tags: python
+	Body: What is the best way to go about calling a function given a string with the function's name in a Python program.  For example, let's say tha
+
+Title: How do I capitalize first letter of first name and last name in C#?
+	Id: 72831
+	Rank: 4  -  Distance: 0.99331
+	Tags: c#, homework
+	Body: Is there an easy way to capitalize the first letter of a string and lower the rest of it?  Is there a built in method or do I need to make m
+
+Title: PHP startsWith() and endsWith() functions
+	Id: 834303
+	Rank: 5  -  Distance: 0.99369
+	Tags: php, string
+	Body: I need two functions that would take a string and return if it starts with the specified character/string or ends with it.
+For example:
+$str
+
+
+
+E========== CLUSTER 21 ==========
+
+B========== CLUSTER 22 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	html
+	buttons
+	check
+	id
+	using
+	type
+	checkboxes
+	label
+	button
+	radio button
+	input
+	value
+	jquery
+	radio
+	checkbox
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.69
+	Min zscore: -2.58
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Find out if radio button is checked with JQuery?
+	Id: 2272507
+	Rank: 0  -  Distance: 0.70029
+	Tags: jquery, radio, checked
+	Body: I can set a radio button to checked fine, but what I want to do is setup a sort of 'listener' that activates when a certain radio button is 
+
+Title: Check checkbox checked property using jQuery
+	Id: 901712
+	Rank: 1  -  Distance: 0.73609
+	Tags: javascript, jquery, checkbox
+	Body: I need to check the checked property of a checkbox and perform the action based on the checked property using jQuery.
+For example, if the ag
+
+Title: Javascript to check whether a checkbox is being checked or unchecked
+	Id: 473562
+	Rank: 2  -  Distance: 0.74571
+	Tags: javascript
+	Body: I have a javascript routine that is performing actions on a group of checkboxes, but the final action I want to set the clicked checkbox to 
+
+Title: Select values of checkbox group with jQuery
+	Id: 416752
+	Rank: 3  -  Distance: 0.74878
+	Tags: javascript, jquery
+	Body: I'm using Zend_Form to output a set group of checkboxes:
+<label style="white-space: nowrap;"><input type="checkbox" name="user_group[]" id="
+
+Title: how to set radio option checked onload with jQuery
+	Id: 871063
+	Rank: 4  -  Distance: 0.75709
+	Tags: jquery
+	Body: How to set radio option checked onload with jQuery? 
+Need to check if no default is set and then set a default
+
+Title: cakephp: How to set checkbox to checked?
+	Id: 1962463
+	Rank: 5  -  Distance: 0.76994
+	Tags: cakephp
+	Body: I am using 
+$form->input('Model.name', array('multiple'=>'checkbox');
+
+I  am trying to base on model data to set certain checkboxes to check
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Looping over elements in jQuery
+	Id: 170180
+	Rank: 0  -  Distance: 0.94504
+	Tags: javascript, jquery
+	Body: I want to loop over the elements of an HTML form, and store the values of the <input> fields in an object. The following code doesn't work, 
+
+Title: Ext RadioGroup - How to Access the value of selected radio button?
+	Id: 414529
+	Rank: 1  -  Distance: 0.94711
+	Tags: javascript, extjs
+	Body: I am having some difficulty accessing the value of the selected radio button in a radiogroup. I've attempted a number of different approache
+
+Title: JQuery Checkbox Treeview
+	Id: 1538738
+	Rank: 2  -  Distance: 0.95340
+	Tags: jquery-plugins, treeview, jquery-ajax
+	Body: I am looking for a JQuery Checkbox Treeview. Does anyone know if a good one exists?
+
+Title: jQuery radio onchange toggle class of parent element?
+	Id: 964961
+	Rank: 3  -  Distance: 0.95787
+	Tags: jquery, radio-button, onchange
+	Body: Please have a look on the following:
+$('#myRadio').change(function() {
+
+    if($(this).is(':checked'))  {
+        $(this).parent().addClass(
+
+Title: jquery enable/disable text box based on radiobutton
+	Id: 1531747
+	Rank: 4  -  Distance: 0.96248
+	Tags: jquery, checkbox, radio-button
+	Body: in my jsp i have a radiobutton group and a textbox (which is disabled initially) .
+whenever user clicks on last(or, one of the) radio button
+
+Title: How to find checked RadioButton inside Repeater Item?
+	Id: 290018
+	Rank: 5  -  Distance: 0.96785
+	Tags: asp.net, javascript, repeater, radio-button
+	Body: I have a Repeater control on ASPX-page defined like this:
+<asp:Repeater ID="answerVariantRepeater" runat="server"
+    onitemdatabound="answe
+
+
+
+E========== CLUSTER 22 ==========
+
+B========== CLUSTER 23 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	objective
+	places
+	long
+	convert string
+	javascript
+	sql
+	round
+	number
+	double
+	float
+	integer
+	decimal
+	convert
+	string
+	int
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.54
+	Min zscore: -3.07
+	n_outliers(|z|>2): 4
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to convert decimal to hex in JavaScript?
+	Id: 57803
+	Rank: 0  -  Distance: 0.79633
+	Tags: javascript, hex, tostring, base, numberformat
+	Body: How do you convert decimal values to their hex equivalent in JavaScript?
+
+Title: How do I convert a float to an int in Javascript?
+	Id: 596467
+	Rank: 1  -  Distance: 0.82147
+	Tags: javascript, syntax
+	Body: I'd like to convert a float to an int in Javascript. Actually, I'd like to know how to do BOTH of the standard convertions: by truncating an
+
+Title: Truncate Decimal number not Round Off
+	Id: 329957
+	Rank: 2  -  Distance: 0.82278
+	Tags: .net, floating-point, truncate
+	Body: I want to truncate the decimals like below
+i.e.
+
+2.22939393 -> 2.229
+2.22977777 -> 2.229
+
+
+Title: Best Way to get Whole Number part of a Decimal Number
+	Id: 479706
+	Rank: 3  -  Distance: 0.82516
+	Tags: c#, .net, decimal, int
+	Body: What is the best way to return the whole number part of a decimal (in c#)? (This has to work for very large numbers that may not fit into an
+
+Title: How to convert float to int with Java
+	Id: 1295424
+	Rank: 4  -  Distance: 0.85113
+	Tags: java, floating-point, int
+	Body: I used the following line to convert float to int, but it's not as accurate as I'd like:
+ float a=8.61f;
+ int b;
+
+ b=(int)a;
+
+The result is 
+
+Title: C# convert integer to hex and back again
+	Id: 1139957
+	Rank: 5  -  Distance: 0.85133
+	Tags: c#, hex
+	Body: How can I convert the following?
+2934 (integer)  to   B76 (hex)
+Let me explain what I am trying to do. I have User IDs in my database that a
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: C# char to int
+	Id: 239103
+	Rank: 0  -  Distance: 0.98617
+	Tags: c#, char, int
+	Body: So I have a char in c#:
+char foo = '2';
+
+Now I want to get the 2 into an int.  I find that Convert.ToInt32 returns the actual decimal value 
+
+Title: check variable whether is number or string in javascript
+	Id: 1303646
+	Rank: 1  -  Distance: 0.98733
+	Tags: javascript, types
+	Body: does anyone know how can I check variable whether is number or string in javascript
+
+Title: How to identify if string is a number?
+	Id: 894263
+	Rank: 2  -  Distance: 0.98800
+	Tags: c#, string, parsing, isnumeric
+	Body: if I have this strings:
+
+"abc"  =  false
+"123"  = true
+"ab2"  = false
+
+Is there any command like IsNumeric or something else that can identi
+
+Title: How should I pass an int into stringWithFormat?
+	Id: 384089
+	Rank: 3  -  Distance: 0.98863
+	Tags: objective-c, cocoa-touch
+	Body: I am try to use stringWithFormat to set a numerical value on the text property of a label but the following code is not working. I cannot ca
+
+Title: Generating random numbers in Javascript in a specific range?
+	Id: 1527803
+	Rank: 4  -  Distance: 0.99204
+	Tags: javascript, random, numbers
+	Body: How can I generate a random whole number between two specified variables in Javascript, e.g. x=4 and y=8 would output any of 4,5,6,7,8?
+
+Title: How to Concatenate String in Objective-C (iPhone)?
+	Id: 1158860
+	Rank: 5  -  Distance: 0.99329
+	Tags: iphone, objective-c, string, string-concatenation
+	Body: 
+Possible Duplicate:
+How do I concatenate strings in Objective-C? 
+
+Firstly, the platform is iPhone and label.text changes the label display
+
+
+
+E========== CLUSTER 23 ==========
+
+B========== CLUSTER 24 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	javascript
+	application
+	code
+	windows
+	net
+	new
+	data
+	html
+	use
+	string
+	java
+	error
+	using
+	android
+	file
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 2.73
+	Min zscore: -3.69
+	n_outliers(|z|>2): 86
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is node.js?
+	Id: 1884724
+	Rank: 0  -  Distance: 0.97066
+	Tags: javascript, node.js, v8, evented-io
+	Body: I don't fully get what node.js is all about. Maybe it's because I am mainly a web based business app developer. Can someone please explain w
+
+Title: iOS SDK - Programmatically generate a PDF file
+	Id: 4362734
+	Rank: 1  -  Distance: 0.97312
+	Tags: iphone, objective-c, ipad, ios, pdf-generation
+	Body: Using the CoreGraphics framework is tedious work, in my honest opinion, when it comes to programmatically drawing a PDF file.
+I would like t
+
+Title: Facebook login "given URL not allowed by application configuration"
+	Id: 3610858
+	Rank: 2  -  Distance: 0.97357
+	Tags: facebook, url, login
+	Body: I've added facebook login to my site.  However, when I click the button, I get a red box that says:
+Invalid Argument
+
+Given URL is not allow
+
+Title: What should a developer know before building a public web site?
+	Id: 72394
+	Rank: 3  -  Distance: 0.97378
+	Tags: web-development, security, cross-platform, polls
+	Body: What things should a programmer implementing the technical details of a web site address before making the site public?  If Jeff Atwood can 
+
+Title: Twitter image encoding challenge
+	Id: 891643
+	Rank: 4  -  Distance: 0.97406
+	Tags: unicode, twitter, compression, code-golf, challenge
+	Body: If a picture's worth 1000 words, how much of a picture can you fit in 140 characters?
+Note: That's it folks! Bounty deadline is here, and af
+
+Title: facebook Uncaught OAuthException: An active access token must be used to query information about the current user
+	Id: 6034813
+	Rank: 5  -  Distance: 0.97418
+	Tags: php, facebook, api, access-token
+	Body: I've been struggling to find out what is happening with this.
+My scripts were working fine for a bit and suddenly half stopped.
+I'm accessin
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Will a future version of .NET support tuples in C#?
+	Id: 152019
+	Rank: 0  -  Distance: 1.00350
+	Tags: c#, .net, tuples, language-features
+	Body: .Net 3.5 doesn't support tuples. Too bad, But not sure whether the future version of .net will support tuples or not? 
+
+Title: String replace in jQuery
+	Id: 2145988
+	Rank: 1  -  Distance: 1.00392
+	Tags: javascript, jquery
+	Body: Given the code line
+var value = $("#text").val();
+
+and value = 9.61, I need to convert 9.61 to 9:61. How can I use the jQuery replace functi
+
+Title: Html.BeginForm and adding properties
+	Id: 216600
+	Rank: 2  -  Distance: 1.00453
+	Tags: asp.net-mvc
+	Body: How would I go about adding enctype="multipart/form-data" to a form that is generated by using <% Html.BeginForm(); %>?
+
+Title: How to generate getters and setters in Visual Studio?
+	Id: 3017
+	Rank: 3  -  Distance: 1.00534
+	Tags: visual-studio, setter, getter
+	Body: By "generate", I mean auto-generation of the code necessary for a particuliar selected (set of) variable(s).
+But any more explicit explicati
+
+Title: Which one to Use: <meta charset='utf-8'> vs <meta http-equiv='Content-Type'
+	Id: 4696499
+	Rank: 4  -  Distance: 1.00548
+	Tags: html, html5, meta-tags
+	Body: to define charset for html5 doctype, which notation should I use?
+a) short:
+ <meta charset='utf-8'> 
+
+b) Long:
+<meta http-equiv='Content-Typ
+
+Title: convert javascript comma separated string into an array
+	Id: 2858121
+	Rank: 5  -  Distance: 1.00613
+	Tags: javascript, arrays, string
+	Body: I have a comma separated string that I want to convert into an array so I can loop through it.
+Is there anything built-in to do this?
+
+
+
+E========== CLUSTER 24 ==========
+
+B========== CLUSTER 25 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	ios
+	touch
+	safari
+	mobile
+	icon
+	development
+	simulator
+	orientation
+	sdk
+	application
+	screen
+	android
+	ipad
+	app
+	iphone
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.73
+	Min zscore: -2.75
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Install xCode 3.2.3 w/ iPhone SDK 4, get "Base SDK missing", can't see other SDKs
+	Id: 3161385
+	Rank: 0  -  Distance: 0.89253
+	Tags: iphone, xcode, iphone-sdk-4.0
+	Body: I created this community wiki to bind together a number of
+other Q/A's I've seen here on SO. If you're here, you've probably
+installed the f
+
+Title: What size should apple-touch-icon.png be for iPad and iPhone 4?
+	Id: 2997437
+	Rank: 1  -  Distance: 0.89741
+	Tags: iphone, ipad, icons
+	Body: Are Apple touch icons bigger than 60x60 supported, and if so, what dimensions should I use for the iPad and iPhone 4?
+
+Title: iPhone App Development on Ubuntu
+	Id: 1056426
+	Rank: 2  -  Distance: 0.89773
+	Tags: iphone, ubuntu
+	Body: 
+Possible Duplicate:
+Starting iPhone app development in Linux? 
+
+Is there a way to use Ubuntu Linux for developing iPhone applications desti
+
+Title: iPad Browser Simulator?
+	Id: 3126928
+	Rank: 3  -  Distance: 0.89825
+	Tags: ipad, testing
+	Body: Is there any browser that can simulate the iPad browser and can be run on windows?
+
+Title: What resolution should my iPhone app ICON be?
+	Id: 1371044
+	Rank: 4  -  Distance: 0.90071
+	Tags: iphone, graphics, uikit, icons
+	Body: What image resolution can/should be used as the icon.png file for an iphone app? I know the size is 57 x 57 but what about the resolution? L
+
+Title: How to install iPhone application in iPhone Simulator
+	Id: 1187611
+	Rank: 5  -  Distance: 0.90169
+	Tags: iphone, installation
+	Body: I have a mySample.app file - an iPhone application developed by xcode.
+How do I run this (only mySample.app file) application using my xcode
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to change an Android app's name?
+	Id: 5443304
+	Rank: 0  -  Distance: 0.98891
+	Tags: android, android-manifest
+	Body: Is there a way to change the name of an app without creating a new project?
+Example: On the home page where my apps are, I have an icon and 
+
+Title: How can I launch the Google Maps iPhone application from within my own native application?
+	Id: 30058
+	Rank: 1  -  Distance: 0.98984
+	Tags: iphone, objective-c, google-maps
+	Body: The Apple Developer Documentation explains that if you place a link in a web page and then click it whilst using Mobile Safari on the iPhone
+
+Title: Using make on OSX
+	Id: 1469994
+	Rank: 2  -  Distance: 0.98993
+	Tags: osx, make, terminal
+	Body: I have a macbook I'm trying to do some development on. I have a program I want to build, and when I went to use make to build it I got a "co
+
+Title: Kill detached screen session
+	Id: 1509677
+	Rank: 3  -  Distance: 0.99135
+	Tags: linux, gnu, kill, gnu-screen
+	Body: I learned from somewhere a detached screen can be killed by
+
+screen -X -S [session # you want to kill] kill
+
+where [session # you want to ki
+
+Title: Tips for optimizing a website for Android's browser?
+	Id: 548892
+	Rank: 4  -  Distance: 0.99148
+	Tags: html, css, android, design
+	Body: I'm looking for tips, tricks and resources on optimizing a website design for Android's browser.
+I'm building an Android app and some of the
+
+Title: Best way to detect when user leaves a web page
+	Id: 147636
+	Rank: 5  -  Distance: 0.99286
+	Tags: javascript
+	Body: What is the best way to detect if a user leaves a web page?
+The onunload JavaScript event doesn't work every time (the HTTP request takes lo
+
+
+
+E========== CLUSTER 25 ==========
+
+B========== CLUSTER 26 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	override
+	text
+	app
+	add
+	int
+	id
+	listview
+	import android
+	context
+	application
+	intent
+	textview
+	button
+	view
+	import
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.78
+	Min zscore: -2.18
+	n_outliers(|z|>2): 1
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Using Intent in an Android application to show another activity
+	Id: 736571
+	Rank: 0  -  Distance: 0.61250
+	Tags: android, android-intent, android-activity
+	Body: In my Android application, I have two activity classes.  I have a button on the first one and I want to show the second when it is clicked, 
+
+Title: Android Video Recording Sample
+	Id: 1817742
+	Rank: 1  -  Distance: 0.64160
+	Tags: android, video, recording, recorder
+	Body: Does anyone got the video recording sample for android , if yes could you please share the same 
+Thanks 
+Vish
+
+Title: Android WebView handling orientation changes
+	Id: 1002085
+	Rank: 2  -  Distance: 0.64546
+	Tags: android, webview, orientation
+	Body: Just started working with the webview.  The issue is performance following rotation.  The WebView has to reload the page, which can be a bit
+
+Title: Add an array of buttons to a GridView in an Android application
+	Id: 775188
+	Rank: 3  -  Distance: 0.66077
+	Tags: android, arrays, button, dynamic, android-gridview
+	Body: I have an application that will have 5-15 buttons depending on what is available from a backend.  How do I define the proper GridView layout
+
+Title: Android: How to declare global variables?
+	Id: 708012
+	Rank: 4  -  Distance: 0.67718
+	Tags: android, global-variables
+	Body: I am creating an application which requires login. I created the main and the login activity.
+In the main activity onCreate method I added t
+
+Title: How to render PDF in Android
+	Id: 2883355
+	Rank: 5  -  Distance: 0.68854
+	Tags: java, android, pdf
+	Body: In my application I will receive a byte stream and convert it to a pdf file in the phone memory. How do I render that to a pdf? And show it 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How do I get the SharedPreferences from a PreferenceActivity in Android?
+	Id: 2614719
+	Rank: 0  -  Distance: 0.94155
+	Tags: android, preferences, preferenceactivity, sharedpreferences
+	Body: I am using a PreferenceActivity to show some settings for my application. I am inflating the settings via a xml file so that my onCreate (an
+
+Title: Android OnClickListener - identify a button
+	Id: 3320115
+	Rank: 1  -  Distance: 0.94815
+	Tags: android, events, resources, listener
+	Body: public class Mtest extends Activity {
+  Button b1;
+  Button b2;
+  public void onCreate(Bundle savedInstanceState) {
+    ...
+    b1 = (Button
+
+Title: Id cannot be resolved or is not a field error?
+	Id: 3296047
+	Rank: 2  -  Distance: 0.95153
+	Tags: android, eclipse, sdk, error-message
+	Body: I keep getting this error... should I just make "id" a field?
+My code is --
+  public void onCreate(Bundle icicle) {  
+     super.onCreate(ic
+
+Title: Static Way to get Context on android?
+	Id: 2002288
+	Rank: 3  -  Distance: 0.95814
+	Tags: android
+	Body: Is there a way  to get the current Context instance by using a static method? 
+I'm looking for that way because i hate saving the context in
+
+Title: Android: How to programmatically add button to view
+	Id: 4776057
+	Rank: 4  -  Distance: 0.98051
+	Tags: android, button, view, add
+	Body: In my Android activity, I create a custom view that extends SurfaceView (using MonoDroid so slight variations in syntax):
+class FriendsView 
+
+Title: Android TextView Timer
+	Id: 522800
+	Rank: 5  -  Distance: 0.99009
+	Tags: java, android, update, timer, textview
+	Body: For my Android application there is a timer that measures how much time has passed. Ever 100 milliseconds I update my TextView with some tex
+
+
+
+E========== CLUSTER 26 ==========
+
+B========== CLUSTER 27 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	nsdate
+	date time
+	dates
+	yyyy mm dd
+	yyyy mm
+	current
+	datepicker
+	date format
+	mm dd
+	convert
+	java
+	sql
+	time
+	string
+	datetime
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.64
+	Min zscore: -2.05
+	n_outliers(|z|>2): 1
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to get a date in YYYY-MM-DD format from a TSQL datetime field?
+	Id: 889629
+	Rank: 0  -  Distance: 0.65715
+	Tags: sql-server, tsql
+	Body: How do I retrieve a date from SQL Server in YYYY-MM-DD format? I need this to work with SQL Server 2000 and up. Is there a simple way to per
+
+Title: How to get the current time in YYYY-MM-DD HH:MI:Sec.Millisecond format in Java?
+	Id: 1459656
+	Rank: 1  -  Distance: 0.66305
+	Tags: java, date
+	Body: The code below gives me the current time. But it does not tell anything about milliseconds.  
+public static String getCurrentTimeStamp() {
+ 
+
+Title: How to Convert date into MM/DD/YY format in C#
+	Id: 420623
+	Rank: 2  -  Distance: 0.66480
+	Tags: c#, date
+	Body: In My Asp.net webpage I need to display today's date into one of the textbox , so in my form load  I wrote the following code 
+textbox1.text
+
+Title: PHP: convert date format yyyy-mm-dd => dd-mm-yyyy [NOT IN SQL]
+	Id: 2487921
+	Rank: 3  -  Distance: 0.69342
+	Tags: php, date, formatting
+	Body: I am trying to convert a date from yyyy-mm-dd to dd-mm-yyyy however I don't know how the date function requires a timestamp and I can't get 
+
+Title: Does the C# Convert.ToDateTIme function read date as "dd/mm/yyyy" or "mm/dd/yyyy"?
+	Id: 771249
+	Rank: 4  -  Distance: 0.70759
+	Tags: c#, .net, sql-server-2005, datetime
+	Body: Does the C# Convert.ToDateTIme function read date as "dd/mm/yyyy" or "mm/dd/yyyy"?
+I have the same application on my local machine which I u
+
+Title: Calculate difference between 2 date / times in Oracle SQL
+	Id: 1096853
+	Rank: 5  -  Distance: 0.71620
+	Tags: oracle, date-arithmetic
+	Body: I have a table as follows:
+Filename - varchar
+Creation Date - Date format dd/mm/yyyy hh24:mi:ss
+Oldest cdr date - Date format dd/mm/yyyy hh2
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to use StringFormat in XAML elements?
+	Id: 685743
+	Rank: 0  -  Distance: 0.95711
+	Tags: xaml, stringformat
+	Body: I'm deep in a XAML stack of elements binding to orders.
+The order date displays as e.g. "12/31/2008 12:00:00 AM".
+I want it to display as e.
+
+Title: Convert NSDate to NSString
+	Id: 576265
+	Rank: 1  -  Distance: 0.96579
+	Tags: iphone, nsstring, nsdate
+	Body: How do I convert an NSDate to an NSString so that only the year in @"yyyy" format is output to the string?
+
+Title: How to change format (e.g. dd/MMM/yyyy) of DateTimePicker in WPF application
+	Id: 641577
+	Rank: 2  -  Distance: 0.96914
+	Tags: .net, wpf, datetime, datetimepicker, datetime-format
+	Body: I want to Change the Format of date selected in DateTimePicker in WPF Application
+
+Title: changing minDate option in JQuery DatePicker not working
+	Id: 847287
+	Rank: 3  -  Distance: 0.98206
+	Tags: jquery-ui, datepicker
+	Body: I have declared a date picker instance as follows:
+    $("#datePickerId").datepicker(
+    { dateFormat: 'DD, d MM yy',
+      minDate: 0,
+   
+
+Title: How to convert DateTime to VarChar
+	Id: 74385
+	Rank: 4  -  Distance: 0.98356
+	Tags: sql, sql-server, datetime-operation, sql-convert
+	Body: I am working on a query in Sql Server 2005 where I need to convert a value in DateTime variable into a varchar variable in 'yyyy-mm-dd' form
+
+Title: How to format a java.sql Timestamp for displaying?
+	Id: 1156468
+	Rank: 5  -  Distance: 0.98458
+	Tags: java, datetime, formatting
+	Body: How do I formate a java.sql Timestamp to my liking ? ( to a string, for display purposes)
+
+
+
+E========== CLUSTER 27 ==========
+
+B========== CLUSTER 28 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	using
+	id
+	gridview
+	web
+	error
+	current
+	page
+	server
+	model
+	view
+	session
+	html
+	asp net mvc
+	net mvc
+	mvc
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.40
+	Min zscore: -2.85
+	n_outliers(|z|>2): 11
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Data Grid in ASP.NET MVC
+	Id: 471189
+	Rank: 0  -  Distance: 0.77420
+	Tags: asp.net, asp.net-mvc, data-binding, datagrid
+	Body: Is it possible to use a datagrid control in a mvc "view"?
+How would I bind it to a datasource?
+
+Title: What is ModelState.IsValid valid for in ASP.NET MVC in NerdDinner?
+	Id: 881281
+	Rank: 1  -  Distance: 0.77552
+	Tags: asp.net-mvc, validation, nerddinner
+	Body: On the NerdDinner example of Professional ASP.NET MVC 1.0 there's a method to create a new dinner as copied bellow (page 89 of the free Nerd
+
+Title: grid controls for ASP.NET MVC?
+	Id: 177275
+	Rank: 2  -  Distance: 0.78809
+	Tags: jquery, asp.net-mvc, grid, 3rd-party-library
+	Body: If you are using ASP.NET MVC how are you doing grid display?
+Rolled your own?
+Got a library from somewhere?
+These are some of the known grid
+
+Title: Asp.Net MVC: How do I get virtual url for the current controller/view?
+	Id: 151963
+	Rank: 3  -  Distance: 0.79156
+	Tags: c#, asp.net-mvc, routing
+	Body: Is it possible to get the route/virtual url associated with a controller action or on a view?  I saw that Preview 4 added LinkBuilder.BuildU
+
+Title: How to localize ASP.NET MVC application?
+	Id: 192465
+	Rank: 4  -  Distance: 0.80149
+	Tags: asp.net-mvc, localization, globalization
+	Body: What would be best practice to localize your ASP.NET MVC application?
+I would like to cover two situations:
+
+one application deployment in I
+
+Title: How can I return the current action in an ASP.NET MVC view?
+	Id: 362514
+	Rank: 5  -  Distance: 0.81081
+	Tags: c#, asp.net, asp.net-mvc
+	Body: I wanted to set a CSS class in my master page, which depends on the current controller and action. I can get to the current controller via V
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: "The Controls collection cannot be modified because the control contains code blocks"
+	Id: 778952
+	Rank: 0  -  Distance: 0.98789
+	Tags: c#, asp.net, usercontrols
+	Body: I am trying to create a simple user control that is a slider.  When I add a AjaxToolkit SliderExtender to the user control I get this (*&$#(
+
+Title: Read Post Data submitted to ASP.Net Form
+	Id: 564289
+	Rank: 1  -  Distance: 0.98832
+	Tags: c#, asp.net, post
+	Body: I have a working login form in an asp.net application.  Standard stuff with a username and password text box and a button to process the log
+
+Title: ASP.NET MVC 2 - Html.DropDownListFor confusion with ViewModel
+	Id: 2306527
+	Rank: 2  -  Distance: 0.99162
+	Tags: asp.net-mvc, asp.net-mvc-2, drop-down-menu, viewmodel, html-helper
+	Body: I'm getting totally lost and confused on how to use the new strongly typed Html.DropDownListFor helper on ASP.NET MVC 2.0 R2
+In the View I'm
+
+Title: ASP.Net: Panel VS. PlaceHolder
+	Id: 483352
+	Rank: 3  -  Distance: 0.99543
+	Tags: asp.net, panel, placeholder
+	Body: What is the difference between Panel and PlaceHolder in ASP.NET?
+
+Title: ASP.NET Ajax ErrorSys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server
+	Id: 294299
+	Rank: 4  -  Distance: 0.99543
+	Tags: asp.net, ajax, http-status-code-500
+	Body: I created an Ajax website in Visual Studio, added a simple page with a textbox and button, when I click the button once everything works, wh
+
+Title: Get URL of ASP.Net Page in code-behind
+	Id: 96029
+	Rank: 5  -  Distance: 0.99794
+	Tags: asp.net
+	Body: I have an ASP.Net page that will be hosted on a couple different servers, and I want to get the URL of the page (or even better:  the site w
+
+
+
+E========== CLUSTER 28 ==========
+
+B========== CLUSTER 29 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	using
+	http
+	bean
+	apache
+	object
+	import
+	xml
+	class
+	new
+	public
+	hibernate
+	file
+	string
+	org
+	java
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.40
+	Min zscore: -3.73
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Hibernate/Spring: failed to lazily initialize - no session or session was closed
+	Id: 3041259
+	Rank: 0  -  Distance: 0.84220
+	Tags: java, hibernate, spring, lazy-loading
+	Body: For an answer scroll down to the end of this...
+The basic problem is the same as asked multiple time. I have a simple program with two POJOs
+
+Title: Trouble getting Hibernate Core and Hibernate Annotations using Apache Ivy (but it's also Maven2 related.)
+	Id: 520902
+	Rank: 1  -  Distance: 0.86808
+	Tags: java, hibernate, maven-2, annotations, ivy
+	Body: It's a long one! ;-)
+There are a lot of copy pasted text in this question which makes it look
+complicated. And to be honest, it's a lot of i
+
+Title: What is "String args[]"? in Java
+	Id: 890966
+	Rank: 2  -  Distance: 0.86958
+	Tags: java
+	Body: I'm very beginner for programming.
+In Java.
+public static void main(String []args)
+
+What's String args? 
+and 
+What kind of case do you use a
+
+Title: HQL left join problem: Path expected for join!
+	Id: 1262298
+	Rank: 3  -  Distance: 0.87573
+	Tags: java, hibernate, hql
+	Body: I am new at Hibernate, and I have a question regarding HQL Lejt join.
+I try to left join 2 tables, patient and provider, and keep getting "P
+
+Title: Spring: Setting up a simple PropertyPlaceholderConfigurer example
+	Id: 557626
+	Rank: 4  -  Distance: 0.88891
+	Tags: spring
+	Body: The solution to this is probably very simple, but I'm not sure what I'm missing.  Here's what I have, and PropertyPlaceholderConfigurer won'
+
+Title: How do I use 3des encryption/decryption in Java?
+	Id: 20227
+	Rank: 5  -  Distance: 0.89364
+	Tags: java, encryption, 3des
+	Body: Every method I write to encode a string in Java using 3DES can't be decrypted back to the original string.  Does anyone have a simple code s
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: JSTL, Beans, and method calls
+	Id: 227500
+	Rank: 0  -  Distance: 0.99408
+	Tags: java, exception, jsp, jstl, vignette
+	Body: I'm working on a JSP where I need to call methods on object that come from a Bean. The previous version of the page does not use JSTL and it
+
+Title: How can I replace newline characters using JSP and JSTL?
+	Id: 58054
+	Rank: 1  -  Distance: 0.99421
+	Tags: string, jsp, replace, jstl, newline
+	Body: I have a list of bean objects passed into my JSP page, and one of them is a comment field. This field may contain newlines, and I want to re
+
+Title: casting Object array to Integer array error
+	Id: 1115230
+	Rank: 2  -  Distance: 0.99432
+	Tags: java, casting
+	Body: What's wrong with the following code?
+ Object[] a = new Object[1];
+    Integer b=1;
+    a[0]=b;
+    Integer[] c = (Integer[]) a;
+
+The code h
+
+Title: Java error: Bad version number in .class file error when trying to run Cassandra on OS X
+	Id: 1611312
+	Rank: 3  -  Distance: 0.99466
+	Tags: java
+	Body: I am trying to get Cassandra to work on OS X. When I run bin/cassandra, I get the following error:
+~/apache-cassandra-incubating-0.4.1-src >
+
+Title: When do Java generics require <? extends T> instead of <T> and is there any downside of switching?
+	Id: 897935
+	Rank: 4  -  Distance: 0.99496
+	Tags: java, generics, junit
+	Body: Given the following example (using JUnit with Hamcrest matchers)
+    Map<String, Class<? extends Serializable>> expected = null;
+    Map<Str
+
+Title: Java performance of StringBuilder in a loop
+	Id: 242438
+	Rank: 5  -  Distance: 0.99551
+	Tags: java, performance, string, stringbuilder
+	Body: I've a performance related question regarding use of StringBuilder.
+In a very long loop I'm manipulating a StringBuilder and passing it to a
+
+
+
+E========== CLUSTER 29 ==========
+
+B========== CLUSTER 30 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	com
+	url
+	javascript
+	net
+	public
+	http
+	new
+	json string
+	data
+	youtube
+	xml
+	using
+	object
+	string
+	json
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.56
+	Min zscore: -5.86
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Parse JSON in C#
+	Id: 1212344
+	Rank: 0  -  Distance: 0.81486
+	Tags: c#, asp.net, json, parsing, json.net
+	Body: I'm trying to parse some JSON data from the Google AJAX Search API. I have this URL and I'd like to break it down so that the results are di
+
+Title: Best practice: escape, or encodeURI / encodeURIComponent
+	Id: 75980
+	Rank: 1  -  Distance: 0.89325
+	Tags: javascript, actionscript-3, actionscript, encoding, query-string
+	Body: When encoding a query string to be sent to a web server - what is the best practice to use from javascript:
+Use escape:
+escape("% +&=");
+
+OR
+
+Title: Why do I get "Cannot redirect after HTTP headers have been sent" when I call Response.Redirect()?
+	Id: 159523
+	Rank: 2  -  Distance: 0.90923
+	Tags: asp.net, http-headers, response.redirect, httpexception
+	Body: When I call Response.Redirect(someUrl) I get an HttpException: "Cannot redirect after HTTP headers have been sent".
+Why do I get this? And h
+
+Title: Virtual Serial Port for Linux
+	Id: 52187
+	Rank: 3  -  Distance: 0.90961
+	Tags: linux, testing, hardware, serial-port, virtual-serial-port
+	Body: I need to test a serial port application on Linux, however, my test machine only has one serial port. 
+Is there a way to add a virtual seria
+
+Title: How do you return a JSON object from a Java Servlet
+	Id: 2010990
+	Rank: 4  -  Distance: 0.91205
+	Tags: java, json, servlets
+	Body: How do you return a JSON object form a Java servlet.
+Previously when doing AJAX with a servlet I have returned a string. Is there a JSON obj
+
+Title: Is there a standard sign function (signum, sgn) in C/C++?
+	Id: 1903954
+	Rank: 5  -  Distance: 0.91827
+	Tags: c++, c, math
+	Body: I want a function that returns -1 for negative numbers and +1 for positive numbers.
+http://en.wikipedia.org/wiki/Sign%5Ffunction
+It's easy e
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Richtextbox wpf binding
+	Id: 343468
+	Rank: 0  -  Distance: 0.98683
+	Tags: wpf, data-binding, richtextbox
+	Body: To do DataBinding of the Document in a WPF RichtextBox, I saw 2 Solutions so far, which are to derive from the RichtextBox and add a Depende
+
+Title: How to parse ISO formatted date in python?
+	Id: 127803
+	Rank: 1  -  Distance: 0.98777
+	Tags: python, datetime, parsing
+	Body: I need to parse strings like "2008-09-03T20:56:35.450686Z" into python's datetime type.
+I have found only strptime in python 2.5 std lib, bu
+
+Title: Android: 2D. OpenGl or android.graphics?
+	Id: 2755446
+	Rank: 2  -  Distance: 0.98853
+	Tags: android, animation, opengl-es, 2d
+	Body: I'm working with my friend on our first Android game. Basic idea is that every frame of the game the whole surface is redrawn (1 large bitma
+
+Title: Appending to a JSON object
+	Id: 617036
+	Rank: 3  -  Distance: 0.98879
+	Tags: javascript, json
+	Body: I have a json object that holds alerts and some information about them:
+var alerts = { 1:{app:'helloworld','message'},2:{app:'helloagain',me
+
+Title: Json to Map
+	Id: 443499
+	Rank: 4  -  Distance: 0.99311
+	Tags: java, json, parsing, collections
+	Body: What is the best way to convert a JSON code as this:
+{ "data" : { "field1" : "value1", "field2" : "value2"}}
+
+in a Java Map in which one the
+
+Title: How do you do a deep copy an object in .Net (C# specifically)?
+	Id: 129389
+	Rank: 5  -  Distance: 0.99429
+	Tags: c#, .net, serialization
+	Body: I want a true deep copy. In Java, this was easy, but how do you do it in C#?
+
+
+
+E========== CLUSTER 30 ==========
+
+B========== CLUSTER 31 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	variable
+	null
+	value
+	stored
+	server
+	tables
+	key
+	exists
+	id
+	select
+	update
+	sql
+	column
+	mysql
+	insert
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.66
+	Min zscore: -3.02
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: add column to mysql table if it does not exist
+	Id: 972922
+	Rank: 0  -  Distance: 0.83397
+	Tags: mysql, columns
+	Body: My research and experiments haven't yielded an answer yet, so I am hoping for some help.
+I am modifying the install file of an application w
+
+Title: How do I drop a foreign key constraint only if it exists in sql server?
+	Id: 482885
+	Rank: 1  -  Distance: 0.85278
+	Tags: sql, sql-server, sql-server-2005, tsql
+	Body: I can drop a table if it exists using the following code but do not know how to do the same with a constraint:
+IF EXISTS(SELECT 1 FROM sys.o
+
+Title: Check if a row exists, otherwise insert
+	Id: 639854
+	Rank: 2  -  Distance: 0.85411
+	Tags: sql, sql-server, sql-server-2008, tsql
+	Body: I need to write a T-SQL stored procedure that updates a row in a table. If the row doesn't exist, insert it. All this steps wrapped by a tra
+
+Title: How do I create a foreign key in SQL Server?
+	Id: 48772
+	Rank: 3  -  Distance: 0.85881
+	Tags: sql, sql-server, tsql
+	Body: I have never "hand coded" creation code for SQL Server and foreign key deceleration is seemingly different from SQL Server and Postgres...he
+
+Title: Adding an identity to an existing column
+	Id: 1049210
+	Rank: 4  -  Distance: 0.86536
+	Tags: sql, sql-server, alter-table, identity-column
+	Body: I need to change the primary key of a table to an identity column, and there's already a number of rows in table. 
+I've got a script to clea
+
+Title: SQL SERVER 2005: Drop all the tables, stored procedures, triggers, constriants and all the dependencies in one sql statement
+	Id: 536350
+	Rank: 5  -  Distance: 0.86560
+	Tags: sql, sql-server, sql-server-2005, tsql
+	Body: Is there any way in which i can clean a db in SQl Server 2005 i.e by dropping all the tables and deleting stored procedures, triggers, const
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to check if a value already exists to avoid duplicates?
+	Id: 61033
+	Rank: 0  -  Distance: 0.98595
+	Tags: php, sql, mysql
+	Body: I've got a table of URLs and I don't want any duplicate URLs. How do I check to see if a given URL is already in the table using PHP/MySQL?
+
+Title: How do you set a default value for a MySQL Datetime column?
+	Id: 168736
+	Rank: 1  -  Distance: 0.98843
+	Tags: mysql
+	Body: How do you set a default value for a MySQL Datetime column?
+In SQL Server it's getdate(), what is the equivalant for MySQL? I'm using 5.x if
+
+Title: MySQL - Using If Then Else in MySQL UPDATE or SELECT Queries
+	Id: 2177543
+	Rank: 2  -  Distance: 0.98940
+	Tags: mysql
+	Body: How do I update a table and set different values upon the condition evaluating to True.
+For instance :
+UPDATE Table
+SET A = '1' IF A > 0 AND
+
+Title: UPDATE using two tables, Concatenation
+	Id: 542419
+	Rank: 3  -  Distance: 0.98960
+	Tags: sql, oracle, sql-update
+	Body: I have two tables involved in this query I need to create, and I'm not exactly sure how to join these two tables in order to update.
+I have 
+
+Title: How to select the nth row in a SQL database table?
+	Id: 16568
+	Rank: 4  -  Distance: 0.98967
+	Tags: sql, database
+	Body: I'm interested in learning some (ideally) database agnostic ways of selecting the nth row from a database table. It would also be interestin
+
+Title: Database, Table and Column Naming Conventions?
+	Id: 7662
+	Rank: 5  -  Distance: 0.98971
+	Tags: database, database-design, language-agnostic, naming-conventions
+	Body: Whenever I design a database, I always wonder if there is a best way of naming an item in my database. Quite often I ask myself the followin
+
+
+
+E========== CLUSTER 31 ==========
+
+B========== CLUSTER 32 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	development
+	server
+	php
+	use
+	good
+	javascript
+	code
+	plugin
+	jquery
+	java
+	android
+	best
+	ide
+	editor
+	eclipse
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.68
+	Min zscore: -3.06
+	n_outliers(|z|>2): 8
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Is there a good JSP editor for Eclipse?
+	Id: 211841
+	Rank: 0  -  Distance: 0.84322
+	Tags: eclipse, jsp, editor, eclipse-plugin
+	Body: I need a nice JSP editor plugin for Eclipse. What are my choices?
+
+Title: What is the best HTML editor for Eclipse?
+	Id: 54868
+	Rank: 1  -  Distance: 0.86047
+	Tags: html, eclipse, editor
+	Body: I was amazed to find out that apparently Eclipse doesn't come with a decent HTML editor by default (it opened my .html file in some kind of 
+
+Title: Best C++ IDE or Editor for Windows
+	Id: 89275
+	Rank: 2  -  Distance: 0.86982
+	Tags: c++, windows, ide, editor
+	Body: What is the best C++ IDE or editor for using on Windows? I use Notepad++, but am missing IntelliSense from Visual Studio.
+
+Title: How do I add FTP support to Eclipse?
+	Id: 95800
+	Rank: 3  -  Distance: 0.87219
+	Tags: eclipse, ftp, eclipse-pdt
+	Body: I'm using Eclipse PHP Development Tools.  What would be the easiest way to access a file or maybe create a remote project trough FTP and may
+
+Title: Best IDE for Ruby on Rails
+	Id: 91445
+	Rank: 4  -  Distance: 0.87290
+	Tags: ruby-on-rails, ide, polls
+	Body: Having moved from Java to Ruby, I am struggling to find a good IDE for Ruby. I used Eclipse on Java, so I tried Aptana Studio (previously Ra
+
+Title: Good JavaScript IDE with jQuery support
+	Id: 209126
+	Rank: 5  -  Distance: 0.87371
+	Tags: javascript, jquery, ide, editor
+	Body: I'm planning to start learning jQuery (among other things), so I'm looking for a good Javascript editor that can preferably provide some of 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Where can I find a good jQuery drop shadow plugin?
+	Id: 165446
+	Rank: 0  -  Distance: 0.98763
+	Tags: javascript, jquery, plugins
+	Body: Does anyone have a good recommendation for a drop shadow jQuery plugin?
+I've been working on a project that had every element on the page wi
+
+Title: Error: Unable to open class file R.java
+	Id: 3796490
+	Rank: 1  -  Distance: 0.98785
+	Tags: java, android, eclipse, r.java-file
+	Body: Did a fresh install of Eclipse, JDK and android-sdk.
+I am currently receiving this error when creating a new project
+
+[2010-09-26 16:07:56 -
+
+Title: Android SDK installation doesn't find JDK
+	Id: 4382178
+	Rank: 2  -  Distance: 0.98792
+	Tags: android, sdk, install, jdk, windows-7-x64
+	Body: I'm trying to install the Android SDK on my Windows 7 x64 System. jdk-6u23-windows-x64.exe is installed, but the Android SDK setup refuses t
+
+Title: How can I get Eclipse to show .* files?
+	Id: 98610
+	Rank: 3  -  Distance: 0.98976
+	Tags: eclipse, file, hidden
+	Body: By default, Eclipse won't show my .htaccess file that I maintain in my project.  It just shows an empty folder in the Package Viewer tree.  
+
+Title: Easy way to build Android UI?
+	Id: 851882
+	Rank: 4  -  Distance: 0.99279
+	Tags: android, gui, user-interface
+	Body: Is there a tool or a website that could help me create a UI for an Android application using drag-and-drop? 
+I found this site but want to k
+
+Title: A sample for jQuery based WYSIWYG Editor demonstrate OOP javascript
+	Id: 85155
+	Rank: 5  -  Distance: 1.00111
+	Tags: javascript, jquery, wysiwyg, rtf, fckeditor
+	Body: Want a WYSIWYG jQuery Editor as an example to illustrate how to use jQuery to built OOP javascript component. 
+P.S.
+It is so good stackoverf
+
+
+
+E========== CLUSTER 32 ==========
+
+B========== CLUSTER 33 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	difference
+	month
+	using
+	javascript
+	days
+	00
+	current
+	convert
+	timestamp
+	sql
+	dates
+	java
+	datetime
+	time
+	date
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.93
+	Min zscore: -3.11
+	n_outliers(|z|>2): 5
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Convert to/from DateTime and Time in Ruby
+	Id: 279769
+	Rank: 0  -  Distance: 0.81347
+	Tags: ruby, datetime, time
+	Body: How do you convert between a DateTime and a Time object in Ruby?
+
+Title: Convert date to datetime in Python
+	Id: 1937622
+	Rank: 1  -  Distance: 0.84488
+	Tags: python, datetime, date
+	Body: Silly question, but is there a built-in method for converting a date to a datetime in Python, ie. getting the datetime for the midnight of t
+
+Title: How to compare just the date part and not the time of two Dates?
+	Id: 618878
+	Rank: 2  -  Distance: 0.85182
+	Tags: vb.net, date, compare
+	Body: I want to compare just the date part (and Not the time) of two VB.NET Date objects.
+Is there a way to do that?
+
+Title: How to handle calendar TimeZones using Java?
+	Id: 230126
+	Rank: 3  -  Distance: 0.85369
+	Tags: java, calendar, timezone
+	Body: I have a Timestamp value that comes from my application. The user can be in any given local TimeZone.
+Since this date is used for a WebServi
+
+Title: How can I parse dates and convert time zones in Perl?
+	Id: 411740
+	Rank: 4  -  Distance: 0.85376
+	Tags: perl, datetime, parsing, date, timezone
+	Body: I've used the localtime function in Perl to get the current date and time but need to parse in existing dates. I have a GMT date in the foll
+
+Title: How can I calculate a time span in Java and format the output?
+	Id: 635935
+	Rank: 5  -  Distance: 0.87088
+	Tags: java, date, time, formatting, output
+	Body: I want to take two times (in seconds since epoch) and show the difference between the two in formats like:
+
+2 minutes 
+1 hour, 15 minutes 
+3
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: iPhone: How to get current milliseconds?
+	Id: 358207
+	Rank: 0  -  Distance: 0.98786
+	Tags: iphone, time
+	Body: What is the best way to get the current system time milliseconds?
+
+Title: Get timer ticks in Python
+	Id: 156330
+	Rank: 1  -  Distance: 0.98964
+	Tags: python, timer, ticks
+	Body: I'm just trying to time a piece of code. The pseudocode looks like:
+start = get_ticks()
+do_long_code()
+print "It took " + (get_ticks() - sta
+
+Title: Java extend enum
+	Id: 1414755
+	Rank: 2  -  Distance: 0.99136
+	Tags: java, enums
+	Body: Is something like this possible in Java. I want to take an existing enum and add more elements to it
+enum A {a,b,c}
+
+enum B extends A {d}
+
+/
+
+Title: C Programming. Calculate Elapsed Time in Milliseconds (UNIX)
+	Id: 1468596
+	Rank: 3  -  Distance: 0.99212
+	Tags: c, unix, time, system, timer
+	Body: I want to calculate the time in milliseconds taken by the execution of some part of my program. I've been looking online, but there's not mu
+
+Title: C++ obtaining milliseconds time on Linux -- clock() doesn't seem to work properly
+	Id: 588307
+	Rank: 4  -  Distance: 0.99553
+	Tags: c++, timer, clock
+	Body: On Windows, clock() returns the time in milliseconds, but on this Linux box I'm working on, it rounds it to the nearest 1000 so the precisio
+
+Title: java.util.Date to XMLGregorianCalendar
+	Id: 835889
+	Rank: 5  -  Distance: 1.00080
+	Tags: java, xml, date
+	Body: Isn't there a convenient way of getting from a java.util.Date to a XMLGregorianCalendar?
+
+
+
+E========== CLUSTER 33 ==========
+
+B========== CLUSTER 34 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	environment
+	module
+	mysql
+	mac os
+	install
+	directory
+	mac
+	file
+	ruby
+	script
+	path
+	shell
+	os
+	bash
+	python
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.60
+	Min zscore: -2.93
+	n_outliers(|z|>2): 15
+
+
+-----Closest 6 questions in cluster-----
+
+Title: git on Mac OS X Lion
+	Id: 6810059
+	Rank: 0  -  Distance: 0.89868
+	Tags: git, osx, osx-lion
+	Body: 
+Possible Duplicate:
+Git not found after installing OS X Lion 
+
+I just upgraded my mac to LION, and now git is gone:
+$ git
+-bash: git: comma
+
+Title: MySQL Install: ERROR: Failed to build gem native extension
+	Id: 2167598
+	Rank: 1  -  Distance: 0.89957
+	Tags: mysql, ruby-on-rails, osx, rubygems
+	Body: I'm trying to get MySQL installed to the latest version due to some installation going wrong somewhere along the line.  I run the command ge
+
+Title: gem install mysql failure in Snow Leopard
+	Id: 1366746
+	Rank: 2  -  Distance: 0.90044
+	Tags: mysql, rubygems, osx-snow-leopard
+	Body: I successfully installed MySql x86_64 in Snow Leopard and Ruby and Ruby Gems seems to be installed properly:
+$ which mysql
+/usr/local/mysql/
+
+Title: What is causing ImportError: No module named pkg_resources after upgrade of Python on os X?
+	Id: 1756721
+	Rank: 3  -  Distance: 0.90116
+	Tags: python, ipython
+	Body: I just updated Python to 2.6.4 on my Mac. 
+I installed from the dmg package.
+The binary did not seem to correctly set my Python path, so I a
+
+Title: How do I use gems with Ubuntu?
+	Id: 909673
+	Rank: 4  -  Distance: 0.90136
+	Tags: ruby-on-rails, ruby, ubuntu, rubygems, capistrano
+	Body: I recently upgraded to Ubuntu 9.04 and I have issues using gems.
+I installed Ruby, Rubygems and Rails using apt-get.
+The rails command does 
+
+Title: sudo changes PATH - why?
+	Id: 257616
+	Rank: 5  -  Distance: 0.90697
+	Tags: linux, ubuntu, sudo
+	Body: This is the PATH variable without sudo:
+$ echo 'echo $PATH' | sh
+
+/opt/local/ruby/bin:/usr/bin:/bin
+
+This is the PATH variable with sudo:
+$e
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Remove a symlink to a directory
+	Id: 210120
+	Rank: 0  -  Distance: 0.99227
+	Tags: linux, file, symlink
+	Body: I have a symlink to an important directory. I want top get rid of that symlink, while keeping the directory behind it.
+I tried 'rm' and get 
+
+Title: Python, Popen and select - waiting for a process to terminate or a timeout
+	Id: 337863
+	Rank: 1  -  Distance: 0.99267
+	Tags: python, select, timeout, subprocess, popen
+	Body: I run a subprocess using:
+  p = subprocess.Popen("subprocess", 
+                       stdout=subprocess.PIPE, 
+                       stder
+
+Title: Looking for a windows equivalent of the unix tail command
+	Id: 187587
+	Rank: 2  -  Distance: 0.99438
+	Tags: windows, tail
+	Body: I'm looking for the equivalent of the unix 'tail' command that will allow me to watch the output of a log file while it is being written to.
+
+Title: Build Error - missing required architecture i386 in file
+	Id: 1456185
+	Rank: 3  -  Distance: 0.99539
+	Tags: iphone, cocoa-touch
+	Body: I'm getting this error when building my iPhone application:
+
+ld: warning: in /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3
+
+Title: How do I specify the exit code of a console application in .net?
+	Id: 155610
+	Rank: 4  -  Distance: 0.99553
+	Tags: c#, .net, exit-code
+	Body: I have a trivial console app in .net.  It's just a test part of a larger application.  I'd like to specify the "exit code" of my console app
+
+Title: Python's print vs stderr
+	Id: 939866
+	Rank: 5  -  Distance: 0.99685
+	Tags: python, printing, stderr
+	Body: Are there any specific advantages or disadvantages to either?
+
+
+
+E========== CLUSTER 34 ==========
+
+B========== CLUSTER 35 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	id
+	text
+	html
+	node
+	xsl
+	using
+	document
+	click
+	div
+	iframe
+	javascript
+	event
+	element
+	function
+	jquery
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.76
+	Min zscore: -3.12
+	n_outliers(|z|>2): 12
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to add click event to a iframe with JQuery
+	Id: 1609741
+	Rank: 0  -  Distance: 0.92683
+	Tags: jquery, iframe, onclick
+	Body: I have an iframe on a page, coming from a 3rd party (an ad). I'd like to fire a click event when that iframe is clicked in (to record some i
+
+Title: jQuery .ready in a dynamically inserted iframe
+	Id: 205087
+	Rank: 1  -  Distance: 0.93060
+	Tags: javascript, jquery, iframe, thickbox, galleria
+	Body: We are using jQuery thickbox to dynamically display an iframe when someone clicks on a picture.  In this iframe, we are using galleria a jav
+
+Title: Insert text into textarea with jQuery
+	Id: 946534
+	Rank: 2  -  Distance: 0.93112
+	Tags: jquery, formatting, textarea
+	Body: I'm wondering how I can insert text into a text area using jquery, upon the click of an anchor tag. 
+I don't want to replace text already in
+
+Title: Jquery animate hide and show
+	Id: 1025074
+	Rank: 3  -  Distance: 0.93456
+	Tags: jquery, onclick, hide, animate, show
+	Body: I would like to have two things happen at once when I click on a link. I am slowly going through Jquery documentation, but have yet to learn
+
+Title: How to call custom jquery function onClick
+	Id: 1421337
+	Rank: 4  -  Distance: 0.93636
+	Tags: javascript, jquery
+	Body: hi i am new to jquery.. i want to know how to call custom jquery function by onClick attribute of html. This was the basic  I was trying.Fur
+
+Title: JavaScript: remove element by id
+	Id: 3387427
+	Rank: 5  -  Distance: 0.93682
+	Tags: javascript, remove
+	Body: When removing an element with standard JavaScript, you must go to it's parent first:
+element = document.getElementById("element-id");
+elemen
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: JQuery - How to add a class to every last list item?
+	Id: 563740
+	Rank: 0  -  Distance: 0.99617
+	Tags: jquery, css, class, each
+	Body: Got some code here that isn't working:
+$("#sidebar ul li:last").each(function(){
+      $(this).addClass("last");
+});
+
+Basically I have 3 lis
+
+Title: How do I add an integer value with javascript (jquery) to a value that's returning a string?
+	Id: 460172
+	Rank: 1  -  Distance: 0.99677
+	Tags: javascript, jquery, casting
+	Body: I have a simple html block like:
+<span id="replies">8</span>
+
+Using jquery I'm trying to add a 1 to the value (8).
+var currentValue = $("#re
+
+Title: How to get xpath from an XmlNode instance. C#
+	Id: 241238
+	Rank: 2  -  Distance: 0.99718
+	Tags: c#, .net, xml, .net-2.0
+	Body: Could someone supply some code that would get the xpath of a System.Xml.XmlNode instance?
+Thanks!
+
+Title: How to remove all event handlers from a control
+	Id: 91778
+	Rank: 3  -  Distance: 0.99769
+	Tags: c#, .net
+	Body: To create a new event handler on a control you can do this
+c.Click += new EventHandler(mainFormButton_Click);
+
+or this
+c.Click += mainFormBu
+
+Title: What is the best JavaScript code to create an img element
+	Id: 226847
+	Rank: 4  -  Distance: 0.99815
+	Tags: javascript, dhtml
+	Body: I want to create a simple bit of JS code that creates an image element in the background and doesn't display anything.  The image element wi
+
+Title: jQuery animate opacity doesn't work properly on IE
+	Id: 1375646
+	Rank: 5  -  Distance: 0.99909
+	Tags: javascript, jquery, internet-explorer, animation
+	Body: I'm trying to use animate() to change the height and opacity of a div. The div has an image background in CSS. It works fine on Firefox and 
+
+
+
+E========== CLUSTER 35 ==========
+
+B========== CLUSTER 36 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	post
+	div
+	object
+	using jquery
+	response
+	net
+	php
+	event
+	array
+	error
+	using
+	data
+	function
+	ajax
+	json
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.79
+	Min zscore: -3.13
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Jquery checking success of ajax post
+	Id: 555315
+	Rank: 0  -  Distance: 0.78761
+	Tags: jquery
+	Body: how do i define the success and failure function of an ajax $.post?
+
+Title: JQuery error option in $.ajax utility
+	Id: 95600
+	Rank: 1  -  Distance: 0.83263
+	Tags: jquery, ajax
+	Body: The documentation indicates that the error: option function will make available: XHR instance, a status message string (in this case always 
+
+Title: JQuery Ajax Post results in 500 Internal Server Error
+	Id: 1349118
+	Rank: 2  -  Distance: 0.83416
+	Tags: javascript, jquery, ajax
+	Body: I am trying to perform this AJAX post but for some reason I am getting a server 500 error. I can see it hit break points in the controller. 
+
+Title: Calling a jQuery function with JavaScript
+	Id: 477191
+	Rank: 3  -  Distance: 0.83745
+	Tags: php, javascript, jquery, ajax
+	Body: Dear all
+      I am using JQuery and javascript, I need to Call the JQuery function inside my Javascript.
+My jQuery:  
+     function display
+
+Title: jQuery.getJSON doesn't trigger callback
+	Id: 572991
+	Rank: 4  -  Distance: 0.83822
+	Tags: jquery, django, getjson, simplejson
+	Body: 
+I have a html code:
+<button>asd</button>
+<script type = "text/javascript">
+$('button').click(
+    function() {
+        $.getJSON('/schedule
+
+Title: How to get jSON response into variable from a jquery script
+	Id: 1261747
+	Rank: 5  -  Distance: 0.84546
+	Tags: jquery, ajax, json
+	Body: I am having trouble with my jquery script below, this is a basic stripped down version and even it will not work,  I have the php file that 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Alternatives to JavaScript eval() for parsing JSON
+	Id: 945015
+	Rank: 0  -  Distance: 0.97965
+	Tags: javascript, jquery, security, json, eval
+	Body: Quick Question. Eval in JavaScript is unsafe is it not? I have a JSON object as a string and I need to turn it into an actual object so I ca
+
+Title: INVALID_STATE_ERR: DOM Exception 11
+	Id: 2357430
+	Rank: 1  -  Distance: 0.98070
+	Tags: javascript, ajax, xmlhttprequest
+	Body: I'm developing a simple auxiliary class to send requests using XmlHttpRequest (code below). But I cant make it work. At google chrome, for e
+
+Title: Jquery Accordion Close then Open
+	Id: 382301
+	Rank: 2  -  Distance: 0.98176
+	Tags: jquery, jquery-plugins, accordion
+	Body: I've set up a number of accordions on a page using the jquery accordion plugin so I can implement expand all and collapse all functionality.
+
+Title: How do I load the contents of a text file into a javascript variable?
+	Id: 196498
+	Rank: 3  -  Distance: 0.98220
+	Tags: javascript
+	Body: I have a text file in the root of my web app http://localhost/foo.txt and I'd like to load it into a variable in javascript.. in groovy I wo
+
+Title: How do jQuery do its cross-domain ajax calls and how can I replicate em with mootools
+	Id: 726704
+	Rank: 4  -  Distance: 0.98623
+	Tags: jquery, mootools, cross-domain
+	Body: in my eternal internal fight on whether to stay with mootools or jump to jQuery I've found on the jQuery documentation something that got my
+
+Title: javascript REST client
+	Id: 921942
+	Rank: 5  -  Distance: 0.99127
+	Tags: javascript, rest
+	Body: is there a javascript library with REST or REST-like (GET, POST, PUT and DELETE over http or https) capabilities? 
+
+
+
+E========== CLUSTER 36 ==========
+
+B========== CLUSTER 37 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	using
+	function
+	id
+	html
+	input type
+	textbox
+	field
+	button
+	value
+	type
+	text
+	jquery
+	file
+	submit
+	form
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.61
+	Min zscore: -3.07
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to implement onchange of <input type="text"> with jQuery?
+	Id: 1443292
+	Rank: 0  -  Distance: 0.87201
+	Tags: jquery, input, onchange
+	Body: <select> has this api, what about <input>?
+
+Title: HTML form with two submit buttons and two "target" attributes
+	Id: 942772
+	Rank: 1  -  Distance: 0.87430
+	Tags: javascript, html, forms, submit
+	Body: Hi I have one html <form>.
+The form has only one action="" attribute.
+However I wish to have 2 different target="" attributes depending on w
+
+Title: jquery disable/enable submit button
+	Id: 1594952
+	Rank: 2  -  Distance: 0.87983
+	Tags: javascript, jquery, forms, disable
+	Body: i have this hmtl:
+<input type="text" name="textField" />
+ <input type="submit" value="send" />
+
+how can i do something like this:
+-when the 
+
+Title: Target an iframe with a HTML Post with jQuery
+	Id: 1003973
+	Rank: 3  -  Distance: 0.88117
+	Tags: javascript, jquery, ajax, iframe
+	Body: If I'm using jQuery or JavaScript to do a post, how can I make it target an iframe rather than the current page?
+jQuery.post( 
+    url, 
+   
+
+Title: Open Fancybox (or equiv) from Form input type="submit"
+	Id: 969522
+	Rank: 4  -  Distance: 0.88340
+	Tags: jquery, forms, submit, fancybox
+	Body: is there a way to get a fancybox (http://fancy.klade.lv/) or any
+other lightbox from submitting a FORM (with an image button)?
+HTML looks li
+
+Title: How to submit a form on page load without clicking submit button?
+	Id: 4734901
+	Rank: 5  -  Distance: 0.88929
+	Tags: php
+	Body: Is there a way to make a form submit "onload" without clicking a
+submit button with PHP? i saw some ways to make it with Javascript, but i l
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: In JavaScript is it possible to launch a file browser dialog programatically?
+	Id: 209509
+	Rank: 0  -  Distance: 0.98962
+	Tags: javascript, html
+	Body: Instead of using the <input type="file"> tag I'd like to have a button that launches a file browser dialog.
+My first thought was to have a h
+
+Title: Check if textbox has empty value
+	Id: 1565193
+	Rank: 1  -  Distance: 0.98990
+	Tags: jquery
+	Body: I have the following code:
+var inp = $("#txt");
+
+if(inp.val() != "")
+// do something
+
+Is there any other way to check for empty textbox usin
+
+Title: jquery $.post empty array
+	Id: 271043
+	Rank: 2  -  Distance: 0.99097
+	Tags: php, jquery, post, .post
+	Body: I'm using jQuery to post a form to a php file, simple script to verify user details.
+var emailval = $("#email").val();
+var invoiceIdval = $(
+
+Title: change html text from link with jquery
+	Id: 901909
+	Rank: 3  -  Distance: 0.99228
+	Tags: javascript, jquery, dom, hyperlink
+	Body: a simple question here
+Is there a way to change the text "click here"
+<a id="a_tbnotesverbergen" href="#nothing">click here</a>
+
+in this lin
+
+Title: How can I set the value of a DropDownList using jQuery?
+	Id: 292615
+	Rank: 4  -  Distance: 0.99331
+	Tags: jquery, drop-down-menu
+	Body: As the question says, how do I set the value of a DropDownList control using jQuery?
+
+Title: Javascript: How to pass a function with string parameters as a parameter to another function
+	Id: 909633
+	Rank: 5  -  Distance: 0.99507
+	Tags: javascript
+	Body: I need to do something like this:
+<input type="button" value="click" id="mybtn" 
+onclick="myfunction('/myController/myAction', 
+            
+
+
+
+E========== CLUSTER 37 ==========
+
+B========== CLUSTER 38 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	use
+	constructor
+	int
+	foo
+	function
+	python
+	variable
+	public
+	java
+	method
+	objective
+	type
+	object
+	static
+	class
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.53
+	Min zscore: -4.22
+	n_outliers(|z|>2): 18
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is a metaclass in Python?
+	Id: 100003
+	Rank: 0  -  Distance: 0.89658
+	Tags: python, oop, metaclass, python-datamodel
+	Body: I've mastered almost all the Python concepts (well, let's say there are just OO concepts :-)) but this one is tricky.
+I know it has somethin
+
+Title: C++: undefined reference to static class member
+	Id: 272900
+	Rank: 1  -  Distance: 0.90871
+	Tags: c++, g++
+	Body: Hey,
+Can anyone explain why following code won't compile? At least on g++ 4.2.4.
+And more interesting, why it will compile when I cast MEMBE
+
+Title: What is the difference between Public, Private, Protected, and Nothing?
+	Id: 614818
+	Rank: 2  -  Distance: 0.91330
+	Tags: c#, .net, asp.net, access-modifiers
+	Body: All my college years I have been using public, and would like to know the difference between public, private, and protected?  Also what does
+
+Title: Objective C Static Class Level variables
+	Id: 1063229
+	Rank: 3  -  Distance: 0.91790
+	Tags: objective-c, variables, static
+	Body: I have a class Film, each of which stores a unique ID. In C#, Java etc I can define a static int currentID and each time i set the ID i can 
+
+Title: Objective-C: Class vs Instance Methods?
+	Id: 1053592
+	Rank: 4  -  Distance: 0.91851
+	Tags: objective-c, methods, static-methods
+	Body: What's the difference between a class method and an instance method?
+Are instance methods the accessors (getters & setters) while class meth
+
+Title: Java - static methods best practices
+	Id: 538870
+	Rank: 5  -  Distance: 0.92248
+	Tags: java, static, methods, static-methods
+	Body: Let's say I have a class designed to be instantiated. I have several private "helper" methods inside the class that do not require access to
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Storing custom objects in an NSMutableArray in NSUserDefaults
+	Id: 537044
+	Rank: 0  -  Distance: 0.99655
+	Tags: cocoa-touch
+	Body: I've recently been trying to store the search results of my iPhone app in the NSUserDefaults collection. I also use this to save user regist
+
+Title: Getters/setters in Java
+	Id: 875033
+	Rank: 1  -  Distance: 0.99701
+	Tags: java, actionscript-3, setter, getter, accessor
+	Body: I'm new to Java, but have some OOP experience with ActionScript 3, so I'm trying to migrate relying on stuff I know.
+In ActionScript 3 you c
+
+Title: How to enumerate an enum?
+	Id: 105372
+	Rank: 2  -  Distance: 0.99709
+	Tags: c#, .net, enums, enumeration
+	Body: How can you enumerate a enum in C#?
+e.g. the following does not compile:
+public enum Suit
+{
+    Spades,
+    Hearts,
+    Clubs,
+    Diamonds
+
+
+Title: Enums in Ruby
+	Id: 75759
+	Rank: 3  -  Distance: 0.99803
+	Tags: ruby, enums
+	Body: What's the best way to implement the enum idiom in Ruby? I'm looking for something which I can use (almost) like the Java/C# enums.
+
+Title: Whats the difference between the 'ref' and 'out' keywords?
+	Id: 388464
+	Rank: 4  -  Distance: 0.99809
+	Tags: c#, keywords, ref, out
+	Body: I'm creating a function where I need to pass an object so that it can be modified by the function. What is the difference between:
+public vo
+
+Title: How to send and receive message through NSNotificationCenter in Objective-C?
+	Id: 2191594
+	Rank: 5  -  Distance: 0.99868
+	Tags: iphone, objective-c, nsnotificationcenter
+	Body: Hi 
+I need a simple example program to send and receive a message through NSNotificationCenter in Objective-C ???
+
+
+
+E========== CLUSTER 38 ==========
+
+B========== CLUSTER 39 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	divs
+	left
+	position
+	span
+	div div
+	element
+	li
+	using
+	id
+	image
+	text
+	jquery
+	width
+	css
+	height
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.66
+	Min zscore: -3.84
+	n_outliers(|z|>2): 7
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to center DIV in DIV?
+	Id: 114543
+	Rank: 0  -  Distance: 0.81889
+	Tags: html, css
+	Body: I'd like to ask you if anyone know how to horizontally center DIV in DIV with CSS ( if it's possible at all ). Outer DIV has 100%:
+<div id="
+
+Title: make div's height expand with its content
+	Id: 1709442
+	Rank: 1  -  Distance: 0.85432
+	Tags: css, height
+	Body: I have these nested Divs and I need the main container to expand (in height) to accomodate the DIVs inside
+    <!-- head -->
+    ...
+    <!-
+
+Title: How to resize a container div to the total height of its children?
+	Id: 317472
+	Rank: 2  -  Distance: 0.85875
+	Tags: javascript, jquery, dom
+	Body: I have a container element which I need to resize as its contents change. It contains 2 absolutely positioned divs which can both change hei
+
+Title: How to align 3 divs (left/center/right) inside another div?
+	Id: 2603700
+	Rank: 3  -  Distance: 0.85897
+	Tags: css, alignment
+	Body: I want to have 3 divs aligned inside a container div, something like this:
+[[LEFT]       [CENTER]        [RIGHT]]
+
+Container div is 100% wid
+
+Title: Split Div Into 2 Columns Using CSS
+	Id: 1964297
+	Rank: 4  -  Distance: 0.86323
+	Tags: html, css, div, columns, css-float
+	Body: I have been attempting to split a div into two columns using CSS, but I have not managed to get it working yet.  My basic structure is as fo
+
+Title: CSS: fixed to bottom and centered
+	Id: 971123
+	Rank: 5  -  Distance: 0.87873
+	Tags: css, positioning, sticky-footer
+	Body: I need my footer to be fixed to the bottom of the page and to center it. The contents of the footer may change at all time so I can't just c
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: jQuery - slide right to left?
+	Id: 596608
+	Rank: 0  -  Distance: 0.99200
+	Tags: jquery, css
+	Body: I would like to have a div go from collapsed to expanded (and vice versa), but do so from right to left. Most everything I see out there is 
+
+Title: How to center text over an image in a table using javascript, css, and/or html?
+	Id: 90579
+	Rank: 1  -  Distance: 0.99281
+	Tags: javascript, html, css
+	Body: How to center text over an image in a table cell using javascript, css, and/or html?
+I have an HTML table containing images - all the same s
+
+Title: Html.ActionLink as a button or an image, not a link
+	Id: 596444
+	Rank: 2  -  Distance: 0.99336
+	Tags: asp.net-mvc, actionlink
+	Body: In the latest (RC1) release of ASP.NET MVC, how do I get Html.ActionLink to render as a button or an image instead of a link?
+
+Title: Using JQuery hover with HTML image map
+	Id: 745110
+	Rank: 3  -  Distance: 0.99706
+	Tags: javascript, jquery, hover, imagemap
+	Body: I have a complicated background image with a lot of small regions that need rollover illustration highlights, along with additional text dis
+
+Title: When I make a draggable clone and drop it in a droppable I cannot drag it again
+	Id: 867469
+	Rank: 4  -  Distance: 0.99924
+	Tags: jquery, drag-and-drop, clone, jquery-ui-draggable, jquery-ui-droppable
+	Body: When I make a draggable clone and drop it in a droppable I cannot drag it again. How do I do that? Secondly I can only figure out how to us 
+
+Title: How do I get the coordinate position after using jQuery drag and drop?
+	Id: 849030
+	Rank: 5  -  Distance: 1.00044
+	Tags: jquery, drag-and-drop, save, position
+	Body: How do I get the coordinate position after using jQuery drag and drop?  I want to save the coordinate to a database, so that next time I vis
+
+
+
+E========== CLUSTER 39 ==========
+
+B========== CLUSTER 40 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	android
+	key
+	valid
+	file
+	application
+	build
+	error
+	keystore
+	xcode
+	profile
+	app
+	provisioning
+	ssl
+	certificate
+	iphone
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.63
+	Min zscore: -3.01
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: XCode could not find a valid private certificate/valid key-pair for this profile in your keychain
+	Id: 5525436
+	Rank: 0  -  Distance: 0.70401
+	Tags: iphone, objective-c, cocoa-touch, xcode, provisioning
+	Body: I'm having a problem installing a provisioning profile created by another developer.
+
+Development Certificate already exists
+App I'm working
+
+Title: How to create a private key for iPhone Distribution Certificate?
+	Id: 688809
+	Rank: 1  -  Distance: 0.72490
+	Tags: iphone, certificate, distribution, privatekey
+	Body: In iPhone Developer Program Portal, there's a video to demonstrate how to create a development certificate and assign a private key 
+Now I h
+
+Title: Xcode - iPhone - profile doesn't match any valid certificate-/private-key pair in the default keychain
+	Id: 5391786
+	Rank: 2  -  Distance: 0.78654
+	Tags: iphone, xcode, certificate, device, provisioning
+	Body: I tried to add my iPhone to Xcode4 to test my Application on it. I added the device in the Apple Developer-Center and downloaded the Provisi
+
+Title: How do you beta test an iphone app?
+	Id: 40154
+	Rank: 3  -  Distance: 0.79730
+	Tags: iphone, ios, beta
+	Body: How can you beta test an iPhone app?  I can get it on my own device, and anyone that gives me a device, I can run it on theirs, but is there
+
+Title: Getting "A valid signing identity matching this profile could not be found in your keychain" warning
+	Id: 2714517
+	Rank: 4  -  Distance: 0.80858
+	Tags: iphone, xcode, keychain
+	Body: I hope to test my app on iPod Touch
+I created development provisioning profile.
+I dragged downloaded .mobileprovision file to Organizer
+Ther
+
+Title: Code Sign error: The identity 'iPhone Developer' doesn't match any valid certificate/private key pair in the default keychain
+	Id: 2108503
+	Rank: 5  -  Distance: 0.81653
+	Tags: iphone
+	Body: Code Sign error: The identity 'iPhone Developer' doesn't match any valid certificate/private key pair in the default keychain
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Xcode 4: create IPA file instead of .xcarchive
+	Id: 5265292
+	Rank: 0  -  Distance: 0.96724
+	Tags: iphone, xcode, xcode4
+	Body: In Xcode 3.2.5 I use "Build And Archive" to create an IPA file. In Xcode 4 you can use "Product -> Archive" to archive an application in an 
+
+Title: How can I build for release/distribution on the Xcode 4?
+	Id: 5287213
+	Rank: 1  -  Distance: 0.96786
+	Tags: xcode4
+	Body: Build for debug is just press on the PLAY symbol, but I don't know how to Build for distribution/release? thank you in advance :)
+
+Title: How to sign an android apk file
+	Id: 4853011
+	Rank: 2  -  Distance: 0.97364
+	Tags: android, apk, signing
+	Body: I am trying to sign my apk file. I can't figure out how to do it. I can't find good in-depth directions. I have very little programing exper
+
+Title: iOS 4: wireless app distribution for in-house applications 
+	Id: 3098290
+	Rank: 3  -  Distance: 0.98403
+	Tags: iphone, ios4, wireless, software-distribution
+	Body: According to the apple website iOS 4 should support wireless app distribution. I have been unable to find any documentation at all on how to
+
+Title: Archives not showing up in Organizer for XCode 4
+	Id: 5265772
+	Rank: 4  -  Distance: 0.98726
+	Tags: xcode, ios, xcode4
+	Body: I'm trying to create an IPA in XCode 4, much like the person who asked this question:
+Xcode 4: create IPA file instead of .xcarchive
+So--I g
+
+Title: Can Android do peer-to-peer ad-hoc networking?
+	Id: 1932150
+	Rank: 5  -  Distance: 0.99125
+	Tags: android, networking, wifi, p2p, adhoc
+	Body: Is it possible to set up Android in ad-hoc peer-to-peer wifi mode?  For example, I would like to have one phone broadcast a message, and hav
+
+
+
+E========== CLUSTER 40 ==========
+
+B========== CLUSTER 41 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	add
+	windows
+	debug
+	code
+	express
+	visual studio 2008
+	files
+	studio 2008
+	net
+	2008
+	build
+	project
+	visual studio 2010
+	studio 2010
+	2010
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.48
+	Min zscore: -2.41
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How can I build in release in Visual Studio 2010 (C# Express)?
+	Id: 2650113
+	Rank: 0  -  Distance: 0.68532
+	Tags: visual-studio-2010, build, release
+	Body: I'm used to VS2008, in which a release build would be built upon pressing F6, or in the menu Build > Build Solution.
+The build menu is gone,
+
+Title: Change default browser in Visual Studio 2010 RC
+	Id: 2443749
+	Rank: 1  -  Distance: 0.70525
+	Tags: asp.net-mvc-2, webbrowser, visual-studio-2010-rc
+	Body: In Visual Studio 2010 (RC) there is no longer a "browse with" context menu when right clicking .aspx pages. How can you change the default b
+
+Title: Will Visual Studio 2010 support HTML 5?
+	Id: 1682180
+	Rank: 2  -  Distance: 0.71623
+	Tags: visual-studio-2010, templates, html5
+	Body: Since Visual Studio 2010 is slated for release in March of 2010 and HTML 5 is now starting to be used even more widely, I would like to know
+
+Title: How do I connect to MySQL 5.1 in Visual Studio 2010?
+	Id: 901049
+	Rank: 3  -  Distance: 0.72214
+	Tags: mysql, visual-studio-2010
+	Body: Does any one know how to connect to MySQL 5.1 with Visual Studio 2010? 
+I have already tried the MySQL Connector/ODBC route and it got me re
+
+Title: NUnit isn't running Visual Studio 2010 code
+	Id: 930438
+	Rank: 4  -  Distance: 0.73365
+	Tags: visual-studio-2010, nunit, debugging
+	Body: I'm trying to load a Visual Studio 2010 beta dll into the NUnit GUI.  I get a popup error.
+
+This assembly is built by a runtime newer than t
+
+Title: Native php support in Visual Studio 2010?
+	Id: 1911254
+	Rank: 5  -  Distance: 0.73533
+	Tags: php, visual-studio-2010
+	Body: Is there any truth to the rumor that Visual Studio 2010 will natively support PHP coding? 
+(http://www.codeplex.com/php4vs)
+If not,what are 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to "Add Existing Item" an entire directory structure in Visual Studio?
+	Id: 57776
+	Rank: 0  -  Distance: 0.97896
+	Tags: visual-studio, ide
+	Body: I feel ridiculous for asking this because it seems like it should be so simple, however I have been unable to discover an answer to this que
+
+Title: Visual Studio on a Mac
+	Id: 413820
+	Rank: 1  -  Distance: 0.98257
+	Tags: c#, .net, visual-studio, osx
+	Body: My job is currently based on Visual Studio (ASP.NET).
+Looking for experiences using Visual Studio on a Mac.
+Does it work?
+
+Title: MySQL for Python in Windows
+	Id: 645943
+	Rank: 2  -  Distance: 0.98324
+	Tags: python, mysql, windows, python-2.6
+	Body: I am finding it difficult to use MySQL with Python in my windows system.
+I am currently using Python 2.6. I have tried to compile MySQL-pyth
+
+Title: Has anyone managed to get Visual Studio 2003 running on Windows 7?
+	Id: 879082
+	Rank: 3  -  Distance: 0.98462
+	Tags: visual-studio, windows-7, visual-studio-2003
+	Body: Yes, I know... I could set up a virtual machine running XP.  Unfortunately our build environment is such that we need to be running VC2003, 
+
+Title: Visual C++: How to disable specific linker warnings?
+	Id: 661606
+	Rank: 4  -  Distance: 0.98856
+	Tags: visual-studio, visual-c++, linker, warnings, cgal
+	Body: I'm using a library from CGAL which during the linking stage of my code compilation produces a lot of linking warnings of this form:
+warning
+
+Title: The imported project "C:\Microsoft.CSharp.targets" was not found
+	Id: 5694
+	Rank: 5  -  Distance: 0.99165
+	Tags: c#, visual-studio
+	Body: I got this error today when trying to open a Visual Studio 2008 project in Visual Studio 2005:
+The imported project "C:\Microsoft.CSharp.tar
+
+
+
+E========== CLUSTER 41 ==========
+
+B========== CLUSTER 42 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	activities
+	button
+	finish
+	url
+	exit
+	class
+	send
+	activity android
+	email
+	data
+	file
+	app
+	service
+	application
+	activity
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.56
+	Min zscore: -1.67
+	n_outliers(|z|>2): 0
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I restart an Android Activity
+	Id: 1397361
+	Rank: 0  -  Distance: 0.53731
+	Tags: android, android-activity
+	Body: How do I restart an Android Activity?  I tried the following, but the activity simply quits.
+public static void restartActivity(Activity act
+
+Title: How do I pass data between activities in Android?
+	Id: 2091465
+	Rank: 1  -  Distance: 0.54920
+	Tags: android
+	Body: I have a scenario where after logging in through a login page, there will be sign out button on each activity.
+On clicking signout, I will b
+
+Title: android start activity from service
+	Id: 3606596
+	Rank: 2  -  Distance: 0.54980
+	Tags: android, service, activity
+	Body: Android: 
+public class LocationService extends Service {
+
+@Override
+    public void onStart(Intent intent, int startId) {
+        super.onSt
+
+Title: How can I start an Activity from a non-Activity class?
+	Id: 4298225
+	Rank: 3  -  Distance: 0.55300
+	Tags: android, activity, android-intent
+	Body: I have a map view activity that shows a few OverlayItems. In the onTap method of an overlay, I want to trigger a new activity that shows thi
+
+Title: How to add calendar events in Android?
+	Id: 3721963
+	Rank: 4  -  Distance: 0.57391
+	Tags: android, calendar
+	Body: I'm just getting up to speed on Android, and today in a project meeting someone said that Android has no native calendar app so users just u
+
+Title: android - exit application code
+	Id: 3226495
+	Rank: 5  -  Distance: 0.59817
+	Tags: android, exit, back-button
+	Body: I have an application where on the home page I have buttons for navigation through the application.
+On that page I have a button "EXIT" whic
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Send SMS in android
+	Id: 4967448
+	Rank: 0  -  Distance: 0.93674
+	Tags: android, sms
+	Body: I want to send sms.
+What is the intent for SMS sending...or any other code?
+I want to show compose sms view with my pre-define text passing 
+
+Title: Android ACTION_IMAGE_CAPTURE Intent
+	Id: 1910608
+	Rank: 1  -  Distance: 0.94836
+	Tags: android, output, camera, return-value, android-intent
+	Body: We are trying to use the native camera app to let the user take a new picture. It works just fine if we leave out the EXTRA_OUTPUT extra and
+
+Title: Access pictures from Pictures app in my android app
+	Id: 550905
+	Rank: 2  -  Distance: 0.96051
+	Tags: android
+	Body: Just like the iPhone has a UIImagePickerController to let the user access pictures stored on the device, do we have a similar control in the
+
+Title: How to have Android Service communicate with Activity
+	Id: 2463175
+	Rank: 3  -  Distance: 0.97206
+	Tags: android
+	Body: I'm writing my first Android application and trying to get my head around communication between services and activities. I have a Service th
+
+Title: android app with service only
+	Id: 990217
+	Rank: 4  -  Distance: 0.97837
+	Tags: android, service
+	Body: I am creating a application whose only component is a service which keeps on running in background (basically a proxy server) but I am not a
+
+Title: How to provide animation when calling another activity in Android?
+	Id: 2651360
+	Rank: 5  -  Distance: 0.99096
+	Tags: android, animation, android-activity
+	Body: I have two Activities A and B. I want to have the shrink Animation when 
+Activity A calls B and maximize animation when Activity B calls A. 
+
+
+
+E========== CLUSTER 42 ==========
+
+B========== CLUSTER 43 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	file
+	html
+	characters
+	use
+	address
+	expressions
+	regular expression
+	replace
+	search
+	email
+	match
+	regex
+	string
+	regular
+	expression
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.43
+	Min zscore: -2.90
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to do a regular expression replace in MySQL?
+	Id: 986826
+	Rank: 0  -  Distance: 0.70575
+	Tags: mysql, regex
+	Body: I have a table with ~500k rows; varchar(255) UTF8 column filename contains a file name;
+I'm trying to strip out various strange characters o
+
+Title: How do you pass a variable to a Regular Expression JavaScript?
+	Id: 494035
+	Rank: 1  -  Distance: 0.74446
+	Tags: javascript, regex
+	Body: I'd like to create a String.replaceAll() method in JavaScript and I'm thinking that using a RegEx would be most terse way to do it.  However
+
+Title: ASP.NET Regular Expression Validator (Password Strength)
+	Id: 198974
+	Rank: 2  -  Distance: 0.77780
+	Tags: javascript, asp.net, regex, validation
+	Body: I have a validation control that has the following expression:
+(?=(.*\\d.*){2,})(?=(.*\\w.*){2,})(?=(.*\\W.*){1,}).{8,}
+
+That's a password w
+
+Title: Validating file types by regular expression
+	Id: 374930
+	Rank: 3  -  Distance: 0.77827
+	Tags: c#, .net, regex
+	Body: I have a .NET webform that has a file upload control that is tied to a regular expression validator. This validator needs to validate that o
+
+Title: Using a regular expression to validate an email address
+	Id: 201323
+	Rank: 4  -  Distance: 0.78288
+	Tags: regex, validation, email
+	Body: Over the years I have slowly developed a regular expression that validates MOST email addresses correctly, assuming they don't use an IP add
+
+Title: How do I match any character across multiple lines in a regular expression?
+	Id: 159118
+	Rank: 5  -  Distance: 0.78407
+	Tags: regex
+	Body: For example, this regex
+(.*)<FooBar>
+
+will match:
+abcde<FooBar>
+
+But how do I get it to match across multiple lines?
+abcde
+fghij<FooBar>
+
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: What are good grep tool for Windows?
+	Id: 87350
+	Rank: 0  -  Distance: 0.98288
+	Tags: windows, grep
+	Body: Any recommendations on grep tools for Windows? Ideally ones that could leverage 64-bit OS.
+I'm aware of cygwin, of course, and have also fou
+
+Title: C# Lambda expression, why should I use this?
+	Id: 167343
+	Rank: 1  -  Distance: 0.98366
+	Tags: c#, c#-3.0, lambda
+	Body: I have quickly read the Microsoft Lambda Expression documentation.
+I see example that have help me to understand more like this one :
+delega
+
+Title: null check in jsf expression language
+	Id: 2207266
+	Rank: 2  -  Distance: 0.98790
+	Tags: java, jsf, el
+	Body: Please see this Expression Language
+styleClass="#{obj.validationErrorMap eq null ? ' ' :  
+     obj.validationErrorMap.contains('key')?'high
+
+Title: What is the best Java email address validation method?
+	Id: 624581
+	Rank: 3  -  Distance: 0.98899
+	Tags: java, validation, email
+	Body: What are the good email address validation libraries for Java?  Are there any alternatives to commons validator?
+
+Title: RegEx matching HTML tags and extracting text
+	Id: 299942
+	Rank: 4  -  Distance: 0.98979
+	Tags: c#, regex
+	Body: I have a string of test like this:
+<customtag>hey</customtag>
+
+I want to use a RegEx to modify the text between the "customtag" tags so that
+
+Title: jQuery .search() to any string
+	Id: 1854493
+	Rank: 5  -  Distance: 0.99559
+	Tags: javascript, jquery, string
+	Body: I saw this code snippet:
+$("ul li").text().search(new RegExp("sometext", "i"));
+
+and wanted to know if this can be extended to any string?
+I
+
+
+
+E========== CLUSTER 43 ==========
+
+B========== CLUSTER 44 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	fill_parent
+	view
+	background
+	xml
+	layout
+	wrap_content
+	item
+	text
+	textview
+	color
+	listview
+	button
+	drawable
+	image
+	id
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.87
+	Min zscore: -2.41
+	n_outliers(|z|>2): 2
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to align views at the bottom of the screen?
+	Id: 2386866
+	Rank: 0  -  Distance: 0.57745
+	Tags: android, xml, gui, android-layout
+	Body: Here's my layout code;
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    a
+
+Title: Overlapping Views in Android
+	Id: 961944
+	Rank: 1  -  Distance: 0.61639
+	Tags: java, android, google, view
+	Body: Is it possible to have overlapping views in Android? I would like to have an ImageView with a transparent png in the front and another view 
+
+Title: Android selector & text color
+	Id: 1219312
+	Rank: 2  -  Distance: 0.62634
+	Tags: android, selector
+	Body: I want a simple TextView to behave the way simple_list_item_1 in a ListView does. Here's the XML:
+<TextView xmlns:android="http://schemas.an
+
+Title: Android TextView Text not getting wrapped
+	Id: 2197744
+	Rank: 3  -  Distance: 0.62828
+	Tags: android, wrap, textview
+	Body: Can any one tell me whats going wrong with the text, text exceeds then one line not getting wrap to next line going beyond the screen.
+
+Foll
+
+Title: Centre a button in a Linear layout
+	Id: 1957831
+	Rank: 4  -  Distance: 0.63396
+	Tags: xml, android, layout
+	Body: I am using a linear layout to display a pretty light initial screen.  It has 1 button that is supposed to centre in the screen both horizont
+
+Title: Android layout issue - relative widths in percent using weight
+	Id: 2914741
+	Rank: 5  -  Distance: 0.63483
+	Tags: android, layout
+	Body: I am trying to assign relative widths to columns in a ListView that is in a TabHost, using layout_weight as suggested here:
+<?xml version="1
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: java.lang.OutOfMemoryError: bitmap size exceeds VM budget - Android
+	Id: 1949066
+	Rank: 0  -  Distance: 0.97071
+	Tags: android, memory, memory-leaks, leak
+	Body: I developed an application that uses lots of images on Android.
+The app runs once, fills the information on the screen (Layouts, Listviews, 
+
+Title: How do I add a newline to a TextView in Android?
+	Id: 2840608
+	Rank: 1  -  Distance: 0.97322
+	Tags: android, newline, textview
+	Body: When I define in a TextView in XML, how do I add new line to it? \n seams to not work.
+<TextView
+   android:id="@+id/txtTitlevalue"
+   andro
+
+Title: Android layout - alignment issue with ImageView
+	Id: 655994
+	Rank: 2  -  Distance: 0.97598
+	Tags: android, layout
+	Body: I'm trying to put an image at the top left of a LinearLayout, but with the image border and padding taking up the whole of the width of the 
+
+Title: ImageButton in Android
+	Id: 3318629
+	Rank: 3  -  Distance: 0.98399
+	Tags: android, imagebutton
+	Body: Can anybody tell me how to resize the imageButton to fit the image exactly..This is the code that i tried, but the image is placed at the po
+
+Title: How to click or tap on a TextView text
+	Id: 3328757
+	Rank: 4  -  Distance: 0.98449
+	Tags: android, onclick, listener, textview
+	Body: I know this is so easy (doh...) but I am looking for a way to run a method on tapping or clicking a TextView line of text in an Android App.
+
+Title: How to inflate one view with an layout
+	Id: 2335813
+	Rank: 5  -  Distance: 0.99776
+	Tags: android
+	Body: I have a layout defined in XML. It contains also: 
+<RelativeLayout
+    android:id="@+id/item"
+    android:layout_width="fill_parent"
+    and
+
+
+
+E========== CLUSTER 44 ==========
+
+B========== CLUSTER 45 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	new
+	map
+	way
+	python
+	sort
+	arraylist
+	value
+	dictionary
+	javascript
+	java
+	object
+	key
+	string
+	array
+	list
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.83
+	Min zscore: -3.41
+	n_outliers(|z|>2): 13
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I clone a generic list in C#?
+	Id: 222598
+	Rank: 0  -  Distance: 0.90953
+	Tags: c#, generics, list, clone
+	Body: I have a generic list of objects in C#, and wish to clone the list. The items within the list are cloneable, but there doesn't seem to be an
+
+Title: PHP: Get key from array?
+	Id: 3317856
+	Rank: 1  -  Distance: 0.91840
+	Tags: php, arrays, multidimensional-array, key
+	Body: I am sure that this is super easy and built-in function in PHP, but I have yet not seen it.
+Here's what I am doing for the moment:
+forEach($
+
+Title: How to update C# hashtable in a loop?
+	Id: 326757
+	Rank: 2  -  Distance: 0.92252
+	Tags: c#, data-structures, loops, hashtable
+	Body: I'm trying to update a hashtable in a loop but getting an error: System.InvalidOperationException: Collection was modified; enumeration oper
+
+Title: How do I remove objects from an Array in java?
+	Id: 112503
+	Rank: 3  -  Distance: 0.92255
+	Tags: java, arrays, data-structures, data-manipulation
+	Body: Given an Array of n Objects, let's say is an Array of Strings, and it has the following values:  
+foo[0]="a";
+foo[1]="cc";
+foo[2]="a";
+foo[3
+
+Title: How to set array length in c# dynamically
+	Id: 683073
+	Rank: 4  -  Distance: 0.92258
+	Tags: c#, arrays, object, array-initialize
+	Body: I am still new to C# and I've been struggling with various issues on arrays. I've got an array of metadata objects (name value pairs) and I 
+
+Title: Convert Collection to List
+	Id: 580160
+	Rank: 5  -  Distance: 0.92333
+	Tags: java, list, map, sorting, collections
+	Body: I am using TreeBidiMap from the apache collections library. I want to sort this on the values which are doubles.
+My method is to retrieve a 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Convert a Python list with strings all to lowercase or uppercase
+	Id: 1801668
+	Rank: 0  -  Distance: 0.99483
+	Tags: python, list
+	Body: I have a python list variable that contains strings.  Is there a python function that can convert all the strings in one pass to lowercase a
+
+Title: What is the most efficient way to create HTML elements using jQuery?
+	Id: 327047
+	Rank: 1  -  Distance: 0.99595
+	Tags: javascript, jquery, html, dom
+	Body: Recently I've been doing a lot of modal window pop ups and what not, for which I used jQuery. The method that I used to create the new eleme
+
+Title: How to read data structure from .plist file into NSArray
+	Id: 749504
+	Rank: 2  -  Distance: 0.99630
+	Tags: iphone, objective-c, cocoa-touch
+	Body: I was creating a data structure manually using the following:
+NSDictionary* league1 = [[NSDictionary alloc] initWithObjectsAndKeys: @"Barcla
+
+Title: What is the difference between a deep copy and a shallow copy?
+	Id: 184710
+	Rank: 3  -  Distance: 0.99767
+	Tags: language-agnostic, copy
+	Body: What is the difference between a deep copy and a shallow copy?
+
+Title: How to get the last value of Arraylist
+	Id: 687833
+	Rank: 4  -  Distance: 0.99915
+	Tags: java, arraylist
+	Body: How can I get the last value of arrayList (e.g. I dont know the last index of the ArrayList)?
+Thanks.
+
+Title: Python: check if an object is a list or tuple (but not string)
+	Id: 1835018
+	Rank: 5  -  Distance: 0.99994
+	Tags: python, list, types, assert
+	Body: This is what I normally do in order to ascertain that the input is a list/tuple - but not a str. Because many times I stumbled upon bugs whe
+
+
+
+E========== CLUSTER 45 ==========
+
+B========== CLUSTER 46 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	uiimage
+	uibarbuttonitem
+	frame
+	text
+	size
+	bar
+	uilabel
+	navigation
+	uiview
+	iphone
+	self
+	uibutton
+	image
+	view
+	button
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.56
+	Min zscore: -2.77
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: UIBarButtonItem with custom image and no border
+	Id: 2681321
+	Rank: 0  -  Distance: 0.80111
+	Tags: iphone, uibarbuttonitem
+	Body: I want to create a UIBarButtonItem with a custom image, but I don't want the border that iPhone adds, as my Image has a special border.
+It's
+
+Title: Adding a UILabel to a UIToolbar
+	Id: 333441
+	Rank: 1  -  Distance: 0.81209
+	Tags: iphone, cocoa-touch, ios
+	Body: I'm trying to add a label to my toolbar. Button works great, however when I add the label object, it crashes. Any ideas?
+UIBarButtonItem *se
+
+Title: Add UIPickerView & a Button in Action sheet - How?
+	Id: 1262574
+	Rank: 2  -  Distance: 0.82999
+	Tags: iphone, uipickerview
+	Body: Heading
+My application requires following things to be added in action sheet.
+=>A UIToolbar
+=>A Button on UIToolbar
+=>A UIPicker Control
+i h
+
+Title: How to create backBarButtomItem with custom view for a UINavigationController
+	Id: 526520
+	Rank: 3  -  Distance: 0.83489
+	Tags: cocoa-touch
+	Body: I have a UINavigationController into which I push several views. Inside viewDidLoad for one of these views I want to set the self.navigation
+
+Title: Custom UIButton for Iphone
+	Id: 1663002
+	Rank: 4  -  Distance: 0.83599
+	Tags: iphone, uibutton
+	Body: I have an view in my App which has a number of buttons based on the number of items returned by the server. So if the server returns say 10 
+
+Title: Background image for navigation view
+	Id: 979750
+	Rank: 5  -  Distance: 0.83772
+	Tags: iphone, uinavigationbar
+	Body: I am having problems with properly displaying background image of navigation view. 
+Here is the pic:
+
+Here is the code:
+- (id)initWithStyle:
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How programatically move a UIScrollView to focus in a control above keyboard
+	Id: 484855
+	Rank: 0  -  Distance: 0.98097
+	Tags: objective-c, iphone, user-interface
+	Body: I have 6 UITextFields on my UIScrollView. Now, I can scroll by user request. But when the keyboard appear, some textfields are hidden. 
+That
+
+Title: is it possible to update UIButton title/text programmatically?
+	Id: 1033763
+	Rank: 1  -  Distance: 0.98172
+	Tags: iphone, uibutton
+	Body: I have a UIButton, that when pressed, brings up a new view where the user can change some settings.  When the view is dismissed, I'd like to
+
+Title: Adjust UILabel height depending on the text
+	Id: 446405
+	Rank: 2  -  Distance: 0.98446
+	Tags: cocoa-touch
+	Body: Consider I have the following text in a UILabel (a long line of dynamic text):
+
+Since the alien army vastly outnumbers the team, players mus
+
+Title: UIKeyboardBoundsUserInfoKey is deprecated, what to use instead?
+	Id: 2807339
+	Rank: 3  -  Distance: 0.98509
+	Tags: iphone, objective-c, iphone-sdk-3.2, uikeyboard
+	Body: I'm working on an iPad app using 3.2 sdk. I'm dealing with obtaining the keyboard size to prevent my textfields from hidding behind it. 
+I'm
+
+Title: Determine UIInterfaceOrientation on iPad
+	Id: 2614274
+	Rank: 4  -  Distance: 0.98918
+	Tags: iphone, ipad, orientation
+	Body: I don't need to specify the orientation in this case, I just need to detect it, but I'm having trouble.  I have conditional code that should
+
+Title: Set UIButton title label font size programmatically
+	Id: 1465305
+	Rank: 5  -  Distance: 0.99051
+	Tags: objective-c, cocoa-touch, ios, uibutton, fontsize
+	Body: I need to set the font size of the title label of a UIButton programmatically.
+
+
+
+E========== CLUSTER 46 ==========
+
+B========== CLUSTER 47 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	tab
+	button
+	box
+	ui dialog
+	javascript
+	page
+	url
+	new
+	location
+	ui
+	open
+	close
+	jquery
+	window
+	dialog
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.54
+	Min zscore: -3.33
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to close current tab in a browser window?
+	Id: 2076299
+	Rank: 0  -  Distance: 0.83524
+	Tags: javascript, html, hyperlink, close
+	Body: I want to create a link on a webpage that would close current active tab in a browser without closing other tabs in the browser. When user c
+
+Title: jQuery UI Dialog Box - Close Function
+	Id: 366854
+	Rank: 1  -  Distance: 0.86847
+	Tags: javascript, jquery, jquery-ui
+	Body: I have a problem with the jquery-ui dialog box. The problem is that when I close the dialog box and then I click on the link that triggers i
+
+Title: Javascript: location.href to open in new window/tab?
+	Id: 5141910
+	Rank: 2  -  Distance: 0.86991
+	Tags: javascript
+	Body: I have a JS file from a third party develop. It has a has link which replaces the current page with the target. I want to have this page ope
+
+Title: How to hide address bar in Firefox using javascript window.open
+	Id: 5664992
+	Rank: 3  -  Distance: 0.88090
+	Tags: javascript, firefox, addressbar
+	Body: I want to disable the address bar in Firefox using javascript window.open. Also the script should work in IE, Safari and chrome. Any suggest
+
+Title: jQuery: Open link in new window
+	Id: 2827637
+	Rank: 4  -  Distance: 0.88138
+	Tags: jquery
+	Body: I have a click handler for a specific link, inside that I want to do something similar to the following:
+window.location = url
+
+I need this 
+
+Title: Open new popup window without address bars in firefox & IE
+	Id: 2909645
+	Rank: 5  -  Distance: 0.88200
+	Tags: firefox, addressbar
+	Body: hope someone can help. just cannot get a new window to open in Firefox  without  address bars. IE works fine with below code 
+window.open('/
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: android webview click opens default browser
+	Id: 2378800
+	Rank: 0  -  Distance: 0.98509
+	Tags: android, url, webview
+	Body: I have a simple problem, I have loaded an external url in my webview. Now what I need is that when the user clicks on the links on the page 
+
+Title: Java - How to create a custom dialog box?
+	Id: 789517
+	Rank: 1  -  Distance: 0.98545
+	Tags: java, swing, jframe, jdialog, joptionpane
+	Body: I have a button on a JFrame that when clicked I want a dialog box to popup with multiple text areas for user input.  I have been looking all
+
+Title: Attach a body onload event with JS
+	Id: 1235985
+	Rank: 2  -  Distance: 0.98701
+	Tags: javascript, html, events, onload
+	Body: How do I attach a body onload event with JS in a cross browser way? As simple as this?
+  document.body.onload = function(){
+      alert("LOA
+
+Title: How do I add an additional window.onload event in Javascript
+	Id: 9434
+	Rank: 3  -  Distance: 0.98883
+	Tags: c#, asp.net, javascript
+	Body: In my asp.net User Control I'm adding some script to the window.onload event like so:
+if (!Page.ClientScript.IsStartupScriptRegistered(this.
+
+Title: Vertical Tabs with JQuery?
+	Id: 773074
+	Rank: 4  -  Distance: 0.98904
+	Tags: jquery-ui
+	Body: I want tabs along the left side of the page instead of across the top.  I'm already loading JQuery for other reasons (effects), so I prefer 
+
+Title: Frame Buster Buster ... buster code needed
+	Id: 958997
+	Rank: 5  -  Distance: 0.98932
+	Tags: javascript, html, iframe, framebusting
+	Body: Let's say you don't want other sites to "frame" your site in an <iframe>:
+<iframe src="http://yourwebsite.com"></iframe>
+
+So you insert anti
+
+
+
+E========== CLUSTER 47 ==========
+
+B========== CLUSTER 48 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	text
+	element
+	html
+	set selected
+	select box
+	options
+	box
+	using
+	option value
+	set
+	dropdown
+	option option
+	jquery
+	selected
+	option
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.47
+	Min zscore: -2.05
+	n_outliers(|z|>2): 1
+
+
+-----Closest 6 questions in cluster-----
+
+Title: jQuery Set Select Index
+	Id: 1280499
+	Rank: 0  -  Distance: 0.63352
+	Tags: jquery, selector
+	Body: I have an select box:
+<select id="selectBox">
+<option value="0">Number 0</option>
+<option value="1">Number 1</option>
+<option value="2">Numb
+
+Title: JQuery setting the selected attribute on a select list
+	Id: 1311287
+	Rank: 1  -  Distance: 0.64211
+	Tags: jquery
+	Body: I have the following html
+<select id="dropdown">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+</select>
+
+I have the 
+
+Title: jQuery Set Selected Option Using Next
+	Id: 1280369
+	Rank: 2  -  Distance: 0.66747
+	Tags: jquery, select, selector
+	Body: How can I, using jQuery, set the "next" item of an already selected item as "selected."
+For example, if I have:
+<select>
+<option value="1" >
+
+Title: How do you select a particular option in a SELECT element in jQuery?
+	Id: 314636
+	Rank: 3  -  Distance: 0.66813
+	Tags: jquery
+	Body: If you know the Index, Value or Text. also if you don't have an ID for a direct reference.
+This, this and this are all helpful answers.
+Exam
+
+Title: How to make first option of <select > selected with jQuery?
+	Id: 1414276
+	Rank: 4  -  Distance: 0.67596
+	Tags: jquery, select
+	Body: <select id="target">
+  <option value="1">...</option>
+  <option value="2">...</option>
+</select>
+
+
+Title: Removing an item from a select box
+	Id: 375508
+	Rank: 5  -  Distance: 0.67630
+	Tags: javascript, html
+	Body: How do I remove items from or add items to a select box? I'm running jQuery should that make the task easier. Below is an example select box
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Multi-select dropdown list in ASP.NET
+	Id: 774587
+	Rank: 0  -  Distance: 0.96592
+	Tags: c#, asp.net, webcontrols
+	Body: Do any good multi-select dropdownlist with checkboxes (webcontrol) exist for asp.net?
+Thanks a lot
+
+Title: How to set selected item of Spinner by value, not by position?
+	Id: 2390102
+	Rank: 1  -  Distance: 0.97145
+	Tags: java, android, adapter, spinner
+	Body: I have a update view, where I need to preselect the value stored in database for a Spinner.
+I was having in mind something like this, but th
+
+Title: How to SELECT a dropdown list item by value programatically
+	Id: 1249394
+	Rank: 2  -  Distance: 0.98535
+	Tags: c#, .net, drop-down-menu
+	Body: How to SELECT a drop down list item by value programatically in C#.NET?
+See PIC
+
+Title: DropDownListFor in EditorTemplate not selecting value
+	Id: 1916462
+	Rank: 3  -  Distance: 0.98683
+	Tags: asp.net-mvc
+	Body: I have an editor template for a custom object. Inside that editor template I use a couple of DropDownListFor helpers. In each of them I spec
+
+Title: C# How do I set the selected item in a comboBox to match my string?
+	Id: 450059
+	Rank: 4  -  Distance: 0.98815
+	Tags: c#, winforms, combobox
+	Body: I have a string "test1" and my comboBox contains test1, test2, test3, how do I set the selected item to "test1"? I.e. how do I match my stri
+
+Title: Setting the height of a SELECT in IE
+	Id: 490036
+	Rank: 5  -  Distance: 0.99387
+	Tags: html, css, internet-explorer
+	Body: IE seems to ignore the height set in CSS when rendering a HTML SELECT. Are there any work around's for this or do we have to just accept IE 
+
+
+
+E========== CLUSTER 48 ==========
+
+B========== CLUSTER 49 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	http
+	connect
+	80
+	localhost
+	url
+	ip address
+	mysql
+	apache
+	error
+	tcp
+	socket
+	address
+	server
+	ip
+	port
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.05823
+	Standard deviation of distance to cluster center: 0.04745
+	Max zscore: 1.38
+	Min zscore: -2.75
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Access XAMPP Localhost from Internet
+	Id: 822902
+	Rank: 0  -  Distance: 0.82759
+	Tags: xampp, ip-address, static-ip-address
+	Body: I have XAMPP installed in local laptop. And I have a almost static ip. I would like to give the ip to other to run it from thier browser. I 
+
+Title: Windows could not start the Apache2 on Local Computer - problem
+	Id: 195641
+	Rank: 1  -  Distance: 0.84070
+	Tags: windows, windows-xp, apache2
+	Body: During the installation of Apache2 I got the following message into cmd window:
+
+Installing the Apache2.2 service The
+  Apache2.2 service is
+
+Title: check status of one port on remote host
+	Id: 1168317
+	Rank: 2  -  Distance: 0.85232
+	Tags: command-line, tcp, dos, port, remote-host
+	Body: I need a command line that can check the port status on a remote host.  I tried ping xxx.xxx.xxx.xxx:161  but it doesn't recognize the "host
+
+Title: How to get my own IP address in C#?
+	Id: 1069103
+	Rank: 3  -  Distance: 0.85834
+	Tags: c#, ip-address
+	Body: I am running a server, and I want to display my own IP address.
+What is the syntax for getting the computer's own (if possible, external) IP
+
+Title: Can two applications listen to the same port?
+	Id: 1694144
+	Rank: 4  -  Distance: 0.86065
+	Tags: sockets, tcp, udp, communication
+	Body: As simple as it gets - can two applications on the same machine bind to the same port and ip address? Taking it a step further, can one app 
+
+Title: Get the IP Address of local computer
+	Id: 122208
+	Rank: 5  -  Distance: 0.86131
+	Tags: c++, sockets, networking
+	Body: In C++, what's the easiest way to get the local computer's IP address and subnet mask?
+I want to be able to detect the local machine's IP ad
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to get current URL in Rails?
+	Id: 2165665
+	Rank: 0  -  Distance: 0.98286
+	Tags: ruby-on-rails, url
+	Body: How can I get the current absolute URL in my Rails view?
+The request.request_uri only returns the relative URL.
+
+Title: PHP Session Security
+	Id: 328
+	Rank: 1  -  Distance: 0.98347
+	Tags: php, security, php-session
+	Body: What are some guidelines for maintaining responsible session security with PHP?  There's information all over the web and it's about time it
+
+Title: XMLHttpRequest cannot load an URL with jQuery
+	Id: 3828982
+	Rank: 2  -  Distance: 0.98521
+	Tags: jquery, json, cross-domain
+	Body: I'm trying to get some json data from a "remote" website.
+I run my web service on the 99000 port then, I launch my website on the 99001 port
+
+Title: Request.Url.Host and ApplicationPath in one call
+	Id: 689678
+	Rank: 3  -  Distance: 0.98560
+	Tags: c#, asp.net, codebehind, httpcontext
+	Body: Is there any way to get HttpContext.Current.Request.Url.Host and HttpContext.Current.Request.ApplicationPath in one call? 
+Something like "f
+
+Title: How do I resolve "HTTP Error 500.19 - Internal Server Error" on IIS7.0
+	Id: 929131
+	Rank: 4  -  Distance: 0.98888
+	Tags: asp.net, iis, web-applications, iis7
+	Body: What causes this error, how can I fix it?
+Detailed Error Information
+Module IIS Web Core 
+Notification BeginRequest 
+Handler Not yet determi
+
+Title: How do you configure HttpOnly cookies in tomcat / java webapps?
+	Id: 33412
+	Rank: 5  -  Distance: 0.99077
+	Tags: java, security, cookies, xss, httponly
+	Body: After reading Jeff's blog post on Protecting Your Cookies: HttpOnly. I'd like to implement HttpOnly cookies in my web application.
+How do yo
+
+
+
+E========== CLUSTER 49 ==========
+

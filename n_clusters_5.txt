@@ -1,0 +1,608 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	change
+	style
+	using
+	html
+	button
+	view
+	text
+	iphone
+	width
+	height
+	color
+	background
+	css
+	image
+	div
+
+
+Distance Statistics:
+	Mean distance to cluster center: 0.99956
+	Standard deviation of distance to cluster center: 0.00884
+	Max zscore: 2.14
+	Min zscore: -3.47
+	n_outliers(|z|>2): 40
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Can you make an alpha transparent PNG with C#?
+	Id: 388677
+	Rank: 0  -  Distance: 0.95117
+	Tags: c#, .net, gdi+
+	Body: I have a multi-browser page that shows vertical text.
+As an ugly hack to get text to render vertically in all browsers I've created a custom
+
+Title: iOS SDK - Programmatically generate a PDF file
+	Id: 4362734
+	Rank: 1  -  Distance: 0.95686
+	Tags: iphone, objective-c, ipad, ios, pdf-generation
+	Body: Using the CoreGraphics framework is tedious work, in my honest opinion, when it comes to programmatically drawing a PDF file.
+I would like t
+
+Title: UIImagePickerController, UIImage, Memory and More?
+	Id: 1282830
+	Rank: 2  -  Distance: 0.95745
+	Tags: iphone, uikit, uiimage, core-graphics, uiimagepickercontroller
+	Body: I've noticed that there are many questions about how to handle UIImage objects, especially in conjunction with UIImagePickerController and t
+
+Title: How to center DIV in DIV?
+	Id: 114543
+	Rank: 3  -  Distance: 0.95794
+	Tags: html, css
+	Body: I'd like to ask you if anyone know how to horizontally center DIV in DIV with CSS ( if it's possible at all ). Outer DIV has 100%:
+<div id="
+
+Title: UIImage rounded corners
+	Id: 262156
+	Rank: 4  -  Distance: 0.95808
+	Tags: iphone, cocoa-touch
+	Body: I try to get rounded corners on a UIImage, what I read so far, the easiest way is to use a mask images. For this I used code from TheElement
+
+Title: Changing the background color of a UIAlertView?
+	Id: 883208
+	Rank: 5  -  Distance: 0.95862
+	Tags: iphone, objective-c, cocoa-touch, uikit, uialertview
+	Body: I want to change the background color of my UIAlertView, but this doesn't appear to have a color attribute.
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Check orientation on Android phone
+	Id: 2795833
+	Rank: 0  -  Distance: 1.00254
+	Tags: java, android, orientation
+	Body: How can I check if the Android phone is in Landscape or Portrait? 
+
+Title: Why are cellspacing and cellpadding not CSS styles
+	Id: 339146
+	Rank: 1  -  Distance: 1.00281
+	Tags: html, css, table, cellpadding, cellspacing
+	Body: I don't know why this bothers me so much, but when I create websites, I always try to do all my styling with CSS.  However one thing I alway
+
+Title: Google Maps API v3: How to remove all markers?
+	Id: 1544739
+	Rank: 2  -  Distance: 1.00343
+	Tags: javascript, html, google-maps, google-maps-api-3
+	Body: In Google Maps API v2, if I wanted to remove all the map markers, I could simply do:
+map.clearOverlays();
+
+How do I do this in Google Maps A
+
+Title: Android: remove notification from notification bar
+	Id: 3595232
+	Rank: 3  -  Distance: 1.00352
+	Tags: android, notifications, remove
+	Body: I have created an application and  with an event I manage to add notification in android notification bar.  Now  I need sample how to remove
+
+Title: formatting code within notepad++?
+	Id: 3635460
+	Rank: 4  -  Distance: 1.00398
+	Tags: html, notepad++, code-formatting
+	Body: Is there a keyboard shortcut to format code within Notepad++ ?
+I'm mainly working with HTML, CSS and Python code.
+For example:
+<title>{% blo
+
+Title: Do Facebook Oauth 2.0 Access Tokens Expire?
+	Id: 2687770
+	Rank: 5  -  Distance: 1.00421
+	Tags: facebook, oauth
+	Body: I am playing around with the Oauth 2.0 authorization in Facebook and was wondering if the access tokens Facebook passes out ever expire. If 
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	method
+	data
+	asp
+	value
+	using
+	file
+	public
+	new
+	net
+	class
+	object
+	list
+	string
+	java
+	android
+
+
+Distance Statistics:
+	Mean distance to cluster center: 0.99956
+	Standard deviation of distance to cluster center: 0.00884
+	Max zscore: 2.57
+	Min zscore: -4.12
+	n_outliers(|z|>2): 90
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is a metaclass in Python?
+	Id: 100003
+	Rank: 0  -  Distance: 0.96364
+	Tags: python, oop, metaclass, python-datamodel
+	Body: I've mastered almost all the Python concepts (well, let's say there are just OO concepts :-)) but this one is tricky.
+I know it has somethin
+
+Title: Hibernate/Spring: failed to lazily initialize - no session or session was closed
+	Id: 3041259
+	Rank: 1  -  Distance: 0.96678
+	Tags: java, hibernate, spring, lazy-loading
+	Body: For an answer scroll down to the end of this...
+The basic problem is the same as asked multiple time. I have a simple program with two POJOs
+
+Title: HQL left join problem: Path expected for join!
+	Id: 1262298
+	Rank: 2  -  Distance: 0.96682
+	Tags: java, hibernate, hql
+	Body: I am new at Hibernate, and I have a question regarding HQL Lejt join.
+I try to left join 2 tables, patient and provider, and keep getting "P
+
+Title: How can I properly handle 404 in ASP.NET MVC?
+	Id: 619895
+	Rank: 3  -  Distance: 0.96730
+	Tags: asp.net-mvc, http-status-code-404
+	Body: I am just getting started on ASP.NET MVC so bear with me.  I've searched around this site and various others and have seen a few implementat
+
+Title: How to get ELMAH to work with ASP.NET MVC [HandleError] attribute?
+	Id: 766610
+	Rank: 4  -  Distance: 0.96770
+	Tags: asp.net-mvc, logging, elmah
+	Body: I am trying to use ELMAH to log errors in my ASP.NET MVC application, however when I use the [HandleError] attribute on my controllers ELMAH
+
+Title: Structure Vs Class in C#
+	Id: 203695
+	Rank: 5  -  Distance: 0.97004
+	Tags: c#, .net, class, memory-management, struct
+	Body: When you create an instance of a class with the new operator, memory gets allocated on the heap. When you create an instance of a struct wit
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Get Phone Number in Android SDK
+	Id: 2480288
+	Rank: 0  -  Distance: 1.00406
+	Tags: java, android
+	Body: Is there a way to get the phone that is running my app's number within the app?
+
+Title: How to encode a URL in Javascript?
+	Id: 332872
+	Rank: 1  -  Distance: 1.00411
+	Tags: javascript, url, encoding
+	Body: How do you safely encode a URL using Javascript such that it can be put into a GET string?
+var myUrl = "http://example.com/index.html?param=
+
+Title: How to invoke iPhone Maps for Directions with Current Location as Start Address
+	Id: 576768
+	Rank: 2  -  Distance: 1.00448
+	Tags: iphone, maps
+	Body: I know it's possible to start the iPhone maps application by calling openURL on a google maps URL with parameters saddr and daddr with locat
+
+Title: Html.BeginForm and adding properties
+	Id: 216600
+	Rank: 3  -  Distance: 1.00503
+	Tags: asp.net-mvc
+	Body: How would I go about adding enctype="multipart/form-data" to a form that is generated by using <% Html.BeginForm(); %>?
+
+Title: How to generate getters and setters in Visual Studio?
+	Id: 3017
+	Rank: 4  -  Distance: 1.00588
+	Tags: visual-studio, setter, getter
+	Body: By "generate", I mean auto-generation of the code necessary for a particuliar selected (set of) variable(s).
+But any more explicit explicati
+
+Title: How to convert an address into a Google Maps Link (NOT MAP)
+	Id: 1300838
+	Rank: 5  -  Distance: 1.00619
+	Tags: google, google-maps, hyperlink
+	Body: After looking (Googling) on the web for a while I can find nothing that takes a address like:
+1200 Pennsylvania Ave SE, 
+Washington, Distric
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	number
+	python
+	using
+	value
+	use
+	convert
+	int
+	sql server
+	select
+	date
+	table
+	server
+	array
+	sql
+	string
+
+
+Distance Statistics:
+	Mean distance to cluster center: 0.99956
+	Standard deviation of distance to cluster center: 0.00884
+	Max zscore: 2.61
+	Min zscore: -3.91
+	n_outliers(|z|>2): 85
+
+
+-----Closest 6 questions in cluster-----
+
+Title: PHP/MYSQL using an array in WHERE clause
+	Id: 907806
+	Rank: 0  -  Distance: 0.95918
+	Tags: php, mysql, arrays
+	Body: given an array 
+$galleries = array
+         (
+           [0] => 1
+           [1] => 2
+           [2] => 5
+         )
+
+I want to have a sql q
+
+Title: Best Way to get Whole Number part of a Decimal Number
+	Id: 479706
+	Rank: 1  -  Distance: 0.95929
+	Tags: c#, .net, decimal, int
+	Body: What is the best way to return the whole number part of a decimal (in c#)? (This has to work for very large numbers that may not fit into an
+
+Title: how to read the last row with SQL Server
+	Id: 177323
+	Rank: 2  -  Distance: 0.96121
+	Tags: sql, sql-server
+	Body: What is the most efficient way to read the last row with SQL? The table is indexed on a unique key--the "bottom" key values represent the la
+
+Title: How do I concatenate text in a query in sql server?
+	Id: 54334
+	Rank: 3  -  Distance: 0.96192
+	Tags: sql, sql-server
+	Body: SELECT notes + 'SomeText'
+FROM NotesTable a
+
+gives The data types nvarchar and text are incompatible in the add operator. as an error.
+
+Title: How Do I Insert A Byte[] Into an SQL Server VARBINARY column
+	Id: 1064121
+	Rank: 4  -  Distance: 0.96261
+	Tags: sql-server, bytearray
+	Body: I have a byte array highlighted below, how do I insert it into a SQL Server database Varbinary column?
+byte[] arraytoinsert = new byte[10]{0
+
+Title: C# convert integer to hex and back again
+	Id: 1139957
+	Rank: 5  -  Distance: 0.96341
+	Tags: c#, hex
+	Body: How can I convert the following?
+2934 (integer)  to   B76 (hex)
+Let me explain what I am trying to do. I have User IDs in my database that a
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Why is 'using namespace std;' considered a bad practice in C++?
+	Id: 1452721
+	Rank: 0  -  Distance: 1.00287
+	Tags: c++, namespaces, std, c++-faq
+	Body: Okay, sorry for the simplistic question, but this has been bugging me ever since I finished high school C++ last year. I've been told by oth
+
+Title: warning: incompatible implicit declaration of built-in function ‘xyz’
+	Id: 977233
+	Rank: 1  -  Distance: 1.00304
+	Tags: c, gcc, gcc-warning
+	Body: I'm getting a number of these warnings when compiling a few binaries: 
+warning: incompatible implicit declaration of built-in function ‘strc
+
+Title: grep a file, but show several surrounding lines?
+	Id: 9081
+	Rank: 2  -  Distance: 1.00324
+	Tags: linux, search, grep, logging
+	Body: I would like to grep for a string, but show the preceding 5 lines and following 5 lines as well as the matched line.  I'm scanning for error
+
+Title: Credit card expiration dates - Inclusive or exclusive?
+	Id: 54037
+	Rank: 3  -  Distance: 1.00462
+	Tags: e-commerce, payment
+	Body: Say you've got a credit card number with an expiration date of 05/08 - i.e. May 2008.
+Does that mean the card expires on the morning of the 
+
+Title: jQuery $().find problem
+	Id: 128580
+	Rank: 4  -  Distance: 1.00474
+	Tags: javascript, jquery
+	Body: I'm trying to get the contents of a XML document element, but the element has a colon in it's name.
+This line works for every element but th
+
+Title: C# naming convention for constants?
+	Id: 242534
+	Rank: 5  -  Distance: 1.00647
+	Tags: c#, naming-conventions, const
+	Body: private const int THE_ANSWER = 42;
+
+or
+private const int theAnswer = 42;
+
+Personally I think with modern IDEs we should go with camelCase as
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	best
+	php
+	error
+	code
+	using
+	iphone
+	files
+	python
+	eclipse
+	use
+	android
+	java
+	windows
+	git
+	file
+
+
+Distance Statistics:
+	Mean distance to cluster center: 0.99956
+	Standard deviation of distance to cluster center: 0.00884
+	Max zscore: 2.44
+	Min zscore: -4.91
+	n_outliers(|z|>2): 129
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is node.js?
+	Id: 1884724
+	Rank: 0  -  Distance: 0.95500
+	Tags: javascript, node.js, v8, evented-io
+	Body: I don't fully get what node.js is all about. Maybe it's because I am mainly a web based business app developer. Can someone please explain w
+
+Title: Install xCode 3.2.3 w/ iPhone SDK 4, get "Base SDK missing", can't see other SDKs
+	Id: 3161385
+	Rank: 1  -  Distance: 0.96010
+	Tags: iphone, xcode, iphone-sdk-4.0
+	Body: I created this community wiki to bind together a number of
+other Q/A's I've seen here on SO. If you're here, you've probably
+installed the f
+
+Title: Build fat static library (device + simulator) using Xcode and SDK 4+
+	Id: 3520977
+	Rank: 2  -  Distance: 0.96021
+	Tags: iphone, xcode
+	Body: It appears that we can - theoretically - build a single static library that includes both simulator and iPhone and iPad.
+However, Apple has 
+
+Title: Choosing Java vs Python on Google App Engine
+	Id: 1085898
+	Rank: 3  -  Distance: 0.96055
+	Tags: java, python, google-app-engine
+	Body: Currently Google App Engine supports both Python & Java. Java support is less mature. However, Java seems to have a longer list of libraries
+
+Title: Why is Git better than Subversion?
+	Id: 871
+	Rank: 4  -  Distance: 0.96069
+	Tags: svn, git
+	Body: I've been using Subversion for a few years and after using SourceSafe, I just love Subversion.  Combined with TortoiseSVN, I can't really im
+
+Title: check status of one port on remote host
+	Id: 1168317
+	Rank: 5  -  Distance: 0.96444
+	Tags: command-line, tcp, dos, port, remote-host
+	Body: I need a command line that can check the port status on a remote host.  I tried ping xxx.xxx.xxx.xxx:161  but it doesn't recognize the "host
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How do you render primitives as wireframes in OpenGL?
+	Id: 137629
+	Rank: 0  -  Distance: 1.00366
+	Tags: opengl
+	Body: How do you render primitives as wireframes in OpenGL?
+
+Title: HTML apostrophe
+	Id: 419718
+	Rank: 1  -  Distance: 1.00375
+	Tags: html, ascii
+	Body: Seemingly simple, but I cannot find anything relevant on the web.
+What is the correct html code for an apostrophe? Is it a &#8217; ?
+
+Title: Logout with facebook
+	Id: 658027
+	Rank: 2  -  Distance: 1.00378
+	Tags: facebook-connect
+	Body: How can I log a user out from my facebook connect website, without using the fb-login button? I would like to do it from codebehind (c#)?
+
+Title: Web scraping with Python
+	Id: 2081586
+	Rank: 3  -  Distance: 1.00390
+	Tags: python, screen-scraping
+	Body: I'd like to grab daily sunrise/sunset times from here. Is it possible to scrape web content with Python? what are the modules used? Is there
+
+Title: Best algorithm for detecting cycles in a directed graph
+	Id: 261573
+	Rank: 4  -  Distance: 1.00553
+	Tags: algorithm, graph-theory, directed-graph
+	Body: What is the most effiecent alogrithm for detecting all cycles within a directed graph?
+or
+I have a directed graph representing a schedule of
+
+Title: C++ blogs that you regularly follow?
+	Id: 151974
+	Rank: 5  -  Distance: 1.00566
+	Tags: c++, blogs
+	Body: What are all the C++ blogs that you follow?
+Please add one url for one posting.
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	script
+	select
+	input
+	id
+	event
+	text
+	form
+	element
+	value
+	html
+	using
+	div
+	javascript
+	function
+	jquery
+
+
+Distance Statistics:
+	Mean distance to cluster center: 0.99956
+	Standard deviation of distance to cluster center: 0.00884
+	Max zscore: 2.65
+	Min zscore: -3.32
+	n_outliers(|z|>2): 53
+
+
+-----Closest 6 questions in cluster-----
+
+Title: jQuery Accordion open collapsed
+	Id: 817959
+	Rank: 0  -  Distance: 0.95096
+	Tags: javascript, jquery, jquery-ui, accordion
+	Body: using jquery v1.3.2 and jQuery UI 1.7.1
+I have 1 tab control with 3 tabs in it. Each tab contains 1 accordion control.
+$(document).ready(fun
+
+Title: How can I make a jQuery UI 'draggable()' div draggable for touchscreen?
+	Id: 3026915
+	Rank: 1  -  Distance: 0.95378
+	Tags: jquery, jquery-ui, ipad, draggable, touchscreen
+	Body: I have a jQuery UI draggable() that works in Firefox and Chrome. The user interface concept is basically click to create a "post-it" type it
+
+Title: Jquery animate hide and show
+	Id: 1025074
+	Rank: 2  -  Distance: 0.95551
+	Tags: jquery, onclick, hide, animate, show
+	Body: I would like to have two things happen at once when I click on a link. I am slowly going through Jquery documentation, but have yet to learn
+
+Title: jQuery: get the file name selected from <input type="file" />
+	Id: 1299052
+	Rank: 3  -  Distance: 0.95598
+	Tags: jquery, events, copy, input-file
+	Body: This code should work in IE (don't even test it in Firefox), but it doesn't.
+What I want is to display the name of the attached file. Any he
+
+Title: How to get all options of a select using Jquery?
+	Id: 590163
+	Rank: 4  -  Distance: 0.95625
+	Tags: javascript, jquery, jquery-selectors
+	Body: How can I get all the options of a select through Jquery by passing on its ID?
+Edit: Only looking to get their values, not the text
+
+Title: jquery: make date picker show/hide via image?
+	Id: 939914
+	Rank: 5  -  Distance: 0.95733
+	Tags: jquery, datepicker
+	Body: I want to use an image of a calendar to show/hide the jquery datepicker. Based on the documentation it looks like I need to set buttonImage 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: C# How do I click a button by hitting Enter whilst textbox has focus?
+	Id: 299086
+	Rank: 0  -  Distance: 1.00212
+	Tags: c#, winforms
+	Body: I'm working with a WinForm app in C#, after I type something in a textbox I want to hit the Enter key but the textbox still has focus (flash
+
+Title: LaTeX package to do syntax highlighting of code in various languages
+	Id: 300521
+	Rank: 1  -  Distance: 1.00212
+	Tags: syntax, latex, package, highlighting
+	Body: I am looking for a LaTeX package that does syntax highlighting on code. For example, right now I use the verbatim block to write code:
+\begi
+
+Title: concatenate with jquery
+	Id: 1526605
+	Rank: 2  -  Distance: 1.00257
+	Tags: jquery, concatenation
+	Body: I'm trying to concatenate a string in a div with jQuery. Here is my code:
+var server = 'server name: '
+$('#div').load('myservername.aspx');
+
+
+Title: Highlight a word with jQuery
+	Id: 119441
+	Rank: 3  -  Distance: 1.00260
+	Tags: javascript, jquery, html
+	Body: I basically need to highlight a particular word in a block of text. For example, pretend I wanted to highlight the word "dolor" in this text
+
+Title: jquery, domain, get URL
+	Id: 2300771
+	Rank: 4  -  Distance: 1.00415
+	Tags: javascript, jquery, domain
+	Body: How can I get the domain name with jquery ?? 
+
+Title: Which one to Use: <meta charset='utf-8'> vs <meta http-equiv='Content-Type'
+	Id: 4696499
+	Rank: 5  -  Distance: 1.00752
+	Tags: html, html5, meta-tags
+	Body: to define charset for html5 doctype, which notation should I use?
+a) short:
+ <meta charset='utf-8'> 
+
+b) Long:
+<meta http-equiv='Content-Typ
+
+
+
+E========== CLUSTER 4 ==========
+
