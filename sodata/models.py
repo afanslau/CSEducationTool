@@ -10,7 +10,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+import ListField
 
 class AuthGroup(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
@@ -157,7 +157,7 @@ class Posts(models.Model):
     community_owned_date = models.DateField(blank=True, null=True)
     closed_date = models.DateField(blank=True, null=True)
     title = models.TextField(blank=True)
-    tags = models.TextField(blank=True)
+    tags = ListField.ListField(blank=True)
     answer_count = models.SmallIntegerField(blank=True, null=True)
     comment_count = models.SmallIntegerField(blank=True, null=True)
     favorite_count = models.IntegerField(blank=True, null=True)
