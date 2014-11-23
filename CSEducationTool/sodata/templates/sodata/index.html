@@ -18,7 +18,7 @@
     <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
-    <link href="{% static "jumbotron-narrow.css" %}" rel="stylesheet">
+    <link href="{% static 'jumbotron-narrow.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,13 +42,32 @@
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h2 class="text-muted">Project name</h2>
+        <h2 class="text-muted">Computer Science Topic Explorer</h2>
       </div>
-
       <div class="jumbotron">
-        <h3>This is a Topic</h3>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <div>
+          <h3>What do you want to learn about?</h3>
+          <div class="input-group input-group-lg">
+            <input id="topic-search-input" type="text" class="form-control" placeholder="I want to learn...">
+            <span class="input-group-btn">
+              <button id="topic-search-button" class="btn btn-default" type="button" onclick="search_topics()">Search!</button>
+            </span>
+          </div>
+        </div>
+        <div id="display-results-div">
+          <p>Show topic graph here!</p>
+        </div>
+      </div>
+      <div class="jumbotron">
+        <h3>Explore All Topics</h3>
+        <p>Topic graph will go here</p>
+        <br>
+        <p class="lead">This will go on the topic page template</p>
+        <p>Put some dynamic template text back here...</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="#" role="button">I know this</a>
+          <a class="btn btn-lg btn-info" href="#" role="button">I want to Learn More</a>
+        </p>
       </div>
 
       <div class="row marketing">
@@ -82,7 +101,11 @@
     </div> <!-- /container -->
 
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- What is the difference between these javascript files? -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="{% static 'sprintf.js' %}"></script>
+    <script src="{% static 'custom.js' %}"></script>
   </body>
 </html>

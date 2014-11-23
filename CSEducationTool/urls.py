@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from CSEducationTool.sodata.views import index
+from CSEducationTool.sodata.views import index, search_topics
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls), name='admin'),
-    url(r'^$', index, name='index')
+    url(r'^$', index, name='index'),
+    url(r'^search_topics', search_topics, name='search_topics')
 )
