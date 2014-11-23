@@ -1,0 +1,611 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	mid
+	regular language
+	non
+	lemma
+	pumping
+	nfa
+	expression
+	dfa
+	languages
+	grammar
+	context free
+	free
+	context
+	language
+	regular
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00361
+	Standard deviation of distance to cluster center: 0.00939
+	Max zscore: 1.78
+	Min zscore: -4.38
+	n_outliers(|z|>2): 39
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Regular Expression to Context-Free Grammar
+	Id: 9050
+	Rank: 0  -  Distance: 0.93014
+	Tags: formal-grammars, regular-expressions, context-free
+	Body: Anyone knows if there is an algorithm for directly write the context-free grammar that generates a given regular expression?
+
+Title: Proof that there is unambigous grammar for every regular language
+	Id: 16082
+	Rank: 1  -  Distance: 0.93568
+	Tags: proof-techniques, ambiguity
+	Body: How can I prove, or where can I find proof that for every regular language there is unambigous grammar?
+
+Title: Unambiguous Context free Grammar
+	Id: 20205
+	Rank: 2  -  Distance: 0.93794
+	Tags: formal-languages, context-free, formal-grammars, ambiguity
+	Body: I was reading through Context Free Grammar, and I came across ambiguous grammar. If the language produced by CFG has more then 1 parse tree,
+
+Title: Proving a language is context free by coming up with a context free grammar for the language
+	Id: 22884
+	Rank: 3  -  Distance: 0.93794
+	Tags: computation-models
+	Body: Let A and B be languages over $\sum$ = {0, 1, 2, 3}
+Language A = {$(0U1)^a(1U2)^b(2U3)^c | a \geq  b$}
+Language B = {$(0U1)^a(1U2)^b(2U3)^c 
+
+Title: Deciding whether a Language is Context-free/Regular/Non Context-Free
+	Id: 7732
+	Rank: 4  -  Distance: 0.94184
+	Tags: formal-languages, regular-languages, context-free
+	Body: I need some help with deciding if a given language is regular, context-free or not context-free.
+Lets' say I have the following languages ov
+
+Title: a regular language so that $unary(L) \notin $Context Free Languages
+	Id: 23484
+	Rank: 5  -  Distance: 0.94338
+	Tags: formal-languages, regular-languages, context-free
+	Body: I need a regular language $ L\subseteq \{0,1\}^{*} $ so that $unary(L)$ is not context free.
+unary of $L$ is defined by:
+$$unary(L) = \{0^{1
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Regular language proving
+	Id: 12256
+	Rank: 0  -  Distance: 1.00107
+	Tags: regular-languages, finite-automata
+	Body: Question:The set of all first names given to children born in New Zealand in 1996
+I think this language is regular because every element in 
+
+Title: Eliminating useless productions resulting from PDA to CFG converison
+	Id: 2503
+	Rank: 1  -  Distance: 1.00124
+	Tags: automata, formal-grammars, context-free, pushdown-automata
+	Body: In my class we used a Pushdown Automata to Context Free Grammar conversion algorithm that produces a lot extraneous states.
+For example, for
+
+Title: If both $L$ and $L_1$ are regular, does it follow that $L \diamond L_1$ is regular?
+	Id: 29980
+	Rank: 2  -  Distance: 1.00133
+	Tags: formal-languages, regular-languages
+	Body: In general, a string $x$ is a subsequence of $w = w_1\dots w_n$ if there are integers $i_1<\dots< i_k$ such that $x = w_{i_1}\dots w_{i_k}$.
+
+Title: Prove L to not context free using pumping lemma on language L
+	Id: 14559
+	Rank: 3  -  Distance: 1.00195
+	Tags: context-free, pumping-lemma
+	Body: $L = \{0^i1^j0^i1^j|i,j \geq 0\}$
+I've tried letting $s = 0^p1^p0^p1^p$. But not sure where to go from here. Help would be appreciated.
+
+Title: Show how a sentence can be produced from a grammar (Dragon book 2.1)
+	Id: 9109
+	Rank: 4  -  Distance: 1.00229
+	Tags: formal-grammars, context-free
+	Body: In the Dragon book (Aho, Sethi, Ullmann) there is one exercise I don't get.
+
+Chapter 2, Exercies: 2.1
+  Given the context-free grammar
+  $$S
+
+Title: How do I use the Myhill-Nerode theorem to show that a language is not regular?
+	Id: 21499
+	Rank: 5  -  Distance: 1.00397
+	Tags: formal-languages, regular-languages
+	Body: My language is the repetition of 0 to a length that's a power of 2:
+$L = \{ 0^k \mid k=2^n, n \geq 1 \}$
+I want to know how to use the Myhil
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	input
+	time
+	turing machines
+	problem
+	decidable
+	halting
+	machines
+	memory
+	does
+	state
+	tm
+	language
+	turing machine
+	machine
+	turing
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00361
+	Standard deviation of distance to cluster center: 0.00939
+	Max zscore: 1.53
+	Min zscore: -4.32
+	n_outliers(|z|>2): 38
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is the difference between halting, accepting, and deciding in the context of Turing machines?
+	Id: 3554
+	Rank: 0  -  Distance: 0.93882
+	Tags: terminology, turing-machines, undecidability
+	Body: Does accepting mean that the TM will read and recognize a char from the cell it's currently reading from? And is it the case that a TM halts
+
+Title: Deciding if a Turing machine has made a left move
+	Id: 11159
+	Rank: 1  -  Distance: 0.94007
+	Tags: computability, turing-machines
+	Body: In writing a decider for a machine to see if it has made a left move or not on an input of w, it is said that if we continue the computation
+
+Title: Is the halting problem specific to Turing machines?
+	Id: 19231
+	Rank: 2  -  Distance: 0.94163
+	Tags: turing-machines, halting-problem
+	Body: The proofs that the halting problem is undecidable seem to make very few assumptions about the kind of program/machine under consideration: 
+
+Title: How to define quantum Turing machines?
+	Id: 125
+	Rank: 3  -  Distance: 0.94333
+	Tags: quantum-computing, turing-machines, computation-models
+	Body: In quantum computation, what is the equivalent model of a Turing machine? 
+It is quite clear to me how quantum circuits can be constructed o
+
+Title: Show that the language of all total Turing machines is neither r.e. nor co-r.e
+	Id: 17977
+	Rank: 4  -  Distance: 0.94683
+	Tags: formal-languages, computability, turing-machines
+	Body: I've been thinking about how to show this but I'm stuck.
+I'm required to prove this:
+
+Show that the language $$\mathrm{TOT}= \{\langle M \ra
+
+Title: Tricky Turing Machine state diagram
+	Id: 22909
+	Rank: 5  -  Distance: 0.94763
+	Tags: turing-machines, computation-models
+	Body: what would the Turing machine state diagram be for this language: 
+$A=\{ (0 \cup 1)^a(1 \cup 2)^b(2\cup 3)^c \mid a \geq  b\} $ ?
+how would 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Finding TLB hit and miss
+	Id: 19497
+	Rank: 0  -  Distance: 0.99962
+	Tags: computer-architecture, cpu-cache, virtual-memory
+	Body: Consider a system with a two-level paging scheme in which a regular memory access takes 150 nsec and servicing a page fault takes 8 millisec
+
+Title: Is the language that consists of machine configurations whose language is a subset of even palindromes semi-decidable?
+	Id: 16264
+	Rank: 1  -  Distance: 0.99974
+	Tags: computability, turing-machines
+	Body: Let $PAL = \{ww^R\ | w\in\{0,1\}^*\}$. 
+Then let $A = \{\langle M\rangle \ | \textit{M is a Turing Machine and } L(M)\subseteq PAL\}$
+Is A s
+
+Title: Is a push-down automaton with two stacks equivalent to a turing machine?
+	Id: 2832
+	Rank: 2  -  Distance: 0.99992
+	Tags: computability, automata, turing-machines
+	Body: In this answer it is mentioned
+
+A regular language can be recognized by a finite automaton. A context-free language requires a stack, and a 
+
+Title: How to interpret "Windows - Virtual Memory minimum too low" from a CS student point of view?
+	Id: 1407
+	Rank: 3  -  Distance: 1.00014
+	Tags: operating-systems, virtual-memory, paging
+	Body: On my old 256MB RAM, pc I get this message. (I guess it is quite common)
+
+Windows - Virtual Memory minimum too low
+  Your system is low on v
+
+Title: Back invalidation to maintain inclusion in inclusive cache
+	Id: 29136
+	Rank: 4  -  Distance: 1.00071
+	Tags: cpu-cache, memory-hardware
+	Body: For an L2 cache that is strictly inclusive of the L1 cache, if a block to be evicted is also present in L1, then back invalidation is requir
+
+Title: Is there any real difference between a compiler and an assembler?
+	Id: 13904
+	Rank: 5  -  Distance: 1.00118
+	Tags: terminology, compilers
+	Body: Is there any difference between the two?  As per Ullman's book, compilers  convert one language to another (usually low level) language, and
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	binary
+	data
+	complexity
+	does
+	given
+	path
+	using
+	function
+	set
+	tree
+	time
+	problem
+	number
+	graph
+	algorithm
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00361
+	Standard deviation of distance to cluster center: 0.00939
+	Max zscore: 2.40
+	Min zscore: -3.86
+	n_outliers(|z|>2): 173
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Binary search transition point of a function on stream
+	Id: 19858
+	Rank: 0  -  Distance: 0.98177
+	Tags: streaming-algorithm, binary-search
+	Body: Consider an unknown function $f(x,y)$, where $x$ and $y$ are just two scalar numbers in $[0,1]$. $f(x,y)$ is an increasing function of $y$ a
+
+Title: Priority queue for partially ordered priorities with infima
+	Id: 7890
+	Rank: 1  -  Distance: 0.98232
+	Tags: data-structures, priority-queues
+	Body: I have a some objects with priority that is compound type and is only partially ordered. I need to select the objects in order of this prior
+
+Title: What string operations are basic
+	Id: 28444
+	Rank: 2  -  Distance: 0.98253
+	Tags: strings
+	Body: What string operations are basic in the sense that the other string operations can be represented in terms of them? Here is a list of string
+
+Title: What is time complexity of in-order depth-first iteration over keys in a B-tree?
+	Id: 14654
+	Rank: 3  -  Distance: 0.98269
+	Tags: time-complexity, search-trees
+	Body: I can't figure out or find on the Internet what is the time complexity of B-tree in-order depth-first iteration. Can you help me out here, p
+
+Title: Find which vertices to delete from graph to get smallest largest component
+	Id: 12789
+	Rank: 4  -  Distance: 0.98298
+	Tags: algorithms, complexity-theory, graph-theory, parameterized-complexity
+	Body: Given a graph $G = (V, E)$, find $k$ vertices $\{v^*_1,\dots,v^*_k\}$, which removal would result in a graph with smallest largest component
+
+Title: What is a good binary encoding for $\phi$-based balanced ternary arithmetic algorithms?
+	Id: 2847
+	Rank: 5  -  Distance: 0.98326
+	Tags: algorithms, data-structures, efficiency, coding-theory
+	Body: I've been looking for a way to represent the golden ratio ($\phi$) base more efficiently in binary.  The standard binary golden ratio notati
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Complexity as it relates to verifiers of languages
+	Id: 23499
+	Rank: 0  -  Distance: 1.00268
+	Tags: time-complexity, np-complete
+	Body: So I've been thinking about verifiers and a possible relation between a language's class and it's verifier complexity. From the book, "NP is
+
+Title: TM for $0^{5^n}$. Describing a turing machine that decides the language consisting of all strings of zeroes whose length is a power of 5
+	Id: 19139
+	Rank: 1  -  Distance: 1.00275
+	Tags: formal-languages, turing-machines
+	Body: I am trying to describe a TM that decides the language $A=\{0^{5^n} \mid n\ge0\}$.
+I know how to do this for $0^{2^n}$, marking off every ot
+
+Title: I need to present a regular expression for the following languages:
+	Id: 6969
+	Rank: 2  -  Distance: 1.00292
+	Tags: regular-expressions
+	Body: 1.
+L2 = E{0,1)
+All the words in L2 with equal number of 0's and 1's and every prex of w has at most two more of either
+0's or 1's.
+2.
+All wo
+
+Title: What is the advantage of Greibach Normal Form over Chomsky Normal Form?
+	Id: 16222
+	Rank: 3  -  Distance: 1.00292
+	Tags: formal-grammars
+	Body: I wanted to know the pros and cons of Chomsky normal form and Greibach normal form.
+
+Title: Resolution and incomplete Knowledge Base
+	Id: 6491
+	Rank: 4  -  Distance: 1.00324
+	Tags: logic, knowledge-representation, reasoning
+	Body: Assume I have an incomplete knowledge base, for example:
+(rich(dave), poor(dave))  // dave is either poor or rich
+
+(not rich(dave), not poor
+
+Title: Given some languages illustrate which is Regular and why other is not?
+	Id: 29354
+	Rank: 5  -  Distance: 1.00325
+	Tags: formal-languages
+	Body: Are these languages Regular ? How do we determine in such cases whether the language is regular or not ?
+1)
+$$\left\{ xw{ w }^{ R }\quad |\q
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	subset
+	reduction
+	np hard
+	complexity
+	polynomial time
+	hard
+	mathsf
+	problems
+	polynomial
+	time
+	np complete
+	complete
+	sat
+	problem
+	np
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00361
+	Standard deviation of distance to cluster center: 0.00939
+	Max zscore: 1.49
+	Min zscore: -4.41
+	n_outliers(|z|>2): 32
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Time complexity of languages that are polynomial time reducible to NP complete languages
+	Id: 18767
+	Rank: 0  -  Distance: 0.92661
+	Tags: time-complexity, np-complete, polynomial-time
+	Body: I am wondering if given the time complexity of an NP-Complete problem or at least some information about it for example if $ SAT\in Time(2^{
+
+Title: NP-hard proof: Polynomial time reduction
+	Id: 19228
+	Rank: 1  -  Distance: 0.93329
+	Tags: complexity-theory
+	Body: As I understand, to show that a certain problem $P$ is NP-hard we can reduce a known NP-hard problem $Q$ to a problem in $P$. This reduction
+
+Title: If P != NP, then 3-SAT is not in P
+	Id: 27566
+	Rank: 2  -  Distance: 0.93811
+	Tags: complexity-theory, p-vs-np, 3-sat
+	Body: I hope I'm in the right section:
+I know that if P = NP, then 3-SAT can be solved in P (Cook), but is the opposite valid, too? If P != NP, th
+
+Title: Are there complete problems for P and NP under other kinds of reductions?
+	Id: 2222
+	Rank: 3  -  Distance: 0.93893
+	Tags: complexity-theory, reductions
+	Body: I know that the complexity class $\mathsf{P}$ has complete problems w.r.t. $\mathsf{NC}$ and $\mathsf{L}$ reductions.
+Are these two classes 
+
+Title: 3SAT is NP-complete, however is 1SAT NP-complete?
+	Id: 16606
+	Rank: 4  -  Distance: 0.93986
+	Tags: algorithms, 3-sat
+	Body: Its is known that 3SAT (all clauses have size 3) is NP-complete. 
+But how about 1SAT (all clauses have size 1), is it also NP-complete? I tr
+
+Title: Does NP-Complete imply non-satisfiability?
+	Id: 21871
+	Rank: 5  -  Distance: 0.94032
+	Tags: complexity-theory, terminology, np-complete, satisfiability
+	Body: I've seen a lot of text concerning the first NP-Complete problem, Boolean Satisfiability. I guess I'm confused concerning the language. 
+It 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Counting certificates for a language
+	Id: 2881
+	Rank: 0  -  Distance: 1.00083
+	Tags: complexity-theory
+	Body: Let $M_{1}$ and $M_{2}$ be two (non-deterministic) turing machines accepting the language $L \subseteq \Sigma^{\ast}$.
+Is is right to claim 
+
+Title: Why is Relativization a barrier?
+	Id: 1271
+	Rank: 1  -  Distance: 1.00090
+	Tags: complexity-theory, proof-techniques, relativization
+	Body: When I was explaining the Baker-Gill-Solovay proof that there exists an oracle with which we can have, $\mathsf{P} = \mathsf{NP}$, and an or
+
+Title: Relationship between L and PSPACE
+	Id: 10764
+	Rank: 2  -  Distance: 1.00120
+	Tags: complexity-theory, space-complexity
+	Body: I have a question have to answer, so that, if anyone have the answer, please help me.
+The problem is: Give a self-contained proof that $\mat
+
+Title: What is meant by "solvable by non deterministic algorithm in polynomial time"
+	Id: 1243
+	Rank: 3  -  Distance: 1.00126
+	Tags: complexity-theory, terminology, nondeterminism
+	Body: In many textbooks NP problems are defined as:
+
+Set of all decision problems solvable by non deterministic algorithms in polynomial time
+
+I c
+
+Title: Proving $ \{ \langle D_1, ... ,D_K \rangle : \text{ where } D_i \text{ are DFAs and } {\bigcap}_{i=1}^k L(D_i) = \emptyset \} $ is NP-Hard
+	Id: 18402
+	Rank: 4  -  Distance: 1.00146
+	Tags: complexity-theory, np-hard
+	Body: The question (Prove L is NP-hard) was about proving that the following language is NP-hard:
+$$ L = \{ \langle D_1, D_2, ... ,D_K \rangle : k
+
+Title: Prove that if a problem L can be decided in polynomial time, then L ≤p L' for any other problem L'
+	Id: 12329
+	Rank: 5  -  Distance: 1.00171
+	Tags: complexity-theory, reductions, decision-problem, polynomial-time
+	Body: So we know that there exists a Turing Machine $M$ and a polynomial $T$ such that:
+
+$M$ halts on all inputs within at most $T(|x|)$ steps
+If 
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	use
+	data
+	science
+	language
+	theory
+	learning
+	algorithm
+	big
+	recurrence
+	programming
+	algorithms
+	computer
+	log
+	time
+	complexity
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00361
+	Standard deviation of distance to cluster center: 0.00939
+	Max zscore: 1.87
+	Min zscore: -4.02
+	n_outliers(|z|>2): 50
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Explaining the difference between computer science and computer literacy
+	Id: 22345
+	Rank: 0  -  Distance: 0.96474
+	Tags: terminology, education
+	Body: What is a good metaphor or example to explain to an English major the difference between classical computer science and "being good with usi
+
+Title: What courses to learn for artificial neural networks and machine learning?
+	Id: 6754
+	Rank: 1  -  Distance: 0.96705
+	Tags: logic, machine-learning, artificial-intelligence
+	Body: http://www.scotthyoung.com/blog/mit-challenge/#1
+This guy's work is mind blowing. He learned the 4 year MIT CS curriculum in 1 year, at home
+
+Title: Trigonometry in computer science
+	Id: 6327
+	Rank: 2  -  Distance: 0.96710
+	Tags: education, mathematical-analysis, applied-theory
+	Body: What's the use of studying trigonometry in computer science? I mean, is it essential? Does it have a specific application in computer scienc
+
+Title: Resizing and aliasing in computer science
+	Id: 23167
+	Rank: 3  -  Distance: 0.96787
+	Tags: terminology, image-processing, graphics
+	Body: If you resize an 1000x1000 raster image to 10x10 and resize it back to 1000x1000 is this considered to be an example of aliasing?
+
+Title: Mathematical background for programming languages, compilers and formal methods in software engineering
+	Id: 21956
+	Rank: 4  -  Distance: 0.96791
+	Tags: programming-languages, compilers, formal-methods
+	Body: Can you tell me what mathematical background (concrete themes) should I have for studying and doing some investigations (in future) in progr
+
+Title: Logic applications and security protocols references request
+	Id: 24604
+	Rank: 5  -  Distance: 0.96838
+	Tags: logic, formal-methods, security, applied-theory
+	Body: I'm a student of logic and I'm interested in looking at logic applications, of which I am told there are many, in computer science and allie
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Empirical studies about benefits of Q&A sites for programming
+	Id: 13056
+	Rank: 0  -  Distance: 1.00085
+	Tags: reference-request, software-engineering, empirical-research, social-networks
+	Body: I'm looking for empirical papers which investigate if a user can benefit from Q&A sites like Stack Overflow. I welcome any papers related to
+
+Title: Why do most scientists believe that P≠NP?
+	Id: 14487
+	Rank: 1  -  Distance: 1.00090
+	Tags: nondeterminism, polynomial-time
+	Body: I read that most scientist don't believe that P=NP. This might be subjective but can you simplify why not? I'm not informed enough to have a
+
+Title: Time spent on requirement and its effect on project success and development time
+	Id: 75
+	Rank: 2  -  Distance: 1.00097
+	Tags: software-engineering
+	Body: Is there any evidence suggesting that time spent on writing up, or thinking about the requirements will have any effect on the development t
+
+Title: Complexity of slightly tricky for loop
+	Id: 10391
+	Rank: 3  -  Distance: 1.00098
+	Tags: algorithm-analysis, runtime-analysis
+	Body: I'm trying to determine the complexity of this for loop:
+for (int j =3; j <= n-2; j+=2) {
+   ....
+}
+
+By trying out lots of examples, I came 
+
+Title: What are some problems which are easily solved by human brain but which would take more time computers?
+	Id: 9911
+	Rank: 4  -  Distance: 1.00104
+	Tags: algorithms, artificial-intelligence, computer-vs-human
+	Body: Are there any problems which can be solved by human brain in a very less time but a computer may take a lot of time or a computer could neve
+
+Title: Explaining eye tracking to 9-10 year olds
+	Id: 16314
+	Rank: 5  -  Distance: 1.00108
+	Tags: education
+	Body: I was recently asked to explain eye tracking to 4th grade students and talk to them about its applications.
+
+What is eye tracking?
+An eye tr
+
+
+
+E========== CLUSTER 4 ==========
+

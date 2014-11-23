@@ -1,0 +1,617 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	dates
+	size
+	uiimage
+	int
+	height
+	view
+	button
+	self
+	javascript convert
+	array
+	difference
+	string
+	image
+	convert
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00185
+	Standard deviation of distance to cluster center: 0.00625
+	Max zscore: 1.27
+	Min zscore: -3.74
+	n_outliers(|z|>2): 8
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I convert a float to an int in Javascript?
+	Id: 596467
+	Rank: 0  -  Distance: 0.94262
+	Tags: javascript, syntax
+	Body: I'd like to convert a float to an int in Javascript. Actually, I'd like to know how to do BOTH of the standard convertions: by truncating an
+
+Title: How to convert array to SimpleXML
+	Id: 1397036
+	Rank: 1  -  Distance: 0.94328
+	Tags: php, xml, arrays, simplexml
+	Body: How can I convert an array to a SimpleXML object in PHP?
+
+Title: How do I Convert a String into an Integer in JavaScript?
+	Id: 1133770
+	Rank: 2  -  Distance: 0.95165
+	Tags: javascript, string, integer
+	Body: How do I convert a string into an integer in JavaScript?  
+Is it possible to do this automatically, or do I have to write a subroutine to do
+
+Title: How to convert decimal to hex in JavaScript?
+	Id: 57803
+	Rank: 3  -  Distance: 0.95167
+	Tags: javascript, hex, tostring, base, numberformat
+	Body: How do you convert decimal values to their hex equivalent in JavaScript?
+
+Title: how to convert from int to string in iphone
+	Id: 1372715
+	Rank: 4  -  Distance: 0.95311
+	Tags: iphone, objective-c
+	Body: can anyone tell how to convert from int to string
+
+Title: How to convert string into float in javascript?
+	Id: 642650
+	Rank: 5  -  Distance: 0.95611
+	Tags: javascript, parsing, floating-point
+	Body: I am trying to parse two values from a datagrid.
+The fields are numeric, and when they have a comma (ex. 554,20), I can't get the numbers af
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: mysqli or PDO - what are the pros and cons?
+	Id: 13569
+	Rank: 0  -  Distance: 0.99920
+	Tags: php, mysql, pdo, mysqli, database-abstraction
+	Body: In our place we're split between using mysqli and PDO for stuff like prepared statements and transaction support. Some projects use one, som
+
+Title: Java: Reading integers from a file into an array
+	Id: 303913
+	Rank: 1  -  Distance: 0.99951
+	Tags: java, arrays, io
+	Body: File fil = new File("Tall.txt");
+FileReader inputFil = new FileReader(fil);
+BufferedReader in = new BufferedReader(inputFil);
+
+int [] tall =
+
+Title: The simplest way to resize an UIImage?
+	Id: 2658738
+	Rank: 2  -  Distance: 1.00008
+	Tags: iphone, resize, uiimage
+	Body: In my iPhone app, I take a picture with the camera, then I want to resize it to 290*390 pixels. I was using this method to resize the image 
+
+Title: UIView with rounded rectangle and drop shadow: shadow appears above rectangle
+	Id: 2307169
+	Rank: 3  -  Distance: 1.00035
+	Tags: iphone, objective-c, uiview, dropshadow
+	Body: I've got a uiview subclass where I'm trying to draw a rounded rectangle with a drop shadow.  Though it draws both elements, I can see shadow
+
+Title: How to preserve aspect ratio when scaling image using one (CSS) dimension in IE6?
+	Id: 757782
+	Rank: 4  -  Distance: 1.00060
+	Tags: javascript, css, internet-explorer, image, internet-explorer-6
+	Body: Here's the problem. I have an image:
+<img alt="alttext" src="filename.jpg"/>
+
+Note no height or width specified.
+On certain pages I want to 
+
+Title: How do I resize a Google Map with JavaScript after it has loaded?
+	Id: 743214
+	Rank: 5  -  Distance: 1.00085
+	Tags: javascript, css, google-maps
+	Body: I have a 'mapwrap' div set to 400px x 400px and inside that I have a Google 'map' set to 100% x 100%. So the map loads at 400 x 400px, then 
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	array
+	div
+	date
+	form
+	objective
+	event
+	variable
+	google
+	iphone
+	html
+	json
+	using
+	jquery
+	string
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00185
+	Standard deviation of distance to cluster center: 0.00625
+	Max zscore: 1.77
+	Min zscore: -4.19
+	n_outliers(|z|>2): 15
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Count the number of occurences of a character in a string in Javascript
+	Id: 881085
+	Rank: 0  -  Distance: 0.97359
+	Tags: javascript, string
+	Body: Firstly, I am new to Javascript.
+I need to count the number of occurrences of a character in a string.
+For example, suppose my string contai
+
+Title: String strip() for javascript?
+	Id: 1418050
+	Rank: 1  -  Distance: 0.97854
+	Tags: javascript, strip
+	Body: What's a clean and efficient Javascript implementation to strip leading and trailing spaces from a string? 
+For example:
+" dog"
+"dog "
+" dog
+
+Title: How do I test if a string is empty in Objective C?
+	Id: 899209
+	Rank: 2  -  Distance: 0.97950
+	Tags: iphone, objective-c, xcode
+	Body: How do I test if an NSString is empty in Objective C?
+
+Title: How do I trim a string in javascript?
+	Id: 498970
+	Rank: 3  -  Distance: 0.97972
+	Tags: javascript
+	Body: How do I trim a string in javascript?
+
+Title: How can I strip all the whitespaces from a string in Objective-C?
+	Id: 758212
+	Rank: 4  -  Distance: 0.97995
+	Tags: iphone, objective-c, nsstring
+	Body: Consider the following example:
+"    Hello      this  is a   long       string!   "
+
+I want to convert that to:
+"Hello this is a long string
+
+Title: Fuel Gauge in JavaScript?
+	Id: 2977148
+	Rank: 5  -  Distance: 0.98087
+	Tags: javascript, jquery, css, graphics
+	Body: Looking for a fuel gauge in JavaScript (no flash please).
+I found this site, anyone try it?
+FREE - Bindows™ Ajax Gauges Library
+Any other re
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Custom UINavigationBar Background
+	Id: 704558
+	Rank: 0  -  Distance: 1.00065
+	Tags: iphone, objective-c
+	Body: I've been trying to set up a custom background for the whole of my NavigationBar (not just the titleView) but have been struggling.
+I found 
+
+Title: MySQL: Select N rows, but with only unique values in one column
+	Id: 190702
+	Rank: 1  -  Distance: 1.00091
+	Tags: sql, mysql, unique, aggregate-functions, min
+	Body: Given this data set:
+ID  Name            City            Birthyear
+1   Egon Spengler   New York        1957
+2   Mac Taylor      New York    
+
+Title: How do I create an empty array/matrix in NumPy?
+	Id: 568962
+	Rank: 2  -  Distance: 1.00092
+	Tags: python, arrays, numpy
+	Body: I'm sure I must be being very dumb, but I can't figure out how to use an array or matrix in the way that I would normally use a list. I.e., 
+
+Title: iPhone Compiler Fails: No architectures to compile for
+	Id: 3549478
+	Rank: 3  -  Distance: 1.00107
+	Tags: iphone, architecture
+	Body: Hey guys, I'm trying to implement this in my iPhone app: http://code.google.com/p/core-plot/downloads/detail?name=alpharelease_0.1.zip&can=2
+
+Title: How to create NSIndexPath for TableView
+	Id: 2151196
+	Rank: 4  -  Distance: 1.00157
+	Tags: iphone, uitableview, nsindexpath
+	Body: I need delete row 1 of a table in a function i have defined. In order to use deleteRowAtIndexPath you must use an IndexPath with a section a
+
+Title: To prevent a memory leak, the JDBC Driver has been forcibly unregistered
+	Id: 3320400
+	Rank: 5  -  Distance: 1.00231
+	Tags: java, tomcat, jdbc
+	Body: I am getting this message when I run my web application. It runs fine but I get this message during shutdown.
+
+SEVERE: A web application reg
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	iframe
+	id
+	select
+	file
+	json
+	html
+	text
+	element
+	div
+	value
+	function
+	using
+	object
+	jquery
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00185
+	Standard deviation of distance to cluster center: 0.00625
+	Max zscore: 1.92
+	Min zscore: -4.37
+	n_outliers(|z|>2): 27
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I test for an empty Javascript object from JSON?
+	Id: 679915
+	Rank: 0  -  Distance: 0.98280
+	Tags: javascript, ajax, json
+	Body: After an AJAX request, sometimes my application may return an empty object, like:
+var a = ({});
+
+How can I check whether that's the case?
+
+Title: jQuery first child of "this"
+	Id: 2275702
+	Rank: 1  -  Distance: 0.98458
+	Tags: javascript, jquery, this, first-child
+	Body: I'm trying to pass "this" from a clicked span to a jQuery function that can then execute jQuery on that clicked element's first child. Can't
+
+Title: How do I select text nodes with jQuery?
+	Id: 298750
+	Rank: 2  -  Distance: 0.98570
+	Tags: javascript, jquery, dom
+	Body: I would like to get all descendant text nodes of an element, as a jQuery collection. What is the best way to do that?
+
+Title: How to write this in jQuery "window.parent.document.getElementById('parentPrice').innerHTML"?
+	Id: 726816
+	Rank: 3  -  Distance: 0.98594
+	Tags: javascript, jquery, iframe
+	Body: I have an iframe and I wrote this code
+window.parent.document.getElementById('parentPrice').innerHTML
+
+to access parent element. How to get 
+
+Title: How to remove all css classes using jquery?
+	Id: 1424981
+	Rank: 4  -  Distance: 0.98610
+	Tags: javascript, jquery, dom
+	Body: Instead of individually calling $("#item").removeClass() for every single class an element might have, is there a single function which can 
+
+Title: jQuery get selected text from dropdownlist
+	Id: 1643227
+	Rank: 5  -  Distance: 0.98642
+	Tags: javascript, jquery, drop-down-menu
+	Body: How can I get an asp dropdownlist selected text in Jquery, not using selected value?
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: how do I detect the iPhone orientation before rotating
+	Id: 1160620
+	Rank: 0  -  Distance: 1.00072
+	Tags: iphone, objective-c, cocoa-touch, iphone-sdk-3.0
+	Body: In my program I'm moving things based on rotation, but I'm not rotating the entire view.  I'm Using :
+  static UIDeviceOrientation previousO
+
+Title: JSON.stringify() bizarreness
+	Id: 710586
+	Rank: 1  -  Distance: 1.00072
+	Tags: javascript, json
+	Body: I'm trying to figure out what's gone wrong with my json serializing, have the current version of my app with and old one and am finding some
+
+Title: java.lang.OutOfMemoryError: Java heap space with NetBeans
+	Id: 717550
+	Rank: 2  -  Distance: 1.00085
+	Tags: java, tomcat, netbeans, heap, outofmemoryerror
+	Body: This is the error I get when I run my web application in an instance of the Tomcat servlet container started by NetBeans. To fix this I even
+
+Title: How to use presentModalViewController to create a transparent view
+	Id: 587681
+	Rank: 3  -  Distance: 1.00111
+	Tags: iphone
+	Body: I am displaying a modal view with
+[self presentModalViewController:controller animated:YES];
+
+When the view moves up the screen it is transp
+
+Title: Online Tool to Unminify / Decompress JavaScript
+	Id: 822119
+	Rank: 4  -  Distance: 1.00117
+	Tags: javascript, code-formatting, minify, decompression, unminify
+	Body: Are there any scripts and/or online tools that can reverse the effects of minification similar to how Tidy can clean up horrific HTML?
+I'm s
+
+Title: Can't connect to local MySQL server through socket '/var/mysql/mysql.sock' (38)
+	Id: 5376427
+	Rank: 5  -  Distance: 1.00171
+	Tags: mysql
+	Body: I am having a big problem trying to connect to mysql. When I run:
+/usr/local/mysql/bin/mysql start
+
+I have the following error :
+Can't conne
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	button
+	file
+	color
+	using
+	xcode
+	change
+	view
+	sdk
+	error
+	use
+	application
+	mysql
+	app
+	javascript
+	iphone
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00185
+	Standard deviation of distance to cluster center: 0.00625
+	Max zscore: 1.62
+	Min zscore: -4.69
+	n_outliers(|z|>2): 21
+
+
+-----Closest 6 questions in cluster-----
+
+Title: iPhone and WireShark
+	Id: 1598407
+	Rank: 0  -  Distance: 0.97217
+	Tags: iphone, packet, packet-capture, sniffing, packet-sniffers
+	Body: How can I sniff packets from my iPhone on my network? can someone give me some instructions? I tried Googling, but nothing teaches how to sn
+
+Title: Change name of iPhone app in Xcode 4
+	Id: 5043066
+	Rank: 1  -  Distance: 0.97315
+	Tags: iphone
+	Body: I want to change the name which is displayed below the app icon on the iPhone screen.
+I use Xcode 4 and I have one target with keys:
+
+Bundle
+
+Title: How to access iPhone application directory and store image files there
+	Id: 516215
+	Rank: 2  -  Distance: 0.97423
+	Tags: iphone, objective-c, cocoa-touch
+	Body: I want to know whether I can access the directory where my application is installed.
+Also I want to create a sub directory in the same direc
+
+Title: Where's the best SQLite 3 tutorial for iPhone-SDK?
+	Id: 716839
+	Rank: 3  -  Distance: 0.97838
+	Tags: iphone, sqlite
+	Body: I'm looking for an complete tutorial which not just tells me how an query is executed, but also how I set up the whole thing including setti
+
+Title: How can I create a big, red UIButton with the iPhone SDK?
+	Id: 1427818
+	Rank: 4  -  Distance: 0.98024
+	Tags: iphone, objective-c, ios, uitableview, uibutton
+	Body: Using the iPhone SDK, how would I go about creating a red "delete" button similar to the one used when deleting contacts on the iPhone?
+
+Title: Autoplay audio files on an iPad with HTML5
+	Id: 3009888
+	Rank: 5  -  Distance: 0.98065
+	Tags: iphone, audio, ipad, html5
+	Body: I'm trying to get an audio file to autoplay in Safari on an iPad.  If I go to the page using Safari on my Mac, it's fine.  On the iPad, auto
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Generating random numbers in Javascript in a specific range?
+	Id: 1527803
+	Rank: 0  -  Distance: 1.00113
+	Tags: javascript, random, numbers
+	Body: How can I generate a random whole number between two specified variables in Javascript, e.g. x=4 and y=8 would output any of 4,5,6,7,8?
+
+Title: How to save picture to iPhone photo library?
+	Id: 178915
+	Rank: 1  -  Distance: 1.00116
+	Tags: iphone, cocoa-touch, camera
+	Body: What do I need to do to save an image my program has generated (possibly from the camera, possibly not) to the system photo library on the i
+
+Title: Getting "Can't connect...through socket '/tmp/mysql'" when installing MySQL on Mac OS X 10.6 with Homebrew
+	Id: 4788381
+	Rank: 2  -  Distance: 1.00120
+	Tags: mysql, osx, osx-snow-leopard, homebrew
+	Body: So I'm trying to install Mysql through homebrew, using the standard procedure: brew install mysql
+But running Mysql gets this well-known err
+
+Title: Mysql error 1093 - Can't specify target table for update in FROM clause
+	Id: 45494
+	Rank: 3  -  Distance: 1.00165
+	Tags: mysql, subquery, mysql-error-1093
+	Body: I have a table story_category in my database with corrupt entries. The next query returns the corrupt entries:
+SELECT * FROM  story_category
+
+Title: Get text of button from IBAction - iPhone
+	Id: 888668
+	Rank: 4  -  Distance: 1.00183
+	Tags: iphone, objective-c, cocoa, interface-builder
+	Body: When an IBAction is called:
+-(IBAction) onClick1: (id) sender;
+
+What is passed in the sender?  Since it's hooked up through the IB, I'm not 
+
+Title: ROW_NUMBER() in MySQL
+	Id: 1895110
+	Rank: 5  -  Distance: 1.00185
+	Tags: mysql, sql, greatest-n-per-group, rownumber
+	Body: Is there a nice way in MySQL to replicate the MS SQL Server function ROW_NUMBER()?
+For example:
+SELECT 
+    col1, col2, 
+    ROW_NUMBER() OV
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	exists
+	text
+	element
+	function
+	arrays
+	jquery
+	using
+	html
+	check
+	table
+	string
+	way
+	mysql
+	javascript
+	array
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00185
+	Standard deviation of distance to cluster center: 0.00625
+	Max zscore: 1.54
+	Min zscore: -3.90
+	n_outliers(|z|>2): 14
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I sort a two-dimensional array in C#?
+	Id: 232395
+	Rank: 0  -  Distance: 0.96730
+	Tags: c#, arrays, sorting
+	Body: I have a two-dimensional array (of Strings) which make up my data table (of rows and columns).  I want to sort this array by any column.  I 
+
+Title: Appending to array
+	Id: 351409
+	Rank: 1  -  Distance: 0.97157
+	Tags: javascript, arrays
+	Body: How do I append to an array in Javascript?
+
+Title: Getting the length of an array in Python
+	Id: 518021
+	Rank: 2  -  Distance: 0.97177
+	Tags: python, arrays
+	Body: In python is this the only way to get the number of elements:
+arr.__len__()
+
+If so, why the strange syntax?
+
+Title: What is the best way to check for an empty string in JavaScript?
+	Id: 154059
+	Rank: 3  -  Distance: 0.97404
+	Tags: javascript, language-features
+	Body: I saw this thread, but I didn't see a JavaScript specific example. Is there a simple string.Empty in JavaScript, or is it just checking for 
+
+Title: Convert a multidimensional javascript array to JSON?
+	Id: 459105
+	Rank: 4  -  Distance: 0.97414
+	Tags: javascript, arrays, json
+	Body: What is the best way of converting a multi-dimensional javascript array to JSON?
+
+Title: How to create a two dimensional array in JavaScript?
+	Id: 966225
+	Rank: 5  -  Distance: 0.97440
+	Tags: javascript, arrays, multidimensional-array, 2d-array
+	Body: I have been reading online and some places say it isn't possible, some say it is and then give an example and others refute the example, etc
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Login into Facebook with PHP script, but let me logged in the browser after the end of this script
+	Id: 798785
+	Rank: 0  -  Distance: 1.00055
+	Tags: php, javascript, facebook, curl, twitter
+	Body: Please, I am solving this problem.. I need to login into Facebook or Twitter or any other website from my PHP script running on my server. I
+
+Title: can't start MySql in Mac OS 10.6 Snow Leopard
+	Id: 1334272
+	Rank: 1  -  Distance: 1.00064
+	Tags: mysql, osx, osx-snow-leopard
+	Body: I've googled this and could'nt find anything new and useful for Apple's new OS SnowLeopard.
+I wonder if this is my mistake or I do need to d
+
+Title: Visibility option in jquery
+	Id: 1031927
+	Rank: 2  -  Distance: 1.00070
+	Tags: javascript, jquery, css
+	Body: I'm having some trouble with finding the visibility param for JQuery.
+Basically... the code below does nothing.
+$('ul.load_details').animate
+
+Title: pi in Objective C
+	Id: 978182
+	Rank: 3  -  Distance: 1.00094
+	Tags: iphone, objective-c
+	Body: I keep getting error in my iPhone programing when I try to use pi. I'm trying 
+    float pNumber = 100*cos(2 * pi * (days/23));
+
+But i get e
+
+Title: Custom colors in UITabBar
+	Id: 675433
+	Rank: 4  -  Distance: 1.00122
+	Tags: iphone, objective-c
+	Body: Is it possible to use custom colors and background images in a UITabBar?  I realize that Apple would like everyone to use the same blue and 
+
+Title: Ways to circumvent the same-origin policy
+	Id: 3076414
+	Rank: 5  -  Distance: 1.00177
+	Tags: javascript, ajax, workaround, same-origin-policy
+	Body: The same origin policy
+I wanted to make a community wiki regarding HTML/JS same-origin policies to hopefully help anyone searching for this 
+
+
+
+E========== CLUSTER 4 ==========
+

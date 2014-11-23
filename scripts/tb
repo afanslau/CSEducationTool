@@ -1,0 +1,13 @@
+from scripts.Bayesian import *
+
+n_samples = 10000
+n_features = 1000
+docs,post_index_map = vectorize_docs(n_samples)
+bayes = Bayesian(docs, n_features)
+g = bayes.network
+
+print 'Finding Root'
+root = bayes.get_root()
+# nx.draw(network)
+# plt.show()
+

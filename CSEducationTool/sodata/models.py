@@ -143,8 +143,8 @@ class DjangoSession(models.Model):
 class Posts(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     post_type_id = models.SmallIntegerField(blank=True, null=True)
-    parent = models.ForeignKey('self', blank=True, null=True, db_column='parent_id')
-    accepted_answer = models.ForeignKey('self', blank=True, null=True, db_column='accepted_answer_id')
+    parent = models.ForeignKey('self', blank=True, null=True, db_column='parent_id', related_name='question')
+    accepted_answer = models.ForeignKey('self', blank=True, null=True, db_column='accepted_answer_id', related_name='question_accepted')
     creation_date = models.DateField(blank=True, null=True)
     score = models.SmallIntegerField(blank=True, null=True)
     view_count = models.IntegerField(blank=True, null=True)

@@ -1,4 +1,4 @@
-from sodata.models import Posts, TaggedPosts, UniqueTags
+from CSEducationTool.sodata.models import Posts, TaggedPosts, UniqueTags
 from django.db.transaction import atomic
 from django.db.models import Q
 

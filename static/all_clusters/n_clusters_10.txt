@@ -1,0 +1,1242 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	way
+	string
+	using
+	dates
+	date
+	function
+	id
+	value
+	event
+	difference
+	jquery
+	iphone
+	mysql
+	javascript
+	array
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.33
+	Min zscore: -6.59
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to order events bound with jquery
+	Id: 290254
+	Rank: 0  -  Distance: 0.94355
+	Tags: javascript, jquery, events
+	Body: Lets say I have a web app which has a page that may contain 4 script blocks - the script I write may be found in one of those blocks, but I 
+
+Title: How to delete an element from an array in C#
+	Id: 496896
+	Rank: 1  -  Distance: 0.96946
+	Tags: c#, arrays, delete
+	Body: lets say I have this array
+int[] numbers = {1, 3, 4, 9, 2};
+
+how can I delete an element by "name"? , lets say number 4?
+even arraylist didn
+
+Title: What is the difference between UNION and UNION ALL
+	Id: 49925
+	Rank: 2  -  Distance: 0.97261
+	Tags: sql, mysql, sql-server, oracle, sybase
+	Body: What is the difference between UNION and UNION ALL.
+
+Title: How do I get the difference between two Dates in JavaScript?
+	Id: 41948
+	Rank: 3  -  Distance: 0.97339
+	Tags: javascript, date
+	Body: I'm creating an application which lets you define events with a time frame.  I want to automatically fill in the end date when the user sele
+
+Title: Objective-C: What's the Difference between objectForKey and valueForKey?
+	Id: 1062183
+	Rank: 4  -  Distance: 0.97429
+	Tags: iphone, objective-c, cocoa, nsdictionary, key-value-observing
+	Body: What is the difference between objectForKey and valueForKey?
+I looked both up in the documentation and they seemed the same to me.
+
+Title: What's the difference between JavaScript and Java?
+	Id: 245062
+	Rank: 5  -  Distance: 0.97579
+	Tags: java, javascript
+	Body: What's the difference between JavaScript and Java?
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to set viewport meta for iPhone that handles rotation properly?
+	Id: 1230019
+	Rank: 0  -  Distance: 1.00090
+	Tags: iphone, html, viewport
+	Body: So I've been using:
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+
+to get my HTML content to d
+
+Title: When should I release objects in -(void)viewDidUnload rather than in -dealloc?
+	Id: 1158788
+	Rank: 1  -  Distance: 1.00096
+	Tags: iphone, objective-c, ios, cocoa-touch, memory-management
+	Body: What is the -(void)viewDidUnload is good for?
+Could I not just relase everything in -dealloc? If the view did unload, wouldn't -dealloc be c
+
+Title: A html5 web app for mobile safari to upload images from the Photos.app?
+	Id: 3891831
+	Rank: 2  -  Distance: 1.00102
+	Tags: iphone, html5, file-upload, ios, mobile-safari
+	Body: Hello
+Is it possibly to write a HTML5 web application designed for the iOS devices (iPad, iPhone, iPod Touch) which can allow the user to up
+
+Title: What size should apple-touch-icon.png be for iPad and iPhone 4?
+	Id: 2997437
+	Rank: 3  -  Distance: 1.00159
+	Tags: iphone, ipad, icons
+	Body: Are Apple touch icons bigger than 60x60 supported, and if so, what dimensions should I use for the iPad and iPhone 4?
+
+Title: Javascript that executes after page load
+	Id: 807878
+	Rank: 4  -  Distance: 1.00166
+	Tags: javascript, html, javascript-events, page-load
+	Body: I'm executing an external script, using a <script> inside <head>.
+Now since the script executes before the page has loaded, I can't access t
+
+Title: UITableView Problems with cellForRowAtIndexPath
+	Id: 1972625
+	Rank: 5  -  Distance: 1.00176
+	Tags: iphone, cocoa-touch, uitableviewcell
+	Body: I am trying to fill a uitableview with multiple sections.
+This is my code:
+static NSString *CellIdentifier = @"Cell"; 
+UITableViewCell *cell
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	create
+	image
+	google maps
+	jquery
+	maps
+	app
+	using
+	detect
+	google
+	use
+	iphone sdk
+	sdk
+	javascript
+	api
+	iphone
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.53
+	Min zscore: -4.27
+	n_outliers(|z|>2): 6
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to use Shake API in iPhone SDK 3.0?
+	Id: 1170917
+	Rank: 0  -  Distance: 0.94260
+	Tags: iphone, accelerometer, shake
+	Body: Apple annonced Shake API in iPhone SDK 3.0. I can not find any information regarding this new feature. 
+Who knows about how to use it? Any e
+
+Title: Where's the best SQLite 3 tutorial for iPhone-SDK?
+	Id: 716839
+	Rank: 1  -  Distance: 0.95861
+	Tags: iphone, sqlite
+	Body: I'm looking for an complete tutorial which not just tells me how an query is executed, but also how I set up the whole thing including setti
+
+Title: How can I create a big, red UIButton with the iPhone SDK?
+	Id: 1427818
+	Rank: 2  -  Distance: 0.95862
+	Tags: iphone, objective-c, ios, uitableview, uibutton
+	Body: Using the iPhone SDK, how would I go about creating a red "delete" button similar to the one used when deleting contacts on the iPhone?
+
+Title: Any base64 library on iphone-sdk?
+	Id: 392464
+	Rank: 3  -  Distance: 0.95887
+	Tags: iphone, objective-c, ios, ipad, base64
+	Body: I'd like to do base64 encoding and decoding. But I could not find any support from iPhone SDK. 
+Any suggestion?
+Thanks.
+
+Title: iPhone SDK: Set Max Character length TextField
+	Id: 433337
+	Rank: 4  -  Distance: 0.95894
+	Tags: iphone, objective-c, sdk
+	Body: anybody know how I can set the maximum amount of characters in a TextField on the iPhone SDK when I load up the UIView ?
+
+Title: iPhone REST client
+	Id: 630306
+	Rank: 5  -  Distance: 0.96464
+	Tags: iphone, web-services, rest
+	Body: Does anybody know is there any good library for iPhone SDK to call REST web service. I want to have something simple like Heroku rest client
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: The executable was signed with invalid entitlements
+	Id: 1074546
+	Rank: 0  -  Distance: 1.00119
+	Tags: iphone, installation, adhoc
+	Body: I am having a problem with ad-hoc distribution on my iPhone. I have developed an application with SDK 3.0. I have a developer's license. I h
+
+Title: Passing an array as a function parameter in C++
+	Id: 444746
+	Rank: 1  -  Distance: 1.00122
+	Tags: c++, arrays, pointers, parameters, arguments
+	Body: In C++, arrays cannot be passed simply as parameters. Meaning if I create a function like so:
+void doSomething(char charArray[])
+{
+    // if
+
+Title: Xcode strange warning - Multiple build commands for output file
+	Id: 2718246
+	Rank: 2  -  Distance: 1.00204
+	Tags: iphone, xcode
+	Body: I am getting an error like this,
+[WARN]Warning: Multiple build commands for output file /Developer/B/Be/build/Release-iphonesimulator/BB.app
+
+Title: How to install MySQLdb package? (ImportError: No module named setuptools)
+	Id: 1449130
+	Rank: 3  -  Distance: 1.00249
+	Tags: python, mysql, installation
+	Body: I am trying to install MySQLdb package. I found the source code here.
+I did the following:
+gunzip MySQL-python-1.2.3c1.tar.gz
+tar xvf MySQL-
+
+Title: Facebook Javascript SDK Problem: "FB is not defined"
+	Id: 4556941
+	Rank: 4  -  Distance: 1.00258
+	Tags: javascript, google-chrome, facebook, facebook-javascript-sdk
+	Body: The following code, copied from the Facebook documentation here, is not working for me in Chrome.
+<div id="fb-root"></div>
+<script src="http
+
+Title: OpenGL ES iPhone - drawing anti aliased lines
+	Id: 1813035
+	Rank: 5  -  Distance: 1.00278
+	Tags: iphone, opengl-es, line, anti-aliasing
+	Body: Normally, you'd use something like:
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+glEnable(GL_BLEND);
+glEnable(GL_LINE_SMOOTH);
+
+glLine
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	using jquery
+	css
+	style
+	image
+	button
+	div
+	html
+	value
+	change
+	background
+	color
+	text
+	using
+	javascript
+	jquery
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.43
+	Min zscore: -5.07
+	n_outliers(|z|>2): 11
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Change style of jqGrid
+	Id: 1415439
+	Rank: 0  -  Distance: 0.94882
+	Tags: javascript, jquery, css, jqgrid
+	Body: I am using jqGrid 3.5. Can I change the style and look of the grid and make it more beautiful using jQuery or custom CSS or something else?
+
+Title: Changing the background color of a UIAlertView?
+	Id: 883208
+	Rank: 1  -  Distance: 0.96195
+	Tags: iphone, objective-c, cocoa-touch, uikit, uialertview
+	Body: I want to change the background color of my UIAlertView, but this doesn't appear to have a color attribute.
+
+Title: UIBarButtonItem with color?
+	Id: 664930
+	Rank: 2  -  Distance: 0.96224
+	Tags: iphone, cocoa-touch
+	Body: Is it possible to have a red UIBarButtonItem?
+
+Title: Changing Tint / Background color of UITabBar
+	Id: 571028
+	Rank: 3  -  Distance: 0.96580
+	Tags: iphone, uitabbarcontroller
+	Body: The UINavigationBar and UISearchBar both have a tintColor property that allows you to change the tint color (surprising, I know) of both of 
+
+Title: How do I change the background color with Javascript?
+	Id: 197748
+	Rank: 4  -  Distance: 0.96693
+	Tags: javascript, css
+	Body: Anyone know a simple method to swap the background color of a webpage using javascript?
+
+Title: Setting background-image using jQuery CSS property
+	Id: 512054
+	Rank: 5  -  Distance: 0.97164
+	Tags: javascript, jquery, css
+	Body: I have a URL in a variable, and I am having issues setting the value in CSS.
+$('myOjbect').css('background-image', imageUrl);
+
+Any pointers?
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Javascript StartsWith
+	Id: 646628
+	Rank: 0  -  Distance: 1.00085
+	Tags: javascript, startswith
+	Body: How would I write the equivalent of C#'s String.StartsWith in Javascript?
+var data = 'hello world';
+var input = 'he';
+
+//data.startsWith(inp
+
+Title: How to turn a String into a javascript function call?
+	Id: 912596
+	Rank: 1  -  Distance: 1.00148
+	Tags: javascript, function
+	Body: I got a string like:
+settings.functionName + '(' + t.parentNode.id + ')';
+
+that I want to translate into a function call like so:
+clickedOnI
+
+Title: this class is not key value coding-compliant for the key
+	Id: 3088059
+	Rank: 2  -  Distance: 1.00166
+	Tags: iphone, ios
+	Body: I'm trying to link a UILabel with an IBOulet created in my class. That's something so basic that you may ask yourself why I need help.
+Every
+
+Title: Draw radius around a point in Google map
+	Id: 825794
+	Rank: 3  -  Distance: 1.00175
+	Tags: javascript, google-maps
+	Body: I'm using the Google Maps API and have added markers. Now I want to add a 10 mile radius around each marker, meaning a circle that behaves a
+
+Title: How to save picture to iPhone photo library?
+	Id: 178915
+	Rank: 4  -  Distance: 1.00214
+	Tags: iphone, cocoa-touch, camera
+	Body: What do I need to do to save an image my program has generated (possibly from the camera, possibly not) to the system photo library on the i
+
+Title: error handling with NSURLConnection sendSynchronousRequest
+	Id: 2069039
+	Rank: 5  -  Distance: 1.00279
+	Tags: iphone, error-handling, nsurlconnection
+	Body: how can i do better error handling with NSURLConnection sendSynchronousRequest? is there any way i can implement
+- (void)connection:(NSURLCo
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	asp
+	net
+	tomcat
+	iphone application
+	function
+	work
+	console
+	xcode
+	jquery
+	vs
+	application
+	array
+	error
+	javascript
+	iphone
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.44
+	Min zscore: -4.74
+	n_outliers(|z|>2): 7
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Visual Studio 2010 script debugger doesn't work for me
+	Id: 1625903
+	Rank: 0  -  Distance: 0.95810
+	Tags: javascript, visual-studio-2010, debugging
+	Body: I just installed VS 2010 Beta 2 and wanted to play with an ASP.NET MVC 2 project.  I simply added some script (alert('hello');) into the Hom
+
+Title: Xcode 4: How do you view the console?
+	Id: 3377309
+	Rank: 1  -  Distance: 0.96839
+	Tags: iphone, objective-c, xcode4
+	Body: I can't seem to find a way to have the console run (to show NSLog comments) in XCode 4. The normal method for the previous version of XCode 
+
+Title: 'console' is undefined error for internet explorer
+	Id: 3326650
+	Rank: 2  -  Distance: 0.97301
+	Tags: javascript, internet-explorer, internet-explorer-8, firebug
+	Body: I'm using firebug and have some statements like:
+console.log("...");
+
+in my page. In IE8 (probably earlier versions too) I get script errors
+
+Title: Check iPhone iOS Version
+	Id: 3339722
+	Rank: 3  -  Distance: 0.97400
+	Tags: iphone, version, ios
+	Body: I want to check if the iOS version of the device is greater then the 3.1.3
+I tried things like:
+[[UIDevice currentDevice].systemVersion floa
+
+Title: What happened to console.log in IE8?
+	Id: 690251
+	Rank: 4  -  Distance: 0.97416
+	Tags: javascript, logging, internet-explorer-8, console
+	Body: According to this post it was in the beta, but it's not in the release?
+
+Title: Log to Firefox Error Console from JavaScript
+	Id: 783661
+	Rank: 5  -  Distance: 0.97520
+	Tags: javascript, firefox, debugging
+	Body: Is it possible to add messages to  the built-in error console of Firefox from JavaScript code running in web pages?
+I know that I there's Fi
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: NSURLConnection timeout?
+	Id: 1424608
+	Rank: 0  -  Distance: 0.99982
+	Tags: iphone, timeout, nsurlconnection
+	Body: I'm using this NSURLConnection with delegates.
+nsconnection = [[NSURLConnection alloc] initWithRequest:request
+    delegate:self startImmedi
+
+Title: How do i assign value to a textbox using javascript
+	Id: 477543
+	Rank: 1  -  Distance: 0.99996
+	Tags: javascript
+	Body: I have an asp.net mvc application and i am trying to assign value to my textbox dynamically, but it seems to be not working (I am only testi
+
+Title: Best cross-mobile javascript framework (iPhone/Android)
+	Id: 2086863
+	Rank: 2  -  Distance: 1.00000
+	Tags: javascript, iphone, android, frameworks, mobile
+	Body: Id like to create a small cross-mobile javascript application, which consists of a form and a grid as result. I also want to display some im
+
+Title: MySQL Diff Tool
+	Id: 218499
+	Rank: 3  -  Distance: 1.00010
+	Tags: sql, mysql, diff
+	Body: Does anyone know any visual MySQL diff tools?
+I have about 10 machines all with their own instance of MySQL.  No replication is taking place
+
+Title: jQuery .search() to any string
+	Id: 1854493
+	Rank: 4  -  Distance: 1.00069
+	Tags: javascript, jquery, string
+	Body: I saw this code snippet:
+$("ul li").text().search(new RegExp("sometext", "i"));
+
+and wanted to know if this can be extended to any string?
+I
+
+Title: Login into Facebook with PHP script, but let me logged in the browser after the end of this script
+	Id: 798785
+	Rank: 5  -  Distance: 1.00112
+	Tags: php, javascript, facebook, curl, twitter
+	Body: Please, I am solving this problem.. I need to login into Facebook or Twitter or any other website from my PHP script running on my server. I
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	file
+	document
+	image
+	value
+	html
+	script
+	using
+	input
+	element
+	text
+	submit
+	function
+	form
+	javascript
+	jquery
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.42
+	Min zscore: -6.00
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: jQuery form submit() is not working in IE6?
+	Id: 445850
+	Rank: 0  -  Distance: 0.95334
+	Tags: javascript, jquery, html, internet-explorer-6
+	Body: I want to submit a  with using jquery as below;
+$("#formid").submit();
+
+Its working perfect in all browsers except IE6.
+How to make it work 
+
+Title: HTML form with two submit buttons and two "target" attributes
+	Id: 942772
+	Rank: 1  -  Distance: 0.96543
+	Tags: javascript, html, forms, submit
+	Body: Hi I have one html <form>.
+The form has only one action="" attribute.
+However I wish to have 2 different target="" attributes depending on w
+
+Title: jQuery override form submit not working when submit called by javascript on a element
+	Id: 142000
+	Rank: 2  -  Distance: 0.97428
+	Tags: javascript, jquery
+	Body: I've got a page with a normal form with a submit button and some jQuery which binds to the form submit event and overrides it with e.prevent
+
+Title: switch statement in Jquery and List
+	Id: 1435012
+	Rank: 3  -  Distance: 0.97544
+	Tags: javascript, jquery, switch, condition
+	Body: I would like to know if my approach is efficient and correct. my code is not working though, I don't know why.
+<!DOCTYPE html PUBLIC "-//W3C
+
+Title: jQuery how to bind onclick event to dynamically added HTML element
+	Id: 1525664
+	Rank: 4  -  Distance: 0.97620
+	Tags: javascript, jquery, bind
+	Body: I want to bind an onclick event to an element I insert dynamically with jQuery
+But It never runs the binded function. I'd be happy if you ca
+
+Title: window.onload() is not firing with IE 8 in first shot
+	Id: 886668
+	Rank: 5  -  Distance: 0.97622
+	Tags: javascript, html, internet-explorer, xhtml, internet-explorer-8
+	Body: I am trying to make my pages work correctly with IE 8, I found out from here: http://www.masykur.web.id/post/How-to-Make-Our-Website-to-be-R
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Javascript: Determine whether an array contains a value
+	Id: 1181575
+	Rank: 0  -  Distance: 1.00058
+	Tags: javascript, arrays, contains
+	Body: i need to determine if a value exists in an array using javascript.
+I am using the following function:
+Array.prototype.contains = function(o
+
+Title: Mysql Compare two datetime fields
+	Id: 1058031
+	Rank: 1  -  Distance: 1.00061
+	Tags: mysql, datetime, compare, fields
+	Body: I want to compare two dates with time, I want all the results from tbl where date1 > date2
+Select * From temp where mydate > '2009-06-29 04:
+
+Title: How to add element to C++ array?
+	Id: 755835
+	Rank: 2  -  Distance: 1.00073
+	Tags: c++, arrays
+	Body: I want to add an int into an array, but the problem is that I don't know what the index is now.
+int[] arr = new int[15];
+arr[0] = 1;
+arr[1] 
+
+Title: Mysql error 1093 - Can't specify target table for update in FROM clause
+	Id: 45494
+	Rank: 3  -  Distance: 1.00090
+	Tags: mysql, subquery, mysql-error-1093
+	Body: I have a table story_category in my database with corrupt entries. The next query returns the corrupt entries:
+SELECT * FROM  story_category
+
+Title: how to remove subviews from scrollview?
+	Id: 1310723
+	Rank: 4  -  Distance: 1.00114
+	Tags: objective-c, iphone, xcode, uiscrollview
+	Body: how do i remove all subviews from my scrollview...
+i have a uiview and a button above it in the scrollview something like this....
+here is m
+
+Title: XCode 4 hangs at "Attaching to (app name)"
+	Id: 5382968
+	Rank: 5  -  Distance: 1.00165
+	Tags: iphone, objective-c, xcode, ipad, xcode4
+	Body: Hey guys, this is driving me crazy! I just upgraded to XCode 4 and for some reason my app won't run in the simulator or iOS device. It was w
+
+
+
+E========== CLUSTER 4 ==========
+
+B========== CLUSTER 5 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	view
+	app
+	jquery
+	error
+	table
+	vs
+	java
+	file
+	string
+	using
+	use
+	array
+	mysql
+	iphone
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.59
+	Min zscore: -6.96
+	n_outliers(|z|>2): 15
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Is it possible to display my iPhone on my computer monitor?
+	Id: 765314
+	Rank: 0  -  Distance: 0.96744
+	Tags: iphone, external-display
+	Body: As the title says, is this possible?
+I want to "mirror" my actions on the iPhone so it shows on the computer monitor.
+We've seen this on the
+
+Title: PHP/MySQL: How to create a comment section in your website
+	Id: 1171997
+	Rank: 1  -  Distance: 0.98124
+	Tags: php, mysql, comments
+	Body: Instead of asking 'how to use PHP/MySQL to let users affect webpages' I'll ask this, because I learn better from projects and examples.
+So h
+
+Title: how can I use animation in cocos2d?
+	Id: 486609
+	Rank: 2  -  Distance: 0.98420
+	Tags: iphone, objective-c, cocoa-touch, animation, cocos2d-iphone
+	Body: I am trying to develop a Roulette game for iPhone. How can I animation (spin) the Roulette board?
+
+Title: Renew Provisioning Profile
+	Id: 1342497
+	Rank: 3  -  Distance: 0.98432
+	Tags: iphone, provisioning
+	Body: Just got a notice that the provisioning profile for one of my apps is about to expire. Is there some way I can renew the existing one or mus
+
+Title: How to pass command line arguments to node.js?
+	Id: 4351521
+	Rank: 4  -  Distance: 0.98434
+	Tags: javascript, node.js, command-line-arguments
+	Body: This is probably just a javascript question.  I have a web server written in node that I would like to launch with a specific folder.  I'm n
+
+Title: MySQL - Using If Then Else in MySQL UPDATE or SELECT Queries
+	Id: 2177543
+	Rank: 5  -  Distance: 0.98521
+	Tags: mysql
+	Body: How do I update a table and set different values upon the condition evaluating to True.
+For instance :
+UPDATE Table
+SET A = '1' IF A > 0 AND
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Static string variable in Objective C on iphone
+	Id: 980083
+	Rank: 0  -  Distance: 1.00015
+	Tags: iphone, objective-c, string, static
+	Body: How to create & access static string in iPhone (objective c)? 
+I declare static NSString *str = @"OldValue" in class A.
+If i assign some val
+
+Title: Access to restricted URI denied code: 1012
+	Id: 51283
+	Rank: 1  -  Distance: 1.00035
+	Tags: javascript, jquery, ajax, xss
+	Body: How do you get around this Ajax cross site scripting problem on FireFox 3?
+
+Title: Difference between window.location.href and top.location.href
+	Id: 3332756
+	Rank: 2  -  Distance: 1.00052
+	Tags: javascript, asp.net-mvc
+	Body: Can Anyone tell me the difference between window.location.href and top.location.href ?
+And also where to use which one. 
+And which one will 
+
+Title: using razor within javascript
+	Id: 4599169
+	Rank: 3  -  Distance: 1.00056
+	Tags: javascript, asp.net-mvc, razor
+	Body: is it possible or is there a workaround to use razor syntax within javacript that is in a view?(chtml).. I am trying to add markers to a goo
+
+Title: UIImage resize (Scale proportion)
+	Id: 2645768
+	Rank: 4  -  Distance: 1.00061
+	Tags: iphone, resize, uiimage
+	Body: 
+Possible Duplicate:
+Resize UIImage with aspect ratio? 
+
+The following piece of code is resizing the image perfectly, but the problem is tha
+
+Title: How can i get file extensions with javascript?
+	Id: 190852
+	Rank: 5  -  Distance: 1.00122
+	Tags: javascript
+	Body: See code: 
+var file1 ="50.xsl";
+var file2 =30.doc";"
+getFileExtension(file1); //returs xsl
+getFileExtension(file2); //returs doc
+
+function g
+
+
+
+E========== CLUSTER 5 ==========
+
+B========== CLUSTER 6 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	function
+	delete
+	value
+	text
+	table
+	list
+	variable
+	script
+	mysql
+	jquery
+	error
+	iphone
+	element
+	array
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.28
+	Min zscore: -3.56
+	n_outliers(|z|>2): 4
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Error: Attempt to run compile-and-go script on a cleared scope
+	Id: 5433415
+	Rank: 0  -  Distance: 0.96634
+	Tags: javascript, firefox, firefox4
+	Body: Since upgrading to Firefox 4.0, I've noticed that I'm occasionally getting an error in the console stating:
+
+attempt to run compile-and-go s
+
+Title: Javascript isset() equivalent
+	Id: 2281633
+	Rank: 1  -  Distance: 0.97478
+	Tags: javascript, isset
+	Body: In PHP you can do if(isset($array['foo'])) { ... }. In Javascript you often use if(array.foo) { ... } to do the same, but this is not exactl
+
+Title: Static variables in JavaScript
+	Id: 1535631
+	Rank: 2  -  Distance: 0.97479
+	Tags: javascript, variables, static
+	Body: How can I create static variables in Javascript?
+
+Title: Delaying a jquery script until everything else has loaded
+	Id: 1012140
+	Rank: 3  -  Distance: 0.97650
+	Tags: javascript, jquery, dom
+	Body: I have a jquery script which I need to run only once everything else on the page, including some other javascripts (over which I have no con
+
+Title: JavaScript Variable Scope
+	Id: 500431
+	Rank: 4  -  Distance: 0.97748
+	Tags: javascript
+	Body: What is the scope of variables in javascript? Do they have the same scope inside as opposed to outside a function? Or does it even matter? A
+
+Title: MySQL: @variable vs. variable. Whats the difference?
+	Id: 1009954
+	Rank: 5  -  Distance: 0.97762
+	Tags: sql, mysql, sql-server, variables
+	Body: In another question I posted someone told me that there is a difference between:
+@variable
+
+and:
+variable
+
+in MySQL. He also mentioned how M
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Cross Browser Flash Detection in Javascript
+	Id: 159261
+	Rank: 0  -  Distance: 0.99962
+	Tags: javascript, flash, cross-browser
+	Body: Does anyone have an example of script that can work reliably well across IE/Firefox to detect if the browser is capable of displaying embedd
+
+Title: "Access is denied" error on accessing iframe document object
+	Id: 151362
+	Rank: 1  -  Distance: 0.99967
+	Tags: javascript, ajax, iframe
+	Body: For posting AJAX forms in a form with many parameters, I am using a solution of creating an iframe, posting the form to it by POST, and then
+
+Title: Delete default value of an input text on click
+	Id: 2984311
+	Rank: 2  -  Distance: 0.99992
+	Tags: javascript, html, input, default-value
+	Body: I have an input text :
+<input name="Email" type="text" id="Email" value="email@abc.com" />
+
+I want to put a default value like "What's your 
+
+Title: Javascript: how to validate dates in format MM-DD-YYYY?
+	Id: 276479
+	Rank: 3  -  Distance: 0.99998
+	Tags: javascript, validation, date
+	Body: I saw a potential answer here but that was for YYYY-MM-DD:
+http://paulschreiber.com/blog/2007/03/02/javascript-date-validation/
+I modified t
+
+Title: How do you determine equality for two JavaScript objects?
+	Id: 201183
+	Rank: 4  -  Distance: 1.00000
+	Tags: javascript, hashcode
+	Body: A strict equality operator will tell you if two object types are equal, however, is there any way to tell if two objects are equal, much lik
+
+Title: OnClick vs OnClientClick for an asp:CheckBox?
+	Id: 1135134
+	Rank: 5  -  Distance: 1.00010
+	Tags: asp.net, javascript, checkbox, onclick, onclientclick
+	Body: Does anyone know why a client-side javascript handler for asp:CheckBox needs to be an OnClick="" attribute rather than an OnClientClick="" a
+
+
+
+E========== CLUSTER 6 ==========
+
+B========== CLUSTER 7 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	app
+	height
+	page
+	content
+	make
+	html
+	way
+	window
+	jquery
+	event
+	browser
+	div
+	iframe
+	iphone
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.29
+	Min zscore: -5.71
+	n_outliers(|z|>2): 9
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How to make in Javascript full screen windows (stretching all over the screen)
+	Id: 1125084
+	Rank: 0  -  Distance: 0.93937
+	Tags: javascript, fullscreen
+	Body: How can I make full screen in JavaScript that works in IE, Firefox and Opera. 
+When I mean full screen I mean one that takes all of your scr
+
+Title: How do I make Javascript beep?
+	Id: 879152
+	Rank: 1  -  Distance: 0.95194
+	Tags: javascript, browser, textarea, maxlength, beep
+	Body: I want to my web page to beep whenever a user exceeds the maximum character limit of my textarea.
+
+Title: Any way to make div scroll in ipad?
+	Id: 3495886
+	Rank: 2  -  Distance: 0.95825
+	Tags: javascript, jquery, ipad
+	Body: I have tried so many different things and I keep searching but I find nothing!
+Help anyone?
+
+Title: Capture event onclose browser
+	Id: 1025935
+	Rank: 3  -  Distance: 0.96078
+	Tags: javascript, jquery, events
+	Body: How I can capture event, close browser window, in jQuery or javascript ?
+
+Title: Disable browser's back button
+	Id: 961188
+	Rank: 4  -  Distance: 0.96089
+	Tags: asp.net, javascript
+	Body: How to disable browser's BACK Button (across browsers)?
+
+Title: Cross-browser window resize event - JavaScript / jQuery
+	Id: 599288
+	Rank: 5  -  Distance: 0.96435
+	Tags: javascript, jquery, cross-browser, resize
+	Body: What is the correct (modern) method for tapping into the window resize event that works in Firefox, WebKit, and Internet Explorer?
+And can y
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Javascript onHover event
+	Id: 262740
+	Rank: 0  -  Distance: 1.00090
+	Tags: javascript, javascript-events
+	Body: Is there a canonical way to set up a JS onHover event with the existing onmouseover, onmouseout and some kind of timers?  Or just any method
+
+Title: NodeJS: Write to file
+	Id: 2496710
+	Rank: 1  -  Distance: 1.00096
+	Tags: javascript, file, node.js
+	Body: I've been trying to find a way to write to file when using NodeJS but with no success. Can you help me with this.
+Thanks.
+
+Title: Getting the Value of a UITextField as keystrokes are entered?
+	Id: 388237
+	Rank: 2  -  Distance: 1.00116
+	Tags: iphone, cocoa-touch
+	Body: Let's say I have the following code:
+IBOutlet UITextField* nameTextField;
+IBOutlet UILabel* greetingLabel;
+
+I'd like the greetingLabel to re
+
+Title: PHP: how to get last inserted ID of a table?
+	Id: 1685860
+	Rank: 3  -  Distance: 1.00141
+	Tags: php, mysql
+	Body: I have a table, which regularly is inserted with new data.
+I need to get the very last ID of the table.
+How can I do this?
+Is it similar to:
+
+Title: MySQL/SQL: Group by date only on a Datetime column
+	Id: 366603
+	Rank: 4  -  Distance: 1.00155
+	Tags: sql, mysql
+	Body: Having a table with a column like: mydate DATETIME ...
+I have a query such as:
+SELECT SUM(foo), mydate FROM a_table GROUP BY a_table.mydate;
+
+Title: jQuery Dialog Box
+	Id: 366696
+	Rank: 5  -  Distance: 1.00270
+	Tags: javascript, jquery, dialogbox
+	Body: Im trying to do a dialog box with jquery. In this dialog box Im going to have terms and conditions. The problem is that the dialog box is on
+
+
+
+E========== CLUSTER 7 ==========
+
+B========== CLUSTER 8 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	objects
+	ajax
+	test
+	using
+	date
+	function
+	javascript object
+	jquery
+	html
+	file
+	string
+	array
+	object
+	json
+	javascript
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.16
+	Min zscore: -6.50
+	n_outliers(|z|>2): 9
+
+
+-----Closest 6 questions in cluster-----
+
+Title: How do I test for an empty Javascript object from JSON?
+	Id: 679915
+	Rank: 0  -  Distance: 0.92494
+	Tags: javascript, ajax, json
+	Body: After an AJAX request, sometimes my application may return an empty object, like:
+var a = ({});
+
+How can I check whether that's the case?
+
+Title: converting javascript object to string
+	Id: 5612787
+	Rank: 1  -  Distance: 0.95360
+	Tags: javascript, string, object
+	Body: I try to convert a javascript object into string, but i just cannot get the solution after Google on it. Can someone help me about it? Thank
+
+Title: How do I get the name of an object's type in JavaScript?
+	Id: 332422
+	Rank: 2  -  Distance: 0.96237
+	Tags: javascript
+	Body: Is there a JavaScript equivalent of Java's class.getName()?
+
+Title: Safely turning a JSON string into an object
+	Id: 45015
+	Rank: 3  -  Distance: 0.96307
+	Tags: javascript, ajax, json
+	Body: Given a string of JSON data, how can you safely turn that string into a JavaScript object?
+Obviously you can do this unsafely with something
+
+Title: Appending to a JSON object
+	Id: 617036
+	Rank: 4  -  Distance: 0.96700
+	Tags: javascript, json
+	Body: I have a json object that holds alerts and some information about them:
+var alerts = { 1:{app:'helloworld','message'},2:{app:'helloagain',me
+
+Title: how to format javascript date
+	Id: 3552461
+	Rank: 5  -  Distance: 0.96792
+	Tags: javascript, date
+	Body: how can i format a javascript date object to print as "10-Aug-2010"
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How do I Validate the File Type of a File Upload?
+	Id: 71944
+	Rank: 0  -  Distance: 1.00084
+	Tags: asp.net, javascript, validation, file, upload
+	Body: I am using <input type="file" id="fileUpload" runat="server"> to upload a file in an ASP.NET application. I would like to limit the file typ
+
+Title: starting file download with JavaScript
+	Id: 365777
+	Rank: 1  -  Distance: 1.00100
+	Tags: javascript
+	Body: Let's say I have download links for files on my site. When clicked these links send an ajax request to the server which returns the URL with
+
+Title: Canvas rotate from bottom center image angle?
+	Id: 365382
+	Rank: 2  -  Distance: 1.00143
+	Tags: javascript, html5, canvas, rotation
+	Body: How do you rotate an image with the canvas html5 element from the bottom center angle?
+<html>
+    <head>
+        <title>test</title>
+       
+
+Title: Capitalize the first letter of string in JavaScript
+	Id: 1026069
+	Rank: 3  -  Distance: 1.00143
+	Tags: javascript, string, capitalize
+	Body: I want to capitalize the first character of a string, but not change the case of any of the other letters.  For example:
+
+this is a test -> 
+
+Title: How to resize a container div to the total height of its children?
+	Id: 317472
+	Rank: 4  -  Distance: 1.00214
+	Tags: javascript, jquery, dom
+	Body: I have a container element which I need to resize as its contents change. It contains 2 absolutely positioned divs which can both change hei
+
+Title: IMG SRC tags and JavaScript
+	Id: 116967
+	Rank: 5  -  Distance: 1.00227
+	Tags: javascript, asp.net, img
+	Body: Is it possible to call a JavaScript function from the IMG SRC tag to get an image url?
+Like this:
+<IMG SRC="GetImage()" />
+
+<script language
+
+
+
+E========== CLUSTER 8 ==========
+
+B========== CLUSTER 9 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	variable
+	string javascript
+	string objective
+	character
+	javascript convert
+	key
+	exists
+	number
+	objective
+	javascript check
+	convert
+	check
+	array
+	javascript
+	string
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.00497
+	Standard deviation of distance to cluster center: 0.00872
+	Max zscore: 1.67
+	Min zscore: -3.40
+	n_outliers(|z|>2): 3
+
+
+-----Closest 6 questions in cluster-----
+
+Title: iPhone how to check that a string is numeric only
+	Id: 1320295
+	Rank: 0  -  Distance: 0.90399
+	Tags: iphone, objective-c, nsstring, uitextfield, input-validation
+	Body: How do I validate the string input from a UITextField? I want to check that the string is numeric, including decimal points.
+
+Title: How to convert decimal to hex in JavaScript?
+	Id: 57803
+	Rank: 1  -  Distance: 0.92631
+	Tags: javascript, hex, tostring, base, numberformat
+	Body: How do you convert decimal values to their hex equivalent in JavaScript?
+
+Title: How to convert array to SimpleXML
+	Id: 1397036
+	Rank: 2  -  Distance: 0.92729
+	Tags: php, xml, arrays, simplexml
+	Body: How can I convert an array to a SimpleXML object in PHP?
+
+Title: String contains string in objective-c
+	Id: 2753956
+	Rank: 3  -  Distance: 0.93653
+	Tags: iphone, objective-c, string, substring
+	Body: How can I check if a string (NSString) contains another smaller string?
+I was hoping for something like:
+NSString *string = @"hello bla bla"
+
+Title: What is the best way to check for an empty string in JavaScript?
+	Id: 154059
+	Rank: 4  -  Distance: 0.93781
+	Tags: javascript, language-features
+	Body: I saw this thread, but I didn't see a JavaScript specific example. Is there a simple string.Empty in JavaScript, or is it just checking for 
+
+Title: JavaScript: Check if object is array?
+	Id: 4775722
+	Rank: 5  -  Distance: 0.93864
+	Tags: javascript, arrays
+	Body: I'm trying to write a function that either accepts a list of strings, or a single string. If it's a string, then I want to convert it to an 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Repeat String - Javascript
+	Id: 202605
+	Rank: 0  -  Distance: 0.99359
+	Tags: javascript, string
+	Body: What is the best or most concise method for returning a string repeated an arbitrary amount of times?
+The following is my best shot so far:
+
+
+Title: PHP: Get key from array?
+	Id: 3317856
+	Rank: 1  -  Distance: 0.99438
+	Tags: php, arrays, multidimensional-array, key
+	Body: I am sure that this is super easy and built-in function in PHP, but I have yet not seen it.
+Here's what I am doing for the moment:
+forEach($
+
+Title: How can i check if a radio button is selected in javascript?
+	Id: 1423777
+	Rank: 2  -  Distance: 0.99616
+	Tags: javascript, radio
+	Body: i have two radio buttons within a form. a dialog box appears when one of the fields is null. how can i check if a radio button is selected?
+
+Title: How can you check for a #hash in a URL using JavaScript?
+	Id: 298503
+	Rank: 3  -  Distance: 0.99761
+	Tags: javascript, jquery, anchor, fragment-identifier
+	Body: I have some jQuery JavaScript code that I want to run only when there is a hash (#) anchor link in a URL. How can you check for this charact
+
+Title: Easy way to turn Javascript array into comma-separated list?
+	Id: 201724
+	Rank: 4  -  Distance: 1.00298
+	Tags: javascript, jquery
+	Body: I have a one-dimensional array of strings in Javascript that I'd like to turn into a comma-separated list. Is there a simple way in garden-v
+
+Title: How to check if a file exists in Documents folder?
+	Id: 1638834
+	Rank: 5  -  Distance: 1.00334
+	Tags: iphone, xcode, webview, nsfilemanager
+	Body: I have an application with In-App Purchase, that when the user buy something, download one html file into the Documents folder of my app.
+No
+
+
+
+E========== CLUSTER 9 ==========
+

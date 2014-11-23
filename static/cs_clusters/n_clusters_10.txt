@@ -1,0 +1,1192 @@
+B========== CLUSTER 0 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	reduction
+	does
+	hardness
+	reductions
+	polynomial
+	problem np
+	time
+	np hard
+	problems
+	hard
+	mathsf
+	sat
+	problem
+	np complete
+	complete
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.50
+	Min zscore: -3.00
+	n_outliers(|z|>2): 13
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Are there complete problems for P and NP under other kinds of reductions?
+	Id: 2222
+	Rank: 0  -  Distance: 0.90536
+	Tags: complexity-theory, reductions
+	Body: I know that the complexity class $\mathsf{P}$ has complete problems w.r.t. $\mathsf{NC}$ and $\mathsf{L}$ reductions.
+Are these two classes 
+
+Title: 3SAT is NP-complete, however is 1SAT NP-complete?
+	Id: 16606
+	Rank: 1  -  Distance: 0.91074
+	Tags: algorithms, 3-sat
+	Body: Its is known that 3SAT (all clauses have size 3) is NP-complete. 
+But how about 1SAT (all clauses have size 1), is it also NP-complete? I tr
+
+Title: Does coNP-completeness imply NP-hardness?
+	Id: 16371
+	Rank: 2  -  Distance: 0.91214
+	Tags: complexity-theory, np-hard
+	Body: Does coNP-completeness imply NP-hardness? In particular, I have a problem that I have shown to be coNP-complete. Can I claim that it is NP-h
+
+Title: NP-hard proof: Polynomial time reduction
+	Id: 19228
+	Rank: 3  -  Distance: 0.91727
+	Tags: complexity-theory
+	Body: As I understand, to show that a certain problem $P$ is NP-hard we can reduce a known NP-hard problem $Q$ to a problem in $P$. This reduction
+
+Title: CoNP and NPhard intersection
+	Id: 14847
+	Rank: 4  -  Distance: 0.91733
+	Tags: complexity-theory
+	Body: Can a problem be both NP-Hard and CoNP?
+Can a problem be both NP and CoNP-Hard?
+
+Title: How do we distinguish NP-complete problems from other NP problems?
+	Id: 2655
+	Rank: 5  -  Distance: 0.91870
+	Tags: complexity-theory, terminology, np-complete
+	Body: I just learned that when we have a polynomial algorithm for NP-complete problems, it is possible to use that algorithm to solve all NP probl
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: NP completeness proof of a spanning tree problem
+	Id: 808
+	Rank: 0  -  Distance: 0.99617
+	Tags: complexity-theory, graphs, np-complete
+	Body: I am looking for some hints in a question asked by my instructor.
+So I just figured out this decision problem is $\sf{NP\text{-}complete}$:
+
+
+Title: How do we know any problem is in NP-complete if we don't know all problems in NP?
+	Id: 24141
+	Rank: 1  -  Distance: 0.99706
+	Tags: complexity-theory, np-complete, np
+	Body: A problem is NP-complete if:
+
+It is in NP.
+All problems in NP can reduce to it.
+
+It's number 2 that I'm concerned with here. I would be high
+
+Title: Is it possible for an NP problem to be reduced to an EXPTIME problem in polynomial time?
+	Id: 22142
+	Rank: 2  -  Distance: 0.99735
+	Tags: complexity-classes
+	Body: And if so would this grant us any insight into the relations between P, NP, and EXPTIME?
+
+Title: Assuming NP $\neq$ P, are there NPI languages only P languages reduce to?
+	Id: 12300
+	Rank: 3  -  Distance: 0.99767
+	Tags: complexity-theory, complexity-classes
+	Body: let $L_c$ be the class of all languages that have a polynomial reduction to some language L, for example if $L=SAT$ then $SAT_c=NP$.
+Assumin
+
+Title: Problem with my proof that NP = coNP?
+	Id: 29179
+	Rank: 4  -  Distance: 0.99841
+	Tags: complexity-theory, p-vs-np
+	Body: Is there a problem with this proof that NP = coNP?
+It suffices to show that Satisfiability can be solved efficiently with at most a polynomi
+
+Title: Is this NP-hard? I cannot prove it.
+	Id: 19051
+	Rank: 5  -  Distance: 0.99877
+	Tags: graphs, np
+	Body: I have a problem and I guess it NP-hard, but I cannot prove it.
+Here is a layer graph, where layer 0 is the hignest layer and layer L the lo
+
+
+
+E========== CLUSTER 0 ==========
+
+B========== CLUSTER 1 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	cycle
+	number
+	set
+	node
+	edge
+	directed
+	problem
+	paths
+	shortest
+	vertices
+	vertex
+	edges
+	algorithm
+	tree
+	path
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.68
+	Min zscore: -3.48
+	n_outliers(|z|>2): 29
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Prove that every two longest paths have at least one vertex in common
+	Id: 2615
+	Rank: 0  -  Distance: 0.94041
+	Tags: graph-theory, graphs, combinatorics
+	Body: If a graph $G$ is connected and has no path with a length greater than $k$, prove that every two paths in $G$ of length $k$ have at least on
+
+Title: What is the maximum number of shortest paths between any pair of vertices in a chordal graph?
+	Id: 10438
+	Rank: 1  -  Distance: 0.94488
+	Tags: graph-theory, combinatorics, shortest-path, discrete-mathematics
+	Body: A graph $G$ is chordal if it doesn't have induced cycles of length 4 or more. Chordal graphs are precisely the class of graphs that admit a 
+
+Title: On the minimum order of a maximal independent set in cycle graphs and path graphs
+	Id: 18535
+	Rank: 2  -  Distance: 0.94490
+	Tags: graph-theory, graphs
+	Body: I can see from this question that a $K_{r + 1}$-free graph with $n$ vertices and $e$ edges contains an independent set of order at least
+$$\
+
+Title: How many edges can a unipathic graph have?
+	Id: 680
+	Rank: 3  -  Distance: 0.94621
+	Tags: graphs, combinatorics
+	Body: A unipathic graph is a directed graph such that there is at most one simple path from any one vertex to any other vertex.
+Unipathic graphs c
+
+Title: Mininun changes required in a directed graph to make path from 1 to n
+	Id: 28975
+	Rank: 4  -  Distance: 0.94781
+	Tags: algorithms, graph-theory, dynamic-programming, graph-algorithms
+	Body: i have a directed graph. Basically, i have to find how many edges i need to change to opposite direction to make a path between 1 and n. So,
+
+Title: Every simple undirected graph with more than $(n-1)(n-2)/2$ edges is connected
+	Id: 6801
+	Rank: 5  -  Distance: 0.94787
+	Tags: graph-theory
+	Body: If a graph with $n$ vertices has more than $\frac{(n-1)(n-2)}{2}$ edges then it is connected.
+I am a bit confused about this question, since
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: How to prove that the pre-order tree traversal algorithm terminates?
+	Id: 4719
+	Rank: 0  -  Distance: 0.99948
+	Tags: algorithms, data-structures, algorithm-analysis, correctness-proof, induction
+	Body: I see structural induction the usual way for proving an algorithm's termination property, but it's not that easy to prove by means of induct
+
+Title: Find equidistant triplets in a tree
+	Id: 16047
+	Rank: 1  -  Distance: 0.99981
+	Tags: algorithms, graphs, dynamic-programming, trees
+	Body: Given a tree $T$ with $n$ vertices, we want to find the number of triplets of vertices $(a,b,c)$ such $d(a,b) = d(b,c) = d(c,a)$ where $d$ i
+
+Title: Finding reachable vertices
+	Id: 7369
+	Rank: 2  -  Distance: 0.99994
+	Tags: graph-theory
+	Body: I'm trying to solve a graph problem ( it's not for homework, just to practise my skills ). 
+A dag $G(V,E)$ is given, where $V$ is the set of
+
+Title: Modification of Hamilton Path
+	Id: 6446
+	Rank: 3  -  Distance: 1.00013
+	Tags: algorithms, complexity-theory, graph-theory, np-hard
+	Body: Although I know that the Hamilton Path problem is ${\sf NP}$-complete, I think the following variant can be solved in polynomial time:
+
+Give
+
+Title: What is the proper runtime for visiting all outgoing edges in an adjacency list?
+	Id: 12959
+	Rank: 4  -  Distance: 1.00086
+	Tags: terminology, graph-theory, asymptotics
+	Body: Suppose that we have a directed graph $G = (V, E)$ represented as an adjacency list.  Suppose that we want to list all of the edges incident
+
+Title: Floyd–Warshall algorithm on undirected graph
+	Id: 26344
+	Rank: 5  -  Distance: 1.00141
+	Tags: algorithms, graphs, optimization, shortest-path
+	Body: I am referring to the algorithm from the Wikipedia page on the Floyd–Warshall algorithm.
+In case of undirected graphs should I change the as
+
+
+
+E========== CLUSTER 1 ==========
+
+B========== CLUSTER 2 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	random
+	elements
+	using
+	function
+	problem
+	type
+	binary
+	time
+	search
+	array
+	set
+	tree
+	data
+	number
+	algorithm
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 2.45
+	Min zscore: -4.22
+	n_outliers(|z|>2): 77
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Efficient search with removal
+	Id: 26236
+	Rank: 0  -  Distance: 0.97582
+	Tags: algorithms, data-structures
+	Body: I want to search from a given set of elements. Along with that I also want to remove that searched element. The problem is that the number o
+
+Title: Relation and difference between associative array and hashing table?
+	Id: 6678
+	Rank: 1  -  Distance: 0.97667
+	Tags: data-structures
+	Body: I thought associative array (i.e. map, or dictionary) and hashing table were the same concept, until I saw in Wikipedia that
+
+For dictionari
+
+Title: Algorithm for generating random number given a discrete distribution
+	Id: 24719
+	Rank: 2  -  Distance: 0.97803
+	Tags: algorithms, algorithm-analysis
+	Body: I have a list of couples "probability"+"value". 
+What is the best algorithm for generating random values with that specified level of probab
+
+Title: Binary search transition point of a function on stream
+	Id: 19858
+	Rank: 3  -  Distance: 0.97857
+	Tags: streaming-algorithm, binary-search
+	Body: Consider an unknown function $f(x,y)$, where $x$ and $y$ are just two scalar numbers in $[0,1]$. $f(x,y)$ is an increasing function of $y$ a
+
+Title: Time complexity of proximity search in distance matrix
+	Id: 21711
+	Rank: 4  -  Distance: 0.97917
+	Tags: algorithms, algorithm-analysis, runtime-analysis, search-algorithms
+	Body: I am a high school student computationally studying the 3-dimensional structure of chromosomes by 40 kilobase loci. In a nutshell, loci that
+
+Title: What string operations are basic
+	Id: 28444
+	Rank: 5  -  Distance: 0.97933
+	Tags: strings
+	Body: What string operations are basic in the sense that the other string operations can be represented in terms of them? Here is a list of string
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Computational power of deterministic versus nondeterministic min-heap automata
+	Id: 394
+	Rank: 0  -  Distance: 1.00183
+	Tags: formal-languages, automata, nondeterminism
+	Body: This is a follow-up question of this one.
+In a previous question about exotic state machines, Alex ten Brink and Raphael addressed the compu
+
+Title: How to implement a prolog interpreter in a purely functional language?
+	Id: 6618
+	Rank: 1  -  Distance: 1.00217
+	Tags: functional-programming, prolog, logic-programming
+	Body: Is there a clear reference, with pseudo-code, on how to go about implementing a Prolog interpreter in a purely functional language? That whi
+
+Title: Is there a paper/implementation/tool on automatically finding/suggesting similar questions for a given question?
+	Id: 22696
+	Rank: 2  -  Distance: 1.00228
+	Tags: reference-request, natural-lang-processing
+	Body: I would like to know whether there is a method to find similar questions for a given question, just like this stackexchange.com does.
+Is the
+
+Title: Problem with derivative of sigmoid activation function
+	Id: 24070
+	Rank: 3  -  Distance: 1.00272
+	Tags: mathematical-analysis
+	Body: I'm following Jeff heatons book 'Introduction to Neural Networks with Java'.
+To get node deltas, we need to calculate $f'(sum)$. In the very
+
+Title: The most frequent integer value from set of intervals
+	Id: 23717
+	Rank: 4  -  Distance: 1.00280
+	Tags: algorithms, intervals
+	Body: What is the fastest way to get one of the value from set of intervals which occurs most frequently?
+For example if I have interval (0, 3) an
+
+Title: Can the Bell-LaPadula model emulate the Chinese Wall model?
+	Id: 1454
+	Rank: 5  -  Distance: 1.00355
+	Tags: information-theory, security, access-control
+	Body: I have been reading on security policies and the question wether Bell-LaPadula can be used to implement Chinese Wall. Does anyone know more 
+
+
+
+E========== CLUSTER 2 ==========
+
+B========== CLUSTER 3 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	addition
+	circuits
+	using
+	base
+	circuit
+	binary
+	parallel
+	complexity
+	algorithms
+	number
+	computers
+	time
+	quantum
+	algorithm
+	computing
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.36
+	Min zscore: -3.42
+	n_outliers(|z|>2): 17
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Partially homomorphic encryption (on addition modulo N) not based on prime factorization
+	Id: 28921
+	Rank: 0  -  Distance: 0.92950
+	Tags: cryptography
+	Body: A cryptographic function is homomorphic on some operation if that operation is preserved in the encrypted data. 
+Such a function is homomorp
+
+Title: What happens to quantum algorithms such as BB84 if P=NP
+	Id: 28404
+	Rank: 1  -  Distance: 0.93201
+	Tags: complexity-theory, cryptography, quantum-computing
+	Body: Under the hypothesis that P=NP, many cryptographic protocols are no longer secure (i.e. attacks are feasible).
+The BB84 algorithm (http://en
+
+Title: Definition of uniform boolean circuit
+	Id: 10161
+	Rank: 2  -  Distance: 0.93959
+	Tags: complexity-theory, finite-automata, circuits
+	Body: 
+Definition
+  A family of circuits $(C_{1}, C_{2}, \ldots)$ is uniform if some log
+  space transducer $T$ outputs $\langle C_{n}\rangle$ whe
+
+Title: Quantum computers, parallel computing and exponential time
+	Id: 12892
+	Rank: 3  -  Distance: 0.93978
+	Tags: complexity-theory, time-complexity, quantum-computing
+	Body: I've read that quantum computers can solve 'certain problems' exponentially better than classical computers.  As I think I understand it, it
+
+Title: References on comparison between quantum computers and Turing machines
+	Id: 6296
+	Rank: 4  -  Distance: 0.93997
+	Tags: computability, reference-request, turing-machines, quantum-computing
+	Body: I was told that quantum computers are not computationally more powerful than Turing machines.
+Could someone kindly help in giving some liter
+
+Title: Will the future quantum computers use the binary (base 2), the ternary (base 3) or the quaternary (base 4) numeral system?
+	Id: 29722
+	Rank: 5  -  Distance: 0.94182
+	Tags: binary-trees, quantum-computing, arithmetic
+	Body: Our current computers use bits, so they use the binary numeral system. But I heard that the future quantum computers will use qubits instead
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Why is the throughput (performance) of the Slotted Aloha protocol ≈ 0.36
+	Id: 26119
+	Rank: 0  -  Distance: 0.99732
+	Tags: computer-networks, performance, communication-protocols
+	Body: I've read that the throughput - that is, the amount of good useful messages relative to capacity - of the Slotted ALOHA protocol for communi
+
+Title: Find a sequence of integer powers faster than the naive algorithm
+	Id: 13725
+	Rank: 1  -  Distance: 0.99809
+	Tags: algorithms
+	Body: Let $k\in \mathbb{N}$ be fixed. The naive way to compute a sequence of values $a_1^k,\ldots,a_n^k$ where $a_i\in \mathbb{N}$ for all $1\leq 
+
+Title: Can the Euclidean distance function be computed using only XOR's
+	Id: 29051
+	Rank: 2  -  Distance: 0.99825
+	Tags: arithmetic, boolean-algebra, euclidean-distance
+	Body: The Eulidean distance function $d$ of $x$ and $y$ is given by:
+$
+d(x,y)=\sqrt{x^2-y^2}
+$
+Let us assume that $x$ and $y$ are fixed-point numb
+
+Title: Commonly used Error Correcting Codes
+	Id: 6480
+	Rank: 3  -  Distance: 0.99841
+	Tags: computer-architecture, error-correcting-codes
+	Body: We know error correcting codes are parameterized as (n,k,d) codes. I wanted to know the values of these parameters for some commonly used er
+
+Title: does godel's incompleteness theorem shed any light on dynamic vs typed languages?
+	Id: 14799
+	Rank: 4  -  Distance: 0.99910
+	Tags: type-theory
+	Body: I'm clojure user myself. I'm trying really hard to learn haskell and to better understand the type system. However, I feel that trying to 't
+
+Title: How do we find the optimal modulus q in Rabin-Karp algorithm?
+	Id: 10174
+	Rank: 5  -  Distance: 0.99913
+	Tags: algorithms, search-algorithms, strings
+	Body: I asked a similar question here on Rabin Karp algorithm. My present question is, how do we find the best $q$ (i.e modulus)? What is the crit
+
+
+
+E========== CLUSTER 3 ==========
+
+B========== CLUSTER 4 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	decidable
+	deterministic
+	problem
+	states
+	halting
+	machines
+	finite
+	nfa
+	state
+	tm
+	dfa
+	turing machine
+	language
+	machine
+	turing
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.73
+	Min zscore: -4.11
+	n_outliers(|z|>2): 27
+
+
+-----Closest 6 questions in cluster-----
+
+Title: What is the difference between halting, accepting, and deciding in the context of Turing machines?
+	Id: 3554
+	Rank: 0  -  Distance: 0.92699
+	Tags: terminology, turing-machines, undecidability
+	Body: Does accepting mean that the TM will read and recognize a char from the cell it's currently reading from? And is it the case that a TM halts
+
+Title: Deciding if a Turing machine has made a left move
+	Id: 11159
+	Rank: 1  -  Distance: 0.92967
+	Tags: computability, turing-machines
+	Body: In writing a decider for a machine to see if it has made a left move or not on an input of w, it is said that if we continue the computation
+
+Title: Is the halting problem specific to Turing machines?
+	Id: 19231
+	Rank: 2  -  Distance: 0.93182
+	Tags: turing-machines, halting-problem
+	Body: The proofs that the halting problem is undecidable seem to make very few assumptions about the kind of program/machine under consideration: 
+
+Title: Show that it is undecidable if two Turing Machines accept the same language
+	Id: 11916
+	Rank: 3  -  Distance: 0.93303
+	Tags: algorithms, computability, finite-automata, undecidability
+	Body: I was asked this question at an interview, and couldn't answer it, and would like to know how it is 'shown' that two Turing machines which a
+
+Title: Tricky Turing Machine state diagram
+	Id: 22909
+	Rank: 4  -  Distance: 0.93697
+	Tags: turing-machines, computation-models
+	Body: what would the Turing machine state diagram be for this language: 
+$A=\{ (0 \cup 1)^a(1 \cup 2)^b(2\cup 3)^c \mid a \geq  b\} $ ?
+how would 
+
+Title: Deterministic Turing Machine with infine tape in both directions
+	Id: 12415
+	Rank: 5  -  Distance: 0.93721
+	Tags: turing-machines
+	Body: Consider a deterministic Turing Machine $D$ which has an infinite tape in both directions. We don't have exact information about it; what we
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Each of the two sets is recursively enumerable given their cartesian product is
+	Id: 11961
+	Rank: 0  -  Distance: 0.99875
+	Tags: computability, enumeration
+	Body: $A \times B$ is an r.e. set,  I want to show that $A$ (or $B$) is  r.e.
+
+Title: Sandwiching Languages
+	Id: 22735
+	Rank: 1  -  Distance: 0.99887
+	Tags: formal-languages, computability, undecidability
+	Body: I am studying for my algorithms final and came across the following problem:
+Find three languages $L_1 \subset L_2 \subset L_3$ over the sam
+
+Title: Do self-loops in DFA cause infinite languages?
+	Id: 8982
+	Rank: 2  -  Distance: 0.99909
+	Tags: regular-languages, automata, finite-automata
+	Body: A true/false question: If a DFA $M$ contains a self-loop on some state $q$, then $M$ must accept an infinite language.
+The answer is "false"
+
+Title: Turing Machine 'marking' specific portion of encoding
+	Id: 19562
+	Rank: 3  -  Distance: 1.00002
+	Tags: computability, undecidability
+	Body: Given a turing machine $T$ that receives an encoding of another turing machine and a word $<M><w>$, can $T$ 'run' through the encoding and '
+
+Title: Eliminating useless productions resulting from PDA to CFG converison
+	Id: 2503
+	Rank: 4  -  Distance: 1.00099
+	Tags: automata, formal-grammars, context-free, pushdown-automata
+	Body: In my class we used a Pushdown Automata to Context Free Grammar conversion algorithm that produces a lot extraneous states.
+For example, for
+
+Title: Why is $L = \{ \langle M \rangle : L(M) = \{ \langle M \rangle \} \}$ not Turing-recognizable?
+	Id: 7469
+	Rank: 5  -  Distance: 1.00195
+	Tags: formal-languages
+	Body: In other words, $L$ is the language of Turing machines that recognize the language consisting of only themselves.
+Why is $L$ not Turing-reco
+
+
+
+E========== CLUSTER 4 ==========
+
+B========== CLUSTER 5 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	linear
+	expressions
+	mid
+	left
+	rightarrow
+	ll
+	grammars
+	cfg
+	context free grammar
+	free grammar
+	language
+	regular
+	context free
+	context
+	free
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.47
+	Min zscore: -3.20
+	n_outliers(|z|>2): 10
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Unambiguous Context free Grammar
+	Id: 20205
+	Rank: 0  -  Distance: 0.86521
+	Tags: formal-languages, context-free, formal-grammars, ambiguity
+	Body: I was reading through Context Free Grammar, and I came across ambiguous grammar. If the language produced by CFG has more then 1 parse tree,
+
+Title: How to convert a context free grammar (could generate regular language) to a right-linear grammar
+	Id: 9542
+	Rank: 1  -  Distance: 0.88495
+	Tags: regular-languages, context-free, formal-grammars
+	Body: Consider the context free grammar:
+$$S \rightarrow aSb \mid aSa \mid bSa \mid bSb \mid \varepsilon$$
+It could generate regular language, whi
+
+Title: Build a context-free grammar for a context-free language
+	Id: 25823
+	Rank: 2  -  Distance: 0.88654
+	Tags: context-free
+	Body: A context-free language is defined by its description:
+$L=(a^{2k} \space  b^n \space c^{2n} \mid k \geq 0, \space n > 0)$
+For example:
+$bcc,
+
+Title: Context free grammar for $1^k0^{2k}$
+	Id: 10275
+	Rank: 3  -  Distance: 0.89024
+	Tags: formal-languages, context-free
+	Body: I need a hint for writing a context-free grammar for the language $L=\{1^k0^{2k}:k\in \mathbb N\}$. I'm starting to doubt that it can be don
+
+Title: How to convert a non-embedding context free grammar to regular grammar?
+	Id: 2774
+	Rank: 4  -  Distance: 0.89025
+	Tags: formal-languages, formal-grammars, context-free
+	Body: Please note that I am aware the undecidability of the conversion of context-free grammar to regular grammar. But given the non-embedding pro
+
+Title: writing a Context free grammar for a language
+	Id: 26087
+	Rank: 5  -  Distance: 0.89464
+	Tags: context-free, automata, pushdown-automata
+	Body: Hi I have two question about this language:
+L = {a^i b^j c^k | i = 2*j OR j=2*k }
+1)Finding a CFG   
+2)If in condition part we put AND inste
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Determining grammar decidability
+	Id: 11729
+	Rank: 0  -  Distance: 0.99702
+	Tags: undecidability
+	Body: Got a final coming up, so I gotta get this concept down.
+Given $A= \{(G_1,G_2 \mid G_1$ and $G_2$ are two CFG's and $L(G_1)=L(G_2) \}$.
+Is $
+
+Title: How to modify semantic actions when removing left-recursion from a grammer
+	Id: 6604
+	Rank: 1  -  Distance: 0.99708
+	Tags: formal-grammars, compilers, semantics, left-recursion
+	Body: Is there any algorithm that tells us how to modify semantic actions associated with a left-recursive grammar? For example, we have the follo
+
+Title: Find a CFG for a language
+	Id: 23631
+	Rank: 2  -  Distance: 0.99751
+	Tags: formal-languages, context-free, formal-grammars
+	Body: In an assignment I've been asked to find a CFG for $a^x b^y a^z b^w$, where, $x,y,z,w \in \mathbb{N}^+$, $y > x$, $z > w$, and $x+z = y+w$. 
+
+Title: Are all context-sensitive languages decidable?
+	Id: 6108
+	Rank: 3  -  Distance: 0.99885
+	Tags: formal-grammars, turing-machines, undecidability, context-sensitive
+	Body: I was going through the Wikipedia definition of context-sensitive language and I found this:
+
+Each category of languages is a proper subset 
+
+Title: Constructing Context Free Grammar
+	Id: 16678
+	Rank: 4  -  Distance: 1.00015
+	Tags: formal-languages, computability, context-free
+	Body: I am stuck and having a hard time with this question. I want to construct a CFG for the language $$L = \{{a^lb^mc^n | l,m\in N, n=|l-m|\}}$$
+
+Title: What is the advantage of Greibach Normal Form over Chomsky Normal Form?
+	Id: 16222
+	Rank: 5  -  Distance: 1.00100
+	Tags: formal-grammars
+	Body: I wanted to know the pros and cons of Chomsky normal form and Greibach normal form.
+
+
+
+E========== CLUSTER 5 ==========
+
+B========== CLUSTER 6 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	artificial
+	machine learning
+	object
+	algorithms
+	networks
+	machine
+	network
+	computer science
+	theory
+	cs
+	programming
+	neural
+	science
+	learning
+	computer
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.65
+	Min zscore: -3.99
+	n_outliers(|z|>2): 17
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Trigonometry in computer science
+	Id: 6327
+	Rank: 0  -  Distance: 0.92630
+	Tags: education, mathematical-analysis, applied-theory
+	Body: What's the use of studying trigonometry in computer science? I mean, is it essential? Does it have a specific application in computer scienc
+
+Title: What math is required for machine learning, neural networks etc.?
+	Id: 29429
+	Rank: 1  -  Distance: 0.92662
+	Tags: machine-learning, neural-networks
+	Body: I'm planning to start learning more in depth about neural networks and machine learning.
+Can someone tell me which math will I need the most
+
+Title: Resizing and aliasing in computer science
+	Id: 23167
+	Rank: 2  -  Distance: 0.92742
+	Tags: terminology, image-processing, graphics
+	Body: If you resize an 1000x1000 raster image to 10x10 and resize it back to 1000x1000 is this considered to be an example of aliasing?
+
+Title: What courses to learn for artificial neural networks and machine learning?
+	Id: 6754
+	Rank: 3  -  Distance: 0.92888
+	Tags: logic, machine-learning, artificial-intelligence
+	Body: http://www.scotthyoung.com/blog/mit-challenge/#1
+This guy's work is mind blowing. He learned the 4 year MIT CS curriculum in 1 year, at home
+
+Title: Explaining the difference between computer science and computer literacy
+	Id: 22345
+	Rank: 4  -  Distance: 0.93483
+	Tags: terminology, education
+	Body: What is a good metaphor or example to explain to an English major the difference between classical computer science and "being good with usi
+
+Title: Computer Science Book for Young Adults
+	Id: 888
+	Rank: 5  -  Distance: 0.93644
+	Tags: education, reference-request
+	Body: What is a good beginner computer science book for a young adult, say, a 15 year old? I want to get started in CS, but have no idea where to 
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Video lectures on type systems
+	Id: 28620
+	Rank: 0  -  Distance: 0.99797
+	Tags: reference-request, type-theory, education
+	Body: For my job, I need to pick up a working understanding of the implementation of type systems (in particular, how to write typing rules based 
+
+Title: What areas in EE overlap closely with CS
+	Id: 14753
+	Rank: 1  -  Distance: 0.99808
+	Tags: computer-networks, research
+	Body: I am doing bachelors in Electronics & Communication Engg.. But most of my work happened to be in Web development.. I am thinking to do my ba
+
+Title: In what ways can we distinguish between a human and bot behavior?
+	Id: 13580
+	Rank: 2  -  Distance: 0.99847
+	Tags: machine-learning, artificial-intelligence, game-theory, computer-vs-human
+	Body: Updated based on comments:
+In what ways can we distinguish a human being doing certain activities online and a bot programmed to do similar 
+
+Title: Differentiate between humans and robots using their mouse movement patterns
+	Id: 12379
+	Rank: 3  -  Distance: 0.99923
+	Tags: hci
+	Body: I am looking for references that talk about the existence of a general pattern in mouse tracking data of humans when they do a matching game
+
+Title: Can bottom-up architectures be effectively programmed in top-down paradigms?
+	Id: 2938
+	Rank: 4  -  Distance: 0.99977
+	Tags: programming-languages, artificial-intelligence, algorithm-design, object-oriented
+	Body: The subsumption architecture, proposed by Rodney Brooks in 1986, is a "bottom-up" approach, in which robots are designed using simple hierar
+
+Title: Empirical studies about benefits of Q&A sites for programming
+	Id: 13056
+	Rank: 5  -  Distance: 1.00186
+	Tags: reference-request, software-engineering, empirical-research, social-networks
+	Body: I'm looking for empirical papers which investigate if a user can benefit from Q&A sites like Stack Overflow. I welcome any papers related to
+
+
+
+E========== CLUSTER 6 ==========
+
+B========== CLUSTER 7 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	address
+	operating
+	complexity
+	relation
+	log log
+	cpu
+	page
+	process
+	master
+	does
+	time
+	cache
+	recurrence
+	memory
+	log
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.76
+	Min zscore: -3.64
+	n_outliers(|z|>2): 17
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Does the BIOS run on the CPU?
+	Id: 29117
+	Rank: 0  -  Distance: 0.93293
+	Tags: computer-architecture
+	Body: I was just thinking about this: Does the BIOS execute on the CPU? If so, how does it handle multiple CPU architectures/instruction sets? If 
+
+Title: Difference in CPU Wattage Question
+	Id: 23828
+	Rank: 1  -  Distance: 0.94274
+	Tags: cpu-cache, cpu-pipelines
+	Body: If I have 2 CPU's of the same manufacturer... say AMD
+Both are Quad-Core, Both are rated at 3.6Ghz
+1 is 100W, the other is 65W
+Will the one 
+
+Title: How does the processor find kernel code after an interrupt?
+	Id: 29848
+	Rank: 2  -  Distance: 0.94289
+	Tags: computer-architecture, operating-systems, kernel
+	Body: When an interrupt occurs, the processor preempts the current process and calls kernel code to handle the interrupt. How does the processor k
+
+Title: Size of address registers and data registers in relation with memory size
+	Id: 18724
+	Rank: 3  -  Distance: 0.94330
+	Tags: computer-architecture, memory-management
+	Body: Suppose that a processor can address directly up to 4 Gigabyte main memory and can operate words with size 32 bit. Find how big should be th
+
+Title: Solving a recurrence relation with $\sqrt{n}$ as parameter
+	Id: 6410
+	Rank: 4  -  Distance: 0.94357
+	Tags: asymptotics, recurrence-relation, master-theorem
+	Body: Let $T(n) = \sqrt{n} T(\sqrt{n}) + c\,n$ for $n \gt 2$ and some positive constant $c$ and $T(2) = 1$.
+I know the Master theorem, but I'm not
+
+Title: CPU bit, its cache line, the bus between memory and CPU, and its registers?
+	Id: 21331
+	Rank: 5  -  Distance: 0.94452
+	Tags: cpu-cache, memory-hardware
+	Body: Should the size of its cache line, the width of bus between memory and CPU, and the size of its registers be all equal to the CPU bit?
+Is CP
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Attempt to write a function with cubed log runtime complexity $O(\log^3 n)$
+	Id: 2411
+	Rank: 0  -  Distance: 0.99846
+	Tags: time-complexity
+	Body: I'm learning Data Structures and Algorithms now, I have a practical question that asked to write a function with O(log3n), which means log(n
+
+Title: Why using Hyper-threading can lead to performance degradation
+	Id: 29860
+	Rank: 1  -  Distance: 0.99871
+	Tags: computer-architecture, performance, threads
+	Body: I have read it at various places like this, that Hyper-threading leads to performance degradation.
+I am unable to get why or how hyper-threa
+
+Title: Rotate left operation in IA 32 ISA
+	Id: 29360
+	Rank: 2  -  Distance: 0.99906
+	Tags: computer-architecture
+	Body: How can a rotate left operation, R1 ← R2 rotate left by 7 bits, can be implemented using the IA-32 instruction set. The contents of R2 shoul
+
+Title: L1 and L2 cache
+	Id: 29738
+	Rank: 3  -  Distance: 0.99927
+	Tags: cpu-cache
+	Body: I cannot find a to-the-point reference for my question. Am I correct in assuming that if you have an L1 and an L2 cache, typically  the L2 c
+
+Title: How does increasing the page size affect the number of page faults?
+	Id: 6813
+	Rank: 4  -  Distance: 0.99932
+	Tags: operating-systems, memory-management, virtual-memory, paging
+	Body: If we let the physical memory size remain constant,
+
+What effect does the size of the page have on the number of frames? 
+What effect does t
+
+Title: What is the purpose of M:N (Hybrid) threading?
+	Id: 1074
+	Rank: 5  -  Distance: 1.00098
+	Tags: operating-systems, concurrency, kernel
+	Body: In other words, what advantages does Hybrid threading have over 1:1 (kernel only) and N:1 (user only) threading?
+This is a follow-up to What
+
+
+
+E========== CLUSTER 7 ==========
+
+B========== CLUSTER 8 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	free language
+	language regular
+	pumping lemma
+	regular languages
+	non
+	lemma
+	regular language
+	closed
+	pumping
+	languages
+	context free
+	free
+	context
+	language
+	regular
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 1.50
+	Min zscore: -3.03
+	n_outliers(|z|>2): 17
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Unary Context Free Languages are Regular
+	Id: 16293
+	Rank: 0  -  Distance: 0.90304
+	Tags: regular-languages, context-free
+	Body: Show that every context-free language over a unary alphabet is regular.
+
+Title: Proof that regular languages are closed against taking the even-length subset
+	Id: 10927
+	Rank: 1  -  Distance: 0.90912
+	Tags: formal-languages, regular-languages, closure-properties
+	Body: This question is on the GRE Computer Science test booklet (not homework). I tried applying closure properties of regular languages but no su
+
+Title: Show that the pumping lemmas for context-free and regular languages are equivalent for unary languages
+	Id: 23064
+	Rank: 2  -  Distance: 0.90952
+	Tags: formal-languages, regular-languages, context-free, pumping-lemma
+	Body: I want to show that for any language $L \subseteq \{ a \}^* $, $L$ satisfies the pumping lemma for context free languages if and only if it 
+
+Title: Is the class of non-regular languages closed against Kleene star?
+	Id: 16695
+	Rank: 3  -  Distance: 0.91061
+	Tags: formal-languages, regular-languages, closure-properties
+	Body: How to prove that if a language A is not regular then A* isn't regular either?
+I have tried the usual methods with no result.
+
+Title: Is the class of non regular languages is closed under complementation?
+	Id: 14462
+	Rank: 4  -  Distance: 0.91068
+	Tags: regular-languages, closure-properties
+	Body: This is the question I am asked and I am currently proving it using proof by contradiction something like this:
+
+Let's take some language L 
+
+Title: Deciding whether a Language is Context-free/Regular/Non Context-Free
+	Id: 7732
+	Rank: 5  -  Distance: 0.91232
+	Tags: formal-languages, regular-languages, context-free
+	Body: I need some help with deciding if a given language is regular, context-free or not context-free.
+Lets' say I have the following languages ov
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: Proving closure under reversal of languages accepted by min-heap automata
+	Id: 390
+	Rank: 0  -  Distance: 0.99608
+	Tags: formal-languages, automata, closure-properties
+	Body: This is a follow-up question of this one.
+In a previous question about exotic state machines, Alex ten Brink and Raphael addressed the compu
+
+Title: Grammatical characterization of deterministic context-free languages
+	Id: 7031
+	Rank: 1  -  Distance: 0.99627
+	Tags: reference-request, formal-grammars, context-free
+	Body: Deterministic context-free languages are commonly defined using an automaton concept, the (restricted, deterministic) pushdown automaton. To
+
+Title: Example of a non-context free language that nonetheless CAN be pumped?
+	Id: 12041
+	Rank: 2  -  Distance: 0.99713
+	Tags: formal-languages, context-free, pumping-lemma
+	Body: So basically L satisfies the conditions of the pumping lemma for CFL's but is not a CFL (that is possible according to the definition of the
+
+Title: Is P closed under subwords?
+	Id: 22902
+	Rank: 3  -  Distance: 0.99715
+	Tags: complexity-theory, closure-properties, polynomial-time
+	Body: Given a language $L\subseteq \Sigma^*$ in $P$, is the language
+$subwords(L) = \{v\in\Sigma^* : \text{there exist } u,w\in \Sigma^* \text{ wi
+
+Title: Which properties of context sensitive languages are decidable?
+	Id: 4992
+	Rank: 4  -  Distance: 0.99813
+	Tags: formal-languages, undecidability, context-sensitive
+	Body: There are two context-sensitive languages, $L_1$ and $L_2$. Which of the following statements about them are decidable respectively undecida
+
+Title: Prove L to not context free using pumping lemma on language L
+	Id: 14559
+	Rank: 5  -  Distance: 0.99892
+	Tags: context-free, pumping-lemma
+	Body: $L = \{0^i1^j0^i1^j|i,j \geq 0\}$
+I've tried letting $s = 0^p1^p0^p1^p$. But not sure where to go from here. Help would be appreciated.
+
+
+
+E========== CLUSTER 8 ==========
+
+B========== CLUSTER 9 ==========
+
+Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
+	algorithms
+	sum
+	regular
+	proof
+	sat
+	big
+	set
+	language
+	polynomial
+	function
+	does
+	complexity
+	problem
+	algorithm
+	time
+
+
+Distance Statistics:
+	Mean distance to cluster center: 1.01210
+	Standard deviation of distance to cluster center: 0.01471
+	Max zscore: 2.34
+	Min zscore: -4.20
+	n_outliers(|z|>2): 84
+
+
+-----Closest 6 questions in cluster-----
+
+Title: Relationshop between Theta and little-o (Big-O notation)
+	Id: 21530
+	Rank: 0  -  Distance: 0.97865
+	Tags: asymptotics
+	Body: Is 
+$$
+f(n) \in \Theta(g(n)) \Leftrightarrow f(n) = g(n) \cdot (1+o(1))
+$$
+true?
+For clarity, here are the definitions I use:
+$$
+f(n) \in o(
+
+Title: Average Time Complexity of Two Nested Loops
+	Id: 13302
+	Rank: 1  -  Distance: 0.97902
+	Tags: algorithms, algorithm-analysis, runtime-analysis
+	Body: Recently I have had this question in one of my interviews.
+You have 1 Million sorted integer, you have a value of $x$, compare each pair in 
+
+Title: Time complexity based on two variables
+	Id: 10955
+	Rank: 2  -  Distance: 0.98013
+	Tags: asymptotics, landau-notation
+	Body: Suppose we have a function based on two inputs of length $m,n$. Therefore the time complexity of the function is calculated by $T(m,n)$. Sup
+
+Title: Time complexity of languages that are polynomial time reducible to NP complete languages
+	Id: 18767
+	Rank: 3  -  Distance: 0.98042
+	Tags: time-complexity, np-complete, polynomial-time
+	Body: I am wondering if given the time complexity of an NP-Complete problem or at least some information about it for example if $ SAT\in Time(2^{
+
+Title: Algorithms with polynomial time complexity of higher order
+	Id: 10997
+	Rank: 4  -  Distance: 0.98193
+	Tags: algorithms, complexity-theory, asymptotics
+	Body: I was learning about algorithms with polynomial time complexity. I found the following algorithms interesting.
+
+Linear Search - with time co
+
+Title: Understanding Big O
+	Id: 18107
+	Rank: 5  -  Distance: 0.98198
+	Tags: asymptotics
+	Body: I'm just trying to get my understanding of big O down. I know the concept and the basics but I'm a bit confused about what it means to be eq
+
+
+
+-----Furthest 6 questions in cluster-----
+
+Title: TM for $0^{5^n}$. Describing a turing machine that decides the language consisting of all strings of zeroes whose length is a power of 5
+	Id: 19139
+	Rank: 0  -  Distance: 1.00279
+	Tags: formal-languages, turing-machines
+	Body: I am trying to describe a TM that decides the language $A=\{0^{5^n} \mid n\ge0\}$.
+I know how to do this for $0^{2^n}$, marking off every ot
+
+Title: Handling TOCTTOU with system calls
+	Id: 29867
+	Rank: 1  -  Distance: 1.00290
+	Tags: kernel, security
+	Body: What are some of the best practices when implementing system call functionality for handling/avoiding "Time of check to time of use" (TOCTTO
+
+Title: Show how a sentence can be produced from a grammar (Dragon book 2.1)
+	Id: 9109
+	Rank: 2  -  Distance: 1.00299
+	Tags: formal-grammars, context-free
+	Body: In the Dragon book (Aho, Sethi, Ullmann) there is one exercise I don't get.
+
+Chapter 2, Exercies: 2.1
+  Given the context-free grammar
+  $$S
+
+Title: Time spent on requirement and its effect on project success and development time
+	Id: 75
+	Rank: 3  -  Distance: 1.00308
+	Tags: software-engineering
+	Body: Is there any evidence suggesting that time spent on writing up, or thinking about the requirements will have any effect on the development t
+
+Title: Given some languages illustrate which is Regular and why other is not?
+	Id: 29354
+	Rank: 4  -  Distance: 1.00322
+	Tags: formal-languages
+	Body: Are these languages Regular ? How do we determine in such cases whether the language is regular or not ?
+1)
+$$\left\{ xw{ w }^{ R }\quad |\q
+
+Title: Can not follow the example for max-flow-min-cut on Wikipedia
+	Id: 24346
+	Rank: 5  -  Distance: 1.00350
+	Tags: algorithms, graphs, network-flow
+	Body: This Wikipedia example is very confusing. Its saying the max flow = min cut. But I see the max flow = 9 and the min cut = 7. If not, how doe
+
+
+
+E========== CLUSTER 9 ==========
+

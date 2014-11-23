@@ -1,5 +1,9 @@
 B========== CLUSTER 0 ==========
 
+
+ASP.NET or Windows Development
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	app
 	asp net
@@ -133,6 +137,10 @@ E========== CLUSTER 0 ==========
 
 B========== CLUSTER 1 ==========
 
+
+jQuery - Interactive web development
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	window
 	select
@@ -254,6 +262,10 @@ $('#div').load('myservername.aspx');
 E========== CLUSTER 1 ==========
 
 B========== CLUSTER 2 ==========
+
+
+Converting types
+
 
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	byte
@@ -378,6 +390,11 @@ E========== CLUSTER 2 ==========
 
 B========== CLUSTER 3 ==========
 
+
+Git - source control
+
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	git repository
 	origin
@@ -500,6 +517,12 @@ E========== CLUSTER 3 ==========
 
 B========== CLUSTER 4 ==========
 
+
+
+IDEs
+
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	script
 	error
@@ -619,6 +642,11 @@ Title: How to fix "Referenced assembly does not have a strong name" error (VS200
 E========== CLUSTER 4 ==========
 
 B========== CLUSTER 5 ==========
+
+
+Date types
+
+
 
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	database
@@ -744,6 +772,13 @@ REST
 E========== CLUSTER 5 ==========
 
 B========== CLUSTER 6 ==========
+
+
+
+User Interface development
+
+
+
 
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	border
@@ -878,6 +913,12 @@ E========== CLUSTER 6 ==========
 
 B========== CLUSTER 7 ==========
 
+
+Databases
+
+
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	insert
 	query
@@ -1000,6 +1041,10 @@ E========== CLUSTER 7 ==========
 
 B========== CLUSTER 8 ==========
 
+
+Detecting differences in libraries or software
+
+
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	like
 	library
@@ -1115,6 +1160,10 @@ Title: LaTeX package to do syntax highlighting of code in various languages
 E========== CLUSTER 8 ==========
 
 B========== CLUSTER 9 ==========
+
+
+Object oriented or general programming language differences
+
 
 Top 15 keywords:  (Measured by sum of tfidf along documents within this cluster
 	function

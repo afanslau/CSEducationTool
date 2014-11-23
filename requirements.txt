@@ -1,0 +1,14 @@
+Django==1.7
+Markdown==2.5.1
+beautifulsoup4==4.3.2
+matplotlib==1.4.2
+nltk==3.0.0
+numpy==1.8.0.dev-e589c6e
+pandas==0.12.0
+scikit-learn==0.15.2
+scikits.statsmodels==0.3.1
+scipy==0.12.0
+virtualenv==1.6.1
+gunicorn==19.0.0
+decorator==3.4.0
+networkx==1.9.1
