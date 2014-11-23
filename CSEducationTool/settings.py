@@ -92,6 +92,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'sodata/static')
 )
 
 #Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
