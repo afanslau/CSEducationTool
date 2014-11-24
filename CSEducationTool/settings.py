@@ -62,14 +62,14 @@ WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
 
 #Uncomment when the database is needed
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": DB_NAME,
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "",
-    }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #     "NAME": DB_NAME,
+    #     "USER": "",
+    #     "PASSWORD": "",
+    #     "HOST": "localhost",
+    #     "PORT": "",
+    # }
 }
 
 # Internationalization
