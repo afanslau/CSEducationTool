@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(__file__)
+
+
 
 DB_NAME = "smallalldata" # "smallsodata"
 
@@ -60,14 +62,14 @@ WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
 
 #Uncomment when the database is needed
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #     "NAME": DB_NAME,
-    #     "USER": "",
-    #     "PASSWORD": "",
-    #     "HOST": "localhost",
-    #     "PORT": "",
-    # }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": DB_NAME,
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
+    }
 }
 
 # Internationalization
@@ -87,7 +89,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = BASE_DIR
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
@@ -95,7 +97,9 @@ STATICFILES_DIRS = (
 )
 
 #Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
-# TEMPLATE_DIRS = ('/templates/',)
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'sodata/templates/'),
+)
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
