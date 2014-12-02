@@ -53,3 +53,18 @@ function autocompleteSearch()
     }
   });
 }
+
+function addResourceInput() {
+
+  
+
+}
+
+function addDescription() {
+
+
+}
+function submitDescription() {
+
+  
+}

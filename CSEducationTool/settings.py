@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(__file__)
 
 
 
-DB_NAME = "smallalldata" # "smallsodata"
+DB_NAME = "topicdb" # "smallsodata"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'CSEducationTool.sodata'
+    'sodata'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,14 +62,14 @@ WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
 
 #Uncomment when the database is needed
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #     "NAME": DB_NAME,
-    #     "USER": "",
-    #     "PASSWORD": "",
-    #     "HOST": "localhost",
-    #     "PORT": "",
-    # }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": DB_NAME,
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
+    }
 }
 
 # Internationalization

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from CSEducationTool.sodata.views import index, search_topics
+from sodata import views
 from CSEducationTool import settings
 
 urlpatterns = patterns('',
@@ -9,10 +9,14 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls), name='admin'),
-    url(r'^$', index, name='index'),
-    url(r'^search_topics', search_topics, name='search_topics'),
+    url(r'^topic', views.topic_request),
+    url(r'^$', views.index, name='index'),
+    url(r'^search_topics', views.search_topics, name='search_topics'),
+    url(r'^createTopic', views.create_topic_form),
+    url(r'^submitCreateForm', views.submit_create_topic_form),
 
     #Heroku static files... why??
+    #http://stackoverflow.com/questions/21141315/django-static-files-on-heroku
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 
 )

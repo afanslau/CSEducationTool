@@ -37,7 +37,7 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation" class="active"><a href="/">Home</a></li>
             <li role="presentation"><a href="#">About</a></li>
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
@@ -59,8 +59,29 @@
         </div>
       </div>
       <div class="jumbotron">
-        <h3>Explore All Topics</h3>
-        <p>Topic graph will go here</p>
+        <h3>{% firstof topic.title 'Explore All Topics' %}</h3>
+        {% if topic.description %}
+          <p>{{topic.description}}</p>
+        {% else %}
+          <p>This topic has no description. Submit one below.</p>
+          <form 
+          </a>
+        {% endif %}
+        <span class="input-group-btn">
+          {% if topic %}
+            <a id="create-topic-button" class="btn btn-info" role="button" href="/createTopic?id={{topic.id}}">Create a subtopic of {{topic.title}}</a>
+          {% else %}
+            <a id="create-topic-button" class="btn btn-info" role="button" href="/createTopic">Create a topic</a>
+          {% endif %}
+        </span> 
+        {% for topic in sub_topics %}
+          <a href="/topic?id={{topic.id}}">
+            <li>
+              <p>{{topic.title}}<p>
+            </li>
+          </a>
+        {% endfor %}
+        <p></p>
         <br>
         <p class="lead">This will go on the topic page template</p>
         <p>Put some dynamic template text back here...</p>

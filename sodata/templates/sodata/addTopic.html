@@ -1,0 +1,111 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Template for CSExplorer</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Live connection -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Local copy? -->
+    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'jumbotron-narrow.css' %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h2 class="text-muted">Computer Science Topic Explorer</h2>
+      </div>
+      <div class="jumbotron">
+        <div>
+          <h3>What do you want to learn about?</h3>
+          <div class="input-group input-group-lg">
+            <input id="topic-search-input" type="text" class="form-control" placeholder="I want to learn...">
+            <span class="input-group-btn">
+              <button id="topic-search-button" class="btn btn-default" type="button" onclick="search_topics()">Search!</button>
+            </span>
+          </div>
+        </div>
+        <div id="display-results-div">
+          <p>Show topic graph here!</p>
+        </div>
+      </div>
+      <div class="jumbotron">
+        <h3>Explore All Topics</h3>
+        <p>Topic graph will go here</p>
+        <br>
+        <p class="lead">This will go on the topic page template</p>
+        <p>Put some dynamic template text back here...</p>
+        <p>
+          <a class="btn btn-lg btn-success" href="#" role="button">I know this</a>
+          <a class="btn btn-lg btn-info" href="#" role="button">I want to Learn More</a>
+        </p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- What is the difference between these javascript files? -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="{% static 'sprintf.js' %}"></script>
+    <script src="{% static 'custom.js' %}"></script>
+  </body>
+</html>
