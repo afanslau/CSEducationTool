@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
+
 BASE_DIR = os.path.dirname(__file__)
 
 
@@ -61,16 +63,18 @@ WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 #Uncomment when the database is needed
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": DB_NAME,
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "",
-    }
-}
+DATABASES['default'] =  dj_database_url.config()
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": DB_NAME,
+#         "USER": "",
+#         "PASSWORD": "",
+#         "HOST": "localhost",
+#         "PORT": "",
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
