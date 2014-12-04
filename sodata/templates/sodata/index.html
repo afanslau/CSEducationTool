@@ -44,7 +44,31 @@
         </nav>
         <h2 class="text-muted">Computer Science Topic Explorer</h2>
       </div>
-      <div class="jumbotron">
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="input-group input-group-lg">
+            <input id="topic-search-input" type="text" class="form-control" placeholder="I want to learn...">
+            <span class="input-group-btn">
+              <button id="topic-search-button" class="btn btn-default" type="button" onclick="search_topics()">Search!</button>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3 pull-right">
+          <button id="create-topic-button" class="btn btn-info" type="button" href="/createTopic">Create a new topic</button>
+        </div>
+      </div>
+
+      <div class="row jumbotron">
+
+
+
+      </div>
+
+
+
+
+      <div class="row jumbotron">
         <div>
           <h3>What do you want to learn about?</h3>
           <div class="input-group input-group-lg">
@@ -120,5 +144,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="{% static 'sprintf.js' %}"></script>
     <script src="{% static 'custom.js' %}"></script>
+    <script src="{% static 'csrf.js' %}"></script>
   </body>
 </html>

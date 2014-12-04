@@ -1,0 +1,21 @@
+
+div.body-list {
+
+	/*display:inline-block;*/
+} 
+
+div.body-list div.list-group-item {
+
+	/*display:inline-block;*/	
+	height:100%;
+	min-height:100px;
+}
+
+li.input-list-item {
+	display: inline-block;
+	padding-right: 10px;
+}
+
+#new-resource-input-button {
+	border:None;
+}

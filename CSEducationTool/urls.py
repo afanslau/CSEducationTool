@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^search_topics', views.search_topics, name='search_topics'),
     url(r'^createTopic', views.create_topic_form),
-    url(r'^submitCreateForm', views.submit_create_topic_form),
+    url(r'^save_topic_edits', views.save_topic_edits),
 
     #Heroku static files... why??
     #http://stackoverflow.com/questions/21141315/django-static-files-on-heroku

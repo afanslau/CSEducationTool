@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'jumbotron-narrow.css' %}" rel="stylesheet">
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <link href="{% static 'wmd.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,20 +35,174 @@
 
   <body>
 
-    <form action="/submitCreateForm" method="POST">
-        {% csrf_token %}
-        <label for="topic-title-input">Topic Title</label>
-        <input id="topic-title-input" name="title" type="text" class="form-control" placeholder="Title">
-        <label for="topic-title-input">Topic Description</label>
-        <input id="topic-description-input" name="description" type="text" class="form-control" placeholder="Description">
-        <button id="add-resource-button" class="btn btn-default" type="button" onclick="addResourceInput()">Add another resource</button>
-        <input type='submit' value='Submit' class="btn btn-alert"/>
-    </form>
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h2 class="text-muted">Computer Science Topic Explorer</h2>
+      </div>
 
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-8">
+              <h3>Django</h3>
+            </div>
+            <div class="col-xs-4">
+              <div class="row">
+                <div class="col-xs-3"><a href="#">edit</a></div>
+                <div class="col-xs-3"><a href="#">fork</a></div>
+                <div class="col-xs-3"><a href="#">link</a></div>
+              </div>
+              <div class="row" style="display: table-cell; vertical-align: middle; height:60px;">
+                <p>Adam Fanslau</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="col-xs-12 col-med-8">
+            <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Developed by a fast-moving online-news operation, Django was designed to handle two challenges: the intensive deadlines of a newsroom and the stringent requirements of the experienced Web developers who wrote it. It lets you build high-performing, elegant Web applications quickly.</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <button class="btn btn-default" onclick="editClicked();"> 
+              Edit
+            </button>
+            <button class="btn btn-default" onclick="addResourceClicked();"> 
+              <span class="glyphicon glyphicon-plus"></span>  Add Resource
+            </button>
+          </div>
+        </div>
+
+        <!-- List group -->
+        <div id="resource-list-group" class="list-group body-list">
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-xs-8">
+                <div style="padding-bottom:10px;">
+                  <a onclick="alert('clicked title text')" href="https://docs.djangoproject.com/en/1.7/" style="font-weight: bold;">Official Documentation</a>
+                </div>
+                <p>For answers when you know how to ask the question</p>
+              </div>
+              <div class="col-xs-4">
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Move</a></li>
+                    <li><a href="#" style="color:red">Delete</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Single button -->
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-xs-10">
+                <div style="padding-bottom:10px;">
+                  <a href="http://gettingstartedwithdjango.com/" target="_blank" style="font-weight: bold;">Getting Started With Django Video Tutorial</a>
+                </div>
+                <p>"Getting Started with Django" (or GSWD) is a series of video-based lessons meant to take you from novice to competent [1], or maybe even beyond.
+
+  Each lesson will cover many facets and best practices of modern Django web development and will feature a video and a text transcript to follow along with. Every video is available for download or online streaming and there's a forum for help with tricky areas, too.
+
+  To get started, make sure you've covered the points listed in the Requirements section and then jump to the first video through the dropdown menu at the top of the screen.</p>
+              </div>
+              <div class="col-xs-2">
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Move</a></li>
+                    <li><a href="#" style="color:red">Delete</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Single button -->
+          </div>
+          <div class="list-group-item">Dapibus ac facilisis in</div>
+          <!-- <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li> -->
+        </div>
+      </div>
+
+
+
+<!--       <div class="row">
+        <div class="col-med-8">
+          <div class="row">
+            <h3>Django</h3>
+          </div>
+          <div class="row">
+            <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Developed by a fast-moving online-news operation, Django was designed to handle two challenges: the intensive deadlines of a newsroom and the stringent requirements of the experienced Web developers who wrote it. It lets you build high-performing, elegant Web applications quickly.</p>
+          </div>
+        </div>
+        <div class="col-med-4">
+          <div class="row">
+            <p>Author</p>
+            <p>Adam Fanslau</p>
+          </div>
+          <div class="row">
+            <a class="btn btn-default"> 
+              <span class="glyphicon glyphicon-plus">Add a resource</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-med-8">
+          <div class="row">
+
+          </div>
+        </div>
+      </div> -->
+
+
+      <!-- <form id="topic-input" action="javascript:saveTopicEdits();">
+          {% csrf_token %}
+          <label for="topic-title-input">Topic Title</label>
+          <input id="topic-title-input" type="text" class="form-control" placeholder="Title">
+          <label for="topic-title-input">Resource List</label>
+          <div id="topic-resource-list">
+            <div class="input-group input-group-med" name="resource-input-group">
+              <span class="input-group-btn">
+                <input name="resource-input" type="text" class="form-control" placeholder="Resource">
+                <button name="remove-resource-button" class="btn btn-default" type="button" onclick="removeResourceInput($(this))">
+                  <span class="glyphicon glyphicon-remove-sign"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+          <button id="add-resource-button" class="btn btn-default" type="button" onclick="addResourceInput()">Add another resource</button>
+        <input type="submit" value='Submit' class="btn btn-info">
+      </div> -->
+    </div> <!-- container -->
   </body>
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   <script src="{% static 'sprintf.js' %}"></script>
   <script src="{% static 'custom.js' %}"></script>
+  <script src="{% static 'csrf.js' %}"></script>
+  <script scr="{% static 'Markdown.Converter.js' %}"></script>
+  <script scr="{% static 'Markdown.Sanitizer.js' %}"></script>
+  <script scr="{% static 'Markdown.Editor.js' %}"></script>
 </html>

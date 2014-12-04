@@ -232,9 +232,10 @@ class TopicRelations(models.Model):
 class Resources(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    url = models.URLField()  #Cannot be blank, What is the advantage of using URLField over TextField or CharField
-    topic = models.ForeignKey(Topics, blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
+    url = models.URLField(blank=True, null=True)  #Cannot be blank, What is the advantage of using URLField over TextField or CharField
+    topic_child = models.ForeignKey(Topics, blank=True, null=True)
+    topic_parent = models.ForeignKey(Topics, blank=True, null=True)
 
 
 

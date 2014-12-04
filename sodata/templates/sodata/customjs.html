@@ -1,3 +1,4 @@
+<script type="text/javascript">
 baseURL = document.URL; // This gets the current url. It fixes the issue when there is a www
 display_template = "<p>%s</p>";
 
@@ -44,41 +45,6 @@ function submitDescription() {
 
   
 }
-
-
-function addResourceClicked() {
-
-  var markup = '<div class="list-group-item"><div class="row"><div id="new-resource-input-buttons" class="col-xs-12"><ul><li class="new-resource-input-button-title"><a href="javascript:addTitleInput();">Add a title</a></li><li class="new-resource-input-button-note"><a href="javascript:addNoteInput()">Add a note</a></li><li class="new-resource-input-button-link"><a href="javascript:test()">Link to existing topic</a></li></ul></div><div id="new-resource-input-list" class="col-xs-12"><input id="new-resource-input-url" type="text" class="form-control" placeholder="Paste your resource url here"/><!-- <input id="new-resource-input-title" type="text" class="form-control" placeholder="Add a title"/> --><!-- <input id="new-resource-input-note" type="text" class="form-control" placeholder="Add a note"/> --><button id="new-resource-done-button" class="btn btn-default">Done</button></div></div></div>';
-  var elem = $(markup);
-  console.log(elem);
-  $('#resource-list-group').prepend(elem);
-
-}
-
-//Append an input field for title
-function addTitleInput() {
-    var inputmarkup = '<input id="new-resource-input-title" type="text" class="form-control" placeholder="Add a title"/>'
-    var elem = $(inputmarkup);
-    console.log(elem);
-    $('#new-resource-input-list').prepend(elem);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function search_topics()
@@ -131,7 +97,4 @@ function autocompleteSearch()
     }
   });
 }
-
-function test() {
-  alert("Test Completed");
-}
+</script>

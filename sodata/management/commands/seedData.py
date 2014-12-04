@@ -63,13 +63,15 @@ def loadTopicFile(filename):
 # for t in ds:
 # 	print(t.title, t.children.all().values_list('title',flat=True))
 
-# from sodata.models import Topics
-# def out(t,a):
-# 	return ['t.children: '+' '.join(t.parents.all().values_list('title',flat=True)), 't.parents: '+' '.join(t.parents.all().values_list('title',flat=True)), 'a.children: '+' '.join(a.parents.all().values_list('title',flat=True)), 'a.parents: '+' '.join(a.parents.all().values_list('title',flat=True))]
+from sodata.models import Topics
+def out(t,a):
+	return ['t.children: '+' '.join(t.parents.all().values_list('title',flat=True)), 't.parents: '+' '.join(t.parents.all().values_list('title',flat=True)), 'a.children: '+' '.join(a.parents.all().values_list('title',flat=True)), 'a.parents: '+' '.join(a.parents.all().values_list('title',flat=True))]
 
-# t = Topics.objects.get(title='Data Structures')
-# a = Topics.objects.get(title='Arrays')
-# out(t,a)
-# a.parents.add(t)
-# out(t,a)
+toplevel_topics = Topics.objects.filter(from_relation=None)
+
+t = Topics.objects.get(title='Data Structures')
+a = Topics.objects.get(title='Arrays')
+out(t,a)
+a.parents.add(t)
+out(t,a)
 
