@@ -234,8 +234,8 @@ class Resources(models.Model):
     title = models.TextField(blank=True, null=True)
     text = models.TextField(blank=True, null=True)
     url = models.URLField(blank=True, null=True)  #Cannot be blank, What is the advantage of using URLField over TextField or CharField
-    topic_child = models.ForeignKey(Topics, blank=True, null=True)
-    topic_parent = models.ForeignKey(Topics, blank=True, null=True)
+    topic_child = models.ForeignKey(Topics, blank=True, null=True, related_name='linked_resource')
+    topic_parent = models.ForeignKey(Topics, blank=True, null=True, related_name='resource_list')
 
 
 
