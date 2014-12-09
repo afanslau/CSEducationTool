@@ -1,4 +1,4 @@
-# from django.utils import timezone
+from django.utils import timezone
 from django.db import models
 from django.db.utils import IntegrityError
 from scripts.Helpers import ensurePrefix
@@ -12,9 +12,10 @@ class Resources(models.Model):
     title = models.TextField(blank=True, null=True)
     text = models.TextField(blank=True, null=True)
     url = models.URLField(blank=True, null=True)
-    created_at = models.DateTimeField(default=datetime.datetime.now)
-    updated_at = models.DateTimeField(default=datetime.datetime.now)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
+    pre_seeded = models.BooleanField(default=False)
 
     #CONSTRAINT - When 
 
@@ -74,8 +75,8 @@ class Resources(models.Model):
 
         # Update the created and modified fields
         if not self.id:
-            self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+            self.created_at = timezone.now()
+        self.updated_at = timezone.now()
 
 
         super(Resources, self).save(*args, **kwargs)  #returns self casted as its superclass Resources?? but the superclass is Model.. Look this up later
@@ -98,8 +99,8 @@ class TopicRelations(models.Model):
 
     from_resource = models.ForeignKey(Resources, related_name='child_resources')
     to_resource = models.ForeignKey(Resources, related_name='parent_resources')
-    created_at = models.DateTimeField(default=datetime.datetime.now)
-    updated_at = models.DateTimeField(default=datetime.datetime.now)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     def to_dict(self):
         return {'id':self.id, 'from_resource':self.from_resource.to_dict(), 'to_resource':self.to_resource.to_dict()}
@@ -107,8 +108,8 @@ class TopicRelations(models.Model):
     def save(self, *args, **kwargs):
         # Update the created and modified fields
         if not self.id:
-            self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+            self.created_at = timezone.now()
+        self.updated_at = timezone.now()
         super(TopicRelations, self).save(*args, **kwargs)
 
 

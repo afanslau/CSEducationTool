@@ -13,8 +13,8 @@ k_cm_type_page = 'page'
 k_cm_type_subcat = 'subcat'
 
 #url string from dict	params = urllib.urlencode({})
-stop_depth = 10
-stop_width = 5 #Only get 10 children from each node
+stop_depth = 3
+stop_width = 3 #Only get 10 children from each node
 
 wikipedia_base_url = 'http://en.wikipedia.org%s'
 page_preview_url = wikipedia_base_url % '/w/api.php?action=query&prop=extracts&format=xml&exintro&redirects&titles=%s'
@@ -27,6 +27,7 @@ class Command(BaseCommand):
 
 		# **** REMOVE AFTER TESTING ****
 		Resources.objects.all().delete()
+		TopicRelations.objects.all().delete()
 
 		testCategory = 'Category:Areas of computer science'
 		depth = 0
@@ -46,12 +47,21 @@ def get_subpages(category_name, n):
 
 def visit(title):
 
+	''' 
+
+	Get the page as-is 
+
+	If there is no extract, try to split the category name and search for a page 
+
+	'''
 	apiurl = page_preview_url % title
 
 
 	if LOG_LEVEL >= LOG_LEVEL_DEBUG:
 		print('Fetching %s' % apiurl)
 
+
+	#Try to get the page title - handles redirects?
 	api_response_soup = Soup(urlopen(apiurl))
 	page = api_response_soup.page
 	if page.has_attr('missing'):
@@ -59,22 +69,40 @@ def visit(title):
 		return None, False
 	returned_title = None if page is None or not page.has_attr('title') else page['title']
 	
+
+
+
+	# Split the Category title
 	split_title = returned_title.split('Category:')
 	if len(split_title) > 1:
 		page_title = split_title[1]
 	else:
 		page_title = returned_title
 
-	# if returned_title != title:
-	# 	page_title = title + ' redirects to ' + page_title
 
-	page_text = api_response_soup.find('extract')
-	if page_text is not None:
+
+
+
+	page_text = api_response_soup.find('extract').string
+
+	print(page_title, page_text)
+
+	if page_text is None or page_text == '':
+		#Try to get the page with the same name, not the category 
+		apiurl = page_preview_url % page_title
+		api_response_soup = Soup(urlopen(apiurl))
+		page = api_response_soup.page
+		if not page.has_attr('missing'):
+			#Page not found, just do nothing
+			page_text = api_response_soup.find('extract').string
+			
+
+	else:
 		page_text = page_text.string #HTML
 
-	page_url = wiki_url % page_title
+	page_url = wiki_url % returned_title # Uses Category: if a corresponding page is not found on wikipedia
 	#Create Topic object for this page
-	topic, should_save = Resources.objects.get_or_create(title=page_title)
+	topic, should_save = Resources.objects.get_or_create(title=page_title, pre_seeded=True)
 
 	if topic.text is None: 
 		topic.text=page_text
@@ -92,8 +120,6 @@ def wiki_dfs(category_title, depth=0, stop_depth=0):
 	topic, created = visit(category_title)
 
 
-	print(topic)
-
 	#Evaluate stop condition  calling wiki_dfs('title') will default to one level deep search
 	#Stop if we go too deep or hit a cycle
 	if not created or depth > stop_depth:
@@ -103,6 +129,8 @@ def wiki_dfs(category_title, depth=0, stop_depth=0):
 	#iterate through the adjacent nodes
 	width = 0
 	sub_list = get_subpages(category_title, stop_width)
+
+
 	for child_title, child_type in sub_list:
 		is_category = child_type == k_cm_type_subcat
 		#Check if it is a category 
