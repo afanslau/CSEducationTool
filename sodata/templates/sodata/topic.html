@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Template for CSExplorer</title>
+    <title>CSExplorer</title>
 
     <!-- Bootstrap core CSS -->
     <!-- Live connection -->
@@ -47,46 +47,22 @@
         <h2 class="text-muted">Computer Science Topic Explorer</h2>
       </div>
 
-
-      <div class="panel panel-default topic-panel">
-        <!-- Default panel contents -->
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-8">
-              <h3>{{topic.title}}</h3>
-            </div>
-            <div class="col-xs-4">
-              <div class="row">
-                <div class="col-xs-3"><a href="#">edit</a></div>
-                <div class="col-xs-3"><a href="#">fork</a></div>
-                <div class="col-xs-3"><a href="#">link</a></div>
-              </div>
-              <div class="row" style="display: table-cell; vertical-align: middle; height:60px;">
-                <p>Adam Fanslau topic.author</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="panel-body">
-          <div class="col-xs-12 col-med-8">
-            <p>{{ topic.text }}</p>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <button class="btn btn-default" onclick="editClicked();"> 
-              Edit
-            </button>
-            <button class="btn btn-default" onclick="addResourceClicked();"> 
-              <span class="glyphicon glyphicon-plus"></span>  Add Resource
-            </button>
-          </div>
-        </div>
+      <!-- Topic Panel -->
+      {% if topic.id == None %}
+        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="">
+      {% else %}
+        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="{{ topic.id }}">
+      {% endif %}
+        
+        <!-- Topic content -->
+        {% include 'sodata/resource_content.html' with resource=topic %}
 
         <!-- List group -->
         <div id="resource-list-group" class="list-group resource-list-group">
 
           {% for resource in resource_list %}
 
-            {% include 'sodata/list_item.html' with resource=resource internal_resource_base_url="topics/"%}
+            {% include 'sodata/list_item.html' with resource=resource %}
 
           {% endfor %}
 

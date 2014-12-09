@@ -1,0 +1,39 @@
+<div id="resource-list-item-{{resource.id}}" class="list-group-item">
+  <div class="row">
+    <div class="col-xs-10">
+      <div style="padding-bottom:10px;">
+        <h4><a href="/resources/{{ resource.id }}" style="font-weight: bold;">{{ resource.title }}</a></h4>
+      </div>
+      {% if resource.text == None %}
+
+        <p>This resource has no description</p>
+
+      {% else %}
+
+        {% autoescape off %}{{ resource.text }}{% endautoescape %}
+
+      {% endif %}
+
+      {% if resource.url != None %}
+
+        <p><a href="{{ resource.url }}" target="_blank">View Source</a></p>
+
+      {% endif %}
+    </div>
+    <div class="col-xs-2">
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Move</a></li>
+          <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" > <!-- onclick="deleteResource(this)"  -->
+            Delete</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul><!-- dropdown menu -->
+      </div><!-- button-group -->
+    </div> <!-- col-xs-2  -->
+  </div>  <!-- row -->
+</div>  <!-- resource-list-group-item -->
