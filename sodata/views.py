@@ -20,28 +20,30 @@ ui_topic_base_url = 'resources/%d'
 def ui_get_resource(request, resource_id=None):
 
 	if resource_id is None:
-		#Return top level topics
+		#Return top level resources
 
-		# Parent is fake, just for display purposes. This probably has to change
+		# Parent is fake, just for display purposes. This is a bad way to do this, violates MVC
 		parent = Resources(title='Home',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
-		topics = Resources.objects.filter(parent_resources=None)
-		topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
+		resources = Resources.objects.filter(parent_resources=None)
+		resources = sorted(resources, key=lambda t: t.title, reverse=True)
+		plist = []
 
 	else:
 		#Return one specific topic
 		resource_id = int(resource_id)
 		try:
 			parent = Resources.objects.get(id=resource_id)
-			topics = parent.get_child_resources()
+			resources = parent.get_child_resources()
+			plist = parent.get_parent_resources()
 			#Sort by updated_at
-			if topics is not None:
-				topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
+			if resources is not None:
+				resources = sorted(resources, key=lambda t: t.title) # , reverse=True)
 			print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
 		except ObjectDoesNotExist:
 			print('request - Render template with resource_id: %d  NOT FOUND' % resource_id)
 			raise Http404
 
-	data = {'topic':parent, 'resource_list':topics}
+	data = {'topic':parent, 'resource_list':resources, 'parent_list':plist}
 	return render_to_response('sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
 
 

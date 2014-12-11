@@ -12,8 +12,10 @@
           <li><a href="#">Edit</a></li>
           <li><a href="#">Move</a></li>
           <li><a id="delete-button-{{resource.id}}" onclick="alert('Are you sure you want to delete this?');" style="color:red" resource-id="{{ resource.id }}" >Delete</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <li class="divider" style="height:30px">Contained in...</li>
+          {% for p in parent_list %}
+            <li><a href='/resources/{{p.id}}'>{{p.title|truncatechars:30}}</a></li>
+          {% endfor %}
         </ul><!-- dropdown menu -->
       </div><!-- button-group -->
     </div>
