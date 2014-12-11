@@ -36,7 +36,7 @@ def ui_get_resource(request, resource_id=None):
 			raise Http404
 
 	data = {'topic':parent, 'resource_list':resources, 'parent_list':plist}
-	return render_to_response('sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
+	return render(request, 'sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
 
 
 ''' GET /resources/{id} - get a single resource '''
@@ -73,7 +73,7 @@ def ui_search_resources(request):
 		found_entries = found_entries.filter(pre_seeded=seed)
 	# Fake a resource for easy diplay
 	parent = Resources(title="Search Results", text=query_string)
-	return render_to_response('sodata/topic.html', { 'topic': parent, 'resource_list': found_entries })
+	return render(request, 'sodata/topic.html', { 'topic': parent, 'resource_list': found_entries })
 
 
 def api_search_resources(request):
@@ -92,7 +92,7 @@ def api_create_resource(request, parent_id=None):
 def ui_create_resource(request, parent_id=None):
 	new_resource = create_resource(request, parent_id)
 	data = {'resource':new_resource}
-	return render_to_response('sodata/list_item.html', data)
+	return render(request,'sodata/list_item.html', data)
 
 def create_resource(request, parent_id=None):
 
@@ -141,7 +141,7 @@ def ui_update_resource(request, resource_id=None):
 	if resource_id is None: raise Http404
 	updated_resource = update_resource(request, resource_id)
 	data = {'resource':updated_resource}
-	return render_to_response('sodata/resource_content.html', data)
+	return render(request, 'sodata/resource_content.html', data)
 
 def update_resource(request, resource_id=None):
 	print('request - UPDATE resource with data %s' % request.POST)

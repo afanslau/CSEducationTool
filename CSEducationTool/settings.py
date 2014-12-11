@@ -13,6 +13,7 @@ import os
 
 BASE_DIR = os.path.dirname(__file__)
 
+CSRF_COOKIE_SECURE = False
 
 
 DB_NAME = 'topicdb' #"topicdb" # "smallsodata"
