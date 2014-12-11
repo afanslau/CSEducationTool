@@ -25,7 +25,7 @@ def ui_get_resource(request, resource_id=None):
 		# Parent is fake, just for display purposes. This is a bad way to do this, violates MVC
 		parent = Resources(title='Home',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
 		resources = Resources.objects.filter(parent_resources=None)
-		resources = sorted(resources, key=lambda t: t.title, reverse=True)
+		resources = sorted(resources, key=lambda t: t.updated_at, reverse=True)
 		plist = []
 
 	else:
@@ -37,7 +37,7 @@ def ui_get_resource(request, resource_id=None):
 			plist = parent.get_parent_resources()
 			#Sort by updated_at
 			if resources is not None:
-				resources = sorted(resources, key=lambda t: t.title) # , reverse=True)
+				resources = sorted(resources, key=lambda t: t.updated_at, reverse=True) # , reverse=True)
 			print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
 		except ObjectDoesNotExist:
 			print('request - Render template with resource_id: %d  NOT FOUND' % resource_id)
