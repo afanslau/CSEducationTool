@@ -240,7 +240,7 @@ def api_create_relation(request, parent_id, child_id):
 def create_relation(parent_id, child_id):
 	parent = Resources.objects.get(id=parent_id)
 	child = Resources.objects.get(id=child_id)
-	relation = TopicRelations.objects.get_or_create(from_resource=parent, to_resource=child)
+	relation, created = TopicRelations.objects.get_or_create(from_resource=parent, to_resource=child)
 	relation.save()
 	print('request - Create relation from %s to %s' % (parent.title, child.title))
 	return relation 
