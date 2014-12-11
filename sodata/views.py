@@ -23,7 +23,7 @@ def ui_get_resource(request, resource_id=None):
 		#Return top level topics
 
 		# Parent is fake, just for display purposes. This probably has to change
-		parent = Resources(title='This is the home page',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
+		parent = Resources(title='Home',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
 		topics = Resources.objects.filter(parent_resources=None)
 		topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
 
