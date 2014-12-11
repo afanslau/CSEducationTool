@@ -24,7 +24,7 @@
   <div id="text-div" class="col-xs-12">{% if resource.text != None %}{% autoescape off %}{{ resource.text }}{% endautoescape %}{% endif %}</div>
   <div id="url-div" class="col-xs-12">
     {% if resource.url != None %}
-      <p id="url-content"><a href="{{ resource.url }}" target="_blank">View Source</a></p>
+      <p id="url-content"><a href="{{ resource.url }}" target="_blank">{{resource.url}}</a></p>
     {% endif %}
   </div>
   <div class="col-xs-12 col-sm-6">

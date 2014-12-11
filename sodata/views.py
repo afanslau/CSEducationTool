@@ -1,8 +1,9 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseBadRequest
 from django.core.exceptions import ObjectDoesNotExist
 from sodata.models import TopicRelations, Resources
-import json
+from sodata.searchHelper import get_query
+import json, re 
 
 '''
 select min(id), max(id) from sodata_resources;
@@ -39,7 +40,7 @@ def ui_get_resource(request, resource_id=None):
 		except ObjectDoesNotExist:
 			print('request - Render template with resource_id: %d  NOT FOUND' % resource_id)
 			raise Http404
-		
+
 	data = {'topic':parent, 'resource_list':topics}
 	return render_to_response('sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
 
@@ -54,6 +55,32 @@ def api_get_resource(request, resource_id):
 
 	print('request - GET resource id:%d  %s' % (resource_id, resource.title))
 	return json_response(resource)
+
+
+def ui_search_resources(request):
+	''' Basic keyword search attempt '''
+	query_string = ''
+	found_entries = None
+
+	if ('q' in request.GET) and request.GET['q'].strip():
+		query_string = request.GET['q']
+		entry_query = get_query(query_string, ['title', 'text'])		
+		found_entries = Resources.objects.filter(entry_query).order_by('-rating')
+	else: found_entries = Resources.objects.all()
+
+	if ('seed' in request.GET):
+		val = request.GET['seed'].strip()
+		if val=="True" or val=="1":
+			seed = True
+		elif val=="False" or val=="0":
+			seed = False
+		else: 
+			return HttpResponseBadRequest
+		found_entries = found_entries.filter(pre_seeded=seed)
+	# Fake a resource for easy diplay
+	parent = Resources(title="Search Results", text=query_string)
+	return render_to_response('sodata/topic.html', { 'topic': parent, 'resource_list': found_entries })
+
 
 def api_search_resources(request):
 	q = request.GET.get('q')
@@ -74,7 +101,18 @@ def ui_create_resource(request, parent_id=None):
 	return render_to_response('sodata/list_item.html', data)
 
 def create_resource(request, parent_id=None):
-	new_resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=request.POST.get('url'))
+
+	parsed_urls = []
+	if request.POST.get('text') is not None and request.POST.get('url') is None:
+		parsed_urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', request.POST.get('text'))
+		print(parsed_urls)
+
+	new_url = request.POST.get('url')
+	if len(parsed_urls)>0 and (new_url is None or new_url == ''):
+		new_url = parsed_urls[0]
+
+	
+	new_resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=new_url)
 
 	# new_resource.save()
 
@@ -120,25 +158,55 @@ def update_resource(request, resource_id=None):
 	except ObjectDoesNotExist:
 		raise Http404
 
+
+
+
+
+
+
 	# Update the content
 	should_save = False
 	new_title = request.POST.get('title')
 	if new_title is not None:
-		resource.title = new_title
+		resource.title = new_title if new_title != '' else None
 		should_save = True
 
 	new_text = request.POST.get('text')
+
+	parsed_urls = []
+	if request.POST.get('text') is not None and request.POST.get('url') is None:
+		parsed_urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', request.POST.get('text'))
+		print(parsed_urls)
 	if new_text is not None:
-		resource.text = new_text
+		resource.text = new_text if new_text != '' else None
 		should_save = True
 
+
+
 	new_url = request.POST.get('url')
+	if len(parsed_urls)>0 and (new_url is None or new_url == ''):
+		new_url = parsed_urls[0]
+
+	# new_url = request.POST.get('url')
 	if new_url is not None:
-		resource.url = new_url
+		resource.url = new_url if new_url != '' else None
 		should_save = True
 
 	if should_save: resource.save()
+	return resource
 
+
+def api_rate_resource(request, resource_id=None, rating=0):
+	return json_response(rate_resource(resource_id=resource_id, rating=rating))
+	
+def rate_resource(resource_id=None, rating=0):
+	try: 
+		resource = Resources.objects.get(id=resource_id)
+	except ObjectDoesNotExist:
+		raise Http404
+
+	resource.rating += rating
+	resource.save()
 	return resource
 
 
@@ -229,6 +297,10 @@ def json_response(resource):
 
 
 
+
+
+
+
 # def index(request):
 # 	#Get the top level objects
 # 	home_parent = Resources(title='This is the home page',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
@@ -281,22 +353,6 @@ def json_response(resource):
 # 	resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=request.POST.get('url'))
 # 	data = {'resource':resource}
 # 	return render(request, 'sodata/list_item.html', data)
-
-# def save_topic_edits(request):
-# 	print(request.POST)
-# 	resources = json.loads(request.POST.get('resource-list'))
-# 	for resource_input in resources:
-# 		#Create and save a resource object
-# 		Resources(text=resource_input)
-
-# 	title = request.POST.get('title')
-	
-# 	t, created = Topics.objects.get_or_create(title=title)
-# 	print(t, created)
-# 	if created: t.save()
-# 	return json_response(t) if created else HttpResponse('Already exists')
-
-
 
 
 

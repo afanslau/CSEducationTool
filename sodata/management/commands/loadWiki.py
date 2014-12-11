@@ -14,7 +14,8 @@ k_cm_type_subcat = 'subcat'
 
 #url string from dict	params = urllib.urlencode({})
 stop_depth = 3
-stop_width = 3 #Only get 10 children from each node
+stop_width = 10 #Only get 10 children from each node
+top_level_width = 0
 
 wikipedia_base_url = 'http://en.wikipedia.org%s'
 page_preview_url = wikipedia_base_url % '/w/api.php?action=query&prop=extracts&format=xml&exintro&redirects&titles=%s'
@@ -31,8 +32,7 @@ class Command(BaseCommand):
 
 		testCategory = 'Category:Areas of computer science'
 		depth = 0
-		stop_depth = 3
-		wiki_dfs(testCategory, depth, stop_depth)
+		wiki_dfs(category_title=testCategory, depth=depth, stop_depth=stop_depth, top_level_width=top_level_width)
 
 #This gets both pages AND categories
 def get_subpages(category_name, n):
@@ -81,12 +81,7 @@ def visit(title):
 
 
 
-
-
 	page_text = api_response_soup.find('extract').string
-
-	print(page_title, page_text)
-
 	if page_text is None or page_text == '':
 		#Try to get the page with the same name, not the category 
 		apiurl = page_preview_url % page_title
@@ -114,7 +109,7 @@ def visit(title):
 		topic.save()
 	return topic, should_save
 
-def wiki_dfs(category_title, depth=0, stop_depth=0):
+def wiki_dfs(category_title, depth=0, stop_depth=0, top_level_width=None, path=None):
 	#Create Topic object for this category_title
 
 	topic, created = visit(category_title)
@@ -138,8 +133,8 @@ def wiki_dfs(category_title, depth=0, stop_depth=0):
 		# is_category = len(split_title) == 2
 		# if len(split_title)>2:
 		# 	raise ValueError("%s split into more than two pieces" % category_title)
-		if LOG_LEVEL >= LOG_LEVEL_INFO:
-			print 'Depth: %d  Width: %d  Visiting %s' % (depth, width, category_title)
+
+
 	
 
 		#if page - create topic for page
@@ -152,10 +147,26 @@ def wiki_dfs(category_title, depth=0, stop_depth=0):
 
 
 			#Recursively traverse child nodes
+			new_top_level_width = top_level_width
+			if depth == 0: 
+				new_top_level_width += 1
+				
 
-			child_topic = wiki_dfs(child_title, depth+1, stop_depth)
+			width += 1
+			sep = ''
+			newpath = path
+			if newpath is None: 
+				newpath = ''
+			else: 
+				sep = '-'
+			newpath += sep+str(width)
+			if LOG_LEVEL >= LOG_LEVEL_INFO:
+				print 'Path: %s  Visited %s  depth: %d stop_depth: %d' % (newpath, child_title, depth, stop_depth)
 
 
+			child_topic = wiki_dfs(child_title, depth+1, stop_depth, top_level_width=new_top_level_width, path=newpath)
+
+			
 			if LOG_LEVEL >= LOG_LEVEL_DEBUG:
 				print ('Recursion returned to %s from %s' % (category_title, child_title))
 
@@ -164,6 +175,7 @@ def wiki_dfs(category_title, depth=0, stop_depth=0):
 			tr = TopicRelations(to_resource=child_topic, from_resource=topic)
 			tr.save()
 
-		width += 1
+
+		
 	#Return the created topic after all children have been created, added and traversed
 	return topic 

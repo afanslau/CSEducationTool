@@ -46,6 +46,7 @@ urlpatterns = patterns('',
     url(r'^resources/update/(?P<resource_id>\d+)$', views.ui_update_resource, name='ui_update_resource'), 
     url(r'^resources/(?P<resource_id>\d+)$', views.ui_get_resource, name='ui_get_resource'),
     # Note:  $ matches the end of a string. Don't use here to allow for optional end / . This should probably be used everywhere??
+    url(r'^resources/search', views.ui_search_resources, name='ui_search_resources'),
     url(r'^resources', views.ui_get_resource, name='ui_get_root_resource'),
 
 
@@ -66,6 +67,14 @@ urlpatterns = patterns('',
     # '''  Update a given resource
     # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
     url(r'^api/resources/update/(?P<resource_id>\d+)$', views.api_update_resource, name='api_update_resource'), 
+    
+    # '''  Update a given resource
+    # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
+    url(r'^api/resources/upvote/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':1}),
+
+    # '''  Update a given resource
+    # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
+    url(r'^api/resources/downvote/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':-1}),     
 
     # ''' Get the resource by its id 
     # GET /resources/{id} - get a single resource '''

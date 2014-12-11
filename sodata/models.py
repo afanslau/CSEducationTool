@@ -4,6 +4,7 @@ from django.db.utils import IntegrityError
 from scripts.Helpers import ensurePrefix
 # from sodata.AutoUpdateDateTimeField import AutoUpdateDateTimeField
 import datetime
+from bs4 import BeautifulSoup as Soup
 
 
 
@@ -12,10 +13,18 @@ class Resources(models.Model):
     title = models.TextField(blank=True, null=True)
     text = models.TextField(blank=True, null=True)
     url = models.URLField(blank=True, null=True)
+
+    rating = models.IntegerField(blank=True, null=False, default=0)
+
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
     pre_seeded = models.BooleanField(default=False)
+
+    @property
+    def preview(self):
+        return self.text
+
 
     #CONSTRAINT - When 
 

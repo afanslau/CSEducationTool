@@ -2,26 +2,22 @@
   <div class="row">
     <div class="col-xs-10">
       <div style="padding-bottom:10px;">
-        <h4><a href="/resources/{{ resource.id }}" style="font-weight: bold;">{{ resource.title }}</a></h4>
+        <h4><a href="/resources/{{ resource.id }}" style="">{{ resource.title }}</a></h4>
       </div>
-      {% if resource.text == None %}
+      {% if resource.preview == None %}
 
         <p>This resource has no description</p>
 
-      {% else %}
-
-        {% autoescape off %}{{ resource.text }}{% endautoescape %}
-
-      {% endif %}
+      {% else %}{% autoescape off %}{{ resource.preview }}{% endautoescape %}{% endif %}
 
       {% if resource.url != None %}
 
-        <p><a href="{{ resource.url }}" target="_blank">View Source</a></p>
+        <p><a href="{{ resource.url }}" target="_blank">{{resource.url}}</a></p>
 
       {% endif %}
     </div>
-    <div class="col-xs-2">
-      <div class="btn-group pull-right">
+    <div class="col-xs-1">
+      <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
           <span class="caret"></span>
         </button>
@@ -34,6 +30,21 @@
           <li><a href="#">Separated link</a></li>
         </ul><!-- dropdown menu -->
       </div><!-- button-group -->
-    </div> <!-- col-xs-2  -->
+    </div>
+    <div class="col-xs-1">
+      <div class="btn-group">
+        <button resource-id="{{ resource.id }}" type="button" class="btn btn-default" onclick="upvote(this)" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
+          <span id="upvote-span" class="glyphicon glyphicon-chevron-up"></span>
+        </button>
+      </div>
+
+      <h5 style="text-align:center;">{{ resource.rating }}</h5>
+      
+      <div class="btn-group">
+        <button resource-id="{{ resource.id }}" type="button" class="btn btn-default" onclick="downvote(this)" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
+          <span id="upvote-span" class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+      </div>
+    </div>
   </div>  <!-- row -->
 </div>  <!-- resource-list-group-item -->

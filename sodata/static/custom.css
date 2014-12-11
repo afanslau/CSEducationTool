@@ -1,4 +1,8 @@
 
+div.container {
+	max-width: 800px
+}
+
 div.body-list {
 
 	/*display:inline-block;*/
