@@ -105,11 +105,13 @@ class TopicRelations(models.Model):
 
     '''
 
-
     from_resource = models.ForeignKey(Resources, related_name='child_resources')
     to_resource = models.ForeignKey(Resources, related_name='parent_resources')
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        unique_together = (("to_resource", "from_resource"),)
 
     def to_dict(self):
         return {'id':self.id, 'from_resource':self.from_resource.to_dict(), 'to_resource':self.to_resource.to_dict()}
