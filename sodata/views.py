@@ -5,14 +5,6 @@ from sodata.models import TopicRelations, Resources
 from sodata.searchHelper import get_query
 import json, re 
 
-'''
-select min(id), max(id) from sodata_resources;
- min  | max  
-------+------
- 1719 | 1877
-
-'''
-
 
 ui_topic_base_url = 'resources/%d'
 
