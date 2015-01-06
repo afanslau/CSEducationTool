@@ -40,6 +40,14 @@ urlpatterns = patterns('',
     # url(r'^$', 'CSEducationTool.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    # Login Authentication
+    url(r'^register$', views.register, name='register'),
+    url(r'^login/$', views.user_login, name='login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout'),
+
+    url(r'^fts$', views.fts),
+
+
     # USER INTERFACE
     url(r'^resources/create/(?P<parent_id>\d+)$', views.ui_create_resource, name='ui_create_resource_in_topic'), 
     url(r'^resources/create$', views.ui_create_resource, name='ui_create_resource_in_root'), 

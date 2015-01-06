@@ -1,41 +1,7 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+{% extends "sodata/base.html" %}
 
-    <title>CSExplorer</title>
+{% block content %}
 
-    <!-- Bootstrap core CSS -->
-    <!-- Live connection -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <!-- Local copy? -->
-    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="{% static 'jumbotron-narrow.css' %}" rel="stylesheet"> -->
-    <link href="{% static 'custom.css' %}" rel="stylesheet">
-    <link href="{% static 'wmd.css' %}" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <div class="container">
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
@@ -49,47 +15,64 @@
                 </div>
               </form>
             </li>
-            <li role="presentation" class="active">
+<!--             <li role="presentation" class="active">
               <a href="/">Explore</a>
-            </li>
+            </li> -->
             <li role="presentation" class="active">
-              <a href="#">Create</a>
+              {{ user }}
+              {% if user.is_anonymous %}
+                <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+              {% else %}
+                <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+              {% endif %}
+<!--               {% if resource.id == None %}
+                <a href="/resources/create">Create</a>
+              {% else %}
+                <a href="/resources/create/{{resource.id}}">Create</a>
+              {% endif %} -->
             </li>
           </ul>
         </nav>
-        <a href="/"><h2 class="text-muted">CS Explorer</h2></a>
+        <a href="/"><h2 class="text-muted">CS Topics</h2></a>
       </div>
 
       <!-- Topic Panel -->
-      {% if topic.id == None %}
+      {% if resource.id == None %}
         <div id="topic-panel" class="panel panel-default topic-panel" topic-id="">
       {% else %}
-        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="{{ topic.id }}">
+        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="{{ resource.id }}">
       {% endif %}
         
         <!-- Topic content -->
-        {% include 'sodata/resource_content.html' with resource=topic %}
+        {% include 'sodata/resource_content.html' with resource=resource %}
 
         <!-- List group -->
         <div id="resource-list-group" class="list-group resource-list-group">
 
-          {% for resource in resource_list %}
-
-            {% include 'sodata/list_item.html' with resource=resource %}
+          {% for subresource in resource_list %}
+            <!-- <p>{{ subresource.title }}</p> -->
+            {% include 'sodata/list_item.html' with resource=subresource %}
 
           {% endfor %}
 
         </div> <!-- list-group --> 
+
+
+
+        <h4>External Search powered by Bing</h4>
+        <div id="resource-list-group" class="list-group resource-list-group">
+
+          {% for subresource in external_search_results %}
+
+            {% include 'sodata/list_item.html' with resource=subresource %}
+
+          {% endfor %}
+
+        </div> <!-- list-group --> 
+
+
       </div> <!-- topic-panel -->
-    </div> <!-- container -->
-  </body>
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <script src="{% static 'sprintf.js' %}"></script>
-  <script src="{% static 'custom.js' %}"></script>
-  <script src="{% static 'csrf.js' %}"></script>
-  <script scr="{% static 'Markdown.Converter.js' %}"></script>
-  <script scr="{% static 'Markdown.Sanitizer.js' %}"></script>
-  <script scr="{% static 'Markdown.Editor.js' %}"></script>
-</html>
+
+
+
+{% endblock %}

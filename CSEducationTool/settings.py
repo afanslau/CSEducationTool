@@ -11,8 +11,15 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+#CUSTOM SETTINGS
+BING_API_BASE = "https://api.datamarket.azure.com/Bing/"
+BING_USERNAME = 'afanslau@gmail.com'
+BING_PASSWORD = 'aPA1Hr8rGzCUyPMCEpxFOFWfpHLL0RvisEFc1Q+mJsE'
+
+
 BASE_DIR = os.path.dirname(__file__)
 
+# CSRF_COOKIE_SECURE = False
 
 
 DB_NAME = 'topicdb' #"topicdb" # "smallsodata"
@@ -40,7 +47,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sodata'
+    'watson',
+    'sodata',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,19 +97,26 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+# Auth
+LOGIN_REDIRECT_URL = '/'
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'sodata/static/'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)
 
 #Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'sodata/templates/'),
+    os.path.join(BASE_DIR, 'templates/'),
 )
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.

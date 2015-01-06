@@ -1,14 +1,17 @@
 <div id="resource-list-item-{{resource.id}}" class="list-group-item">
   <div class="row">
     <div class="col-xs-10">
-      <div style="padding-bottom:10px;">
-        <h4><a href="/resources/{{ resource.id }}" style="">{{ resource.title }}</a></h4>
-      </div>
+      <h5><a href="/resources/{{ resource.id }}" style="">{{resource.title}}</a></h5>
       {% if resource.preview == None %}
 
         <p>This resource has no description</p>
 
-      {% else %}{% autoescape off %}{{ resource.preview }}{% endautoescape %}{% endif %}
+      {% else %}
+
+      <!-- {% autoescape off %}{{ resource.preview }}{% endautoescape %} -->
+      <p>{{resource.preview}}</p>
+
+      {% endif %}
 
       {% if resource.url != None %}
 
