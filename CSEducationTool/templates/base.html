@@ -25,13 +25,66 @@
   </head>
 
 
-  <body>
-
-    <div class="container">
-
-      {% block content %}{% endblock %}
-
-    </div> <!-- container -->
+  <body style="background-color:#EEE">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">CS Topics</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form id="search-form" class="navbar-form" role="search" action="/resources/search" method="get">
+                <div class="input-group">
+                  <input id="search-input" type="text" class="form-control" placeholder="Search" name="q" id="srch-term">
+                  <div class="input-group-btn">
+                    <button id="search-button" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <li>
+              <div id="new-resource-btn-group" class="btn-group">
+                <a id="new-resource-dropdown-toggle" role="button" class="flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <span class="glyphicon glyphicon-plus btn-lg"></span>
+                </a>
+                <div class="dropdown-menu">
+                  <h4>Add a resource</h4>
+                  <form id="new-resource-form" action="/resources/create{%if resource.id != None%}/{{resource.id}}{%endif%}" method="POST">
+                    {% csrf_token %}
+                    {{new_resource_form}}
+                    <button id="new-resource-submit-button" class="submit-button" type="submit">Save</button>
+                  </form>
+                </div><!-- dropdown menu -->
+              </div> <!-- btn-group -->
+            </li>
+            {% if user.is_authenticated %}
+              <li><a id="logged-in-user" user-id="{{user.id}}" href="#">{{ user.username }}</a></li>
+              <li>
+                <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+              </li>
+            {% else %}
+              <li>
+                <a  id="logged-in-user" user-id="0" href="{% url 'login' %}">login</a>
+              </li>
+              <li>
+                <a href="{% url 'register' %}">signup</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  {% block content %}{% endblock %}
   </body>
 
 

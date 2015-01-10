@@ -195,6 +195,48 @@ function doneClicked() {
 }
 
 
+// $("#star-toggle").click(function toggleStar() {
+//   button = $(this); //span tag
+//   rid = button.attr("resource-id");
+//   _url = "api/resources/unstar/"+rid;
+//   if (button.checked) {
+//     button.toggleClass("glyphicon glyphicon-star star-toggle");
+//     _url = "api/resources/star/"+rid;
+//   } else {
+//     button.toggleClass("glyphicon glyphicon-star-empty star-toggle");
+//   }
+//   $.post(_url);
+// });
+
+
+function toggleStar(button_elem) {
+
+  button = $(button_elem); //input checkbox tag
+  var span = $(button.context.labels[0].children[1]);
+
+  console.log("toggleStar " + button.is(":checked"));
+  rid = button.attr("resource-id");
+  _url = "/api/resources/unstar/"+rid;
+
+
+  if (button.is(":checked")) {
+
+    
+    // var $label = $("label[for='"+button.id+"']");
+        // console.log(label);
+    // console.log(button.find().id);
+
+    span.toggleClass("glyphicon-star-empty");
+    span.toggleClass("glyphicon-star");
+    _url = "/api/resources/star/"+rid;
+  } else {
+    span.toggleClass("glyphicon-star-empty");
+    span.toggleClass("glyphicon-star");
+    
+  }
+  console.log(_url);
+  $.post(_url);
+}
 
 function upvote(button) {
   
@@ -222,14 +264,78 @@ function downvote(button) {
 
 
 
+$('#new-resource-form').click(function (e) {
+  e.stopPropagation();
+});
+$("#new-resource-dropdown-toggle").on("click", function (event) {
+  console.log('click handler');
+  var form = $("#id_title")[0];
+  console.log(form);
+  $(form).focus();
+});
+
+// $("#new-resource-form textarea").attr("rows",10); //How can I set this in django?
+
+$("new-resource-submit-button").on("click", function(event) {
+  var form = $('#new-resource-form');
+  var data = form.serialize();
+  var _url = form.attr("action");
+
+  $("#new-resource-btn-group").removeClass("open");
+  $.post(_url, data, function(return_data) {
+
+  });
+});
 
 
 
 
 
+$("#search-button").on("click",function(event) {
+  var search_input = $("#search-input");
+  if (search_input.is(":visible")) {
+
+    $("#search-form").submit();
+
+  } else {
+    //Expand the search input
+    search_input.show(); //sets the visible attr so search_input.is(":visible") === true
+    search_input.focus();
+  }
+
+});
 
 
+$(".star-button").on("click",function(event) {
+  var sb = $(this)
+  var rid = sb.attr("resource-id");
+  var uid = $("#logged-in-user").attr("user-id");
 
+  if (uid == 0) {
+    alert("You must be logged in to do that!");
+    return false;
+  }
+
+  var starred = sb.attr("checked");
+  var _url = "/api/resources/star/"+rid;
+  if (starred) {
+    sb.attr("checked",0);
+    _url = "/api/resources/unstar/"+rid;
+  } else {
+    sb.attr("checked",1);  
+  }
+  sb.toggleClass("glyphicon-star-empty");
+  sb.toggleClass("glyphicon-star");
+  sb.toggleClass("star-button-empty");
+  
+  console.log(_url);
+  //HOW DO I GET THE USER FROM DJANGO??
+  $.post(_url).error(function(xhr){
+    console.log(xhr.status);
+    sb.toggleClass("glyphicon-star-empty");
+    sb.toggleClass("glyphicon-star");
+  });
+})
 
 
 

@@ -12,9 +12,9 @@ import watson
 
 
 # Cache update time
-CACHE_UPDATE_TIME = datetime.timedelta(days=10)
+CACHE_UPDATE_TIME = datetime.timedelta(days=365)
 TITLE_EXTRACT_LENGTH = 100
-TEXT_PREVIEW_LENGTH = 200
+TEXT_PREVIEW_LENGTH = 140
 TEXT_EXTRACT_LENGTH = 600
 
 
@@ -48,6 +48,8 @@ class Resources(models.Model):
     human_created = models.BooleanField(default=True)
     bing_id = models.CharField(blank=True, null=True, unique=True, max_length=100)
 
+
+
     # _property = models.TextField()  # Could use this to store the preview so we don't have to calculate it each time, but I think time is a better trade off than duplicating db storage
     @property
     def preview(self):
@@ -56,23 +58,31 @@ class Resources(models.Model):
 
     @classmethod
     def preview_html(cls, html_text, max_length=None):
-        
         maxlen = max_length if max_length is not None else TEXT_PREVIEW_LENGTH
         _text = html_text
-
-        # Error checking
-        if _text is None: return None 
-
+        if html_text is None:
+            return ''
 
         #Parse out the first full HTML tag under n characters long
         allp = Soup(_text).find_all('p')
 
         # if there are no p tags, return the truncated text
         if len(allp) == 0:
-            return _text[0:maxlen]
+            return _text[:maxlen]
 
         # else get the lenths of each p tag
-        lens = [len(p.string) for p in allp]
+
+        print allp
+
+        lens = []
+        for p in allp:
+            print p 
+            
+            if p is not None and p.text is not None:
+                lens.append(len(p.text))
+            else:
+                lens.append(0)
+        # lens = [len(p.text) if p is not None else 0 for p in allp]
 
         # Cut the page to only the first 500 characters
         isum = 0
@@ -81,8 +91,8 @@ class Resources(models.Model):
             isum += lens[i]
             i+=1
             
-        # Return the concatenated string
-        prev = ' '.join([p.string if p.string is not None else '' for p in allp[0:i]])
+        # # Return the concatenated string
+        prev = ' '.join([p.text if p.text is not None else '' for p in allp[0:i+1]])[:TEXT_PREVIEW_LENGTH]
         return prev
 
     def __unicode__(self):
@@ -119,16 +129,16 @@ class Resources(models.Model):
 
         #   Avoid returning [None] when the child TopicRelations 
         #     relation.to_resource should never be None!!
-        out = Resources.objects.filter(parent_resources__from_resource=self, **kwargs)
+        return Resources.objects.filter(parent_resources__from_resource=self, **kwargs)
         # out = [relation.to_resource for relation in TopicRelations.objects.filter(from_resource=self).select_related('to_resource').filter(**kwargs)] # HOW TO USE **kwargs to let the user provide a filter
-        return None if len(out)==0 else out
+        # return None if len(out)==0 else out
 
     def get_parent_resources(self, **kwargs):
         if 'human_created' not in kwargs:
             kwargs['human_created'] = True
-        out = Resources.objects.filter(child_resources__to_resource=self, **kwargs)
+        return Resources.objects.filter(child_resources__to_resource=self, **kwargs)
         # out = [relation.from_resource for relation in TopicRelations.objects.filter(to_resource=self).select_related('from_resource').filter(**kwargs)]
-        return None if len(out)==0 else out
+        # return None if len(out)==0 else out
 
     # Creates and/or adds a resource to self as a child
     def add_child_resource(self, inchild=None, **kwargs):
@@ -196,16 +206,15 @@ class Resources(models.Model):
         self.update_page_cache()
         
         # If text or title are not provided, extract them from the html page
-        if has_url:
-            site_title = u'' if self.full_page_cache is None else Soup(self.full_page_cache).title.text # Convert from unicode.. should probably handle this better
-            text_prefix = u''
+        if has_url and (self.text is None or self.title is None):
+            site_title = '' if self.full_page_cache is None else Soup(self.full_page_cache).title.text # Convert from unicode.. should probably handle this better
+            text_prefix = ''
             if not has_title:
                 self.title = site_title
             else: # If the user sets a title, set the site title as the first line in the text
                 text_prefix = site_title
-            print type(text_prefix), text_prefix
             if not has_text:
-                self.text = text_prefix + u'\n' + Resources.preview_html(html_text=self.full_page_cache, max_length=TEXT_EXTRACT_LENGTH).encode('unicode')
+                self.text = text_prefix + '\n' + Resources.preview_html(html_text=self.full_page_cache, max_length=TEXT_EXTRACT_LENGTH)
                 print self.text
                 
 
@@ -272,6 +281,7 @@ class UserActivity(models.Model):
     CREATED = 3
     EDITED = 4
     VISITED = 5
+    REPORTED = 6
     
 
     Activity_Types = (
@@ -280,11 +290,16 @@ class UserActivity(models.Model):
         (EDITED, 'Edited'),
         (VISITED, 'Visited'),
         (REMOVED_RELATION, 'Not a relevant resource to its parent'),
-        (CREATED_RELATION, 'Add ')
+        (CREATED_RELATION, 'Added to a topic'),
+        (REPORTED, 'Reported as spam')
     )
 
-    user = models.ForeignKey(User) # required
+    user = models.ForeignKey(User, null=True, blank=True)
     resource = models.ForeignKey(Resources)
+    # related_resource = models.ForeignKey(Resources)  #needs a related_name
+
+    created_at = models.DateTimeField(default=timezone.now)
+
     activity_type = models.IntegerField(choices=Activity_Types, default=CREATED)
 
 class UserRelation(models.Model): # Integrate this with django user groups and permissions
@@ -292,13 +307,13 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
     AUTHOR = 1
     UserTypes = ((VIEWER,"Viewer"), (AUTHOR,"Author"))
 
-    user = models.ForeignKey(User)
-    resource = models.ForeignKey(Resources)
+    user = models.ForeignKey(User, related_name='user_relations')
+    resource = models.ForeignKey(Resources, related_name='user_relations')
 
     user_type = models.IntegerField(choices=UserTypes, default=VIEWER)
     starred = models.BooleanField(default=False)
     num_visits = models.IntegerField(default=0) # How can I make this increment every time the model is accessed by the user?
-    last_visited = models.DateTimeField(default=resource.updated_at)
+    last_visited = models.DateTimeField(default=timezone.now)
 
 
 class TopicGraph(object):

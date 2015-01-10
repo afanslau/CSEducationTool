@@ -78,11 +78,11 @@ urlpatterns = patterns('',
     
     # '''  Update a given resource
     # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
-    url(r'^api/resources/upvote/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':1}),
+    url(r'^api/resources/star/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':1}),
 
     # '''  Update a given resource
     # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
-    url(r'^api/resources/downvote/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':-1}),     
+    url(r'^api/resources/unstar/(?P<resource_id>\d+)$', views.api_rate_resource, name='api_rate_resource', kwargs={'rating':0}),     
 
     # ''' Get the resource by its id 
     # GET /resources/{id} - get a single resource '''

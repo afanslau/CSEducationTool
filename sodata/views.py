@@ -3,8 +3,9 @@ from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpRespo
 from django.core.exceptions import ObjectDoesNotExist
 
 from django.contrib.auth import authenticate, login
+from django.utils import timezone
 
-from sodata.models import TopicRelations, Resources
+from sodata.models import TopicRelations, Resources, UserRelation, UserActivity
 from sodata.searchHelper import get_query
 from sodata.forms import ResourceForm, SignupForm, LoginForm
 
@@ -43,28 +44,44 @@ def ui_get_resource(request, resource_id=None):
         resource_id = int(resource_id)
         try:
             parent = Resources.objects.get(id=resource_id)
-            topics = parent.get_child_resources()
-
-
-            external_search_results = get_external_search(topic=parent)
-
-            #Sort by updated_at
-            if topics is not None:
-                topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
-            print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
         except ObjectDoesNotExist:
             print('request - Render template with resource_id: %d  NOT FOUND' % resource_id)
             raise Http404
 
+        #Get the sub-resources
+        topics = parent.get_child_resources().select_related('user_relations')
+        # When the UI requests a resource, update the logged in user's UserRelation
+        if request.user.is_authenticated():
+            ur, created = UserRelation.objects.get_or_create(resource=parent, user=request.user)
+            # Update the user visits
+            ur.num_visits += 1
+            ur.last_visited = timezone.now()
+            ur.starred = True
+            ur.save()
+        else:
+            user_relations = None
+        # user_relations = { r.id:r.user_relations.get(user=request.user) for r in topics }
+
+        external_search_results = get_external_search(topic=parent)
+
+        #Sort by updated_at
+        if topics is not None:
+            topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
+        print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
+
+    user_relations = {}
+    if request.user.is_authenticated():
+        for r in topics:
+            # u = User.objects.get(id=request.user.id)
+            ur,created = r.user_relations.get_or_create(user=request.user)
+            if created: ur.save()
+            user_relations[r.id] = ur
+
+    new_resource_form = ResourceForm()
 
 
-
-
-
-    data = {'resource':parent, 'resource_list':topics, 'external_search_results':external_search_results, 'user':request.user}
-    return render_to_response('sodata/newtopic.html', data) #same-as  render(request, 'sodata/index.html', data)
-
-
+    data = {'resource':parent, 'resource_list':topics, 'user_relations':user_relations, 'external_search_results':external_search_results, 'user':request.user, 'new_resource_form':new_resource_form}
+    return render(request,'sodata/newtopic.html', data) #same-as  render(request, 'sodata/index.html', data)
 
 
 def ui_edit_resource(request):
@@ -148,9 +165,12 @@ def api_create_resource(request, parent_id=None):
     return json_response(new_resource)
 
 def ui_create_resource(request, parent_id=None):
+    print 'ui_create_resource',request.POST
     new_resource = create_resource(request, parent_id)
-    data = {'resource':new_resource}
-    return render_to_response('sodata/list_item.html', data)
+    # data = {'resource':new_resource}
+    _url = '/resources/%s' % parent_id if parent_id is not None else '/'
+    return HttpResponseRedirect(_url)
+    # return render_to_response('sodata/list_item.html', data)
 
 def create_resource(request, parent_id=None):
 
@@ -202,12 +222,6 @@ def update_resource(request, resource_id=None):
     except ObjectDoesNotExist:
         raise Http404
 
-
-
-
-
-
-
     # Update the content
     should_save = False
     new_title = request.POST.get('title')
@@ -225,8 +239,6 @@ def update_resource(request, resource_id=None):
         resource.text = new_text if new_text != '' else None
         should_save = True
 
-
-
     new_url = request.POST.get('url')
     if len(parsed_urls)>0 and (new_url is None or new_url == ''):
         new_url = parsed_urls[0]
@@ -240,18 +252,30 @@ def update_resource(request, resource_id=None):
     return resource
 
 
-def api_rate_resource(request, resource_id=None, rating=0):
-    return json_response(rate_resource(resource_id=resource_id, rating=rating))
-    
-def rate_resource(resource_id=None, rating=0):
-    try: 
-        resource = Resources.objects.get(id=resource_id)
-    except ObjectDoesNotExist:
-        raise Http404
+def api_star_resource(request, resource_id=None):
+    rating = 1
+    return json_response(rate_resource(request, resource_id=resource_id, rating=rating))
+def api_unstar_resource(request, resource_id=None):
+    rating = 0
+    return json_response(rate_resource(request, resource_id=resource_id, rating=rating))
 
-    resource.rating += rating
-    resource.save()
-    return resource
+def api_rate_resource(request, resource_id=None, rating=0):
+    return json_response(rate_resource(request, resource_id=resource_id, rating=rating))    
+    
+def rate_resource(request, resource_id=None, rating=0):
+
+    print "rate_resource ", request.user.username, resource_id, rating>=1
+
+    if request.user.is_authenticated():    
+        try: 
+            ur = UserRelation.objects.get(resource__id=resource_id, user=request.user)
+        except ObjectDoesNotExist:
+            raise Http404
+        ur.starred = rating>=1
+        ur.save()
+        return ur.resource
+    else: 
+        return None
 
 
 
@@ -264,9 +288,26 @@ def api_delete_resource(request, resource_id=None):
     except ObjectDoesNotExist:
         print('request - DELETE resource %d  NOT FOUND' % resource_id)
         raise Http404
+
+    # Only the author can delete a resource
+    if request.user.is_authenticated() and request.user == to_delete.author:
+        to_delete.delete()
+    else:
+        # Suggest a delete
+        suggest_delete(request, resource_id)
+
     print('request - DELETE resource %d  %s' % (resource_id, to_delete.title))
-    to_delete.delete()
+    
     return json_response(to_delete)
+
+def suggest_delete(request, resource_id):
+    REMOVED_RELATION = 2 # Should be imported from a constants file...
+    u = None
+    if request.user.is_authenticated():
+        u = request.user
+    UserActivity.objects.create(user=u, resource=resource_id, activity_type=REMOVED_RELATION)
+    
+
 
 
 
