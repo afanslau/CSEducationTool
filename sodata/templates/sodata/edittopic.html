@@ -6,23 +6,25 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8">
-      <h1>{{resource.title}}</h1>   
-      {% if resource.url != None %}
-      <p id="url-content"><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></p>
-      {% endif %}
-      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="/resources/{{resource.id}}/edit">Add one now!</a>{% endif %}</p> 
+      <form action="/resources/{{resource.id}}/edit" method="POST">
+        {% csrf_token %}
+        {{form.title.label}}
+        <h1>{{form.title}}</h1>
+        {{form.url.label}}
+        {{form.url}}
+        {{form.text.label}}
+        {{form.text}}
+        <button class="btn btn-default" type="submit">Save Edits</button>
+      </form>
     </div>
     <div class="col-xs-4">
       <div class="row">
         <h4><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%} star-button {%if not user_relation.starred%}star-button-empty{%endif%}" starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}"></span><h4>
         <p><a onclick="alert('choose a topic to save this in');">Save to</a></p>
-        <p><a href="/resources/{{resource.id}}/edit">Edit</a></p>
         <p><a onclick="alert('add a new resource');">Add a resource</a></p>
       </div>
       <div class="row" style="background-color:#F7F7F7">
-        <h4>Author</h4>
-        <p>{{resource.author.username}}</p>
-        <h4>Related Topics</h4>
+        <h3>Related Topics</h3>
         <p>One</p>
         <p>Two</p>
       </div>

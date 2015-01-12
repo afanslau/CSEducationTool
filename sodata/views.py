@@ -1,6 +1,7 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 
 from django.contrib.auth import authenticate, login
 from django.utils import timezone
@@ -29,15 +30,24 @@ ui_topic_base_url = 'resources/%d'
 
 ''' Render and return the topic template page '''
 def ui_get_resource(request, resource_id=None):
+    data = get_resource(request, resource_id)
+    return render(request,'sodata/newtopic.html', data) #same-as  render(request, 'sodata/index.html', data)
+def get_resource(request, resource_id=None):
+
+    #Default for anon users
+    parent = None
+    user_relation = None 
+    user_relations = {}
+    external_search_results = None
+
 
     if resource_id is None:
         #Return top level topics
-
-        # Parent is fake, just for display purposes. This probably has to change
-        parent = Resources(title='This is the home page',text='This is a website where you can explore computer science topics. You can store good resources you find, and share them with others.')
-        topics = Resources.objects.filter(parent_resources=None)
-        topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
-        external_search_results = None
+        if request.user.is_authenticated():
+            parent = Resources.objects.get(author=request.user, is_home=True)
+        else:
+            # Parent is fake, just for display purposes. This probably has to change
+            parent = Resources(title='Home',text='Hello World. Add your favorite resources, create topics and get recommendations')
 
     else:
         #Return one specific topic
@@ -48,40 +58,51 @@ def ui_get_resource(request, resource_id=None):
             print('request - Render template with resource_id: %d  NOT FOUND' % resource_id)
             raise Http404
 
-        #Get the sub-resources
-        topics = parent.get_child_resources().select_related('user_relations')
-        # When the UI requests a resource, update the logged in user's UserRelation
-        if request.user.is_authenticated():
-            ur, created = UserRelation.objects.get_or_create(resource=parent, user=request.user)
-            # Update the user visits
-            ur.num_visits += 1
-            ur.last_visited = timezone.now()
-            ur.starred = True
-            ur.save()
-        else:
-            user_relations = None
-        # user_relations = { r.id:r.user_relations.get(user=request.user) for r in topics }
-
-        external_search_results = get_external_search(topic=parent)
-
-        #Sort by updated_at
-        if topics is not None:
-            topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
-        print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
-
-    user_relations = {}
+    #Get the sub-resources where user_perspective=None (public) or is the logged in user
+    # topics = Resources.objects.filter(parent_resources__from_resource=parent).select_related('user_relations')
     if request.user.is_authenticated():
+        relations = TopicRelations.objects.filter(Q(perspective_user=request.user)|Q(perspective_user__isnull=True), from_resource=parent).select_related('to_resource')
+    else:
+        relations = TopicRelations.objects.filter(perspective_user__isnull=True, from_resource=parent).select_related('to_resource')
+    topics = [r.to_resource for r in relations]
+
+    # When the UI requests a resource, update the logged in user's UserRelation
+    if request.user.is_authenticated():
+        user_relation, created = UserRelation.objects.get_or_create(resource=parent, user=request.user)
+        # Update the user visits
+        user_relation.num_visits += 1
+        user_relation.last_visited = timezone.now()
+        user_relation.save()
+
+        # Get children UserRelation
+        urs = UserRelation.objects.filter(user=request.user, resource__in=topics)
         for r in topics:
-            # u = User.objects.get(id=request.user.id)
-            ur,created = r.user_relations.get_or_create(user=request.user)
+            ur,created = urs.get_or_create(user=request.user, resource=r)
             if created: ur.save()
             user_relations[r.id] = ur
 
+    #Sort by updated_at
+    if topics is not None:
+        topics = sorted(topics, key=lambda t: t.updated_at, reverse=True)
+    if parent.id is not None:
+        print('request - Render template with resource_id: %d  %s' % (parent.id, parent.title))
+        
+
+    # Other return data
     new_resource_form = ResourceForm()
+    external_search_results = get_external_search(topic=parent)
 
 
-    data = {'resource':parent, 'resource_list':topics, 'user_relations':user_relations, 'external_search_results':external_search_results, 'user':request.user, 'new_resource_form':new_resource_form}
-    return render(request,'sodata/newtopic.html', data) #same-as  render(request, 'sodata/index.html', data)
+    data = {'new_resource_form':new_resource_form,  #base.html
+            'resource':parent,  #base.html
+            'user_relation':user_relation,  
+            'resource_list':topics, 
+            'user_relations':user_relations, 
+            'external_search_results':external_search_results, 
+            # 'user':request.user, 
+            
+        }
+    return data
 
 
 def ui_edit_resource(request):
@@ -148,7 +169,7 @@ def ui_search_resources(request):
         found_entries = found_entries.filter(pre_seeded=seed)
     # Fake a resource for easy diplay
     parent = Resources(title="Search Results", text=query_string)
-    return render_to_response('sodata/topic.html', { 'topic': parent, 'resource_list': found_entries })
+    return HttpResponse("Search not Implemented")
 
 
 def api_search_resources(request):
@@ -161,46 +182,74 @@ def api_search_resources(request):
 ''' POST /resources/{id}/create - create a resource in the given topic '''
 ''' POST /resources/create - create a stand-alone resource '''
 def api_create_resource(request, parent_id=None):
-    new_resource = create_resource(request, parent_id)
-    return json_response(new_resource)
+    resource = create_resource(request, parent_id)
+    if resource is not None:
+        return json_response(resource)
+    else:
+        return HttpResponseBadRequest("Invalid Form Data")
 
 def ui_create_resource(request, parent_id=None):
     print 'ui_create_resource',request.POST
-    new_resource = create_resource(request, parent_id)
-    # data = {'resource':new_resource}
-    _url = '/resources/%s' % parent_id if parent_id is not None else '/'
-    return HttpResponseRedirect(_url)
-    # return render_to_response('sodata/list_item.html', data)
+    pid = int(parent_id) if parent_id is not None else None
+    new_resource = create_resource(request, pid)
+
+    if new_resource is not None:
+        rid = request.POST.get("current_resource_id")
+
+        print 'ui_create_resource ', rid
+
+        if rid is None:
+            _url = '/resources/%s' % parent_id if parent_id is not None else '/'
+        else:
+            _url = '/resources/%s' % rid
+
+        return HttpResponseRedirect(_url)
+    else:
+        return HttpResponseBadRequest("Invalid Form Data")
 
 def create_resource(request, parent_id=None):
 
-    # parsed_urls = []
-    # if request.POST.get('text') is not None and request.POST.get('url') is None:
-    #   parsed_urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', request.POST.get('text'))
-    #   print(parsed_urls)
+    if request.method=="POST":
+        form = ResourceForm(data={'title':request.POST.get('title'), 'text':request.POST.get('text'), 'url':request.POST.get('url')})
 
-    # if len(parsed_urls)>0 and (new_url is None or new_url == ''):
-    #   new_url = parsed_urls[0]
+        if form.is_valid():
+            cd = form.cleaned_data
 
+            print 'form is valid ', cd 
+
+            new_resource = form.save(commit=False)
     
-    new_resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=request.POST.get('url'))
+    # new_resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=request.POST.get('url'))
+            if request.user.is_authenticated():
+                try:
+                    if parent_id is not None:
+                        parent = Resources.objects.get(id=parent_id)
+                    else:
 
-    if parent_id is None:
-        new_resource.save()
-        print('request - CREATE resource with data %s' % request.POST)
-    else:
-        try:
-            parent_id = int(parent_id)
-            parent = Resources.objects.get(id=parent_id)
-            new_resource.save()     
-            TopicRelations.objects.create(from_resource=parent, to_resource=new_resource)
-            print('request - CREATE resource under %s with data %s' % (parent.title, new_resource.to_dict()))
-        except ObjectDoesNotExist:
-            print('request - CREATE resource under %d  NOT FOUND' % parent_id)
-            raise Http404
+                        print 'create_resource in home'
 
-    return new_resource
+                        parent = Resources.objects.get(is_home=True, author=request.user) # Get the user's home page
+                    print('request - CREATE resource under %s with data %s' % (parent.title, new_resource.to_dict()))
+                except ObjectDoesNotExist:
+                    print('request - CREATE resource under %d  NOT FOUND' % parent_id)
+                    raise Http404
+                new_resource.author = request.user
+                new_resource.save()
+                
+                tr = TopicRelations(from_resource=parent, to_resource=new_resource)
+                # If the user is the author, leave perspective_user as None
+                if request.user != parent.author:
+                     tr.perspective_user = request.user 
+                tr.save()
 
+                UserRelation.objects.create(user=request.user, resource=new_resource, user_type=1) #AUTHOR
+                UserActivity.objects.create(user=request.user, resource=new_resource, activity_type=3) #CREATED
+            else:
+                new_resource.save()
+            return new_resource
+        else:
+            print 'Form was invalid ', form.errors, form.non_field_errors()
+            
 
 def api_update_resource(request, resource_id=None):
     if resource_id is None: raise Http404
@@ -209,9 +258,14 @@ def api_update_resource(request, resource_id=None):
 
 def ui_update_resource(request, resource_id=None):
     if resource_id is None: raise Http404
-    updated_resource = update_resource(request, resource_id)
-    data = {'resource':updated_resource}
-    return render_to_response('sodata/resource_content.html', data)
+
+    if request.method == "POST":
+        updated_resource = update_resource(request, resource_id)
+        return ui_get_resource(request, resource_id)
+    else: 
+        data = get_resource(request, resource_id)
+        data['form'] = ResourceForm(data['resource'].to_dict())
+        return render(request,'sodata/edittopic.html', data)
 
 def update_resource(request, resource_id=None):
     print('request - UPDATE resource with data %s' % request.POST)
@@ -450,6 +504,11 @@ def register(request):
             user.set_password(user.password)
             user.save()
 
+            #Create the users home page resource
+            Resources.create_home(user)
+
+            #If needed, create a UserProfie object
+
             # Update our variable to tell the template registration was successful.
             registered = True
 
@@ -457,7 +516,7 @@ def register(request):
         # Print problems to the terminal.
         # They'll also be shown to the user.
         else:
-            print user_form.errors, profile_form.errors
+            print user_form.errors, user_form.errors
             # Should render some kind of error
 
     # Not a HTTP POST, so we render our form using two ModelForm instances.
@@ -468,7 +527,7 @@ def register(request):
     # Render the template depending on the context.
     return render(request,
             'registration/register.html',
-            {'user_form': user_form, 'registered': registered} )
+            {'form': user_form, 'registered': registered} )
 
 
 def user_login(request):
@@ -513,21 +572,22 @@ def user_login(request):
 
 
 
-def fts(request):
+def search_view(request):
 
     # watson.filter Returns model objects
-    term = request.POST.get("q")
-    if term is None: return None
-
+    term = request.GET.get("q")
     search_results = watson.filter(Resources, term)
-    for obj in search_results:
-        print obj.title # These are actual instances of `YourModel`, rather than `SearchEntry`.
+    user_relations = {}
+    if request.user.is_authenticated():
+        urs = UserRelation.objects.filter(user=request.user, resource__in=search_results)
+        for r in search_results:
+            ur, created = urs.get_or_create(resource=r, user=request.user)
+            if created: ur.save()
+            user_relations[r.id] = ur
 
-    # watson.search returns SearchEntry objects
-    # search_results = watson.search(term)
-    # for result in search_results:
-    #     print result.title, result.url
-
-    out = [s.to_dict() for s in search_results]
-    return HttpResponse(json.dumps(out))
+    data = {'resource_list':search_results, 
+            'user_relations':user_relations,
+            'query': term
+            }
+    return render(request, 'sodata/search_results.html', data)
 

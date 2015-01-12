@@ -8,7 +8,7 @@
 
   <title>CSTopics Login</title>
 
-  <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+  <!-- <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'> -->
 
   <link rel="stylesheet" href="{% static 'login.css' %}" media="screen" type="text/css" />
 
@@ -42,37 +42,8 @@
 
 <!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
 
-  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+<!-- <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script> -->
 
 </body>
 
 </html>
-
-{% comment %}
-<!-- {% extends "base.html" %}
-
-{% block content %}
-
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-<form method="POST" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-{% endblock %} -->
-{% endcomment %}

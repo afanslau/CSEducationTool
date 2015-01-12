@@ -43,15 +43,16 @@ urlpatterns = patterns('',
     # Login Authentication
     url(r'^register$', views.register, name='register'),
     url(r'^login/$', views.user_login, name='login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 
-    url(r'^fts$', views.fts),
+    # url(r"^search/", include("watson.urls", namespace="watson")),
+    url(r'^search$', views.search_view, name='search'),
 
 
     # USER INTERFACE
     url(r'^resources/create/(?P<parent_id>\d+)$', views.ui_create_resource, name='ui_create_resource_in_topic'), 
     url(r'^resources/create$', views.ui_create_resource, name='ui_create_resource_in_root'), 
-    url(r'^resources/update/(?P<resource_id>\d+)$', views.ui_update_resource, name='ui_update_resource'), 
+    url(r'^resources/(?P<resource_id>\d+)/edit$', views.ui_update_resource, name='ui_update_resource'), 
     url(r'^resources/(?P<resource_id>\d+)$', views.ui_get_resource, name='ui_get_resource'),
     # Note:  $ matches the end of a string. Don't use here to allow for optional end / . This should probably be used everywhere??
     url(r'^resources/search', views.ui_search_resources, name='ui_search_resources'),

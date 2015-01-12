@@ -1,28 +1,52 @@
-{% extends "base.html" %}
 
-{% block content %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
 
-<h1>Register with Rango</h1>
+<head>
 
-{% if registered %}
-<strong>thank you for registering!</strong>
-<a href="/">Return to the homepage.</a><br />
-{% else %}
-<strong>register here!</strong><br />
+  <meta charset="UTF-8">
 
-<form id="user_form" method="POST" action="/register"
-        enctype="multipart/form-data">
+  <title>CSTopics Login</title>
 
-    {% csrf_token %}
+  <!-- <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'> -->
 
-    <!-- Display each form. The as_p method wraps each element in a paragraph
-         (<p>) element. This ensures each element appears on a new line,
-         making everything look neater. -->
-    {{ user_form.as_p }}
+  <link rel="stylesheet" href="{% static 'login.css' %}" media="screen" type="text/css" />
 
-    <!-- Provide a button to click to submit the form. -->
-    <input type="submit" name="submit" value="Register" />
-</form>
-{% endif %}
+</head>
 
-{% endblock %}
+<body>
+
+  <div class="login-card">
+    <h1>Sign Up</h1><br>
+
+  {% if form.errors %}
+  <div class="alert alert-danger"><p>An error occurred during the sign up process</p></div>
+  {% endif %}
+
+  <form method="POST" action="{% url 'register' %}">
+  {% csrf_token %}
+    {{ form.username.label }}
+    {{ form.username }}
+    {{ form.email.label }}
+    {{ form.email }}
+    {{ form.password.label }}
+    {{ form.password }}
+    <input type="submit" class="login login-submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" /> 
+    <!-- What is this for again? Something about redirects and multiple login tries... -->
+    <!-- Search docs for @login_required decorator -->
+  </form>
+
+  <div class="login-help">
+    <a href="{% url 'register' %}">Register</a> • <a href="#">Forgot Password</a>
+  </div>
+</div>
+
+<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
+
+<!-- <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script> -->
+
+</body>
+
+</html>

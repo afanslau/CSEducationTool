@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(__file__)
 # CSRF_COOKIE_SECURE = False
 
 
-DB_NAME = 'topicdb' #"topicdb" # "smallsodata"
+DB_NAME = 'topicdb' #'small_temp' #Using small_temp for testing the watson search   # Was 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/

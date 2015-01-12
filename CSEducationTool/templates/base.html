@@ -20,6 +20,8 @@
     <link href="{% static 'wmd.css' %}" rel="stylesheet">
     <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    {% block extra_headers %}{% endblock %}
+
 
     <title>CS Topics</title>
   </head>
@@ -43,9 +45,9 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <form id="search-form" class="navbar-form" role="search" action="/resources/search" method="get">
+              <form id="search-form" class="navbar-form" role="search" action="{% url 'search' %}" method="get">
                 <div class="input-group">
-                  <input id="search-input" type="text" class="form-control" placeholder="Search" name="q" id="srch-term">
+                  <input id="search-input" type="text" class="form-control" placeholder="Search" name="q" id="search-term" value="{{request.GET.q}}">
                   <div class="input-group-btn">
                     <button id="search-button" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                   </div>
@@ -59,11 +61,15 @@
                 </a>
                 <div class="dropdown-menu">
                   <h4>Add a resource</h4>
-                  <form id="new-resource-form" action="/resources/create{%if resource.id != None%}/{{resource.id}}{%endif%}" method="POST">
+                  <form id="new-resource-form" action="/resources/create/{{resource.id}}" method="POST">
                     {% csrf_token %}
                     {{new_resource_form}}
-                    <button id="new-resource-submit-button" class="submit-button" type="submit">Save</button>
+                    <input type="hidden" name="current_resource_id" value="{{resource.id}}"/>
+                    {% if resource != None %}
+                    <button id="new-resource-submit-button" class="submit-button" type="submit">Save in {% if resource.title|length > 20 %}{{ resource.title|truncatechars:20 }}...{%else%}{{resource.title}}{%endif%}</button>
+                    {% endif %}
                   </form>
+                  <button id="new-resource-home-submit-button" class="submit-button">Save in Home</button>
                 </div><!-- dropdown menu -->
               </div> <!-- btn-group -->
             </li>
@@ -84,7 +90,11 @@
         </div>
       </div>
     </nav>
+
+
   {% block content %}{% endblock %}
+  
+
   </body>
 
 

@@ -18,7 +18,6 @@ TEXT_PREVIEW_LENGTH = 140
 TEXT_EXTRACT_LENGTH = 600
 
 
-
 class Resources(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.TextField(blank=True, null=True)
@@ -34,7 +33,7 @@ class Resources(models.Model):
 
     # Algorithmicly determined rating
     # is dependent on users and context, so I think this should be stored in a UserActivity model...
-    author = models.ForeignKey(User, blank=True, null=True) # Should default to the system admin or anon user
+    author = models.ForeignKey(User, null=True, blank=True) # Should default to the system admin or anon user
     rating = models.IntegerField(blank=True, null=False, default=0)
 
     # DateTime fields
@@ -47,6 +46,8 @@ class Resources(models.Model):
     in_standard = models.BooleanField(default=False)
     human_created = models.BooleanField(default=True)
     bing_id = models.CharField(blank=True, null=True, unique=True, max_length=100)
+
+    is_home = models.BooleanField(default=False)
 
 
 
@@ -94,6 +95,11 @@ class Resources(models.Model):
         # # Return the concatenated string
         prev = ' '.join([p.text if p.text is not None else '' for p in allp[0:i+1]])[:TEXT_PREVIEW_LENGTH]
         return prev
+
+
+    @classmethod
+    def create_home(cls, user):
+        return Resources.objects.create(is_home=True, author=user, title='Home', text='Hello World. Add your favorite resources, create topics and get recommendations')
 
     def __unicode__(self):
         return self.title 
@@ -158,8 +164,6 @@ class Resources(models.Model):
     def to_dict(self):
         return {'id':self.id, 'title':self.title, 'text':self.text, 'url':self.url}
 
-
-
     # Cache site
     def update_page_cache(self):
         if self.url is None:
@@ -184,9 +188,9 @@ class Resources(models.Model):
 
     def save(self, *args, **kwargs):
         # Set up
-        has_title = self.title is not None
-        has_text = self.text is not None
-        has_url = self.url is not None
+        has_title = self.title is not None and self.title is not ''
+        has_text = self.text is not None and self.text is not ''
+        has_url = self.url is not None and self.url is not ''
 
         # Default title and text values
         if not has_title and not has_text and not has_url:
@@ -202,8 +206,8 @@ class Resources(models.Model):
             if self.display_url is None:
                 self.display_url = parse_result.netloc + parse_result.path
 
-        # Cache the site if stale or None
-        self.update_page_cache()
+            # Cache the site if stale or None
+            self.update_page_cache()
         
         # If text or title are not provided, extract them from the html page
         if has_url and (self.text is None or self.title is None):
@@ -223,7 +227,6 @@ class Resources(models.Model):
             if self.text is not None:
                 self.title = self.text[:TITLE_EXTRACT_LENGTH]
             else: # self.url is not None
-                pr = urlparse(self.url)
                 self.title = self.display_url
 
         # Update the created and modified fields
@@ -235,8 +238,9 @@ class Resources(models.Model):
 
         super(Resources, self).save(*args, **kwargs)  #returns self casted as its superclass Resources?? but the superclass is Model.. Look this up later
 
+
 # Uncomment when I can index my database...
-# watson.register(Resources)
+watson.register(Resources)
 
 class TopicRelations(models.Model):
     id = models.AutoField(primary_key=True)
@@ -256,6 +260,9 @@ class TopicRelations(models.Model):
 
     from_resource = models.ForeignKey(Resources, related_name='child_resources')
     to_resource = models.ForeignKey(Resources, related_name='parent_resources')
+
+    perspective_user = models.ForeignKey(User, null=True, blank=True) #Anything without one of these is public
+
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
@@ -305,6 +312,7 @@ class UserActivity(models.Model):
 class UserRelation(models.Model): # Integrate this with django user groups and permissions
     VIEWER = 0
     AUTHOR = 1
+    FEEDBACK = 2
     UserTypes = ((VIEWER,"Viewer"), (AUTHOR,"Author"))
 
     user = models.ForeignKey(User, related_name='user_relations')
@@ -315,18 +323,19 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
     num_visits = models.IntegerField(default=0) # How can I make this increment every time the model is accessed by the user?
     last_visited = models.DateTimeField(default=timezone.now)
 
+    def save(self, *args, **kwargs):
+        if self.id is None and self.user_type != 1 and self.resource.author == self.user:
+            self.user_type = 1
+        super(UserRelation, self).save(*args, **kwargs)
 
-class TopicGraph(object):
-    """Abstract Class that provides methods on the Resources in the graph... Should this be initializable? """
+    def __unicode__(self):
+        return u'UserRelation %d user: %s resource: %s' % (self.id, self.user.username, self.resource.title)
 
-    # Cite: http://stackoverflow.com/questions/24728612/best-way-in-python-to-make-a-class-that-is-uninitializable-but-whose-child-class
-    def __new__(cls):
-        if cls is Base:
-          raise NotImplementedError()
-        super(TopicGraph, cls).__new__(cls)
 
-    ''' This really only makes sense if the graph is acyclic '''
-    def get_root_resources():
-        return Resources.objects.filter(parent_resource=None)
-    # EndCitation
+# Adds a field to Resources AND an extra UserProfile table..
+# class UserProfile(models.Model):
+#     user = models.ForeignKey(User, related_name='user_profile')
+
+#     home_resource = models.ForeignKey(Resource, related_name='home_user')
+
 
