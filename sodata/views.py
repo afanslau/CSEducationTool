@@ -3,6 +3,8 @@ from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpRespo
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.contrib.auth import authenticate, login
 from django.utils import timezone
 
@@ -67,12 +69,13 @@ def get_resource(request, resource_id=None):
         user_relation.last_visited = timezone.now()
         user_relation.save()
 
+        user_relations = UserRelation.get_relations_by_resource_id(request, topics)
         # Get children UserRelation
-        urs = UserRelation.objects.filter(user=request.user, resource__in=topics)
-        for r in topics:
-            ur,created = urs.get_or_create(user=request.user, resource=r)
-            if created: ur.save()
-            user_relations[r.id] = ur
+        # urs = UserRelation.objects.filter(user=request.user, resource__in=topics)
+        # for r in topics:
+        #     ur,created = urs.get_or_create(user=request.user, resource=r)
+        #     if created: ur.save()
+        #     user_relations[r.id] = ur
 
     #Sort by updated_at
     if topics is not None:
@@ -573,11 +576,12 @@ def search_view(request):
     search_results = watson.filter(Resources, term)
     user_relations = {}
     if request.user.is_authenticated():
-        urs = UserRelation.objects.filter(user=request.user, resource__in=search_results)
-        for r in search_results:
-            ur, created = urs.get_or_create(resource=r, user=request.user)
-            if created: ur.save()
-            user_relations[r.id] = ur
+        user_relations = UserRelation.get_relations_by_resource_id(request, topics)
+        # urs = UserRelation.objects.filter(user=request.user, resource__in=search_results)
+        # for r in search_results:
+        #     ur, created = urs.get_or_create(resource=r, user=request.user)
+        #     if created: ur.save()
+        #     user_relations[r.id] = ur
 
     data = {'resource_list':search_results, 
             'user_relations':user_relations,
@@ -585,3 +589,36 @@ def search_view(request):
             }
     return render(request, 'sodata/search_results.html', data)
 
+
+
+def ui_recommend_resources(request, resource_id=None):
+    
+    if resource_id is None:
+        raise Http404
+
+    try:
+        resource = Resources.objects.get(id=resource_id)
+    except ObjectDoesNotExist:
+        raise Http404  # I think this might be the default error for ObjectDoesNotExist
+
+
+    full_resource_list = watson.filter(Resources, resource.title)   # Put recommended choice algorithm here    
+    page_number = request.GET.get('page')
+    paginator = Paginator(full_resource_list, 3) # Show 3 contacts per page
+
+    try:
+        resource_list = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        resource_list = paginator.page(1)
+        page_number = 1
+    except EmptyPage:
+        return HttpResponse("")
+
+    user_relations = UserRelation.get_relations_by_resource_id(request, resource_list)
+
+    data = {"resource_list":resource_list,
+            "user_relations":user_relations,
+            "page_number":page_number
+            }
+    return render(request, 'sodata/paginated.html', data)

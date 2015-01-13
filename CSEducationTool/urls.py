@@ -56,6 +56,7 @@ urlpatterns = patterns('',
     url(r'^resources/(?P<resource_id>\d+)$', views.ui_get_resource, name='ui_get_resource'),
     # Note:  $ matches the end of a string. Don't use here to allow for optional end / . This should probably be used everywhere??
     url(r'^resources/search', views.ui_search_resources, name='ui_search_resources'),
+    url(r'^resources/(?P<resource_id>\d+)/recommendations', views.ui_recommend_resources, name='ui_recommend_resources'),
     url(r'^resources', views.ui_get_resource, name='ui_get_root_resource'),
 
 

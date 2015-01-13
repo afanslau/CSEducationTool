@@ -330,5 +330,23 @@ $(".star-button").on("click",function(event) {
     sb.toggleClass("glyphicon-star-empty");
     sb.toggleClass("glyphicon-star");
   });
-})
+});
+
+
+function paginate(event) {
+  var rid = $("#resource-id").attr("resource-id");
+  var _url = '/resources/'+rid+'/recommendations';
+  var container = $("#recommended-container");
+  var next_page = container.attr("next-page");
+  var data = {'page':next_page}
+  $.post(_url, data, function(_html) {
+    container.append(_html);
+  });
+
+  
+
+
+}
+
+
 

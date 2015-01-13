@@ -28,14 +28,12 @@
       </div>
     </div>
   </div>
+  <div class="row" id="recommended-container" next-page="{{next_page_number}}">
+  <!--  Put page 1 here automatically -->
+    {% include 'sodata/paginated.html' with resource_list=recommended_resources user_relations=user_relations page_number=1 %}
+  </div>
   <div class="row">
-  <!--   <h2>Recommended</h2> -->
-    {% for resource in external_search_results %}
-        {% include 'sodata/newlist_item.html' with resource=resource %}
-    {% endfor %}
-    <div class="col-xs-12">
-      <p style="text-align:center"><a onclick="alert('show more recommendations');">show more recommendations</a></p>
-    </div>
+    <p style="text-align:center"><a onclick="alert('show more recommendations');">show more recommendations</a></p>
   </div>
   <div class="row">
     {% for resource in resource_list %}

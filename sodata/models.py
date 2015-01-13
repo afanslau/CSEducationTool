@@ -325,6 +325,16 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
     num_visits = models.IntegerField(default=0) # How can I make this increment every time the model is accessed by the user?
     last_visited = models.DateTimeField(default=timezone.now)
 
+    # Returns a dict with {resource.id : user_relation}
+    @classmethod
+    def get_relations_by_resource_id(cls, request, resource_list):
+        user_relations = {}
+        urs = UserRelation.objects.filter(user=request.user, resource__in=resource_list)
+        for r in resource_list:
+            ur,created = urs.get_or_create(user=request.user, resource=r)
+            if created: ur.save()
+            user_relations[r.id] = ur
+
     def save(self, *args, **kwargs):
         if self.id is None and self.user_type != 1 and self.resource.author == self.user:
             self.user_type = 1
