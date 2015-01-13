@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load staticfiles %}
 {% csrf_token %}
 <!DOCTYPE html>
@@ -37,6 +38,12 @@
   <body>
 
     <div class="container">
+=======
+{% extends "sodata/base.html" %}
+
+{% block content %}
+
+>>>>>>> devmerge
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
@@ -50,47 +57,68 @@
                 </div>
               </form>
             </li>
-            <li role="presentation" class="active">
+<!--             <li role="presentation" class="active">
               <a href="/">Explore</a>
-            </li>
+            </li> -->
             <li role="presentation" class="active">
-              <a href="#">Create</a>
+              {{ user }}
+              {% if user.is_anonymous %}
+                <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+              {% else %}
+                <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+              {% endif %}
+<!--               {% if resource.id == None %}
+                <a href="/resources/create">Create</a>
+              {% else %}
+                <a href="/resources/create/{{resource.id}}">Create</a>
+              {% endif %} -->
             </li>
           </ul>
         </nav>
-        <a href="/"><h2 class="text-muted">CS Explorer</h2></a>
+        <a href="/"><h2 class="text-muted">CS Topics</h2></a>
       </div>
 
       <!-- Topic Panel -->
-      {% if topic.id == None %}
+      {% if resource.id == None %}
         <div id="topic-panel" class="panel panel-default topic-panel" topic-id="">
       {% else %}
-        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="{{ topic.id }}">
+        <div id="topic-panel" class="panel panel-default topic-panel" topic-id="{{ resource.id }}">
       {% endif %}
         
         <!-- Topic content -->
+<<<<<<< HEAD
         {% include 'sodata/resource_content.html' with resource=topic parent_list=parent_list %}
+=======
+        {% include 'sodata/resource_content.html' with resource=resource %}
+>>>>>>> devmerge
 
         <!-- List group -->
         <div id="resource-list-group" class="list-group resource-list-group">
 
-          {% for resource in resource_list %}
-
-            {% include 'sodata/list_item.html' with resource=resource %}
+          {% for subresource in resource_list %}
+            <!-- <p>{{ subresource.title }}</p> -->
+            {% include 'sodata/list_item.html' with resource=subresource %}
 
           {% endfor %}
 
         </div> <!-- list-group --> 
+
+
+
+        <h4>External Search powered by Bing</h4>
+        <div id="resource-list-group" class="list-group resource-list-group">
+
+          {% for subresource in external_search_results %}
+
+            {% include 'sodata/list_item.html' with resource=subresource %}
+
+          {% endfor %}
+
+        </div> <!-- list-group --> 
+
+
       </div> <!-- topic-panel -->
-    </div> <!-- container -->
-  </body>
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <script src="{% static 'sprintf.js' %}"></script>
-  <script src="{% static 'custom.js' %}"></script>
-  <script src="{% static 'csrf.js' %}"></script>
-  <script scr="{% static 'Markdown.Converter.js' %}"></script>
-  <script scr="{% static 'Markdown.Sanitizer.js' %}"></script>
-  <script scr="{% static 'Markdown.Editor.js' %}"></script>
-</html>
+
+
+
+{% endblock %}

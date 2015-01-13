@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load extra_tags %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <form action="/resources/{{resource.id}}/edit" method="POST">
+        {% csrf_token %}
+        {{form.title.label}}
+        <h1>{{form.title}}</h1>
+        {{form.url.label}}
+        {{form.url}}
+        {{form.text.label}}
+        {{form.text}}
+        <button class="btn btn-default" type="submit">Save Edits</button>
+      </form>
+    </div>
+    <div class="col-xs-4">
+      <div class="row">
+        <h4><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%} star-button {%if not user_relation.starred%}star-button-empty{%endif%}" starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}"></span><h4>
+        <p><a onclick="alert('choose a topic to save this in');">Save to</a></p>
+        <p><a onclick="alert('add a new resource');">Add a resource</a></p>
+      </div>
+      <div class="row" style="background-color:#F7F7F7">
+        <h3>Related Topics</h3>
+        <p>One</p>
+        <p>Two</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  <!--   <h2>Recommended</h2> -->
+    {% for resource in external_search_results %}
+        {% include 'sodata/newlist_item.html' with resource=resource %}
+    {% endfor %}
+    <div class="col-xs-12">
+      <p style="text-align:center"><a onclick="alert('show more recommendations');">show more recommendations</a></p>
+    </div>
+  </div>
+  <div class="row">
+    {% for resource in resource_list %}
+      {% include 'sodata/newlist_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -7,18 +7,6 @@ display_template = "<p>%s</p>";
 
 
 
-// Event handling setup
-
-$("#resource-delete-button").on("click", function(event, deletebutton) {
-  console.log("new function is called for deletebutton")
-  
-  deleteResource(deletebutton);
-
-  event.stopPropogation();
-})
-
-
-
 
 function createSubResource() {
   var topic_id = $("#topic-panel").attr("topic-id");
@@ -70,9 +58,7 @@ function createSubResource() {
 
 }
 
-function deleteResource(deletebutton) {
-  console.log("Old function was called for delete resource ");
-  
+function deleteResource(deletebutton) {  
   var rid = $(deletebutton).attr('resource-id');
   var _url = "/api/resources/delete/".concat(rid);
   $.post(_url, function() {
@@ -82,6 +68,7 @@ function deleteResource(deletebutton) {
     location.reload();
   });
 }
+
 
 function addResourceClicked() {
 
@@ -195,6 +182,48 @@ function doneClicked() {
 }
 
 
+// $("#star-toggle").click(function toggleStar() {
+//   button = $(this); //span tag
+//   rid = button.attr("resource-id");
+//   _url = "api/resources/unstar/"+rid;
+//   if (button.checked) {
+//     button.toggleClass("glyphicon glyphicon-star star-toggle");
+//     _url = "api/resources/star/"+rid;
+//   } else {
+//     button.toggleClass("glyphicon glyphicon-star-empty star-toggle");
+//   }
+//   $.post(_url);
+// });
+
+
+function toggleStar(button_elem) {
+
+  button = $(button_elem); //input checkbox tag
+  var span = $(button.context.labels[0].children[1]);
+
+  console.log("toggleStar " + button.is(":checked"));
+  rid = button.attr("resource-id");
+  _url = "/api/resources/unstar/"+rid;
+
+
+  if (button.is(":checked")) {
+
+    
+    // var $label = $("label[for='"+button.id+"']");
+        // console.log(label);
+    // console.log(button.find().id);
+
+    span.toggleClass("glyphicon-star-empty");
+    span.toggleClass("glyphicon-star");
+    _url = "/api/resources/star/"+rid;
+  } else {
+    span.toggleClass("glyphicon-star-empty");
+    span.toggleClass("glyphicon-star");
+    
+  }
+  console.log(_url);
+  $.post(_url);
+}
 
 function upvote(button) {
   
@@ -222,130 +251,84 @@ function downvote(button) {
 
 
 
+$('#new-resource-form').click(function (e) {
+  e.stopPropagation();
+});
+$("#new-resource-dropdown-toggle").on("click", function (event) {
+  var form = $("#id_title")[0];
+  $(form).focus();
+});
+
+// $("#new-resource-form textarea").attr("rows",10); //How can I set this in django?
+
+//Submits a new resource to the current topic
+$("#new-resource-home-submit-button").on("click", function(event) {
+  event.stopPropagation();
+
+  var form = $('#new-resource-form');
+  var data = form.serialize();
+
+  console.log(data);
+
+  var _url = "/resources/create";
+  $.post(_url, data, function(event) {
+    alert('your resource was saved to your home screen');
+  });
+});
+$(".submit-button").on("click", function(event) {
+  $("#new-resource-btn-group").removeClass("open");
+});
 
 
 
 
 
+$("#search-button").on("click",function(event) {
+  var search_input = $("#search-input");
+  if (search_input.is(":visible")) {
+
+    $("#search-form").submit();
+
+  } else {
+    //Expand the search input
+    search_input.show(); //sets the visible attr so search_input.is(":visible") === true
+    search_input.focus();
+  }
+
+});
 
 
+$(".star-button").on("click",function(event) {
+  var sb = $(this)
+  var rid = sb.attr("resource-id");
+  var uid = $("#logged-in-user").attr("user-id");
 
+  if (uid == 0) {
+    alert("You must be logged in to do that!");
+    return false;
+  }
 
+  var starred = sb.attr("starred");
 
+  console.log(starred);
+  console.log(sb);
 
-// function addResourceInput() {
+  var _url = "/api/resources/star/"+rid;
+  if (starred == 1) {
+    sb.attr("starred",0);
+    _url = "/api/resources/unstar/"+rid;
+  } else {
+    sb.attr("starred",1);  
+  }
+  sb.toggleClass("glyphicon-star-empty");
+  sb.toggleClass("glyphicon-star");
+  sb.toggleClass("star-button-empty");
+  
+  console.log(_url);
+  $.post(_url).error(function(xhr){
+    console.log(xhr.status);
+    sb.toggleClass("glyphicon-star-empty");
+    sb.toggleClass("glyphicon-star");
+  });
+})
 
-//   //Append another resource box
-//   var newInput = $('<div class="input-group input-group-med" name="resource-input-group"><span class="input-group-btn"><input name="resource-input" type="text" class="form-control" placeholder="Resource"><button name="remove-resource-button" class="btn btn-default" type="button" onclick="removeResourceInput()"><span class="glyphicon glyphicon-remove-sign"></span></button></span></div>');
-//   $("#topic-resource-list").append(newInput);
-//   newInput.find("input[name='resource-input']").focus();
-//   //When the input looses focus, check if it is empty
-//   newInput.blur(function () {
-//     if ($.trim($(this).val()).length === 0) {
-//       removeResourceInput($(this))
-//     }
-//   });
-// }
-// function removeResourceInput(elem) {
-//   console.log(elem)
-//   elem.parents('[name="resource-input-group"]').remove()
-// }
-
-// function saveTopicEdits() {
-//   var title = $("#topic-title-input").val();
-//   var resources_dom = $("#topic-resource-list").find("input[name=resource-input]");
-//   console.log(resources_dom);
-//   var r = [];
-//   for (var i=0; i<resources_dom.length; i++) {
-//     r.push($(resources_dom[i]).val());
-//   }
-//   var data = {'title':title, 'id':'999999', 'resource-list':JSON.stringify(r)};
-//   var _url = 'save_topic_edits';
-//   $.post(_url, data, function( outData ) {
-//     alert('saved!' + outData);
-//   });
-// }
-
-
-
-// //Append an input field for title
-// function addTitleInput() {
-//     var inputmarkup = '<input id="new-resource-input-title" type="text" class="form-control" placeholder="Add a title"/>';
-//     var elem = $(inputmarkup);
-//     $('#new-resource-input-list').prepend(elem);
-// }
-
-// function addNoteInput() {
-//   var inputmarkup = '<input id="new-resource-input-note" type="text" class="form-control" placeholder="Add a note"/>';
-//   var elem = $(inputmarkup);
-//   $('#new-resource-input-list').append(elem);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function search_topics()
-// {
-//   //Search for a school by the text input
-//   val = $("#topic-search-input").val();
-
-//   url = sprintf("%ssearch_topics/?term=%s", baseURL, encodeURIComponent(val));
-//   $.get(url, function( rawdata ) {
-//       //First, remove all data that is there already...
-//       //No, each search should really be a different page, not AJAX?
-//       var data = JSON.parse(rawdata)
-//       results = data["results"]
-//       console.log(results)
-//       $("#display-results-div").empty()
-//       for (var i = 0; i < results.length; i++) {
-//         var result = results[i];
-//         $("#display-results-div").append(sprintf(
-//             display_template,
-//             result
-//           )
-//         );    
-//       };
-//   });
-// }
-
-// function autocompleteSearch()
-// {
-//   // $("#topic-search-input").autocomplete({
-//   //   source: function(request, callback) {
-//   //     var searchParam  = request.term;
-//   //     url = sprintf("%sall_matching_schools/?term=%s", baseURL, encodeURIComponent(searchParam));
-//   //     var response = [];
-//   //     $.get(url, function( data ) {
-//   //       response = $.map( JSON.parse(data), function( n, i ) {
-//   //         return (n["name"]);
-//   //       });
-//   //       callback(response);
-//   //     });
-//   //   }
-//   // });
-//   $("#topic-search-input").keypress(function(e) {
-//     if(e.which == 13)
-//     {
-//       e.preventDefault();
-//       if ($(this).val().length > 0) {
-//         search_topics();
-//       };
-//       // $(this).autocomplete('close');
-//     }
-//   });
-// }
-
-// function test() {
-//   alert("Test Completed");
-// }

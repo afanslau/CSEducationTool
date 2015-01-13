@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- CSS should come first do not disturb the rendering of the page -->
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <link href="{% static 'wmd.css' %}" rel="stylesheet">
+    <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    {% block extra_headers %}{% endblock %}
+
+
+    <title>CS Topics</title>
+  </head>
+
+
+  <body style="background-color:#EEE">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">CS Topics</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form id="search-form" class="navbar-form" role="search" action="{% url 'search' %}" method="get">
+                <div class="input-group">
+                  <input id="search-input" type="text" class="form-control" placeholder="Search" name="q" id="search-term" value="{{request.GET.q}}">
+                  <div class="input-group-btn">
+                    <button id="search-button" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <li>
+              <div id="new-resource-btn-group" class="btn-group">
+                <a id="new-resource-dropdown-toggle" role="button" class="flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <span class="glyphicon glyphicon-plus btn-lg"></span>
+                </a>
+                <div class="dropdown-menu">
+                  <h4>Add a resource</h4>
+                  <form id="new-resource-form" action="/resources/create/{{resource.id}}" method="POST">
+                    {% csrf_token %}
+                    {{new_resource_form}}
+                    <input type="hidden" name="current_resource_id" value="{{resource.id}}"/>
+                    {% if resource != None %}
+                    <button id="new-resource-submit-button" class="submit-button" type="submit">Save in {% if resource.title|length > 20 %}{{ resource.title|truncatechars:20 }}...{%else%}{{resource.title}}{%endif%}</button>
+                    {% endif %}
+                  </form>
+                  <button id="new-resource-home-submit-button" class="submit-button">Save in Home</button>
+                </div><!-- dropdown menu -->
+              </div> <!-- btn-group -->
+            </li>
+            {% if user.is_authenticated %}
+              <li><a id="logged-in-user" user-id="{{user.id}}" href="#">{{ user.username }}</a></li>
+              <li>
+                <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+              </li>
+            {% else %}
+              <li>
+                <a  id="logged-in-user" user-id="0" href="{% url 'login' %}">login</a>
+              </li>
+              <li>
+                <a href="{% url 'register' %}">signup</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  {% block content %}{% endblock %}
+  
+
+  </body>
+
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+  <!-- Live connection -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+  <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+  
+  <script src="{% static 'sprintf.js' %}"></script>
+  <script src="{% static 'custom.js' %}"></script>
+  <script src="{% static 'csrf.js' %}"></script>
+  <script scr="{% static 'Markdown.Converter.js' %}"></script>
+  <script scr="{% static 'Markdown.Sanitizer.js' %}"></script>
+  <script scr="{% static 'Markdown.Editor.js' %}"></script>
+</html>

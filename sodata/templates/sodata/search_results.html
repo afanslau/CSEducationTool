@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load extra_tags %}
+
+<div class="container">
+  <div class="row">
+    <form id="search-form" class="navbar-form" role="search" action="{% url 'search' %}" method="get" style="width:80%">
+      <div class="input-group" style="width:50%">
+        <input id="search-input" type="text" class="form-control" placeholder="Search" name="q" id="search-term" value="{{query}}"/>
+        <div class="input-group-btn">
+          <button id="search-button" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+      </div>
+    </form>
+    <h4>Showing results for <span style="font-size:40px">"{{query}}"</span></h4>
+  </div>
+  <div class="row">
+    {% for resource in resource_list %}
+      {% include 'sodata/newlist_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

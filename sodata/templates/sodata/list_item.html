@@ -1,10 +1,24 @@
 <div id="resource-list-item-{{resource.id}}" class="list-group-item">
   <div class="row">
     <div class="col-xs-10">
+<<<<<<< HEAD
       <div style="padding-bottom:10px;">
         <h4><a href="/resources/{{ resource.id }}" style="">{{ resource.title }}</a></h4>
       </div>
       {% if resource.preview != None %}{% autoescape off %}{{ resource.preview }}{% endautoescape %}{% endif %}
+=======
+      <h5><a href="/resources/{{ resource.id }}" style="">{{resource.title}}</a></h5>
+      {% if resource.preview == None %}
+
+        <p>This resource has no description</p>
+
+      {% else %}
+
+      <!-- {% autoescape off %}{{ resource.preview }}{% endautoescape %} -->
+      <p>{{resource.preview}}</p>
+
+      {% endif %}
+>>>>>>> devmerge
 
       {% if resource.url != None %}
 
