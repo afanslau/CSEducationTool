@@ -424,7 +424,24 @@ class MySQLSearchBackend(SearchBackend):
             params = (engine_slug, self._format_query(search_text), content_type.id),
         )
         
-    def do_filter_ranking(self, engine_slug, queryset, search_text):
+
+    def do_user_dependent_ranking(self, engine_slug, queryset, search_text, extra_field_name):
+        """Performs the full text ranking with additional weighted fields"""
+        search_text = self._format_query(search_text)
+        return queryset.extra(
+            select = {
+                "watson_rank": """
+                    ((MATCH (watson_searchentry.title) AGAINST (%s IN BOOLEAN MODE)) * 3) +
+                    ((MATCH (watson_searchentry.description) AGAINST (%s IN BOOLEAN MODE)) * 2) +
+                    ((MATCH (watson_searchentry.content) AGAINST (%s IN BOOLEAN MODE)) * 1) +
+                    ( CAST (%s as int) * 7 )
+                """,
+            },
+            select_params = (search_text, search_text, search_text, extra_field_name),
+            order_by = ("-watson_rank",),
+        )
+
+    def do_filter_ranking(self, engine_slug, queryset, search_text, extra_field_name):
         """Performs the full text ranking."""
         search_text = self._format_query(search_text)
         return queryset.extra(
@@ -435,7 +452,7 @@ class MySQLSearchBackend(SearchBackend):
                     ((MATCH (watson_searchentry.content) AGAINST (%s IN BOOLEAN MODE)) * 1)
                 """,
             },
-            select_params = (search_text, search_text, search_text,),
+            select_params = (search_text, search_text, search_text),
             order_by = ("-watson_rank",),
         )
 

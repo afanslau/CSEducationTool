@@ -1,60 +1,50 @@
-<div id="resource-list-item-{{resource.id}}" class="list-group-item">
-  <div class="row">
-    <div class="col-xs-10">
-<<<<<<< HEAD
-      <div style="padding-bottom:10px;">
-        <h4><a href="/resources/{{ resource.id }}" style="">{{ resource.title }}</a></h4>
-      </div>
-      {% if resource.preview != None %}{% autoescape off %}{{ resource.preview }}{% endautoescape %}{% endif %}
-=======
-      <h5><a href="/resources/{{ resource.id }}" style="">{{resource.title}}</a></h5>
-      {% if resource.preview == None %}
+<div class="col-xs-12 col-sm-6">
+	<div class="row resource-card"  style="background-color:white; margin:10px 0px">
+		<div class="col-xs-1" style="padding: 0px">
+			<button class="flat"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%} star-button {%if not user_relation.starred%}star-button-empty{%endif%}" starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}"/></button>
+			<!-- Pin resource here -->
+			<form action="/relations/{{parent.id}}/create/{{resource.id}}">
+				<button class="flat" type="submit">
+					<span class="glyphicon glyphicon-pushpin"/>
+				</button>
+			</form>
+			<!-- Dismiss this resource -->
+			<form action="/relations/{{parent.id}}/delete/{{resource.id}}">
+				<button class="flat" type="submit">
+					<span class="glyphicon glyphicon-remove dismiss-button"/>
+				</button>
+			</form>
+		</div>
+		<div class="col-xs-10">
+			<h4><a href="/resources/{{ resource.id }}">{{resource.title}}</a></h4>
+			{% if resource.url != None %}
+			<a href="{{ resource.url }}" target="_blank">{% if resource.display_url != None %}{{resource.display_url}}{% else %}{{resource.url}}{% endif %}</a>
+			{% endif %}
+			<p>{{resource.preview}}</p>
+		</div>
+		<div class="col-xs-1" style="padding: 0px">
+			<div class="btn-group pull-right">
+		    <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
+		      <span class="glyphicon glyphicon-chevron-down"></span>
+		    </button>
+		    <ul class="dropdown-menu" role="menu">
+		      <li><a class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
+		      <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
+		      <li><a href="/relations/{{parent.id}}/delete/{{resource.id}}" class="resource-remove-button" id="remove-button-{{resource.id}}" style="color:red" onclick="" resource-id="{{ resource.id }}">{% if parent.author.id == user.id %}Remove from this page{%else%}This doesn't belong here{%endif%}</a></li>
+		      {% if resource.author.id == user.id %}
+		      <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" >
+		        Delete</a></li>
+		      {%endif%}	
+		    </ul><!-- dropdown menu -->
+			</div><!-- button-group -->
+		</div>
+	</div>
+</div> <!-- col-xs-6 -->
 
-        <p>This resource has no description</p>
 
-      {% else %}
-
-      <!-- {% autoescape off %}{{ resource.preview }}{% endautoescape %} -->
-      <p>{{resource.preview}}</p>
-
-      {% endif %}
->>>>>>> devmerge
-
-      {% if resource.url != None %}
-
-        <p><a href="{{ resource.url }}" target="_blank">{{resource.url}}</a></p>
-
-      {% endif %}
-    </div>
-    <div class="col-xs-1">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Move</a></li>
-          <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" > <!-- onclick="deleteResource(this)"  -->
-            Delete</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul><!-- dropdown menu -->
-      </div><!-- button-group -->
-    </div>
-    <div class="col-xs-1">
-      <div class="btn-group">
-        <button resource-id="{{ resource.id }}" type="button" class="btn btn-default" onclick="upvote(this)" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
-          <span id="upvote-span" class="glyphicon glyphicon-chevron-up"></span>
-        </button>
-      </div>
-
-      <h5 style="text-align:center;">{{ resource.rating }}</h5>
-      
-      <div class="btn-group">
-        <button resource-id="{{ resource.id }}" type="button" class="btn btn-default" onclick="downvote(this)" data-toggle="dropdown" aria-expanded="false" style="height:44px!important width:44px!important">
-          <span id="upvote-span" class="glyphicon glyphicon-chevron-down"></span>
-        </button>
-      </div>
-    </div>
-  </div>  <!-- row -->
-</div>  <!-- resource-list-group-item -->
+<div id="confirm-delete-popup-{{resource.id}}" class="well confirm-delete">
+  <h4>Resource dismissed</h4>
+  <form action="/relations/{{parent.id}}/create/{{resource.id}}">
+  	<button class="confirm-delete-popup-{{resource.id}}_close btn btn-default" type="submit">Undo</button>
+  </form>
+</div>

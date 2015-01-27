@@ -42,23 +42,33 @@ urlpatterns = patterns('',
 
     # Login Authentication
     url(r'^register$', views.register, name='register'),
-    url(r'^login/$', views.user_login, name='login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    url(r'^login$', views.user_login, name='login'),
+    url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 
     # url(r"^search/", include("watson.urls", namespace="watson")),
-    url(r'^search$', views.search_view, name='search'),
+    url(r'^search$', views.ui_search_resources, name='search'),
+    url(r'^autocomplete_search$', views.ui_autocomplete_search, name='ui_autocomplete_search'),
+    url(r'^relations/createform/(?P<resource_id>\d+)$', views.ui_choose_parent_pin_to, name='ui_autocomplete_search_form'),
+    
+
+
 
 
     # USER INTERFACE
     url(r'^resources/create/(?P<parent_id>\d+)$', views.ui_create_resource, name='ui_create_resource_in_topic'), 
     url(r'^resources/create$', views.ui_create_resource, name='ui_create_resource_in_root'), 
     url(r'^resources/(?P<resource_id>\d+)/edit$', views.ui_update_resource, name='ui_update_resource'), 
+    url(r'^resources/delete/(?P<resource_id>\d+)$', views.ui_delete_resource, name='ui_delete_resource'), 
     url(r'^resources/(?P<resource_id>\d+)$', views.ui_get_resource, name='ui_get_resource'),
     # Note:  $ matches the end of a string. Don't use here to allow for optional end / . This should probably be used everywhere??
     url(r'^resources/search', views.ui_search_resources, name='ui_search_resources'),
+
     url(r'^resources/(?P<resource_id>\d+)/recommendations', views.ui_recommend_resources, name='ui_recommend_resources'),
     url(r'^resources', views.ui_get_resource, name='ui_get_root_resource'),
 
+
+    url(r'^relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.ui_delete_relation_by_resources, name='delete_relation_by_resource'), 
+    url(r'^relations/(?P<parent_id>\d+)/create/(?P<child_id>\d+)$', views.ui_create_relation, name='ui_create_relation'), 
 
 
 
@@ -100,12 +110,16 @@ urlpatterns = patterns('',
 
     # '''  Create a relation 
     # POST /relations/{parent_id}/create/{child_id} - link the parent to the child '''
+    url(r'^api/relations/create/(?P<child_id>\d+)$', views.api_create_relation, name='create_relation'), 
+
+    # '''  Create a relation 
+    # POST /relations/{parent_id}/create/{child_id} - link the parent to the child '''
     url(r'^api/relations/(?P<parent_id>\d+)/create/(?P<child_id>\d+)$', views.api_create_relation, name='create_relation'), 
 
     # '''  Delete a relation by passing its connecting resources 
     # HTTP DELETE /relations/{parent_id}/delete/{child_id} - unlink the parent to the child '''
     url(r'^api/relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.api_delete_relation_by_resources, name='delete_relation_by_resource'), 
-    
+        
     # ''' Deletes a relation by passing the relation id 
     # HTTP DELETE /relations/delete/{id} - delete the given relationship '''
     url(r'^api/relations/delete/(?P<relation_id>\d+)$', views.api_delete_relation_by_id, name='delete_relation_by_id'), 
@@ -118,7 +132,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls), name='admin'),
     # url(r'^topic', views.topic_request),
-    url(r'^$', views.ui_get_resource, name='index'),
+    
     # url(r'^search_topics', views.search_topics, name='search_topics'),
     # url(r'^createTopic', views.create_topic_form),
     # url(r'^save_topic_edits', views.save_topic_edits),
@@ -127,6 +141,8 @@ urlpatterns = patterns('',
 
     #Heroku static files... why??
     # Cite: http://stackoverflow.com/questions/21141315/django-static-files-on-heroku
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+
+    url(r'^$', views.ui_landing_page, name='index'),
     # End Cite
 )

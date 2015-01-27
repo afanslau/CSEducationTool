@@ -73,17 +73,12 @@ class Resources(models.Model):
 
         # else get the lenths of each p tag
 
-        print allp
-
         lens = []
         for p in allp:
-            print p 
-            
             if p is not None and p.text is not None:
                 lens.append(len(p.text))
             else:
                 lens.append(0)
-        # lens = [len(p.text) if p is not None else 0 for p in allp]
 
         # Cut the page to only the first 500 characters
         isum = 0
@@ -102,7 +97,12 @@ class Resources(models.Model):
         return Resources.objects.create(is_home=True, author=user, title='Home', text='Hello World. Add your favorite resources, create topics and get recommendations')
 
     def __unicode__(self):
-        return self.title 
+        return u'%s' % self.title 
+
+
+    def can_edit(self, user):
+        # Use this api so we can include collaborators later
+        return user==self.author
 
     '''
 
@@ -172,7 +172,9 @@ class Resources(models.Model):
         if self.full_page_cache is None or timezone.now() - self.last_cache_time > CACHE_UPDATE_TIME:
             # Try to download and cache the page
             try: 
-                self.full_page_cache = urllib2.urlopen(self.url).read()
+                # BeautifulSoup converts the page to unicode by guessing encodings. When saved, it will convert from a soup object to a unicode string
+                # http://www.crummy.com/software/BeautifulSoup/bs3/documentation.html#Beautiful%20Soup%20Gives%20You%20Unicode,%20Dammit
+                self.full_page_cache = unicode(Soup(urllib2.urlopen(self.url).read()))
                 self.last_cache_time = timezone.now()
             except urllib2.HTTPError, e:
                 print('update_page_cache HTTPError = ' + str(e.code))
@@ -188,8 +190,8 @@ class Resources(models.Model):
 
     def save(self, *args, **kwargs):
         # Set up
-        has_title = self.title is not None and self.title is not ''
-        has_text = self.text is not None and self.text is not ''
+        has_title = self.title is not None and self.title.strip() is not ''
+        has_text = self.text is not None and self.text.strip() is not ''
         has_url = self.url is not None and self.url is not ''
 
         # Default title and text values
@@ -201,6 +203,7 @@ class Resources(models.Model):
             parse_result = urlparse(self.url)
             if parse_result.netloc == '': #No http was provided
                 self.url = 'http://'+parse_result.geturl()
+                # self.url = 'http://'+parse_result.geturl()
                 parse_result = urlparse(self.url)
             # Set display_url if it is none
             if self.display_url is None:
@@ -210,31 +213,48 @@ class Resources(models.Model):
             self.update_page_cache()
         
         # If text or title are not provided, extract them from the html page
-        if has_url and (self.text is None or self.title is None):
-            site_title = '' if self.full_page_cache is None else Soup(self.full_page_cache).title.text # Convert from unicode.. should probably handle this better
-            text_prefix = ''
-            if not has_title:
-                self.title = site_title
-            else: # If the user sets a title, set the site title as the first line in the text
-                text_prefix = site_title
-            if not has_text:
-                self.text = text_prefix + '\n' + Resources.preview_html(html_text=self.full_page_cache, max_length=TEXT_EXTRACT_LENGTH)
-                print self.text
-                
+        if has_url and not (has_title and has_text):
+
+            # Grab the title from the page if it has one
+            try:
+                if self.full_page_cache is None:
+                    site_title = ''
+                else:
+                    sp = Soup(self.full_page_cache)
+                    site_title_raw = sp.title
+                    if site_title_raw is None:
+                        site_title = ''
+                    else:
+                        site_title = site_title_raw.text
+        
+                text_prefix = ''
+                if not has_title:
+                    self.title = site_title.strip()
+                else: # If the user sets a title, set the site title as the first line in the text
+                    text_prefix = site_title
+                if not has_text:
+                    self.text = unicode(Soup(text_prefix + '\n' + Resources.preview_html(html_text=self.full_page_cache, max_length=TEXT_EXTRACT_LENGTH)))
+
+
+                print 'Resources.save  Successfully cached page', self.title, self.text[:50]
+            except:
+                print 'Resources.save  Could not cache page', self.id, self.url 
 
         # If the title is still not set, take from the text or the url
-        if self.title is None:
-            if self.text is not None:
-                self.title = self.text[:TITLE_EXTRACT_LENGTH]
-            else: # self.url is not None
+        if self.title is None or self.title.strip() == '':
+            if self.text is None or self.text.strip() == '':
                 self.title = self.display_url
+            else:
+                self.title = self.text[:TITLE_EXTRACT_LENGTH]
+
 
         # Update the created and modified fields
         if self.id is None:
             self.created_at = timezone.now()
         self.updated_at = timezone.now()
 
-        print 'Will Save ' ,self.id, self.title
+
+
 
         super(Resources, self).save(*args, **kwargs)  #returns self casted as its superclass Resources?? but the superclass is Model.. Look this up later
 
@@ -256,6 +276,8 @@ class TopicRelations(models.Model):
         Any TopicRelations without a from_resource should display on some dangling resource page
 
     '''
+
+
 
     from_resource = models.ForeignKey(Resources, related_name='child_resources')
     to_resource = models.ForeignKey(Resources, related_name='parent_resources')
@@ -334,6 +356,7 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
             ur,created = urs.get_or_create(user=request.user, resource=r)
             if created: ur.save()
             user_relations[r.id] = ur
+        return user_relations
 
     def save(self, *args, **kwargs):
         if self.id is None and self.user_type != 1 and self.resource.author == self.user:
@@ -342,6 +365,8 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
 
     def __unicode__(self):
         return u'UserRelation %d user: %s resource: %s' % (self.id, self.user.username, self.resource.title)
+    def to_dict(self):
+        return {'id':self.id, 'user':self.user.id, 'resource':self.resource.id}
 
 
 # Adds a field to Resources AND an extra UserProfile table..

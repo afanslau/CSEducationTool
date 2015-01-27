@@ -1,0 +1,38 @@
+<div id="pin-to-popup" class="well" resource-id="{{resource_id}}">
+	<h4>Pin <span style="font-size: 24px">"{{title|truncatechars:20}}"</span> to another topic...</h4>
+	<input id="destination-selector-input" type="text" class="form-control" placeholder="Search for a destination topic..."/>
+	<div id="results-list" class="list-group" style="max-height:300px; overflow-y:scroll;">
+		{% include 'sodata/title-items.html' with resource_list=resource_list %}
+	</div>
+	<button class="btn btn-default pin-to-popup_close">Cancel</button>
+</div>
+<!-- Could be vulnerable to sql injection?? -->
+<script>
+$("#pin-to-popup").popup({
+  transition: '0.3s all 0.1s',
+  scrolllock: true,
+  opacity: 0.7
+});
+$('#destination-selector-input').on("keyup",function(event) {
+  clearTimeout($.data(this, 'timer'));
+  var wait = setTimeout(function() {
+    var searchParam  = $('#destination-selector-input').val();
+  var _url = "/autocomplete_search?q=" + encodeURIComponent(searchParam);
+    $.get(_url, function(data) {
+      $("#results-list").html(data);
+    });
+  }, 300);
+  $(this).data('timer', wait);
+});
+
+$("#results-list").on("click", ".title-item", function(event) {
+	var child = $("#pin-to-popup").attr("resource-id");
+	var parent = $(this).attr("resource-id");
+	var _url = "/relations/"+parent+"/create/"+child;
+  console.log(_url);
+	$.post(_url, function() {
+		alert('relation successfully created');
+	});
+	$("#pin-to-popup").popup('hide');
+});
+</script>

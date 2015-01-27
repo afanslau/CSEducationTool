@@ -36,9 +36,11 @@ li.input-list-item {
 	display: inline-block;
     border: none;
     background: none;
-    color: #646464;
-    padding: 5px 5px;
+    padding:none;
+    /*padding: 5px 5px;*/
 }
+.flat:focus {outline:none;} 
+.flat::-moz-focus-inner {border:0;}
 
 .star-button {
     color:#FFCC00;
@@ -99,4 +101,12 @@ li.input-list-item {
 }
 #new-resource-home-submit-button  {
 	background-color: #1AD6FD;
+}
+
+
+
+.well {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display:none;
+    margin:1em;
 }

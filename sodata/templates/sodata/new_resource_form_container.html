@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<h2>Add a new Resource</h2>
+	{% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=resource %}
+</div>
+
+{% endblock %}

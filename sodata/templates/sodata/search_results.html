@@ -3,7 +3,7 @@
 {% block content %}
 {% load extra_tags %}
 
-<div class="container">
+<div id="content-container" class="container">
   <div class="row">
     <form id="search-form" class="navbar-form" role="search" action="{% url 'search' %}" method="get" style="width:80%">
       <div class="input-group" style="width:50%">
@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     {% for resource in resource_list %}
-      {% include 'sodata/newlist_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
+      {% include 'sodata/list_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
     {% endfor %}
   </div>
 </div>

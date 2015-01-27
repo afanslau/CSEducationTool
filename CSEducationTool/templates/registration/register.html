@@ -10,8 +10,9 @@
   <title>CSTopics Login</title>
 
   <!-- <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'> -->
-
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'login.css' %}" media="screen" type="text/css" />
+  
 
 </head>
 
@@ -21,7 +22,9 @@
     <h1>Sign Up</h1><br>
 
   {% if form.errors %}
-  <div class="alert alert-danger"><p>An error occurred during the sign up process</p></div>
+    {% for error in form.errors %}
+      <div class="alert alert-danger"><p>{{error|escape}}</p></div>
+    {% endfor %}
   {% endif %}
 
   <form method="POST" action="{% url 'register' %}">
