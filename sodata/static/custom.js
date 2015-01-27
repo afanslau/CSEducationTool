@@ -299,7 +299,8 @@ $("#search-button").on("click",function(event) {
 
 
 $(".star-button").on("click",function(event) {
-  var sb = $(this)
+  var sb = $(this);
+  var sb_span = sb.find("span")
   var rid = sb.attr("resource-id");
   var uid = $("#logged-in-user").attr("user-id");
 
@@ -317,14 +318,15 @@ $(".star-button").on("click",function(event) {
   } else {
     sb.attr("starred",1);  
   }
-  sb.toggleClass("glyphicon-star-empty");
-  sb.toggleClass("glyphicon-star");
+  sb_span.toggleClass("glyphicon-star-empty");
+  sb_span.toggleClass("glyphicon-star");
   sb.toggleClass("star-button-empty");
   
   $.post(_url).error(function(xhr){
     console.log(xhr.status);
-    sb.toggleClass("glyphicon-star-empty");
-    sb.toggleClass("glyphicon-star");
+    sb_span.toggleClass("glyphicon-star-empty");
+    sb_span.toggleClass("glyphicon-star");
+    sb.blur();
   });
 });
 

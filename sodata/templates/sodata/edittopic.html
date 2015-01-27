@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-8">
-      <form action="/resources/{{resource.id}}/edit" method="POST">
+      <form action="/resources/edit/{{resource.id}}" method="POST">
         {% csrf_token %}
         {{form.title.label}}
         <h1>{{form.title}}</h1>
@@ -33,7 +33,7 @@
   <div class="row">
   <!--   <h2>Recommended</h2> -->
     {% for resource in external_search_results %}
-        {% include 'sodata/newlist_item.html' with resource=resource %}
+        {% include 'sodata/list_item.html' with resource=resource %}
     {% endfor %}
     <div class="col-xs-12">
       <p style="text-align:center"><a onclick="alert('show more recommendations');">show more recommendations</a></p>
@@ -41,7 +41,7 @@
   </div>
   <div class="row">
     {% for resource in resource_list %}
-      {% include 'sodata/newlist_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
+      {% include 'sodata/list_item.html' with resource=resource user_relation=user_relations|get_item:resource.id %}
     {% endfor %}
   </div>
 </div>

@@ -151,7 +151,6 @@ def get_resource(request, resource_id=None):
         user_relation.num_visits += 1
         user_relation.last_visited = timezone.now()
         user_relation.save()
-
         user_relations = UserRelation.get_relations_by_resource_id(request, topics)
         # Get children UserRelation
         # urs = UserRelation.objects.filter(user=request.user, resource__in=topics)
@@ -278,7 +277,7 @@ def ui_update_resource(request, resource_id=None):
         updated_resource = update_resource(request, resource_id)
         if update_resource is None:
             return HttpResponse("You do not have permission to edit this resource", status=401)
-        return ui_get_resource(request, resource_id)
+        return HttpResponseRedirect('/resources/%s'%resource_id)
     else: 
         data = get_resource(request, resource_id)
         data['form'] = ResourceForm(data['resource'].to_dict())
@@ -507,7 +506,9 @@ def ui_search_resources(request):
         return HttpResponse(json.dumps(data))
 
     return render(request, 'sodata/search_results.html', data)
-
+def api_search_resources(request):
+    q = request.POST.get('q')
+    return HttpResponse(json.dumps([ r.to_dict() for r in watson.filter(Resources, q)]))
 # UserActivity
 def suggest_delete(request, resource_id):
     REMOVED_RELATION = 2 # Should be imported from a constants file...

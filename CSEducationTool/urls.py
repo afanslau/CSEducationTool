@@ -57,7 +57,7 @@ urlpatterns = patterns('',
     # USER INTERFACE
     url(r'^resources/create/(?P<parent_id>\d+)$', views.ui_create_resource, name='ui_create_resource_in_topic'), 
     url(r'^resources/create$', views.ui_create_resource, name='ui_create_resource_in_root'), 
-    url(r'^resources/(?P<resource_id>\d+)/edit$', views.ui_update_resource, name='ui_update_resource'), 
+    url(r'^resources/edit/(?P<resource_id>\d+)$', views.ui_update_resource, name='ui_update_resource'), 
     url(r'^resources/delete/(?P<resource_id>\d+)$', views.ui_delete_resource, name='ui_delete_resource'), 
     url(r'^resources/(?P<resource_id>\d+)$', views.ui_get_resource, name='ui_get_resource'),
     # Note:  $ matches the end of a string. Don't use here to allow for optional end / . This should probably be used everywhere??

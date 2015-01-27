@@ -13,32 +13,47 @@
       <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="/resources/{{resource.id}}/edit">Add one now!</a>{% endif %}</p> 
     </div>
     <div class="col-xs-4">
-      <div class="row btn-group btn-group-justified pull-right" role="group">
-        <button class="flat"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%} star-button {%if not user_relation.starred%}star-button-empty{%endif%}" starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}"></span><button>
-        <form action="/resources/{{resource.id}}/edit">
-          <button class="flat" type="submit">Edit</button>
-        </form>
-        <div class="btn-group pull-right">
-          <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
-            <span class="glyphicon glyphicon-chevron-down"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/resources/delete/{{resource.id}}" style="color:red">Delete</a></li>
-          </ul>
+      <div class="row">
+        <div class="btn-group btn-group-justified" role="group" style="margin: 20px;">
+          <div class="btn-group">
+            <button class="flat star-button {%if not user_relation.starred%}star-button-empty{%endif%} "  starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}" type="button"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%}"></span></button>
+          </div>
+          <div class="btn-group" type="button">
+            <form action="/resources/edit/{{resource.id}}" method="GET">
+              <a onclick="$(this).parent().submit();">Edit</a>
+            </form>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/resources/delete/{{resource.id}}" style="color:red">Delete</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
       <div class="row" style="background-color:#F7F7F7">
         <h4>Author</h4>
         <p>{{resource.author.username}}</p>
         <h4>Related Topics</h4>
-        <p>One</p>
-        <p>Two</p>
+        {{user_relation.parent_info}}
+        {% if user_relation.parent_info %}
+          <p> {{user_relation.parent_info|length}} </p>
+          {% for parent in user_relation.parent_info %}          
+            <a href="/resource/{{parent.id}}"><p>Test {{parent.title|truncatechars:50}}</p></a>
+          {% endfor %}
+        {% else %}
+          
+        {% endif %}
+        <a onclick="alert('onclick');">Pin this to a Topic</a>
       </div>
     </div>
   </div>
 
   <div class="row">
     <h3>Pinned</h3>
-    {% include 'sodata/paginated.html' with resource_list=resource_list user_relations=user_relations page_number=1 parent=resource%}
+    {% include 'sodata/paginated.html' with resource_list=resource_list user_relations=user_relations page_number=1 parent=resource pinned=True%}
   </div>
   <div class="row" id="recommended-container" next-page-number="2">
   <!--  Put page 1 here automatically -->

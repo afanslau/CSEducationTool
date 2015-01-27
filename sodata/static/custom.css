@@ -42,10 +42,10 @@ li.input-list-item {
 .flat:focus {outline:none;} 
 .flat::-moz-focus-inner {border:0;}
 
-.star-button {
+.star-button span {
     color:#FFCC00;
 }
-.star-button-empty {
+.star-button-empty span {
     color:#646464;
 }
 

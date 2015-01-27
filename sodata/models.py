@@ -2,6 +2,7 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
+from django.db.models import Q
 from scripts.Helpers import ensurePrefix
 # from sodata.AutoUpdateDateTimeField import AutoUpdateDateTimeField
 import datetime, urllib, urllib2
@@ -357,6 +358,21 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
             if created: ur.save()
             user_relations[r.id] = ur
         return user_relations
+
+    @property 
+    def num_children(self):
+        return len(TopicRelations.objects.filter(perspective_user=self.user, from_resource=self.resource))
+
+    @property 
+    def parent_info(self):
+        trs = TopicRelations.objects.filter(to_resource=self.resource, perspective_user=self.user)
+        rs = Resources.objects.filter(child_resources__in=trs).values('id', 'title')
+
+        # First include the 
+        if len(rs) < 2:
+            trs = TopicRelations.objects.filter(~Q(perspective_user=self.user), to_resource=self.resource)
+            rs += Resources.objects.filter(child_resources__in=trs).values('id','title')
+        return rs
 
     def save(self, *args, **kwargs):
         if self.id is None and self.user_type != 1 and self.resource.author == self.user:
