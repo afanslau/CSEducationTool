@@ -19,9 +19,10 @@
             <button class="flat star-button {%if not user_relation.starred%}star-button-empty{%endif%} "  starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}" type="button"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%}"></span></button>
           </div>
           <div class="btn-group" type="button">
-            <form action="/resources/edit/{{resource.id}}" method="GET">
+            <a href="/resources/edit/{{resource.id}}">Edit</a>
+            <!-- <form action="/resources/edit/{{resource.id}}" method="GET">
               <a onclick="$(this).parent().submit();">Edit</a>
-            </form>
+            </form> -->
           </div>
           <div class="btn-group" role="group">
             <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
