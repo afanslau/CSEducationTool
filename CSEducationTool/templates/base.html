@@ -63,7 +63,11 @@
                 </a>
                 <div class="dropdown-menu">
                   <h4>Add a resource</h4>
-                    {% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=resource %}
+                    {% if resource.is_home %}
+                      {% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=None %}  
+                    {% else %}
+                      {% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=resource %}  
+                    {% endif %}
                 </div><!-- dropdown menu -->
               </div> <!-- btn-group -->
             </li>

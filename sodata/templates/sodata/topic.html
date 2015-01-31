@@ -5,6 +5,20 @@
 
 <div id="content-container" class="container">
   <div class="row">
+
+    {% if resource.is_home %}
+
+    <!-- This doesn't adhere to DRY principles. What is the best way to do that? -->  
+    <div class="col-xs-12">
+      <h1>{{resource.title}}</h1>   
+      {% if resource.url != None %}
+      <p id="url-content"><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></p>
+      {% endif %}
+      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="/resources/{{resource.id}}/edit">Add one now!</a>{% endif %}</p> 
+    </div>
+
+    {% else %}
+
     <div class="col-xs-8">
       <h1>{{resource.title}}</h1>   
       {% if resource.url != None %}
@@ -29,6 +43,7 @@
               <span class="glyphicon glyphicon-chevron-down"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
+              <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
               <li><a href="/resources/delete/{{resource.id}}" style="color:red">Delete</a></li>
             </ul>
           </div>
@@ -38,18 +53,20 @@
         <h4>Author</h4>
         <p>{{resource.author.username}}</p>
         <h4>Related Topics</h4>
-        {{user_relation.parent_info}}
         {% if user_relation.parent_info %}
-          <p> {{user_relation.parent_info|length}} </p>
-          {% for parent in user_relation.parent_info %}          
-            <a href="/resource/{{parent.id}}"><p>Test {{parent.title|truncatechars:50}}</p></a>
+          {% for parent in user_relation.parent_info|slice:":3" %}          
+            <a href="/resources/{{parent.id}}"><p>{{parent.title|truncatechars:50}}</p></a>
           {% endfor %}
         {% else %}
-          
+          {% for parent in resource_list|slice:":3" %}          
+            <a href="/resources/{{parent.id}}"><p>{{parent.title|truncatechars:50}}</p></a>
+          {% endfor %}
         {% endif %}
-        <a onclick="alert('onclick');">Pin this to a Topic</a>
       </div>
     </div>
+
+    {% endif %}
+
   </div>
 
   <div class="row">

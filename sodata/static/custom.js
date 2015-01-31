@@ -357,10 +357,13 @@ $(".savetohome-button").on("click", function(event) {
 });
 
 $(".saveto-button").on("click", function(event) {
-  //Trigger action to select a destination
+  //Trigger action to select a destination for a resource to be pinned to
 
+  // Remove the existing popup
   $("#pin-to-popup").remove();
 
+  // Render and GET the new popup template from the server
+  // Append it to the document and show
   var rid = $(this).attr("resource-id");
   var _url = "/relations/createform/"+rid;
   $.get(_url, function(html) {
@@ -453,11 +456,11 @@ $(".saveto-button").on("click", function(event) {
 //     // pinToTopic();
 //   }
 // });
-function pinToTopic(topic_id, resource_id) {
-  var _url = "/api/relations/"+topic_id+"/create/"+resource_id;
-  console.log("pinToTopic   "+_url);
-  // $.post(_url, display_success_tooltip);
-}
+// function pinToTopic(topic_id, resource_id) {
+//   var _url = "/api/relations/"+topic_id+"/create/"+resource_id;
+//   console.log("pinToTopic   "+_url);
+//   // $.post(_url, display_success_tooltip);
+// }
 
 function display_success_tooltip() {
   alert("your action was successful");

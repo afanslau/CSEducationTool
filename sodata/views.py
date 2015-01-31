@@ -23,6 +23,7 @@ from bs4 import BeautifulSoup as Soup
 
 ui_topic_base_url = 'resources/%d'
 
+from sodata import TemplateDefaults
 
 ''' LOGIN AUTHENTICATION VIEWS '''
 def ui_landing_page(request):
@@ -473,7 +474,7 @@ def ui_delete_relation_by_resources(request, parent_id, child_id):
 
 
 
-""" RECOMMEND """
+""" SEARCH & RECOMMEND """
 # Search
 def ui_search_resources(request):
 
@@ -495,7 +496,10 @@ def ui_search_resources(request):
         #     if created: ur.save()
         #     user_relations[r.id] = ur
 
-    data = {'resource_list':search_results, 
+    print TemplateDefaults.base['new_resource_form']
+    data = {'new_resource_form':TemplateDefaults.base['new_resource_form'],
+            'resource':None,
+            'resource_list':search_results, 
             'user_relations':user_relations,
             'query': term
             }
