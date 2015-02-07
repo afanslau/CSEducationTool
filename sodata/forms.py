@@ -60,7 +60,6 @@ class ResourceForm(forms.ModelForm):
         if parse_result.netloc == '': #No http was provided
             _url = 'http://'+parse_result.geturl()
             parse_result = urlparse(_url)
-        print  'clean_url ', _url 
         return _url 
 
     def clean_title(self):

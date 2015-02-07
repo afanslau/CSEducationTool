@@ -9,8 +9,9 @@
   <title>CSTopics Login</title>
 
   <!-- <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'> -->
-
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'login.css' %}" media="screen" type="text/css" />
+  
 
 </head>
 
@@ -20,11 +21,16 @@
     <h1>Log-in</h1><br>
 
   {% if form.errors %}
-  <div class="alert alert-danger"><p>Your username and password didn't match. Please try again.</p></div>
+    {% for error in form.errors %}
+      <div class="alert alert-danger"><p>{{error}}</p></div>
+    {% endfor %}
+  {% endif %}
+  {% if registered %}
+  <div class="alert alert-success"></h4>You have successfully created an account. You may now log in.</h4></div>
   {% endif %}
 
   <form method="POST" action="{% url 'login' %}">
-  {% csrf_token %}
+    {% csrf_token %}
     {{ form.username.label }}
     {{ form.username }}
     {{ form.password.label }}

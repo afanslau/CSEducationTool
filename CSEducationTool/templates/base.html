@@ -63,15 +63,11 @@
                 </a>
                 <div class="dropdown-menu">
                   <h4>Add a resource</h4>
-                  <form id="new-resource-form" action="/resources/create/{{resource.id}}" method="POST">
-                    {% csrf_token %}
-                    {{new_resource_form}}
-                    <input type="hidden" name="current_resource_id" value="{{resource.id}}"/>
-                    {% if resource != None %}
-                    <button id="new-resource-submit-button" class="submit-button" type="submit">Save in {% if resource.title|length > 20 %}{{ resource.title|truncatechars:20 }}...{%else%}{{resource.title}}{%endif%}</button>
+                    {% if resource.is_home %}
+                      {% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=None %}  
+                    {% else %}
+                      {% include 'sodata/new_resource_form.html' with new_resource_form=new_resource_form resource=resource %}  
                     {% endif %}
-                  </form>
-                  <button id="new-resource-home-submit-button" class="submit-button">Save in Home</button>
                 </div><!-- dropdown menu -->
               </div> <!-- btn-group -->
             </li>
@@ -108,10 +104,13 @@
   <!-- Live connection -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
   <script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'jquery.popupoverlay.js' %}"></script>
   
   <script src="{% static 'sprintf.js' %}"></script>
   <script src="{% static 'custom.js' %}"></script>
   <script src="{% static 'csrf.js' %}"></script>
+
   <script scr="{% static 'Markdown.Converter.js' %}"></script>
   <script scr="{% static 'Markdown.Sanitizer.js' %}"></script>
   <script scr="{% static 'Markdown.Editor.js' %}"></script>

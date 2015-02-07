@@ -299,7 +299,8 @@ $("#search-button").on("click",function(event) {
 
 
 $(".star-button").on("click",function(event) {
-  var sb = $(this)
+  var sb = $(this);
+  var sb_span = sb.find("span")
   var rid = sb.attr("resource-id");
   var uid = $("#logged-in-user").attr("user-id");
 
@@ -310,9 +311,6 @@ $(".star-button").on("click",function(event) {
 
   var starred = sb.attr("starred");
 
-  console.log(starred);
-  console.log(sb);
-
   var _url = "/api/resources/star/"+rid;
   if (starred == 1) {
     sb.attr("starred",0);
@@ -320,33 +318,150 @@ $(".star-button").on("click",function(event) {
   } else {
     sb.attr("starred",1);  
   }
-  sb.toggleClass("glyphicon-star-empty");
-  sb.toggleClass("glyphicon-star");
+  sb_span.toggleClass("glyphicon-star-empty");
+  sb_span.toggleClass("glyphicon-star");
   sb.toggleClass("star-button-empty");
   
-  console.log(_url);
   $.post(_url).error(function(xhr){
     console.log(xhr.status);
-    sb.toggleClass("glyphicon-star-empty");
-    sb.toggleClass("glyphicon-star");
+    sb_span.toggleClass("glyphicon-star-empty");
+    sb_span.toggleClass("glyphicon-star");
+    sb.blur();
   });
 });
 
 
-function paginate(event) {
+$("#paginate-button").on("click",function(event) {
   var rid = $("#resource-id").attr("resource-id");
   var _url = '/resources/'+rid+'/recommendations';
   var container = $("#recommended-container");
-  var next_page = container.attr("next-page");
-  var data = {'page':next_page}
-  $.post(_url, data, function(_html) {
-    container.append(_html);
+  var next_page = parseInt(container.attr("next-page-number"));
+  var data = {'page':next_page};
+  $.get(_url, data, function(_html) {
+    container.append($(_html));
+    container.attr("next-page-number", next_page+1);
+  }).error(function(xhr) {
+    console.log(xhr.status);
+    console.log("No more pages to display");
   });
+});
+ 
 
-  
+
+$(".savetohome-button").on("click", function(event) {
+  var rid = $(this).attr("resource-id");
+  var _url = "/api/relations/create/" + rid;
+  $.post(_url, function(returned_data) {
+    alert('Saved to home page');
+  });
+});
+
+$(".saveto-button").on("click", function(event) {
+  //Trigger action to select a destination for a resource to be pinned to
+
+  // Remove the existing popup
+  $("#pin-to-popup").remove();
+
+  // Render and GET the new popup template from the server
+  // Append it to the document and show
+  var rid = $(this).attr("resource-id");
+  var _url = "/relations/createform/"+rid;
+  $.get(_url, function(html) {
+    $("#content-container").append($(html));
+    var pinto = $("#pin-to-popup");
+    pinto.popup('show');
+  });
+});
 
 
+
+
+
+
+
+
+// <script>
+// $(document).ready(function () {
+
+//     $('#my_tooltip').popup({
+//         type: 'tooltip',
+//         vertical: 'top',
+//         transition: '0.3s all 0.1s',
+//         tooltipanchor: $('#my_tooltip_open')
+//     });
+
+// });
+// </script>
+
+// $('.confirm-delete').popup({
+//     backgroundactive: true,
+//     vertical: 'bottom',
+//     transition: '0.3s all 0.1s',
+// });
+
+
+
+
+
+
+
+
+
+// $("#pin-to-popup").popup({
+//   transition: '0.3s all 0.1s',
+//   scrolllock: true,
+//   opacity: 0.7,
+//   onclose: function() {
+//       $(this).removeAttr("resource-id");
+//       $("#results-list").empty();
+//     }
+// });
+
+// $('#destination-selector-input').keyup(function() {
+//   clearTimeout($.data(this, 'timer'));
+//   var wait = setTimeout(function() {
+//     var searchParam  = $('#destination-selector-input').val();
+//     var _url = "/search?simple_search=True&q=" + encodeURIComponent(searchParam);
+//     $.get(_url, function(data) {
+//       $("#results-list").append(data);
+//     });
+//   }, 500);
+//   $(this).data('timer', wait);
+// });
+
+
+// $("#destination-selector-input").autocomplete({
+//   source: function(request, callback) {
+//     var searchParam  = request.term;
+//     var _url = "/search?simple_search=True&q=" + encodeURIComponent(searchParam);
+//     $.get(_url, function( data ) {
+//       var response = $.map( JSON.parse(data), function( n, i ) {
+//         console.log(" .map function args ");
+//         console.log(n);
+//         console.log(i);
+//         return ({"label":n["id"], "value":n["title"]});
+//       });
+//       callback(response);
+//     });
+//   },
+//   select: function(event, ui) {
+//     var child_id = $("#pin-to-popup").attr("resource-id");
+//     pinToTopic(ui.attr("value"), child_id);
+//   }
+// });
+// $("#destination-selector-input").keypress(function(e) {
+//   if(e.which == 13)
+//   {
+//     e.preventDefault();
+//     // pinToTopic();
+//   }
+// });
+// function pinToTopic(topic_id, resource_id) {
+//   var _url = "/api/relations/"+topic_id+"/create/"+resource_id;
+//   console.log("pinToTopic   "+_url);
+//   // $.post(_url, display_success_tooltip);
+// }
+
+function display_success_tooltip() {
+  alert("your action was successful");
 }
-
-
-
