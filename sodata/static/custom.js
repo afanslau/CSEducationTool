@@ -376,8 +376,24 @@ $(".saveto-button").on("click", function(event) {
 
 
 
+$(".dismiss-button").on("click", function(event) {
+  
+  var pid = $(this).attr("parent-id");
+  var rid = $(this).attr("resource-id");
+  var _url = "/api/relations/"+pid+"/delete/"+rid;
+  $.post(_url, function(response) {
+    console.log(response);
+  });
+
+  $("#resource-card-container-"+rid).remove();
+
+})
 
 
+$("#help_popup").popup({
+  transition: '0.3s all 0.1s',
+  opacity: 0.3
+});
 
 
 // <script>

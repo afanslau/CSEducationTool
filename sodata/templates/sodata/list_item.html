@@ -1,26 +1,33 @@
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-6" id="resource-card-container-{{resource.id}}">
 	<div class="row resource-card"  style="background-color:white; margin:10px 0px">
 		<div class="col-xs-1" style="padding: 0px">
 			<!-- <button class="flat star-button {%if not user_relation.starred%}star-button-empty{%endif%}"  starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}" type="button"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%} "/></button> -->
 			<!-- Pin resource here -->
-			{% if not pinned %}
-			<form action="/relations/{{parent.id}}/create/{{resource.id}}">
-				<button class="flat" type="submit">
+			{% if not parent %} <!-- Used for search results to pin -->
+				<button class="saveto-button flat" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">
 					<span class="glyphicon glyphicon-pushpin"/>
 				</button>
-			</form>
+			{% elif not pinned %}
+				<form action="/relations/{{parent.id}}/create/{{resource.id}}">
+					<button class="flat" type="submit">
+						<span class="glyphicon glyphicon-pushpin"/>
+					</button>
+				</form>
 			{% endif %}
-			<!-- Dismiss this resource -->
-			<form action="/relations/{{parent.id}}/delete/{{resource.id}}">
-				<button class="flat" type="submit">
-					<span class="glyphicon glyphicon-remove dismiss-button"/>
-				</button>
-			</form>
+			
+			{% if parent %}
+				<!-- Dismiss this resource -->
+				<!-- <form action="/relations/{{parent.id}}/delete/{{resource.id}}"> -->
+					<button class="dismiss-button flat" parent-id="{{parent.id}}" resource-id="{{resource.id}}"> <!--  type="submit"> -->
+						<span class="glyphicon glyphicon-remove"/>
+					</button>
+				<!-- </form> -->
+			{% endif %}
 		</div>
 		<div class="col-xs-10">
-			<h4><a href="/resources/{{ resource.id }}">{{resource.title}}</a></h4>
+			<h4><a class="list-item-url" href="/resources/{{ resource.id }}">{{resource.title}}</a></h4>
 			{% if resource.url != None %}
-			<a href="{{ resource.url }}" target="_blank">{% if resource.display_url != None %}{{resource.display_url}}{% else %}{{resource.url}}{% endif %}</a>
+			<a class="list-item-url" href="{{ resource.url }}" target="_blank">{% if resource.display_url != None %}{{resource.display_url}}{% else %}{{resource.url}}{% endif %}</a>
 			{% endif %}
 			<p>{{resource.preview}}</p>
 		</div>
@@ -29,15 +36,17 @@
 			    <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
 			      <span class="glyphicon glyphicon-chevron-down"></span>
 			    </button>
-			    <ul class="dropdown-menu" role="menu">
-			      <li><a class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
-			      <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
-			      <li><a href="/relations/{{parent.id}}/delete/{{resource.id}}" class="resource-remove-button" id="remove-button-{{resource.id}}" style="color:red" onclick="" resource-id="{{ resource.id }}">{% if parent.author.id == user.id %}Remove from this page{%else%}This doesn't belong here{%endif%}</a></li>
-			      {% if resource.author.id == user.id %}
-			      <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" >
-			        Delete</a></li>
-			      {%endif%}	
-			    </ul><!-- dropdown menu -->
+			    {% if parent %}
+				    <ul class="dropdown-menu" role="menu">
+				      <li><a class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
+				      <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
+				      <li><a href="/relations/{{parent.id}}/delete/{{resource.id}}" class="resource-remove-button" id="remove-button-{{resource.id}}" style="color:red" onclick="" resource-id="{{ resource.id }}">{% if parent.author.id == user.id %}Remove from this page{%else%}This doesn't belong here{%endif%}</a></li>
+				      {% if resource.author.id == user.id %}
+				      <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" >
+				        Delete</a></li>
+				      {%endif%}	
+				    </ul><!-- dropdown menu -->
+				   {% endif %}
 			</div>
 			<div class="row">
 			    {% if user_relation.num_children > 0 %}

@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 from django.db.models import Q
@@ -7,9 +8,11 @@ from scripts.Helpers import ensurePrefix
 # from sodata.AutoUpdateDateTimeField import AutoUpdateDateTimeField
 import datetime, urllib, urllib2
 from urlparse import urlparse
+import urllib2, httplib
 from operator import itemgetter
 from bs4 import BeautifulSoup as Soup
 import watson
+from sodata.constants import TITLE_WEIGHT
 
 
 # Cache update time
@@ -53,6 +56,15 @@ class Resources(models.Model):
 
 
     # _property = models.TextField()  # Could use this to store the preview so we don't have to calculate it each time, but I think time is a better trade off than duplicating db storage
+
+    def get_doc_string(self):
+        doc = ''
+        if self.title is not None:
+            doc += self.title * TITLE_WEIGHT
+        if self.text is not None:
+            doc += ' ' + self.text
+        return doc 
+
     @property
     def preview(self):
         _text = self.html_text if self.html_text is not None else self.text
@@ -95,10 +107,14 @@ class Resources(models.Model):
 
     @classmethod
     def create_home(cls, user):
-        return Resources.objects.create(is_home=True, author=user, title='Home', text='Hello World. Add your favorite resources, create topics and get recommendations')
+        try:
+            home = Resources.objects.get(is_home=True, author=user)
+        except ObjectDoesNotExist:
+            home = Resources.objects.create(is_home=True, author=user, title='Home', text='Hello World. Add your favorite resources, create topics and get recommendations')
+        return home 
 
     def __unicode__(self):
-        return u'%s' % self.title 
+        return u'%d - %s' % (self.id, self.title)
 
 
     def can_edit(self, user):
@@ -285,11 +301,13 @@ class TopicRelations(models.Model):
 
     perspective_user = models.ForeignKey(User, null=True, blank=True) #Anything without one of these is public
 
+    confidence = models.FloatField(default=0.5)
+
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
-    class Meta:
-        unique_together = (("to_resource", "from_resource"),)
+    # class Meta:
+    #     unique_together = (("to_resource", "from_resource", "perspective_user"),)
 
     def to_dict(self):
         return {'id':self.id, 'from_resource':self.from_resource.to_dict(), 'to_resource':self.to_resource.to_dict()}
@@ -346,6 +364,9 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
     user_type = models.IntegerField(choices=UserTypes, default=VIEWER)
     starred = models.BooleanField(default=False)
     num_visits = models.IntegerField(default=0) # How can I make this increment every time the model is accessed by the user?
+
+    # num_recommendations = models.IntegerField(default=0) 
+
     last_visited = models.DateTimeField(default=timezone.now)
 
     # Returns a dict with {resource.id : user_relation}
@@ -383,6 +404,22 @@ class UserRelation(models.Model): # Integrate this with django user groups and p
         return u'UserRelation %d user: %s resource: %s' % (self.id, self.user.username, self.resource.title)
     def to_dict(self):
         return {'id':self.id, 'user':self.user.id, 'resource':self.resource.id}
+
+
+
+
+class TfidfMatrix(models.Model):
+
+    resource = models.ForeignKey(Resources, related_name='tfidf_vector')
+    term = models.TextField()
+    tfidf = models.FloatField()
+    row = models.IntegerField()
+    col = models.IntegerField()
+
+
+
+    # updated_at = models.DateTimeField(default=timezone.now)
+
 
 
 # Adds a field to Resources AND an extra UserProfile table..

@@ -18,7 +18,7 @@ from sodata.models import Topics
 import urllib
 
 #url string from dict	params = urllib.urlencode({})
-stop_depth = 10
+stop_depth = 3
 wikipedia_base_url = 'http://en.wikipedia.org%s'
 subcategory_url = wikipedia_base_url % '/w/api.php?action=query&list=categorymembers&prop=extracts&format=xml&cmtitle=%s'
 page_preview_url = wikipedia_base_url % '/w/api.php?action=query&prop=extracts&format=xml&exintro=&titles=%s'

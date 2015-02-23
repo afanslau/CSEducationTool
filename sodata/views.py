@@ -15,13 +15,17 @@ from sodata.forms import ResourceForm, SignupForm, LoginForm
 import watson
 from sodata.recommender import RecContext
 
-
 import json, re 
 import Bing
 from bs4 import BeautifulSoup as Soup
 
+import logging
+from activity_logging import LogEncoder
+logger = logging.getLogger(__name__)
+
 
 ui_topic_base_url = 'resources/%d'
+N_RECOMMENDATIONS_PER_PAGE = 10
 
 from sodata import TemplateDefaults
 
@@ -50,13 +54,21 @@ def register(request):
 
             #If needed, create a UserProfie object
 
+            log_data = {'message':'Successfully registered user', 'user':user}
+            logger.info(json.dumps(log_data,cls=LogEncoder))
+
             # Update our variable to tell the template registration was successful.
-            return user_login(HttpRequest(), registered=True)
+            return HttpResponseRedirect('/login?registered=True')
+            # return user_login(HttpRequest(), registered=True)
 
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.
         # They'll also be shown to the user.
         else:
+
+            log_data = {'message':'Invalid registration form data'}
+            logger.info(json.dumps(log_data,cls=LogEncoder))
+
             print user_form.errors
             # Should render some kind of error
     # Not a HTTP POST, so we render our form using two ModelForm instances.
@@ -68,46 +80,54 @@ def register(request):
     return render(request,
             'registration/register.html',
             {'form': user_form} )
-def user_login(request, registered=False):
+def user_login(request):
     # If the request is a HTTP POST, try to pull out the relevant information.
+    registered = 'registered' in request.GET 
     if request.method == 'POST':
         # Gather the username and password provided by the user.
         # This information is obtained from the login form.
         username = request.POST['username']
         password = request.POST['password']
 
-        # Use Django's machinery to attempt to see if the username/password
-        # combination is valid - a User object is returned if it is.
-        user = authenticate(username=username, password=password)
 
-        # If we have a User object, the details are correct.
-        # If None (Python's way of representing the absence of a value), no user
-        # with matching credentials was found.
-        if user:
-            # Is the account active? It could have been disabled.
-            if user.is_active:
+        form = LoginForm(data={'username':username, 'password':password})
+        if form.is_valid():
+            user = form.login(request)
+
+
+            # # Use Django's machinery to attempt to see if the username/password
+            # # combination is valid - a User object is returned if it is.
+            # user = authenticate(username=username, password=password)
+
+            # If we have a User object, the details are correct.
+            # If None (Python's way of representing the absence of a value), no user
+            # with matching credentials was found.
+            if user:
+                # Is the account active? It could have been disabled.
+
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/')
-            else:
-                # An inactive account was used - no logging in!
-                return HttpResponse("Your account is disabled.")
-        else:
-            # Bad login details were provided. So we can't log the user in.
-            form = LoginForm(initial={'username':username})
-            return render(request, 'registration/login.html', {'form':form})
 
-    # The request is not a HTTP POST, so display the login form.
-    # This scenario would most likely be a HTTP GET.
+                log_data = {'message':'Login success', 'user':user}
+                logger.info(json.dumps(log_data,cls=LogEncoder))
+
+                return HttpResponseRedirect('/')
+
+        # Bad login details were provided. So we can't log the user in.
+        log_data = {'message':'Login failure', 'user':username}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
+        return render(request, 'registration/login.html', {'form':form})
+
     else:
-        # No context variables to pass to the template system, hence the
-        # blank dictionary object...
         form = LoginForm()
         return render(request, 'registration/login.html', {'form':form, 'registered':registered})
 
 ''' GET /resources  '''
 def ui_get_resource(request, resource_id=None):
+    if resource_id is None and not request.user.is_authenticated():
+        return HttpResponseRedirect('/')  # Redirect to landing page if user is not logged in
+
     data = get_resource(request, resource_id)
     return render(request,'sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
 def get_resource(request, resource_id=None):
@@ -174,7 +194,9 @@ def get_resource(request, resource_id=None):
     recommended_resources = rec_data["resource_list"]
     recommended_relations = rec_data["user_relations"]
 
-
+    log_data = {'message':'GET resource', 'user':request.user, 'resource':parent}
+    logger.info(json.dumps(log_data,cls=LogEncoder))
+    
     data = {'new_resource_form':new_resource_form,  #base.html
             'resource':parent,  #base.html
             'user_relation':user_relation,  #topic.html
@@ -204,14 +226,11 @@ def api_create_resource(request, parent_id=None):
     else:
         return HttpResponse("There was an error processing the create_resource request")
 def ui_create_resource(request, parent_id=None):
-    print 'ui_create_resource',request.POST
     pid = int(parent_id) if parent_id is not None else None  # I think this is unnecessary. Check when there is time and if so remove
     new_resource = create_resource(request, pid)
 
     if type(new_resource) is Resources:
         rid = request.POST.get("current_resource_id")
-
-        print 'ui_create_resource ', rid
 
         if rid is None:
             _url = '/resources/%s' % parent_id if parent_id is not None else '/'
@@ -234,8 +253,7 @@ def create_resource(request, parent_id=None):
         if form.is_valid():
             cd = form.cleaned_data
             new_resource = form.save(commit=False)
-    
-    # new_resource = Resources(title=request.POST.get('title'), text=request.POST.get('text'), url=request.POST.get('url'))
+            parent = None
             if request.user.is_authenticated():
                 try:
                     if parent_id is not None:
@@ -249,16 +267,15 @@ def create_resource(request, parent_id=None):
                 new_resource.author = request.user
                 new_resource.save()
                 
-                tr = TopicRelations(from_resource=parent, to_resource=new_resource)
-                # If the user is the author, leave perspective_user as None
-                if request.user != parent.author:
-                     tr.perspective_user = request.user 
-                tr.save()
-
+                TopicRelations.objects.create(from_resource=parent, to_resource=new_resource, perspective_user=request.user)
                 UserRelation.objects.create(user=request.user, resource=new_resource, user_type=1) #AUTHOR
                 UserActivity.objects.create(user=request.user, resource=new_resource, activity_type=3) #CREATED
             else:
                 new_resource.save()
+
+            log_data = {'message':'CREATE resource', 'user':request.user, 'resource':new_resource, 'parent_resource':parent}
+            logger.info(json.dumps(log_data,cls=LogEncoder))
+
             return new_resource
         else:
             print 'Form was invalid ', form.errors, form.non_field_errors()
@@ -298,6 +315,9 @@ def update_resource(request, resource_id=None):
         form = ResourceForm(request.POST, instance=resource)
         if form.is_valid():
             form.save()
+
+        log_data = {'message':'UPDATE resource', 'user':request.user, 'resource':resource}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
         return resource
     else:
         return None
@@ -331,7 +351,7 @@ def update_resource(request, resource_id=None):
     # if should_save: resource.save()
     # return resource
 
-""" STAR / UNSTAR """
+# """ STAR / UNSTAR """
 def api_star_resource(request, resource_id=None):
     rating = 1
     return json_response(rate_resource(request, resource_id=resource_id, rating=rating))
@@ -354,6 +374,8 @@ def rate_resource(request, resource_id=None, rating=0):
     else: 
         return None
 
+
+### TODO  Consolidate api and ui into delete_resource()
 """ DELETE /resources """
 def ui_delete_resource(request, resource_id=None):
     if resource_id is None: raise Http404
@@ -366,6 +388,9 @@ def ui_delete_resource(request, resource_id=None):
 
     # Once the resource is deleted, redirect to home.
     if request.user.is_authenticated() and to_delete.can_edit(request.user):
+        log_data = {'message':'DELETE resource', 'user':request.user, 'resource':to_delete}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
+        
         to_delete.delete()
         return HttpResponseRedirect('/resources')
     else:
@@ -382,6 +407,9 @@ def api_delete_resource(request, resource_id=None):
 
     # Only the author can delete a resource
     if request.user.is_authenticated() and to_delete.can_edit(request.user):
+        log_data = {'message':'DELETE resource', 'user':request.user, 'resource':to_delete}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
+        
         to_delete.delete()
     else:
         # Suggest a delete
@@ -418,7 +446,10 @@ def create_relation(request, parent_id, child_id):
         
         child = Resources.objects.get(id=child_id)
         relation, created = TopicRelations.objects.get_or_create(from_resource=parent, to_resource=child, perspective_user=request.user)
-        # I think this performs the save automatically
+
+        log_data = {'message':'CREATE relation', 'user':request.user, 'relation':relation}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
+
         return relation
     except ObjectDoesNotExist:
         print('request - CREATE relation from %d to %d  NOT FOUND' % (parent_id, child_id))
@@ -438,7 +469,7 @@ def ui_choose_parent_pin_to(request, resource_id=None):
     return render(request, 'sodata/pin_to_topic.html', data)
 def ui_autocomplete_search(request):
     term = request.GET.get("q")
-    search_results = watson.search(term).values('object_id_int','title')
+    search_results = watson.search(term, exclude=(Resources.objects.filter(~Q(author=request.user),is_home=True),)).values('object_id_int','title')
     data = {'resource_list':search_results}
     return render(request, 'sodata/title-items.html', data)
 
@@ -455,13 +486,33 @@ def api_delete_relation_by_id(request, relation_id):
     to_delete.delete()
     return json_response(to_delete)
 def api_delete_relation_by_resources(request, parent_id, child_id):
+    _parent_id, _child_id = int(parent_id), int(child_id)
     if request.user.is_authenticated():
         try:
-            to_delete = TopicRelations.objects.get(from_resource=parent_id, to_resource=child_id)
+            parent = Resources.objects.get(id=parent_id)
+            child = Resources.objects.get(id=child_id)
+            try:
+                to_delete = TopicRelations.objects.get(from_resource=_parent_id, to_resource=_child_id, perspective_user=request.user)
+            except ObjectDoesNotExist:
+
+                # reject_recommendation(parent, child)
+
+                log_data = {'message':'reject_recommendation', 'user':request.user, 'parent_resource':parent, 'child_resource':child}
+                logger.info(json.dumps(log_data,cls=LogEncoder))
+
+                return json_response({'error':'A relation does not exist between (%d) and (%d)'%(_parent_id, _child_id)})
+
         except ObjectDoesNotExist:
-            # print('request - DELETE relation from %d to %d NOT FOUND' % (parent_id, child_id))
-            raise Http404
+            log_data = {'message':'Attempt to delete relation, but resources do not exist','parent_resource':parent_id,'child_resource':child_id}
+            logger.error(json.dumps(log_data))
+        
+
+            
         print('request - DELETE relation from %s to %s' % (to_delete.from_resource.title, to_delete.to_resource.title))
+        
+        log_data = {'message':'DELETE relation', 'user':request.user, 'relation':to_delete}
+        logger.info(json.dumps(log_data,cls=LogEncoder))
+
         to_delete.delete()
         return json_response(to_delete)
     else:
@@ -481,35 +532,25 @@ def ui_search_resources(request):
     # watson.filter Returns model objects
     term = request.GET.get("q")
 
-    if request.GET.get('simple_search'):
-        search_results = watson.search(term, models=(Resources,))
+    log_data = {'message':'Search resources', 'user':request.user, 'query':term}
+    logger.info(json.dumps(log_data,cls=LogEncoder))
+
+    if request.GET.get('simple_search') or not request.user.is_authenticated():
+        search_results = watson.search(term, exclude=(Resources.objects.filter(is_home=True),))
         return HttpResponse(json.dumps([{"title":r.title, "id":r.object_id_int} for r in search_results]))
     
-
-    search_results = watson.filter(Resources, term)
-    user_relations = {}
-    if request.user.is_authenticated():
+    else:
+        search_results = [sr.object for sr in watson.search(term, exclude=(Resources.objects.filter(~Q(author=request.user), is_home=True),)).select_related('object')]
         user_relations = UserRelation.get_relations_by_resource_id(request, search_results)
-        # urs = UserRelation.objects.filter(user=request.user, resource__in=search_results)
-        # for r in search_results:
-        #     ur, created = urs.get_or_create(resource=r, user=request.user)
-        #     if created: ur.save()
-        #     user_relations[r.id] = ur
-
-    print TemplateDefaults.base['new_resource_form']
-    data = {'new_resource_form':TemplateDefaults.base['new_resource_form'],
-            'resource':None,
-            'resource_list':search_results, 
-            'user_relations':user_relations,
-            'query': term
-            }
-
-
-
-    if request.GET.get("format") == 'json':
-        return HttpResponse(json.dumps(data))
-
-    return render(request, 'sodata/search_results.html', data)
+        data = {'new_resource_form':TemplateDefaults.base['new_resource_form'],
+                'resource':None,
+                'resource_list':search_results, 
+                'user_relations':user_relations,
+                'query': term
+                }
+        if request.GET.get("format") == 'json':
+            return HttpResponse(json.dumps(data))
+        return render(request, 'sodata/search_results.html', data)
 def api_search_resources(request):
     q = request.POST.get('q')
     return HttpResponse(json.dumps([ r.to_dict() for r in watson.filter(Resources, q)]))
@@ -520,7 +561,7 @@ def suggest_delete(request, resource_id):
     if request.user.is_authenticated():
         u = request.user
     UserActivity.objects.create(user=u, resource=resource_id, activity_type=REMOVED_RELATION)
- 
+    
 # GET recommended
 # TO DO - Implement algorithm to expand the right query using related topics and tfidif
 def get_recommended(request, resource=None):
@@ -536,17 +577,19 @@ def ui_recommend_resources(request, resource_id=None):
     return render(request, 'sodata/paginated.html', data)
 def api_recommend_resources(request, resource_id=None):
     if resource_id is None:
+        print ('api_recommend_resources resource_id is None')
         raise Http404
 
     try:
         resource = Resources.objects.get(id=resource_id)
     except ObjectDoesNotExist:
+        print('api_recommend_resources  resource does not exist ' + str(resource_id))
         raise Http404  # I think this might be the default error for ObjectDoesNotExist
 
 
     full_resource_list = get_recommended(request, resource)
     page_number = request.GET.get('page')
-    paginator = Paginator(full_resource_list, 3) # Show 3 contacts per page
+    paginator = Paginator(full_resource_list, N_RECOMMENDATIONS_PER_PAGE)
 
 
 
@@ -569,11 +612,18 @@ def api_recommend_resources(request, resource_id=None):
 
 ''' Helper function - render a json response for a given resource '''
 def json_response(resource):
-    if resource is None: raise Http404
-    try: # make a list of json serializable dictionaries 
-        out = [r.to_dict() for r in resource]
-    except TypeError: #resource is one resource.. Not iterable
-        out = resource.to_dict()
+    # if resource is None: raise Http404
+    out = {}
+    if type(resource) is dict:
+        out = resource 
+    else:
+        try:
+            out = resource.to_dict()
+        except AttributeError:
+            try: # make a list of json serializable dictionaries 
+                out = [r.to_dict() for r in resource]
+            except TypeError: 
+                pass # Could not process the resource
     return HttpResponse(json.dumps(out))
 
 

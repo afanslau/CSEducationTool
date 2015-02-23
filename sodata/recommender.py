@@ -1,17 +1,29 @@
 from django.db.models import Q
 from sodata.models import Resources, TopicRelations, UserRelation
+from sodata import learning
+from sklearn.preprocessing import normalize
+
+import numpy as np
 import watson
 from operator import itemgetter
 
-w_watson_rank = 400
-w_text_similarity = 400
+from django.db.models import Sum
 
-w_total_relations = 55
-w_child_role = 90
-w_user_total_relations = 70
+from sodata import constants
 
-w_total_starred = 85
-w_user_starred = 200
+
+class RecCandidate(object):
+	def __init__(self, context, resource, path=None):
+		super(RecCandidate, self).__init__()
+		self.resource = resource
+		# Store the path it took to get from the context to here
+		self.path = path if path is not None else []
+		self.context = context
+	def __eq__(self, other):
+		return self.resource == other.resource
+	def __hash__(self):
+		return hash(self.resource)
+
 
 class RecContext(object):
 	
@@ -19,99 +31,244 @@ class RecContext(object):
 	# They should probably be normalized and mean shifted before the weighting happens. 
 	# How can I do that while minimizing the number of DB queries? 
 
-	def __init__(self, user, resource=None, extra_terms=None):
+	def __init__(self, user, resource=None, candidates=None, important_terms=None):
 		super(RecContext, self).__init__()
+		
 		self.resource = resource
-		self.user = user
-		self.extra_terms = extra_terms
+		self.user = user		
+		
+		self.important_terms = set(important_terms) if important_terms is not None else set()
+		self._add_important_terms()
 
+
+		self.candidates = set()
+		self.candidate_ids = set()
+		self.add_candidates(candidates)
+
+
+	def add_candidates(self, candidates):
+		if candidates is None:
+			return
+		self.candidates = self.candidates.union(candidates)
+		self.candidate_ids = self.candidate_ids.union([c.resource.id for c in candidates])
 
 	def get_relevance(self, candidate):
 
+		resource = candidate.resource
+
 		try: 
-			score = w_watson_rank * candidate.watson_rank
+			score = constants.w_watson_rank * resource.watson_rank  # Should weight by the importance of the term that it was matched to
 		except AttributeError:
 			score = 0
 
+		# Get the textual similarity
+		similarity = learning.get_similarity(self.resource,resource)[0,1]
+		score += constants.w_text_similarity * similarity
 
-		# Count the number of relations the candidate is a part of
-		all_relations = TopicRelations.objects.filter(Q(from_resource=candidate)|Q(to_resource=candidate))
-		score += w_total_relations * len(all_relations)
+		# # Get the number of views by all users
+		# n_views = UserRelation.objects.filter(resource=resource).aggregate(Sum('num_visits'))['num_visits__sum']
+		# score += w_total_views * (1 - 1/n_views) if n_views > 0 else 0
+		# # TODO squash between 0 and 1
 
-		# Count the number of relations where the candidate is a child of the context resource
-		if self.resource is not None:
-			child_role = all_relations.filter(from_resource=self.resource, to_resource=candidate)
-			score += w_child_role * len(child_role)
+		
+		# # Get the cost-weighted path length from query
+		# path_sum = 0
+		# for i in range(len(candidate.path)):
+		# 	parent = candidate.path[i]
+		# 	try:
+		# 		child = candidate.path[i+1]
+		# 	except IndexError:
+		# 		child = candidate.resource
+
+		# 	# Find TopicRelations between those two resources
+
+		# 	print 'get_relevance  ', parent.id, parent.title, child.id, child.title
+
+
+		# 	path_relations = TopicRelations.objects.filter(from_resource=parent, to_resource=child)
+
+		# 	# Multiply by the average confidence. Since confidence is always between 0 and 1, the path_sum will become smaller as the distance gets larger
+		# 	# Scale down the confidence unless th
+
+		# 	if len(path_relations) == 0:
+		# 		print 'child is not related to parent! WHY'
+		# 		path_sum = 0
+		# 	else: # Fail Gracefully
+		# 		path_sum *= sum([tr.confidence * ((1 - USER_WEIGHT) if tr.perspective_user != self.user else 1) for tr in path_relations]) / len(path_relations)
+		# score += w_path_confidence * path_sum
+
+		# # Count the number of relations the candidate is a part of
+		# all_relations = TopicRelations.objects.filter(Q(from_resource=resource)|Q(to_resource=resource))
+
+		# # TODO - find a better way to bound between 0 and 1
+		# score += w_total_relations * (1 - 1/len(all_relations))
+
+
+		# # Count the number of relations where the candidate is a child of the context resource
+		# if self.resource is not None:
+		# 	child_role = all_relations.filter(from_resource=self.resource, to_resource=candidate)
+		# 	score += w_child_role * len(child_role)
 
 		# Count the number of relations from the user's perspective
-		user_created = all_relations.filter(perspective_user=self.user)
-		score += w_user_total_relations * len(user_created)
+		# user_created = all_relations.filter(perspective_user=self.user)
+		# score += w_user_total_relations * len(user_created)
 
 		# Count the number of users who have starred the candidate
-		all_starred = UserRelation.objects.filter(resource=candidate, starred=True)
-		score += w_total_starred * len(all_starred)
+		# all_starred = UserRelation.objects.filter(resource=candidate, starred=True)
+		# score += w_total_starred * len(all_starred)
 
 		# Check if the context user has starred the candidate
-		user_starred = all_starred.filter(user=self.user)
-		if len(user_starred) > 1:
-			# Log an error..
-			print 'ERROR: UserRelation should be unique to a user-resource'
-		score += w_user_starred if len(user_starred) > 0 else 0  # len(user_starred) should only be 0 or 1, UserRelation should be unique
+		# user_starred = all_starred.filter(user=self.user)
+		# if len(user_starred) > 1:
+		# 	# Log an error..
+		# 	print 'ERROR: UserRelation should be unique to a user-resource'
+		# score += w_user_starred if len(user_starred) > 0 else 0  # len(user_starred) should only be 0 or 1, UserRelation should be unique
 
 
 		# TO-DO  Implement a text similarity score comparison between self.resource and candidate
 		return score
 
-	# TO-DO Implement this!
-	def home_recommendations(self):
-
-		# Recently active
-		# Recently starred
-		# Recently visited
-
-		# Exclude all resources already pinned to your home page
-		home_trs = TopicRelations.objects.filter(from_resource__author=self.user, from_resource__is_home=True)
-		exclude_already_pinned_Q = ~Q(parent_resources__in=home_trs)
-
-		# 
-		# What happens when the user asks for more than 30 recommendations?
-		urs = UserRelation.objects.all().order_by('-last_visited', '-starred')[:30]
-		candidates = Resources.objects.filter(exclude_already_pinned_Q, user_relations__in=urs, is_home=False)
-
-		with_rank = { c:self.get_relevance(c) for c in candidates }
-		sorted_by_rank = sorted( with_rank.items() , key=itemgetter(1) , reverse=True)
-		print 'recommender.home_recommendations  ', sorted_by_rank
-
-		return [c[0] for c in sorted_by_rank]
 
 
 	# TO-DO  Should I return a dictionary with the scores? probably should for testing purposes
+	def follow_edges_with_path_length(self, resource, path_length=1, path=None, extra_Q=None):
+
+
+		# Generate _path if needed
+		new_path = list(path) if path is not None else [] # list() creates a copy of the list, passing it by value
+
+		# Make _candidate a RecCandidate if it isn't already one
+		parent_candidate = resource if type(resource) is RecCandidate else RecCandidate(context=self, resource=resource, path=new_path)
+
+		print 'follow_edges_with_path_length: resource: ',parent_candidate.resource.id,parent_candidate.resource.title
+		print '   path: ', new_path 
+
+		# After I follow all the edges, add the node to the path. 
+		exclude_Q = ~Q(id__in=self.candidate_ids)
+		if extra_Q is not None:
+			exclude_Q = exclude_Q&extra_Q
+
+		new_candidates = self.follow_edges(parent_candidate, exclude_Q)  # Follow all relations to resources that match the Q
+		self.add_candidates(new_candidates)
+
+		# Then check the base case
+		if len(new_path) == path_length:
+			return
+		else:
+			for c in new_candidates:
+				self.follow_edges_with_path_length(c, path_length, new_path, extra_Q)
+
+
+	def follow_edges(self, resource, extra_Q=None, relation_Q=None): 
+
+		# Extract the _path and parent _resource
+		if type(resource) is RecCandidate:
+			_resource = resource.resource  
+			_path = list(resource.path)
+		else: 
+			_resource = resource 
+			_path = []
+		_path += [_resource]
+		
+		print 'call follow_edges: ', _resource.id, _resource.title, '\n   _path ', _path
+
+		# Get children of _resource
+		_relation_Q = Q(from_resource=_resource)|Q(to_resource=_resource) 
+		if relation_Q is not None:
+			_relation_Q = _relation_Q & relation_Q
+		trs = TopicRelations.objects.filter(_relation_Q)
+		_resource_Q = Q(parent_resources__in=trs) | Q(child_resources__in=trs)
+		if extra_Q is not None:
+			_resource_Q = _resource_Q & extra_Q
+		res = Resources.objects.filter(_resource_Q, is_home=False)
+
+		# Create candidates from children, add path
+		return [ RecCandidate(context=self, resource=r, path=_path) for r in res ]
+		
+
+	def fill_candidates(self):
+
+		# Fill candidates by traversing the graph n levels deep
+
+		# First, follow the edges of the children on screen 
+		pinned_trs = TopicRelations.objects.filter(perspective_user=self.user, from_resource=self.resource)
+		pinned_Q = Q(parent_resources__in=pinned_trs)
+		# pinned = list(Resources.objects.filter(pinned_Q, is_home=False)) # Evaluate immediately so that nothing changes when i change the Q
+
+		# print 'method: fill_candidates  pinned: ', len([(c.id, c.title) for c in pinned])
+
+		# # Exclude the following from the candidate list
+
+		# When I re-introduce the graph traversal, need to change this back to ~
+		exclude_Q = pinned_Q|Q(id=self.resource.id)|Q(is_home=True)
+		
+		# _path = [self.resource]
+		# for r in pinned:
+		# 	self.follow_edges_with_path_length(resource=r, path_length=SEARCH_PATH_LENGTH, path=_path, extra_Q=exclude_Q)
+
+		# # Then follow other edges of self.resource (those pinned by other users)
+		# self.follow_edges_with_path_length(resource=self.resource, path_length=SEARCH_PATH_LENGTH, extra_Q=exclude_Q)
+
+
+		
+
+		# Add other candidates by FTS and most viewed
+		# Get the most important keywords in the context
+
+		# Search Watson for vocab_terms
+
+		print 'method: fill_candidates  self.important_terms: ', self.important_terms
+
+		for term in self.important_terms:
+			search_results = watson.search(term, exclude=(Resources.objects.filter(exclude_Q),))[:constants.N_RECOMMENDATIONS_PER_TERM]
+			self.add_candidates([RecCandidate(resource=sr.object, context=self) for sr in search_results]) 
+
+
+
+
+
+
+		# # Get the most viewed topics (#TODO in the last t time)
+		# most_viewed_resources = Resources.objects.filter(is_home=False).annotate(total_views=Sum('user_relations__num_visits')).order_by('-total_views')[:NUM_MOST_VIEWED_CANDIDATES]
+		# self.add_candidates([RecCandidate(resource=r, context=self) for r in most_viewed_resources])
+
+
+	def rank_candidates(self):
+
+		with_rank = { c:self.get_relevance(c) for c in self.candidates }
+		sorted_by_rank = sorted( with_rank.items() , key=itemgetter(1) , reverse=True)
+		print 'recommender.recommend  ', len(sorted_by_rank)
+
+		return [c[0].resource for c in sorted_by_rank]
+
+
+		# TODO FILL THIS IN
 
 	def recommend(self):
-		base_qs = Resources.objects.filter(~Q(id=self.resource.id), is_home=False)
-
-
-		if self.resource.is_home or self.resource is None:
-			return self.home_recommendations()
-
+		self.fill_candidates()
+		return self.rank_candidates()
+		# return []
 		
 
-		# Start by following all edges of the resource EXCEPT ones that I've already pinned
-		trs = TopicRelations.objects.filter(~Q(perspective_user=self.user), from_resource=self.resource)
+	def _add_important_terms(self):
+		tfv = learning.get_tfidfvectorizer()
+		docs = []
+		if not self.resource.is_home:
+			# Use the title and text from the parent at a higher weight
+			doc = self.resource.get_doc_string()
+			if doc != '':
+				docs += [doc] * constants.TITLE_WEIGHT  # Weight the parent_resource more than the children
 
-		related_Q = Q(parent_resources__in=trs)
-		related_qs = base_qs.filter(related_Q)
-		
-		# Search the remaining resources with the resource title
-		search_qs = watson.filter(Resources.objects.filter(~related_Q), self.resource.title)
+		# Read texts of children 
+		trs = TopicRelations.objects.filter(perspective_user=self.user, from_resource=self.resource)
+		if len(trs) > 0:
+			docs += [r.get_doc_string() for r in Resources.objects.filter(parent_resources__in=trs, is_home=False)]
 
-		# Execute and concatenate queries, then sort
-		candidates = list(related_qs) #+list(search_qs)
-
-		with_rank = { c:self.get_relevance(c) for c in candidates }
-		sorted_by_rank = sorted( with_rank.items() , key=itemgetter(1) , reverse=True)
-		print 'recommender.recommend  ', sorted_by_rank
-
-		return [c[0] for c in sorted_by_rank]
+		vect = np.array(tfv.transform(docs).sum(axis=0)).flatten()  # Doesnt need to be normalized, because I'm just sorting it to get vocab
+		# Since I'm only getting the top N, it's unneccessary to sort the rest of the list
+		vix = learning.argtopk(vect, k=constants.N_IMPORTANT_TERMS)
+		vix = vix[vect[vix].nonzero()]  # Eliminate the zero entries
+		word_list = [learning.index_vocab_map[ix] for ix in vix]
+		self.important_terms = self.important_terms.union(word_list)
 
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block page_title %}{{block.super}} - {{resource.title}}{% endblock %}
 {% block content %}
 {% load extra_tags %}
 
@@ -82,5 +82,35 @@
     <p style="text-align:center"><a id="paginate-button">show more recommendations</a></p>
   </div>
 </div>
+
+
+
+
+
+{% if resource.is_home %}
+
+<div id="help_popup" class="{% if not first_time %}well{%endif%}">
+
+  <h3>Welcome to Knowd!</h3>
+
+  <p>Knowd lets you save and organize your online resources. It learns your preferences and recommends new resources to help you learn about your favorite topics.
+
+  This is your home page. Pin resources here for easy access. Choose a few topics below by clicking the <span class="glyphicon glyphicon-pushpin"/> icon on each one you like. To remove something, simply click <span class="glyphicon glyphicon-remove"/> .</p>
+
+  <p>Find more options by clicking <span class="glyphicon glyphicon-chevron-down"/> .</p>
+
+  <p>You can also add your own resources by clicking the <span class="glyphicon glyphicon-plus"/> above.</p>
+
+  <p>Pin resources to each other to organize and create lists of resources about anything you like. Based on the resources you pin, Knowd will recommend similar and related ones.</p>
+
+  <p>Access these instructions at any time by clicking on the About button at the top of your screen</p>
+
+  <button class="help_popup_close btn btn-default">Ok, got it</button>
+
+</div>
+
+{% endif %}
+
+
 
 {% endblock %}

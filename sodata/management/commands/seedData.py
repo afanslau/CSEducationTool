@@ -1,15 +1,21 @@
 from django.core.management.base import BaseCommand
 from sodata.models import Resources, TopicRelations
+from django.contrib.auth.models import User
 from django.db.transaction import commit_on_success
 
 class Command(BaseCommand):
 	help = 'Load topic data from file'
 	def handle(self, *args, **options):
-		i=0
-		for a in args:
-			loadTopicFile(a)
-			i+=1
-		print(i) 
+
+		# Create system user 
+		system_user, created = User.objects.get_or_create(username="System")
+		Resources.create_home(system_user)
+
+		# i=0
+		# for a in args:
+		# 	loadTopicFile(a)
+		# 	i+=1
+		# print(i) 
 
 # @staticmethod
 def loadTopicFile(filename):

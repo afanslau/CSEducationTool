@@ -1,0 +1,53 @@
+[22/Feb/2015 20:16:14] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1270, "title": "Acorn Academy App"}}
+[22/Feb/2015 20:17:29] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1270, "title": "Acorn Academy App"}}
+[22/Feb/2015 20:17:45] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1270, "title": "Acorn Academy App"}}
+[22/Feb/2015 20:20:55] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://chapterthree.com/blog/ruby-rvm-gemsets-and-bundlergemfiles", "id": 1274, "title": "RVM, bundler"}}
+[22/Feb/2015 20:21:43] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://chapterthree.com/blog/ruby-rvm-gemsets-and-bundlergemfiles", "id": 1274, "title": "RVM, bundler"}, "user": {"_setupfunc": {}, "_wrapped": {"username": "newuser", "id": 3}}}
+[22/Feb/2015 20:26:30] INFO [sodata.views:206] {"message": "GET resource", "resource": {"url": "http://chapterthree.com/blog/ruby-rvm-gemsets-and-bundlergemfiles", "id": 1274, "title": "RVM, bundler"}, "user": {"_setupfunc": {}, "_wrapped": {"username": "newuser", "id": 3}}}
+[22/Feb/2015 20:28:53] INFO [sodata.views:206] {"message": "GET resource", "resource": {"url": "http://chapterthree.com/blog/ruby-rvm-gemsets-and-bundlergemfiles", "id": 1274, "title": "RVM, bundler"}, "user": {"_setupfunc": {}, "_wrapped": {"username": "newuser", "id": 3}}}
+[22/Feb/2015 20:29:50] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://chapterthree.com/blog/ruby-rvm-gemsets-and-bundlergemfiles", "id": 1274, "title": "RVM, bundler"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:30:24] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:31:14] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1270, "title": "Acorn Academy App"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:31:19] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1270, "title": "Acorn Academy App"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:49:29] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:49:45] INFO [sodata.views:283] {"parent_resource": {"url": null, "id": 1266, "title": "Home"}, "message": "CREATE resource", "resource": {"url": null, "id": 1282, "title": "test create log"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:49:45] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:50:18] INFO [sodata.views:457] {"message": "CREATE relation", "relation": {"parent_resource": {"url": "http://en.wikipedia.org/wiki/Category:Photo software", "id": 774, "title": "Photo software"}, "child_resource": {"url": null, "id": 1282, "title": "test create log"}}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:50:18] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Category:Photo software", "id": 774, "title": "Photo software"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:50:31] INFO [sodata.views:542] {"query": "photo software", "message": "Search resources", "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:50:59] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Category:Photo software", "id": 774, "title": "Photo software"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:51:02] INFO [sodata.views:417] {"message": "DELETE resource", "resource": {"url": null, "id": 1282, "title": "test create log"}, "user": {"username": "newuser", "id": 3}}
+[22/Feb/2015 20:51:02] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Category:Photo software", "id": 774, "title": "Photo software"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 00:03:40] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:31:00] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:31:26] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:32:47] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:36:28] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:36:44] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:37:22] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:39:27] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:41:01] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:47:21] INFO [sodata.views:204] {"message": "GET resource", "resource": {"url": null, "id": 1266, "title": "Home"}, "user": {"username": "newuser", "id": 3}}
+[23/Feb/2015 01:47:33] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 01:52:46] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 01:54:17] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 01:55:52] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 01:56:39] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 01:58:05] INFO [sodata.views:119] {"message": "Login failure - bad password", "user": "adam"}
+[23/Feb/2015 02:06:01] INFO [sodata.views:119] {"message": "Login failure - bad password", "user": "testuser"}
+[23/Feb/2015 02:09:20] INFO [sodata.views:119] {"message": "Login failure", "user": "testuser"}
+[23/Feb/2015 02:10:38] INFO [sodata.views:119] {"message": "Login failure", "user": "testuser"}
+[23/Feb/2015 02:11:08] INFO [sodata.views:119] {"message": "Login failure", "user": "testuser"}
+[23/Feb/2015 02:11:14] INFO [sodata.views:119] {"message": "Login failure", "user": "adam"}
+[23/Feb/2015 02:11:17] INFO [sodata.views:113] {"message": "Login success", "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:11:17] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": null, "id": 1264, "title": "Home"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:11:34] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 02:12:32] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 02:13:11] INFO [sodata.views:70] {"message": "Invalid registration form data"}
+[23/Feb/2015 02:15:21] INFO [sodata.views:113] {"message": "Login success", "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:15:22] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": null, "id": 1264, "title": "Home"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:15:35] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Software_engineering", "id": 1265, "title": "Software engineering - Wikipedia, the free encyclopedia"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:16:38] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": null, "id": 1264, "title": "Home"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:19:10] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": null, "id": 1264, "title": "Home"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:19:18] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Software_engineering", "id": 1265, "title": "Software engineering - Wikipedia, the free encyclopedia"}, "user": {"username": "adam", "id": 2}}
+[23/Feb/2015 02:20:48] INFO [sodata.views:198] {"message": "GET resource", "resource": {"url": "http://en.wikipedia.org/wiki/Software_engineering", "id": 1265, "title": "Software engineering - Wikipedia, the free encyclopedia"}, "user": {"username": "adam", "id": 2}}

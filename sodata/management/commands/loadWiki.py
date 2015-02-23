@@ -1,9 +1,12 @@
 from bs4 import BeautifulSoup as Soup
-from sodata.models import Resources, TopicRelations
+from sodata.models import Resources, TopicRelations, UserRelation
+from django.contrib.auth.models import User
 from urllib import urlencode, urlopen
 from django.core.management.base import BaseCommand
+from sodata.learning import store_vectors
 
-LOG_LEVEL_NONE = 0
+LOG_LEVEL_SILENT = -1
+LOG_LEVEL_ERROR = 0
 LOG_LEVEL_INFO = 1
 LOG_LEVEL_DEBUG = 2
 LOG_LEVEL = LOG_LEVEL_INFO
@@ -13,34 +16,43 @@ k_cm_type_page = 'page'
 k_cm_type_subcat = 'subcat'
 
 #url string from dict	params = urllib.urlencode({})
-stop_depth = 3
-stop_width = 10 #Only get 10 children from each node
-top_level_width = 0
+stop_depth = 2
+stop_width = None #Only get 10 children from each node
+top_level_width = 0  # Used only for debugging and progress logging purposes
 
 wikipedia_base_url = 'http://en.wikipedia.org%s'
 page_preview_url = wikipedia_base_url % '/w/api.php?action=query&prop=extracts&format=xml&exintro&redirects&titles=%s'
 subcategory_url = wikipedia_base_url % '/w/api.php?action=query&list=categorymembers&format=xml&cmprop=ids|title|type&cmtype=subcat&cmlimit=%d&cmtitle=%s'
 wiki_url = wikipedia_base_url % '/wiki/%s'
 
+system_user = User.objects.get(username='System')
+
 class Command(BaseCommand):
 	help = 'Loads wikipedia topics from the api'
 	def handle(self, *args, **options):
 
 		# **** REMOVE AFTER TESTING ****
-		Resources.objects.all().delete()
-		TopicRelations.objects.all().delete()
+		# Resources.objects.filter(author=system_user, is_home=False).delete()
+		# UserRelation.objects.all().delete()
+		# TopicRelations.objects.all().delete()
 
-		testCategory = 'Category:Areas of computer science'
-		depth = 0
-		wiki_dfs(category_title=testCategory, depth=depth, stop_depth=stop_depth, top_level_width=top_level_width)
+		# testCategory = 'Category:Areas of computer science'
+		# depth = 0
+		# wiki_dfs(category_title=testCategory, depth=depth, stop_depth=stop_depth, top_level_width=top_level_width)
+		store_vectors()
 
 #This gets both pages AND categories
-def get_subpages(category_name, n):
-	_url = subcategory_url % (n, category_name)
+def get_subpages(category_name, n_subpages):
+	# If n is None, get all subpages
+	if n_subpages is None:
+		n_subpages = 100
+	_url = subcategory_url % (n_subpages, category_name)
+
 	soup = Soup(urlopen(_url))
 	soup_page_title_list = soup.find_all('cm')
 	if soup_page_title_list is None:
-		print "soup cm tag is None"
+		if LOG_LEVEL >= LOG_LEVEL_ERROR:
+			print "get_subpages ERROR: soup cm tag is None"
 		return []
 	return [(cm['title'].encode('ascii','ignore'), cm['type']) for cm in soup_page_title_list]
 	
@@ -81,8 +93,8 @@ def visit(title):
 
 
 
-	page_text = api_response_soup.find('extract').string
-	if page_text is None or page_text == '':
+	page_text = api_response_soup.find('extract')
+	if page_text is None: # or page_text == '':
 		#Try to get the page with the same name, not the category 
 		apiurl = page_preview_url % page_title
 		api_response_soup = Soup(urlopen(apiurl))
@@ -96,8 +108,13 @@ def visit(title):
 		page_text = page_text.string #HTML
 
 	page_url = wiki_url % returned_title # Uses Category: if a corresponding page is not found on wikipedia
+	
+
+
 	#Create Topic object for this page
-	topic, should_save = Resources.objects.get_or_create(title=page_title, pre_seeded=True)
+
+	topic, should_save = Resources.objects.get_or_create(title=page_title, pre_seeded=True, author=system_user)
+	UserRelation.objects.create(user=system_user, resource=topic)
 
 	if topic.text is None: 
 		topic.text=page_text
@@ -109,7 +126,7 @@ def visit(title):
 		topic.save()
 	return topic, should_save
 
-def wiki_dfs(category_title, depth=0, stop_depth=0, top_level_width=None, path=None):
+def wiki_dfs(category_title, depth=0, stop_depth=0, path=None, top_level_width=None):
 	#Create Topic object for this category_title
 
 	topic, created = visit(category_title)
@@ -150,6 +167,8 @@ def wiki_dfs(category_title, depth=0, stop_depth=0, top_level_width=None, path=N
 			new_top_level_width = top_level_width
 			if depth == 0: 
 				new_top_level_width += 1
+				if LOG_LEVEL >= LOG_LEVEL_INFO:
+					print('Reached top level width of '+str(new_top_level_width))
 				
 
 			width += 1
@@ -170,11 +189,13 @@ def wiki_dfs(category_title, depth=0, stop_depth=0, top_level_width=None, path=N
 			if LOG_LEVEL >= LOG_LEVEL_DEBUG:
 				print ('Recursion returned to %s from %s' % (category_title, child_title))
 
+
+
+
 		#Add the new child_resource or topic to  topic.child_resources
 		if child_topic is not None:
-			tr = TopicRelations(to_resource=child_topic, from_resource=topic)
-			tr.save()
 
+			TopicRelations.objects.create(to_resource=child_topic, from_resource=topic, perspective_user=system_user)
 
 		
 	#Return the created topic after all children have been created, added and traversed
