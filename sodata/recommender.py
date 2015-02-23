@@ -3,6 +3,10 @@ from sodata.models import Resources, TopicRelations, UserRelation
 from sodata import learning
 from sklearn.preprocessing import normalize
 
+
+# Numpy is not supported by default on Heroku  
+# heroku config:set BUILDPACK_URL=https://github.com/thenovices/heroku-buildpack-scipy.git
+# Source: https://blog.dbrgn.ch/2013/6/18/heroku-buildpack-numpy-scipy-scikit-learn/
 import numpy as np
 import watson
 from operator import itemgetter
