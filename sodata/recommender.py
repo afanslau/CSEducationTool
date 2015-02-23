@@ -7,6 +7,7 @@ from sklearn.preprocessing import normalize
 # Numpy is not supported by default on Heroku  
 # heroku config:set BUILDPACK_URL=https://github.com/thenovices/heroku-buildpack-scipy.git
 # Source: https://blog.dbrgn.ch/2013/6/18/heroku-buildpack-numpy-scipy-scikit-learn/
+# Source2:  http://stackoverflow.com/questions/11635857/how-to-install-scikit-learn-on-heroku-cedar
 import numpy as np
 import watson
 from operator import itemgetter
