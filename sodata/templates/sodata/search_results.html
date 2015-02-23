@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block page_title %}{{block.super}} - {{query}}{% endblock %}
 {% block content %}
 {% load extra_tags %}
 

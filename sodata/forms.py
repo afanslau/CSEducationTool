@@ -1,6 +1,7 @@
 from urlparse import urlparse
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from sodata.models import Resources
 
 
@@ -12,12 +13,31 @@ class SignupForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password')
 
-class LoginForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
 
-    class Meta:
-        model = User
-        fields = ('username', 'password')
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=255, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if not user or not user.is_active:
+            raise forms.ValidationError("Sorry, we couldn't match that username and password. Please try again.")
+        return self.cleaned_data
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user
+
+# class LoginForm(forms.ModelForm):
+#     password = forms.CharField(widget=forms.PasswordInput())
+
+#     class Meta:
+#         model = User
+#         fields = ('username', 'password')
 
 
 # class UserProfileForm(forms.ModelForm):

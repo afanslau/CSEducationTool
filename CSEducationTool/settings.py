@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(__file__)
 CSRF_COOKIE_SECURE = False
 
 
-DB_NAME = 'topicdb' #'small_temp' #Using small_temp for testing the watson search   # Was 
+DB_NAME = 'small_temp' # 'topicdb' #Using small_temp for testing the watson search   # Was 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -123,3 +123,47 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+
+
+
+
+# Source:  http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'django-core': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'knowd_system.log',
+            'formatter': 'verbose'
+        },
+        'user-activity': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'knowd_user_activity.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['django-core'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'sodata': {
+            'handlers': ['user-activity'],
+            'level': 'DEBUG',
+        },
+    }
+}
+

@@ -21,21 +21,29 @@
   <div class="login-card">
     <h1>Sign Up</h1><br>
 
-  {% if form.errors %}
-    {% for error in form.errors %}
-      <div class="alert alert-danger"><p>{{error|escape}}</p></div>
-    {% endfor %}
-  {% endif %}
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {% for error in form.non_field_errors %}
+        {{error|escape}}
+      {%endfor%}
+    </div>
+  {% endif%}
 
   <form method="POST" action="{% url 'register' %}">
   {% csrf_token %}
-    {{ form.username.label }}
-    {{ form.username }}
-    {{ form.email.label }}
-    {{ form.email }}
-    {{ form.password.label }}
-    {{ form.password }}
-    <input type="submit" class="login login-submit" value="login" />
+
+    {% for field in form %}
+      {% if field.errors %}
+        <div class="alert alert-danger">
+            {% for error in field.errors %}
+              {{error|escape}}
+            {%endfor%}
+        </div>
+      {% endif %}
+      {{ field.label_tag }} {{ field }}
+    {% endfor %}
+
+    <input type="submit" class="login login-submit" value="Sign Up" />
     <input type="hidden" name="next" value="{{ next }}" /> 
     <!-- What is this for again? Something about redirects and multiple login tries... -->
     <!-- Search docs for @login_required decorator -->

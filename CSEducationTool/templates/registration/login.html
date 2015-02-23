@@ -20,23 +20,34 @@
   <div class="login-card">
     <h1>Log-in</h1><br>
 
-  {% if form.errors %}
-    {% for error in form.errors %}
-      <div class="alert alert-danger"><p>{{error}}</p></div>
-    {% endfor %}
-  {% endif %}
   {% if registered %}
   <div class="alert alert-success"></h4>You have successfully created an account. You may now log in.</h4></div>
   {% endif %}
-
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {% for error in form.non_field_errors %}
+        {{error|escape}}
+      {%endfor%}
+    </div>
+  {% endif%}
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-    {{ form.username.label }}
-    {{ form.username }}
-    {{ form.password.label }}
-    {{ form.password }}
-    <input type="submit" class="login login-submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" /> 
+
+    {% for field in form %}
+      {% if field.errors %}
+        <div class="alert alert-danger">
+          <ul>
+            {% for error in field.errors %}
+              <li>{{error|escape}}</li>
+            {%endfor%}
+          </ul>
+        </div>
+      {% endif %}
+      {{ field.label_tag }} {{ field }}
+    {% endfor %}
+
+    <input type="submit" class="login login-submit" value="Log in" />
+    <input type="hidden" name="registered" value="{{ registered }}" /> 
     <!-- What is this for again? Something about redirects and multiple login tries... -->
     <!-- Search docs for @login_required decorator -->
   </form>

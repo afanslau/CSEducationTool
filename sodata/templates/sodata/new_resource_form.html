@@ -7,8 +7,10 @@
 	{% endif %}
 	{{new_resource_form}}
 	<input type="hidden" name="current_resource_id" value="{{resource.id}}"/>
-	{% if not resource == None %}
-	<button id="new-resource-submit-button" class="submit-button" type="submit">Pin to {% if resource.title|length > 20 %}{{ resource.title|truncatechars:20 }}{%else%}{{resource.title}}{%endif%}</button>
+	{% if resource %}
+		<button id="new-resource-submit-button" class="submit-button" type="submit">Pin to {% if resource.title|length > 40 %}{{ resource.title|truncatechars:40 }}{%else%}{{resource.title}}{%endif%}</button>
 	{% endif %}
-	<button id="new-resource-home-submit-button" class="submit-button" type="button">Pin to Home</button>
+	{% if not resource.is_home %}
+		<button id="new-resource-home-submit-button" class="submit-button" type="button">Pin to Home</button>
+	{% endif %}
 </form>
