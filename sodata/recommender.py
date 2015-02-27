@@ -270,11 +270,23 @@ class RecContext(object):
 		if len(trs) > 0:
 			docs += [r.get_doc_string() for r in Resources.objects.filter(parent_resources__in=trs, is_home=False)]
 
-		vect = np.array(tfv.transform(docs).sum(axis=0)).flatten()  # Doesnt need to be normalized, because I'm just sorting it to get vocab
-		# Since I'm only getting the top N, it's unneccessary to sort the rest of the list
-		vix = learning.argtopk(vect, k=constants.N_IMPORTANT_TERMS)
-		vix = vix[vect[vix].nonzero()]  # Eliminate the zero entries
-		word_list = [learning.index_vocab_map[ix] for ix in vix]
-		self.important_terms = self.important_terms.union(word_list)
+
+		print '_add_important_terms  docs: ', docs
+
+		if len(docs) == 0:
+				# HARD CODED
+			self.important_terms = self.important_terms.union(['ruby','rails','git','source control','software engineering'])
+		
+		else:
+			transformed = tfv.transform(docs)
+
+			print '_add_important_terms  tfv: ', tfv
+
+			vect = np.array(transformed.sum(axis=0)).flatten()  # Doesnt need to be normalized, because I'm just sorting it to get vocab
+			# Since I'm only getting the top N, it's unneccessary to sort the rest of the list
+			vix = learning.argtopk(vect, k=constants.N_IMPORTANT_TERMS)
+			vix = vix[vect[vix].nonzero()]  # Eliminate the zero entries
+			word_list = [learning.index_vocab_map[ix] for ix in vix]
+			self.important_terms = self.important_terms.union(word_list)
 
 

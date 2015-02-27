@@ -3,7 +3,7 @@ from sodata.models import Resources, TopicRelations, UserRelation
 from django.contrib.auth.models import User
 from urllib import urlencode, urlopen
 from django.core.management.base import BaseCommand
-from sodata.learning import store_vectors
+# from sodata.learning import store_vectors
 
 LOG_LEVEL_SILENT = -1
 LOG_LEVEL_ERROR = 0
@@ -25,7 +25,9 @@ page_preview_url = wikipedia_base_url % '/w/api.php?action=query&prop=extracts&f
 subcategory_url = wikipedia_base_url % '/w/api.php?action=query&list=categorymembers&format=xml&cmprop=ids|title|type&cmtype=subcat&cmlimit=%d&cmtitle=%s'
 wiki_url = wikipedia_base_url % '/wiki/%s'
 
-system_user = User.objects.get(username='System')
+
+system_user, created = User.objects.get_or_create(username='System')
+Resources.create_home(system_user)
 
 class Command(BaseCommand):
 	help = 'Loads wikipedia topics from the api'
@@ -36,10 +38,10 @@ class Command(BaseCommand):
 		# UserRelation.objects.all().delete()
 		# TopicRelations.objects.all().delete()
 
-		# testCategory = 'Category:Areas of computer science'
-		# depth = 0
-		# wiki_dfs(category_title=testCategory, depth=depth, stop_depth=stop_depth, top_level_width=top_level_width)
-		store_vectors()
+		testCategory = 'Category:Areas of computer science'
+		depth = 0
+		wiki_dfs(category_title=testCategory, depth=depth, stop_depth=stop_depth, top_level_width=top_level_width)
+		# store_vectors()
 
 #This gets both pages AND categories
 def get_subpages(category_name, n_subpages):
@@ -114,7 +116,14 @@ def visit(title):
 	#Create Topic object for this page
 
 	topic, should_save = Resources.objects.get_or_create(title=page_title, pre_seeded=True, author=system_user)
-	UserRelation.objects.create(user=system_user, resource=topic)
+	UserRelation.objects.get_or_create(user=system_user, resource=topic)
+
+	# Take away wikipedia ending
+	wikiending = ' - Wikipedia, the free encyclopedia'
+	if page_title.endswith(wikiending):
+		page_title = page_title[:-len(wikiending)]
+		topic.title = page_title
+		should_save=True 
 
 	if topic.text is None: 
 		topic.text=page_text

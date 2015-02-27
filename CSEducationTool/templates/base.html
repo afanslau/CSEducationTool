@@ -77,10 +77,10 @@
               </li>
             {% else %}
               <li>
-                <a  id="logged-in-user" user-id="0" href="{% url 'login' %}">login</a>
+                <a href="{% url 'register' %}">signup</a>
               </li>
               <li>
-                <a href="{% url 'register' %}">signup</a>
+                <a  id="logged-in-user" user-id="0" href="{% url 'login' %}">login</a>
               </li>
             {% endif %}
           </ul>

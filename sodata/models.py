@@ -60,9 +60,11 @@ class Resources(models.Model):
     def get_doc_string(self):
         doc = ''
         if self.title is not None:
-            doc += self.title * TITLE_WEIGHT
+            doc += ' '.join([self.title] * TITLE_WEIGHT)
         if self.text is not None:
             doc += ' ' + self.text
+
+        print 'get_doc_string  doc: ',doc  
         return doc 
 
     @property

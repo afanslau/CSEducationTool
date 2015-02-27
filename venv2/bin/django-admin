@@ -1,0 +1,9 @@
+#!/Users/adam/Desktop/Thesis/CSEducationTool/venv2/bin/python2.7
+# EASY-INSTALL-ENTRY-SCRIPT: 'Django==1.7','console_scripts','django-admin'
+__requires__ = 'Django==1.7'
+import sys
+from pkg_resources import load_entry_point
+
+sys.exit(
+   load_entry_point('Django==1.7', 'console_scripts', 'django-admin')()
+)
