@@ -3,26 +3,20 @@ from sodata.models import Resources, TopicRelations
 from django.contrib.auth.models import User
 from django.db.transaction import commit_on_success
 
+# Get the system user
+system_user, created = User.objects.get_or_create(username="System")
+Resources.create_home(system_user)
+
 class Command(BaseCommand):
 	help = 'Load topic data from file'
 	def handle(self, *args, **options):
 
-		# Create system user 
-		system_user, created = User.objects.get_or_create(username="System")
-		Resources.create_home(system_user)
+		loadTopicFile('resources/seedData')
 
-		# i=0
-		# for a in args:
-		# 	loadTopicFile(a)
-		# 	i+=1
-		# print(i) 
-
-# @staticmethod
 def loadTopicFile(filename):
-	#readLine to get edge
 
 	#Create the root
-	root_title = 'Manual_Seed'
+	root_title = 'Computer Science Topics'
 	seed_root, root_created = Resources.objects.get_or_create(title=root_title)
 	if root_created:
 		seed_root.save()
@@ -39,7 +33,6 @@ def loadTopicFile(filename):
 			print(v_title)
 			t, created = Resources.objects.get_or_create(title=v_title, in_standard=True)
 			if created: 
-				t.save()
 				print('insert into Topics %s  %s' % (v_title,t.id))
 			else: print('already exists %s  %s' % (v_title,t.id))
 			i+=1
@@ -61,21 +54,16 @@ def loadTopicFile(filename):
 				print('insert into Topics %s  %s' % (postn.title, postn.id))
 			
 			#Create edge relationship
-			rel, rel_created = TopicRelations.objects.get_or_create(from_resource=pren, to_resource=postn)
-			if rel_created: rel.save()
+			rel, rel_created = TopicRelations.objects.get_or_create(from_resource=pren, to_resource=postn, perspective_user=system_user)
 			print(rel.to_resource.title, rel.from_resource.title)
 			i+=1
 	
 
 
-	# Create a relationship between all in_standard=True and parent=None
+	# Attach all dangling references to the root
 	topics = Resources.objects.filter(parent_resources=None, in_standard=True)
-
-
 	for topic in topics:
-		rel, rel_created = TopicRelations.objects.get_or_create(from_resource=seed_root, to_resource=topic)
-		if rel_created:
-			rel.save()
+		rel, rel_created = TopicRelations.objects.get_or_create(from_resource=seed_root, to_resource=topic, perspective_user=system_user)
 
 
 

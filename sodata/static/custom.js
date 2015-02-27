@@ -340,9 +340,12 @@ $("#paginate-button").on("click",function(event) {
   $.get(_url, data, function(_html) {
     container.append($(_html));
     container.attr("next-page-number", next_page+1);
+    $(this).attr("href", "#"+(next_page+1));
   }).error(function(xhr) {
     console.log(xhr.status);
     console.log("No more pages to display");
+    // Remove paginate button
+    $(this).clear();
   });
 });
  
