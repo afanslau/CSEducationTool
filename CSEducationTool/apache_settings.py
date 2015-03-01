@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 from settings import *
 
 
-BASE_DIR = os.path.dirname('CSEducationTool','apache')
+BASE_DIR = os.path.join(os.path.dirname('CSEducationTool'),'apache'))
 
 
 
