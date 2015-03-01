@@ -15,8 +15,7 @@ from settings import *
 # BASE_DIR = os.path.dirname(__file__)
 
 
-
-# DB_NAME = "topicdb" # "smallsodata"
+DB_NAME = "knowd" # "smallsodata"
 
 # # Quick-start development settings - unsuitable for production
 # # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -29,7 +28,7 @@ from settings import *
 
 # TEMPLATE_DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu'] # ALLOWED_HOSTS = []
 
 
 # # Application definition
