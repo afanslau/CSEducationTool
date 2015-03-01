@@ -9,7 +9,6 @@ from django.contrib.auth import authenticate, login
 from django.utils import timezone
 
 from sodata.models import TopicRelations, Resources, UserRelation, UserActivity
-from sodata.searchHelper import get_query
 from sodata.forms import ResourceForm, SignupForm, LoginForm
 
 import watson
