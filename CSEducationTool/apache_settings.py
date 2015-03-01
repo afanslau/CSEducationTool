@@ -16,7 +16,7 @@ from settings import *
 
 
 
-# DB_NAME = "topicdb" # "smallsodata"
+DB_NAME = "knowd" # "smallsodata"
 
 # # Quick-start development settings - unsuitable for production
 # # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -29,7 +29,7 @@ from settings import *
 
 # TEMPLATE_DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu']
 
 
 # # Application definition
@@ -72,6 +72,51 @@ DATABASES = {
         "PORT": "",
     }
 }
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'django-core': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'CSEducationTool/logs/knowd_system.log',
+            'formatter': 'verbose'
+        },
+        'user-activity': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'CSEducationTool/logs/knowd_user_activity.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['django-core'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'sodata': {
+            'handlers': ['user-activity'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
+
+
+
+
 
 # DATABASES['default'] =  dj_database_url.config()
 
