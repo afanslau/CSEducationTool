@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 from settings import *
 
 
-# BASE_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname('CSEducationTool','apache')
 
 
 
@@ -90,13 +90,13 @@ LOGGING = {
         'django-core': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'CSEducationTool/logs/knowd_system.log',
+            'filename': os.path.join(BASE_DIR,'logs','knowd_system.log'),
             'formatter': 'verbose'
         },
         'user-activity': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'CSEducationTool/logs/knowd_user_activity.log',
+            'filename': os.path.join(BASE_DIR,'logs','knowd_user_activity.log'),
             'formatter': 'verbose'
         },
     },
