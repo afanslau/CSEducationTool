@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 from settings import *
 
 
-BASE_DIR = os.path.join(os.path.dirname('CSEducationTool'),'apache'))
+BASE_DIR = os.path.join(os.path.dirname(__file__),'apache')
 
 
-DB_NAME = "knowd" # "smallsodata"
+DB_NAME = "myproj_db" # "smallsodata"
 
 # # Quick-start development settings - unsuitable for production
 # # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -64,8 +64,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": DB_NAME,
-        "USER": "knowd",
-        "PASSWORD": "drew12thesis",
+        "USER": "myproj_user",
+        "PASSWORD": "123",
         "HOST": "localhost",
         "PORT": "",
     }
