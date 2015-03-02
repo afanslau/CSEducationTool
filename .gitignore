@@ -1,4 +1,6 @@
 *.pyc
-scripts/testFile.txt
-venv
+venv*
 staticfiles
+CSEducationTool/apache/
+CSEducationTool/data_cache/
+
