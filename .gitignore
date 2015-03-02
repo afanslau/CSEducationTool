@@ -4,3 +4,4 @@ staticfiles
 *.log
 CSEducationTool/apache/
 CSEducationTool/data_cache/
+data_cache/*

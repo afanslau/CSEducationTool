@@ -1,11 +1,28 @@
 <form id="new-resource-form" action="/resources/create/{{resource.id}}" method="POST">
 	{% csrf_token %}
-	{% if new_resource_form.errors %}
-		{% for error in new_resource_form.errors %}
-			<div class="alert alert-danger"><p>{{error}}</p></div>
-		{% endfor %}
-	{% endif %}
-	{{new_resource_form}}
+
+	{% if new_resource_form.non_field_errors %}
+      <div class="alert alert-danger">
+      {% for error in new_resource_form.non_field_errors %}
+        {{error|escape}}
+      {%endfor%}
+      </div>
+    {% endif%}
+
+	{% for field in new_resource_form %}
+      {% if field.errors %}
+        <div class="alert alert-danger">
+        {% for error in field.errors %}
+          {{error|escape}}
+        {%endfor%}
+        </div>
+      {% endif %}
+      {% if not field.is_hidden %}
+      	{{ field.label_tag }} {{ field }}
+      {% endif %}
+      <br/>
+    {% endfor %}
+
 	<input type="hidden" name="current_resource_id" value="{{resource.id}}"/>
 	{% if resource %}
 		<button id="new-resource-submit-button" class="submit-button" type="submit">Pin to {% if resource.title|length > 40 %}{{ resource.title|truncatechars:40 }}{%else%}{{resource.title}}{%endif%}</button>
