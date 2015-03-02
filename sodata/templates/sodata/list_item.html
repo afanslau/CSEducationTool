@@ -32,11 +32,13 @@
 			<p>{{resource.preview}}</p>
 		</div>
 		<div class="col-xs-1" style="padding: 0px">
-			<div class="btn-group pull-right">
-			    <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
-			      <span class="glyphicon glyphicon-chevron-down"></span>
-			    </button>
-			    {% if parent %}
+			{% if parent %}
+				<div class="btn-group pull-right">
+
+				    <button type="button" class="flat" data-toggle="dropdown" aria-expanded="false">
+				      <span class="glyphicon glyphicon-chevron-down"></span>
+				    </button>
+				    
 				    <ul class="dropdown-menu" role="menu">
 				      <li><a class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
 				      <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
@@ -46,8 +48,8 @@
 				        Delete</a></li>
 				      {%endif%}	
 				    </ul><!-- dropdown menu -->
-				   {% endif %}
-			</div>
+				</div>
+			{% endif %}
 			<div class="row">
 			    {% if user_relation.num_children > 0 %}
 			    <div class="flat">
