@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup as Soup
-from sodata.models import Resources, TopicRelations, UserRelation
+from sodata.models import Resources, TopicRelations, UserRelation, get_system_user
 from django.contrib.auth.models import User
 from urllib import urlencode, urlopen
 from django.core.management.base import BaseCommand
@@ -26,8 +26,9 @@ subcategory_url = wikipedia_base_url % '/w/api.php?action=query&list=categorymem
 wiki_url = wikipedia_base_url % '/wiki/%s'
 
 
-system_user, created = User.objects.get_or_create(username='System')
-Resources.create_home(system_user)
+# system_user, created = User.objects.get_or_create(username='System')
+# Resources.create_home(system_user)
+system_user = get_system_user()
 
 class Command(BaseCommand):
 	help = 'Loads wikipedia topics from the api'

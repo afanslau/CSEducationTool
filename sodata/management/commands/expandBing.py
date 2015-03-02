@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from sodata.models import Resources, TopicRelations
+from sodata.models import Resources, TopicRelations, get_system_user, get_bing_user
 from django.contrib.auth.models import User 
 import Bing 
 from bs4 import BeautifulSoup as Soup
@@ -8,10 +8,12 @@ class Command(BaseCommand):
 	help = 'Loads wikipedia topics from the api'
 	def handle(self, *args, **options):
 
-		bing_user,created = User.objects.get_or_create(username="Bing Search")
-		if created:
-			Resources.create_home(bing_user)
-		system_user,created = User.objects.get_or_create(username="System")
+		bing_user = get_bing_user()
+		system_user = get_system_user()
+		# bing_user,created = User.objects.get_or_create(username=SYSTEM_USERNAME)
+		# if created:
+			# Resources.create_home(bing_user)
+		# system_user,created = User.objects.get_or_create(username="System")
 
 		
 		addons = ['what is','tutorial','getting started','learning','how to']
@@ -27,10 +29,10 @@ class Command(BaseCommand):
 				counted_errors = 0
 				for entry in entries:
 					# try:
-					new.url = entry.content.find('d:url').get_text()
+					url = entry.content.find('d:url').get_text()
 					new, created = Resources.objects.get_or_create(url=url)
 					if created:
-						title = entry.content.find('d:title').get_text()	
+						new.title = entry.content.find('d:title').get_text()	
 						new.displayurl = entry.content.find('d:displayurl').get_text()
 						new.text = entry.content.find('d:description').get_text()
 						new.author = bing_user

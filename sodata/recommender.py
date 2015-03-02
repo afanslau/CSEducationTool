@@ -18,6 +18,22 @@ from django.db.models import Sum
 from sodata import constants
 
 
+def normalize_weights(weights):
+	total = sum(weights.values())
+	if total==0:
+		return weights
+	return {feature : w/total for feature,w in weights.items()}
+weights = normalize_weights({
+	'watson_rank'     					: 20,
+	'text_similarity' 					: 70,
+	'total_views'     					: 10,
+	'relations_context_to_candidate'    : 40,
+	'human_created'    					: 40,
+	# 'recently_used'   					: 40
+})
+
+
+
 class RecCandidate(object):
 	def __init__(self, context, resource, path=None):
 		super(RecCandidate, self).__init__()
@@ -63,18 +79,26 @@ class RecContext(object):
 		resource = candidate.resource
 
 		try: 
-			score = constants.w_watson_rank * resource.watson_rank  # Should weight by the importance of the term that it was matched to
+			score = weights['watson_rank'] * resource.watson_rank  # Should weight by the importance of the term that it was matched to
 		except AttributeError:
 			score = 0
 
 		# Get the textual similarity
 		similarity = learning.get_similarity(self.resource,resource)[0,1]
-		score += constants.w_text_similarity * similarity
+		score += weights['text_similarity'] * similarity
 
 		# Get the number of views by all users
 		n_views = UserRelation.objects.filter(resource=resource).aggregate(Sum('num_visits'))['num_visits__sum']
-		score += constants.w_total_views * (1 - 1/n_views) if n_views > 0 else 0
+		score += weights['total_views'] * (1 - 1/n_views) if n_views > 0 else 0
 		# TODO squash between 0 and 1
+
+		# If the resource was created by a human, weight higher
+		score += weights['human_created'] * int(resource.author.is_human())
+
+		# Count the number of relations where the candidate is a child of the context resource
+		if self.resource is not None:
+			child_role = TopicRelations.objects.filter(from_resource=self.resource, to_resource=resource)
+			score += weights['num_relations_context_to_candidate'] * (1 - 1/len(child_role)) if len(child_role) > 0 else 0
 
 		
 		# # Get the cost-weighted path length from query
@@ -109,11 +133,6 @@ class RecContext(object):
 		# # TODO - find a better way to bound between 0 and 1
 		# score += w_total_relations * (1 - 1/len(all_relations))
 
-
-		# Count the number of relations where the candidate is a child of the context resource
-		if self.resource is not None:
-			child_role = TopicRelations.objects.filter(from_resource=self.resource, to_resource=resource)
-			score += constants.w_child_role * (1 - 1/len(child_role)) if len(child_role) > 0 else 0
 
 		# Count the number of relations from the user's perspective
 		# user_created = all_relations.filter(perspective_user=self.user)

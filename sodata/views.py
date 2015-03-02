@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, Http404, HttpResponseBadRequest, HttpResponseRedirect
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.db.models import Q
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -253,11 +253,19 @@ def ui_create_resource(request, parent_id=None):
     elif type(new_resource) is ResourceForm:
         try:
             parent = Resources.objects.get(id=parent_id)
-        except Exception, e:
+        except Exception as e:
             parent = None
             print 'ui_create_resource   Exception caught: ', e
         return render(request, 'sodata/new_resource_form_container.html', {'new_resource_form':new_resource, 'resource':parent})
+    else:
+        print 'ui_create_resource:  new_resource:  ', new_resource
+        return HttpResponse("something went wrong here")
+
+
 def create_resource(request, parent_id=None):
+
+    print 'create_resource:  request.method  ', request.method
+
 
     if request.method=="POST":
         form = ResourceForm(request.POST)
@@ -265,7 +273,15 @@ def create_resource(request, parent_id=None):
 
         if form.is_valid():
             cd = form.cleaned_data
+
+            print 'create_resource:  cleaned_data: ',cd
+
+
             new_resource = form.save(commit=False)
+
+
+            print 'create_resource:   new_resource:  ', new_resource
+
             parent = None
             if request.user.is_authenticated():
                 try:
@@ -284,26 +300,11 @@ def create_resource(request, parent_id=None):
                 UserRelation.objects.create(user=request.user, resource=new_resource, user_type=1) #AUTHOR
                 UserActivity.objects.create(user=request.user, resource=new_resource, activity_type=3) #CREATED
 
-
-
-
-
-
                 # Get Tags and create relationships if we can
                 tags = cd.get('tags',None)
-
                 print 'create_resource  tags: ', tags
-
                 if tags is not None:
-
-
                     tag_resource(request, new_resource, tags)
-
-
-
-
-
-
 
             else:
                 new_resource.save()
@@ -319,13 +320,16 @@ def create_resource(request, parent_id=None):
 
 def tag_resource(request, resource, tags):
 
-
     myhome = Resources.objects.get(is_home=True, author=request.user)
     for tag in tags:
 
         # Get or create the tag
         # Make relations
-        tagr,tag_created = Resources.objects.get_or_create(title=tag)
+        try:
+            tagr, tag_created = Resources.objects.get_or_create(title=tag, author=request.user)
+        except MultipleObjectsReturned:
+            tagr = Resources.objects.filter(title=tag, author=request.user)[0]
+            tag_created = False 
         relation,relation_created = TopicRelations.objects.get_or_create(from_resource=tagr, to_resource=resource, perspective_user=request.user)
 
         if tag_created:
@@ -529,16 +533,68 @@ def ui_choose_parent_pin_to(request, resource_id=None):
         r = Resources.objects.get(id=resource_id)
     except ObjectDoesNotExist:
         return Http404
-    search_results = watson.search(r.title)
-    data = {'resource_id':r.id, 'title':r.title, 'resource_list':search_results.values('object_id_int','title')} # return only title and id for speed
+    # search_results = watson.search(r.title, models=(Resources.objects.filter(author=request.user),))
+    # if len(search_results) > 0:
+    #     search_results = search_results.values('object_id_int','object')
+
+    # print 'ui_autocomplete_search   search_results: ', search_results
+
+    # print 'ui_autocomplete_search   search_results: ', search_results.values('object_id_int','object')
+
+    search_results = search_parents(request, r.title, resource_id)['resource_list']
+
+    # print 'ui_choose_parent_pin_to  search_results: ', search_results
+
+
+    log_data = {'message':'recommend_parents', 'user':request.user,'child_resource':r}
+    logger.info(json.dumps(log_data,cls=LogEncoder))
+
+    data = {'resource_id':r.id, 'title':r.title, 'resource_list':search_results} # return only title and id for speed
     return render(request, 'sodata/pin_to_topic.html', data)
+
 def ui_autocomplete_search(request):
-    term = request.GET.get("q")
-    search_results = watson.search(term, exclude=(Resources.objects.filter(~Q(author=request.user),is_home=True),)).values('object_id_int','title')
-    data = {'resource_list':search_results}
+    data = search_parents(request)
     return render(request, 'sodata/title-items.html', data)
 
+def search_parents(request, term=None, exclude_resource=None):
+    if term is not None:
+        _term = term
+    else:
+        _term = request.GET.get("q")
+        if _term is None:
+            search_results = []
+    
+    # print 'search_parents   _term: ', _term
 
+    _my_search_results = watson.search(_term, models=(Resources.objects.filter(author=request.user),), exclude=(Resources.objects.filter(~Q(author=request.user),is_home=True),Resources.objects.filter(id=exclude_resource)))
+
+    # print 'search_parents  my_search_results', _my_search_results
+
+    my_search_results = []
+    if len(_my_search_results) > 0:
+        for sr in _my_search_results:
+            my_search_results.append({'object_id_int':sr.object_id_int, 'object':sr.object})
+        # my_search_results = my_search_results.values('object_id_int','object')
+        # Search everything else
+        _other_search_results = watson.search(_term, exclude=(Resources.objects.filter(~Q(author=request.user),is_home=True),Resources.objects.filter(id=exclude_resource),Resources.objects.filter(id__in=[s['object_id_int'] for s in my_search_results])))
+        # Exclude alreayd searched
+    else:
+        _other_search_results = watson.search(_term, exclude=(Resources.objects.filter(~Q(author=request.user),is_home=True),Resources.objects.filter(id=exclude_resource)))
+
+
+    # print 'search_parents  _other_search_results', _other_search_results
+
+    other_search_results = []
+    if len(_other_search_results) > 0:
+        for sr in _other_search_results:
+            other_search_results.append({'object_id_int':sr.object_id_int, 'object':sr.object})
+        # other_search_results = other_search_results.values('object_id_int','object')
+    search_results = my_search_results + other_search_results
+
+
+    # print 'autocomplete_search   search_results: ', search_results
+
+    return {'resource_list':search_results}
 
 
 def api_delete_relation_by_id(request, relation_id):

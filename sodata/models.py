@@ -114,6 +114,8 @@ class Resources(models.Model):
         return home 
 
     def __unicode__(self):
+        if self.id is None or self.title is None:
+            return str(self.to_dict())
         return u'%d - %s' % (self.id, self.title)
 
 
@@ -418,14 +420,28 @@ class TfidfMatrix(models.Model):
 
 
 
-    # updated_at = models.DateTimeField(default=timezone.now)
 
 
 
-# Adds a field to Resources AND an extra UserProfile table..
-# class UserProfile(models.Model):
-#     user = models.ForeignKey(User, related_name='user_profile')
+''' USER MODIFICATION '''
+BING_USERNAME = "Bing Search"
+SYSTEM_USERNAME = "System"
+def get_or_create_user(username):
+    u, created = User.objects.get_or_create(username=username)
+    if created:
+        Resources.create_home(u)
+    return u
+def get_system_user():
+    return get_or_create_user(SYSTEM_USERNAME)
+def get_bing_user():
+    return get_or_create_user(BING_USERNAME)
 
-#     home_resource = models.ForeignKey(Resource, related_name='home_user')
+def is_human(self):
+    return self == get_bing_user() or self == get_system_user()
+User.is_human = is_human
+# Bounding a method to instances
+#  Source : http://stackoverflow.com/questions/972/adding-a-method-to-an-existing-object
+
+
 
 

@@ -100,6 +100,19 @@ class ResourceForm(forms.ModelForm):
             return None
         return _text
 
+    def clean_tags(self):
+        _tags = self.cleaned_data.get('tags',None)
+        if _tags is None:
+            return []
+        # Split by commas or spaces
+        _tags = re.split('\s*,\s*', _tags)
+        # Remove all empty strings or whitespace.. I shouldn't need to use strip, the re should do that already
+        cleaned_tags = [t for t in _tags if len(t.strip()) > 0]
+        return cleaned_tags
+                
+                    
+
+
 
 
     def clean(self):
@@ -114,14 +127,7 @@ class ResourceForm(forms.ModelForm):
                 break
         if not valid_so_far:
             raise forms.ValidationError(u"A resource cannot be blank. Please fill out at least one field")
-        
-        tags = form_data.get('tags',None)
 
-        print 'form clean:  ', tags
-
-        if tags is not None:
-            # Split by commas or spaces
-            form_data['tags'] = re.split('\s*,*\s*', tags)
 
         return form_data
 
