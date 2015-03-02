@@ -2,3 +2,5 @@
 venv*
 staticfiles
 *.log
+CSEducationTool/apache/
+CSEducationTool/data_cache/
