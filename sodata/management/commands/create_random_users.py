@@ -7,8 +7,7 @@ class Command(BaseCommand):
 	help = 'Creates users with randomized usernames and default passwords'
 	def handle(self, *args, **options):
 		try:
-			print len(args)
-			n = args[0]
+			n = int(args[0])
 		except IndexError:
 			n = 10
 
