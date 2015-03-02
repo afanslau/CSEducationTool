@@ -387,11 +387,9 @@ $(".dismiss-button").on("click", function(event) {
   $.post(_url, function(response) {
     console.log(response);
   });
-
   $("#resource-card-container-"+rid).remove();
 
 })
-
 
 $("#help_popup").popup({
   transition: '0.3s all 0.1s',

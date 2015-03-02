@@ -19,7 +19,7 @@ def gather_resources(n_resources_per_tag=3):
 
 
 #Returns api response as a string
-def perform_query(query_term, skip=0, top=4):
+def perform_query(query_term, top=5, skip=0):
 	clean_query = query_term.replace("'", '')
 	clean_query = "'%s'" % clean_query
 
@@ -37,7 +37,8 @@ def perform_query(query_term, skip=0, top=4):
 	#Check cache? Am I legally allowed to do that? Probably not...
 
 	result = urllib2.urlopen(request)
-	return result.read()
+ 
+	return result
 
 
 

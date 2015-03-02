@@ -1,4 +1,4 @@
-92 76
+93 77
 Intro to Computer Science - Beginners start here
 Intro programming
 Object Oriented Design
@@ -91,6 +91,7 @@ Graphics
 Hardware & Architecture
 Artificial Intelligence
 Programming Languages
+Dependency Management
 Object Oriented Design, Classes and Objects
 Data Structures, Arrays
 Data Structures, Lists
@@ -167,3 +168,4 @@ Algorithms, P NP NP-Complete
 Algorithms, Hash Functions
 Algorithms, Regex
 Software engineering, Command Line Tools
+Software engineering, Dependency Management

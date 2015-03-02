@@ -671,7 +671,8 @@ def api_recommend_resources(request, resource_id=None):
     user_relations = UserRelation.get_relations_by_resource_id(request, resource_list)
     return {"resource_list":resource_list,
             "user_relations":user_relations,
-            "page_number":page_number
+            "page_number":page_number,
+            "parent":resource
             }
 
 

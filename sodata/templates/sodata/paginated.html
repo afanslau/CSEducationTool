@@ -1,6 +1,6 @@
 {% load extra_tags %}
 <div id="recommended-page-{{page_number}}" page-number="{{page_number}}">
 {% for resource in resource_list %}
-  {% include 'sodata/list_item.html' with resource=resource parent=parent user_relation=user_relations|get_item:resource.id pinned=pinned%}
+  {% include 'sodata/list_item.html' with resource=resource parent=parent user_relation=user_relations|get_item:resource.id%}
 {% endfor %}
 </div>

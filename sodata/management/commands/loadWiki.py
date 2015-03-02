@@ -203,7 +203,6 @@ def wiki_dfs(category_title, depth=0, stop_depth=0, path=None, top_level_width=N
 
 		#Add the new child_resource or topic to  topic.child_resources
 		if child_topic is not None:
-
 			TopicRelations.objects.create(to_resource=child_topic, from_resource=topic, perspective_user=system_user)
 
 		
