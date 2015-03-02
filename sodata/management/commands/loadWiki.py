@@ -95,7 +95,7 @@ def visit(title):
 
 
 
-	page_text = api_response_soup.find('extract')
+	page_text = api_response_soup.find('extract').get_text()
 	if page_text is None: # or page_text == '':
 		#Try to get the page with the same name, not the category 
 		apiurl = page_preview_url % page_title
@@ -103,11 +103,11 @@ def visit(title):
 		page = api_response_soup.page
 		if not page.has_attr('missing'):
 			#Page not found, just do nothing
-			page_text = api_response_soup.find('extract').string
+			page_text = api_response_soup.find('extract').get_text()
 			
 
 	else:
-		page_text = page_text.string #HTML
+		page_text = page_text.get_text() #HTML
 
 	page_url = wiki_url % returned_title # Uses Category: if a corresponding page is not found on wikipedia
 	

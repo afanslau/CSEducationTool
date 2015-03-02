@@ -252,6 +252,9 @@ class RecContext(object):
 
 	def recommend(self):
 		self.fill_candidates()
+
+		print 'recommend  important_terms: ', self.important_terms
+
 		return self.rank_candidates()
 		# return []
 		
@@ -274,11 +277,8 @@ class RecContext(object):
 		# print '_add_important_terms  docs: ', docs
 
 		# Add default interests
-		if len(docs) < 5:
-				# HARD CODED
-			docs += ['ruby','rails','git','source control','software engineering','rvm','blog']
-		
-		else:
+		if len(docs) > 0:
+			
 			transformed = tfv.transform(docs)
 
 			# print '_add_important_terms  tfv: ', tfv
@@ -288,6 +288,11 @@ class RecContext(object):
 			vix = learning.argtopk(vect, k=constants.N_IMPORTANT_TERMS)
 			vix = vix[vect[vix].nonzero()]  # Eliminate the zero entries
 			word_list = [learning.index_vocab_map[ix] for ix in vix]
-			self.important_terms = self.important_terms.union(word_list)
 
+			print '_add_important_terms  ', word_list
+
+			self.important_terms = self.important_terms.union(word_list)
+		self.important_terms = self.important_terms.union(['ruby','rails','git','source control','software engineering','rvm','blog','dependency'])
+
+		print '_add_important_terms  ', self.important_terms
 

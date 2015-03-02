@@ -14,8 +14,8 @@ class Command(BaseCommand):
 		system_user,created = User.objects.get_or_create(username="System")
 
 		
-		addons = ['introduction to','tutorial','example','getting started','learning','how to','essentials']
-		tags_to_expand = ['Ruby on Rails','Git','Source Control','Software Engineering','Dependency Management']
+		addons = ['what is','tutorial','getting started','learning','how to']
+		tags_to_expand = ['Ruby on Rails','Git','Source Control','Software Engineering']
 		for tag in tags_to_expand:
 			for addon in addons:
 
