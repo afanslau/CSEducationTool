@@ -93,7 +93,8 @@ class RecContext(object):
 		# TODO squash between 0 and 1
 
 		# If the resource was created by a human, weight higher
-		score += weights['human_created'] * int(resource.author.is_human())
+		if resource.author is not None:
+			score += weights['human_created'] * int(is_human())
 
 		# Count the number of relations where the candidate is a child of the context resource
 		if self.resource is not None:
