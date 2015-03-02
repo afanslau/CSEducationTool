@@ -312,7 +312,9 @@ class RecContext(object):
 			print '_add_important_terms  ', word_list
 
 			self.important_terms = self.important_terms.union(word_list)
-		self.important_terms = self.important_terms.union(['ruby','rails','git','source control','software engineering','rvm','blog','dependency'])
+
+		if len(self.important_terms) == 0:
+			self.important_terms = self.important_terms.union(['ruby','rails','git','source control','software engineering','rvm','blog','dependency'])
 
 		print '_add_important_terms  ', self.important_terms
 
