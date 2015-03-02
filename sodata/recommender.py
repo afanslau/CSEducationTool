@@ -146,8 +146,8 @@ class RecContext(object):
 		# Make _candidate a RecCandidate if it isn't already one
 		parent_candidate = resource if type(resource) is RecCandidate else RecCandidate(context=self, resource=resource, path=new_path)
 
-		print 'follow_edges_with_path_length: resource: ',parent_candidate.resource.id,parent_candidate.resource.title
-		print '   path: ', new_path 
+		# print 'follow_edges_with_path_length: resource: ',parent_candidate.resource.id,parent_candidate.resource.title
+		# print '   path: ', new_path 
 
 		# After I follow all the edges, add the node to the path. 
 		exclude_Q = ~Q(id__in=self.candidate_ids)
@@ -176,7 +176,7 @@ class RecContext(object):
 			_path = []
 		_path += [_resource]
 		
-		print 'call follow_edges: ', _resource.id, _resource.title, '\n   _path ', _path
+		# print 'call follow_edges: ', _resource.id, _resource.title, '\n   _path ', _path
 
 		# Get children of _resource
 		_relation_Q = Q(from_resource=_resource)|Q(to_resource=_resource) 
@@ -223,7 +223,7 @@ class RecContext(object):
 
 		# Search Watson for vocab_terms
 
-		print 'method: fill_candidates  self.important_terms: ', self.important_terms
+		# print 'method: fill_candidates  self.important_terms: ', self.important_terms
 
 		for term in self.important_terms:
 			search_results = watson.search(term, exclude=(Resources.objects.filter(exclude_Q),))[:constants.N_RECOMMENDATIONS_PER_TERM]
@@ -243,7 +243,7 @@ class RecContext(object):
 
 		with_rank = { c:self.get_relevance(c) for c in self.candidates }
 		sorted_by_rank = sorted( with_rank.items() , key=itemgetter(1) , reverse=True)
-		print 'recommender.recommend  ', len(sorted_by_rank)
+		# print 'recommender.recommend  ', len(sorted_by_rank)
 
 		return [c[0].resource for c in sorted_by_rank]
 
@@ -271,16 +271,17 @@ class RecContext(object):
 			docs += [r.get_doc_string() for r in Resources.objects.filter(parent_resources__in=trs, is_home=False)]
 
 
-		print '_add_important_terms  docs: ', docs
+		# print '_add_important_terms  docs: ', docs
 
-		if len(docs) == 0:
+		# Add default interests
+		if len(docs) < 5:
 				# HARD CODED
-			self.important_terms = self.important_terms.union(['ruby','rails','git','source control','software engineering'])
+			docs += ['ruby','rails','git','source control','software engineering','rvm','blog']
 		
 		else:
 			transformed = tfv.transform(docs)
 
-			print '_add_important_terms  tfv: ', tfv
+			# print '_add_important_terms  tfv: ', tfv
 
 			vect = np.array(transformed.sum(axis=0)).flatten()  # Doesnt need to be normalized, because I'm just sorting it to get vocab
 			# Since I'm only getting the top N, it's unneccessary to sort the rest of the list
