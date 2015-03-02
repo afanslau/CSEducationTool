@@ -2,3 +2,4 @@
 venv*
 staticfiles
 *.log
+data_cache/*
