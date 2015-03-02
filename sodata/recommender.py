@@ -71,10 +71,10 @@ class RecContext(object):
 		similarity = learning.get_similarity(self.resource,resource)[0,1]
 		score += constants.w_text_similarity * similarity
 
-		# # Get the number of views by all users
-		# n_views = UserRelation.objects.filter(resource=resource).aggregate(Sum('num_visits'))['num_visits__sum']
-		# score += w_total_views * (1 - 1/n_views) if n_views > 0 else 0
-		# # TODO squash between 0 and 1
+		# Get the number of views by all users
+		n_views = UserRelation.objects.filter(resource=resource).aggregate(Sum('num_visits'))['num_visits__sum']
+		score += constants.w_total_views * (1 - 1/n_views) if n_views > 0 else 0
+		# TODO squash between 0 and 1
 
 		
 		# # Get the cost-weighted path length from query
@@ -110,10 +110,10 @@ class RecContext(object):
 		# score += w_total_relations * (1 - 1/len(all_relations))
 
 
-		# # Count the number of relations where the candidate is a child of the context resource
-		# if self.resource is not None:
-		# 	child_role = all_relations.filter(from_resource=self.resource, to_resource=candidate)
-		# 	score += w_child_role * len(child_role)
+		# Count the number of relations where the candidate is a child of the context resource
+		if self.resource is not None:
+			child_role = TopicRelations.objects.filter(from_resource=self.resource, to_resource=resource)
+			score += constants.w_child_role * (1 - 1/len(child_role)) if len(child_role) > 0 else 0
 
 		# Count the number of relations from the user's perspective
 		# user_created = all_relations.filter(perspective_user=self.user)

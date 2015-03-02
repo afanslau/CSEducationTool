@@ -8,12 +8,14 @@ w_user_total_relations = 70
 w_total_starred = 85
 w_user_starred = 200
 
-w_watson_rank = 0.3
-w_total_relations = 0
-w_path_confidence = 0.3
-w_text_similarity = 0.4
-w_total_views     = 0
-w_all = w_total_views + w_text_similarity + w_path_confidence + w_total_relations
+w_watson_rank = 0.1
+# w_total_relations = 0
+# w_path_confidence = 0.3
+w_text_similarity = 0.5
+w_total_views     = 0.1
+w_child_role      = 0.3
+
+# w_all = w_total_views + w_text_similarity + w_path_confidence + w_total_relations
 # print 'recommender - weights: ', w_all
 # print 'recommender - weights: ', round(w_all, 5)==1
 # assert , "Recommendation feature weights must sum to 1"
