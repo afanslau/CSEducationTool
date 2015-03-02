@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
 		
 		addons = ['what is','tutorial','getting started','learning','how to']
-		tags_to_expand = ['Ruby on Rails','Git','Source Control','Software Engineering']
+		tags_to_expand = ['git', 'git commands']#['Ruby on Rails','Git','Source Control','Software Engineering']
 		for tag in tags_to_expand:
 			for addon in addons:
 
