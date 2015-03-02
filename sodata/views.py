@@ -9,7 +9,6 @@ from django.contrib.auth import authenticate, login
 from django.utils import timezone
 
 from sodata.models import TopicRelations, Resources, UserRelation, UserActivity
-from sodata.searchHelper import get_query
 from sodata.forms import ResourceForm, SignupForm, LoginForm
 
 import watson
@@ -34,8 +33,13 @@ def ui_landing_page(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect("/resources")
     return render(request, 'sodata/landing.html')
-def register(request):
-    # If it's a HTTP POST, we're interested in processing form data.
+
+
+def api_register(request):
+    user = register_user(request)
+    return HttpResponse(json.dumps(user, cls=LogEncoder))
+
+def register_user(request):
     if request.method == 'POST':
         user_form = SignupForm(data=request.POST)
 
@@ -50,10 +54,17 @@ def register(request):
             user.save()
 
             #Create the users home page resource
-            Resources.create_home(user)
-
+            Resources.create_home(user)            
             #If needed, create a UserProfie object
+            return user 
 
+def register(request):
+    # If it's a HTTP POST, we're interested in processing form data.
+    if request.method == 'POST':
+        
+        user = register_user(request)
+
+        if user is not None:
             log_data = {'message':'Successfully registered user', 'user':user}
             logger.info(json.dumps(log_data,cls=LogEncoder))
 
@@ -230,6 +241,7 @@ def ui_create_resource(request, parent_id=None):
     new_resource = create_resource(request, pid)
 
     if type(new_resource) is Resources:
+
         rid = request.POST.get("current_resource_id")
 
         if rid is None:
@@ -248,7 +260,8 @@ def ui_create_resource(request, parent_id=None):
 def create_resource(request, parent_id=None):
 
     if request.method=="POST":
-        form = ResourceForm(data={'title':request.POST.get('title'), 'text':request.POST.get('text'), 'url':request.POST.get('url')})
+        form = ResourceForm(request.POST)
+        # form = ResourceForm(data={'title':request.POST.get('title'), 'text':request.POST.get('text'), 'url':request.POST.get('url')})
 
         if form.is_valid():
             cd = form.cleaned_data
@@ -270,6 +283,28 @@ def create_resource(request, parent_id=None):
                 TopicRelations.objects.create(from_resource=parent, to_resource=new_resource, perspective_user=request.user)
                 UserRelation.objects.create(user=request.user, resource=new_resource, user_type=1) #AUTHOR
                 UserActivity.objects.create(user=request.user, resource=new_resource, activity_type=3) #CREATED
+
+
+
+
+
+
+                # Get Tags and create relationships if we can
+                tags = cd.get('tags',None)
+
+                print 'create_resource  tags: ', tags
+
+                if tags is not None:
+
+
+                    tag_resource(request, new_resource, tags)
+
+
+
+
+
+
+
             else:
                 new_resource.save()
 
@@ -281,6 +316,36 @@ def create_resource(request, parent_id=None):
             print 'Form was invalid ', form.errors, form.non_field_errors()
             return form 
             
+
+def tag_resource(request, resource, tags):
+
+
+    myhome = Resources.objects.get(is_home=True, author=request.user)
+    for tag in tags:
+
+        # Get or create the tag
+        # Make relations
+        tagr,tag_created = Resources.objects.get_or_create(title=tag)
+        relation,relation_created = TopicRelations.objects.get_or_create(from_resource=tagr, to_resource=resource, perspective_user=request.user)
+
+        if tag_created:
+            tagr.author = request.user
+            tagr.save()
+            home_tag_relation,home_tag_relation_created = TopicRelations.objects.get_or_create(from_resource=myhome, to_resource=tagr, perspective_user=request.user)
+
+            log_data = {'message':'CREATE resource', 'user':request.user, 'resource':tagr, 'parent_resource':None}
+            logger.info(json.dumps(log_data,cls=LogEncoder))
+            if home_tag_relation_created:
+                log_data = {'message':'CREATE relation', 'user':request.user, 'relation':home_tag_relation}
+                logger.info(json.dumps(log_data,cls=LogEncoder))
+
+        if relation_created:
+            log_data = {'message':'CREATE relation', 'user':request.user, 'relation':relation}
+            logger.info(json.dumps(log_data,cls=LogEncoder))
+
+
+
+
 """ UPDATE /resources """
 def api_update_resource(request, resource_id=None):
     if resource_id is None: raise Http404

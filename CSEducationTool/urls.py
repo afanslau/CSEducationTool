@@ -42,6 +42,7 @@ urlpatterns = patterns('',
 
     # Login Authentication
     url(r'^register$', views.register, name='register'),
+    url(r'^api/register$', views.api_register, name='api_register'),
     url(r'^login$', views.user_login, name='login'),
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 

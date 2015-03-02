@@ -144,13 +144,13 @@ LOGGING = {
         'django-core': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'knowd_system.log',
+            'filename': os.path.join(BASE_DIR, 'logs','knowd_system.log'),
             'formatter': 'verbose'
         },
         'user-activity': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'knowd_user_activity.log',
+            'filename': os.path.join(BASE_DIR,'logs','knowd_user_activity.log'),
             'formatter': 'verbose'
         },
     },

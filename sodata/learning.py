@@ -14,8 +14,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from sklearn.externals import joblib
 
-
-
+import os
+from CSEducationTool.settings import BASE_DIR
 
 
 log_batch_size=10 ** 3
@@ -69,8 +69,8 @@ def get_tfidfvectorizer(train=False):
 	_train = train 
 	if cached_tfidf_vectorizer is None:
 		try:
-			cached_tfidf_vectorizer = joblib.load('cached_tfidf_vectorizer.pkl')
-			index_vocab_map = joblib.load('index_vocab_map.pkl')
+			cached_tfidf_vectorizer = joblib.load( os.path.join(BASE_DIR,'data_cache','cached_tfidf_vectorizer.pkl'))
+			index_vocab_map = joblib.load(os.path.join(BASE_DIR,'data_cache','index_vocab_map.pkl'))
 		except IOError:
 			_train = True
 	if _train:
@@ -78,9 +78,11 @@ def get_tfidfvectorizer(train=False):
 		cached_tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_features = n_features_init,ngram_range=(1,n_gram),max_df=0.8, norm='l2')
 		docs,id_index_map = vectorize_docs()
 		cached_tfidf_vectorizer.fit(docs)
-		joblib.dump(cached_tfidf_vectorizer, 'cached_tfidf_vectorizer.pkl')
+		joblib.dump(cached_tfidf_vectorizer, os.path.join(BASE_DIR,'data_cache','cached_tfidf_vectorizer.pkl'))
 		index_vocab_map = invertDict(cached_tfidf_vectorizer.vocabulary_)
-		joblib.dump(index_vocab_map, 'index_vocab_map.pkl')
+		joblib.dump(index_vocab_map, os.path.join(BASE_DIR,'data_cache','index_vocab_map.pkl'))
+
+
 	return cached_tfidf_vectorizer
 
 

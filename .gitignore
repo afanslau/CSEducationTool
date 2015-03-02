@@ -3,4 +3,5 @@ venv*
 staticfiles
 CSEducationTool/apache/
 CSEducationTool/data_cache/
-
+*.log
+data_cache/*

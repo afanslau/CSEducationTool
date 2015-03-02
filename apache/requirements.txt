@@ -1,6 +1,4 @@
-numpy==1.7.0
-scipy==0.11.0
-scikit-learn==0.13.1
+scikit-learn==0.15.2
 Django==1.7
 virtualenv==1.6.1
 gunicorn==19.0.0
