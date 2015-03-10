@@ -73,6 +73,50 @@ DATABASES = {
     }
 }
 
+
+
+# Source:  http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'django-core': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs','knowd_system.log'),
+            'formatter': 'verbose'
+        },
+        'user-activity': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'logs','knowd_user_activity.log'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['django-core'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'sodata': {
+            'handlers': ['user-activity'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
+
+
 # DATABASES['default'] =  dj_database_url.config()
 
 
