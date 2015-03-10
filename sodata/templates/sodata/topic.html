@@ -14,7 +14,7 @@
       {% if resource.url != None %}
       <p id="url-content"><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></p>
       {% endif %}
-      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="/resources/{{resource.id}}/edit">Add one now!</a>{% endif %}</p> 
+      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="{% url 'ui_update_resource' resource_id=resource.id %}">Add one now!</a>{% endif %}</p> 
     </div>
 
     {% else %}
@@ -24,7 +24,7 @@
       {% if resource.url != None %}
       <p id="url-content"><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></p>
       {% endif %}
-      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="/resources/{{resource.id}}/edit">Add one now!</a>{% endif %}</p> 
+      <p>{% if resource.text != None %}{{ resource.text }}{%else%}This resource has no description. <a href="{% url 'ui_update_resource' resource_id=resource.id %}">Add one now!</a>{% endif %}</p> 
     </div>
     <div class="col-xs-4">
       <div class="row">
@@ -33,7 +33,7 @@
             <button class="flat star-button {%if not user_relation.starred%}star-button-empty{%endif%} "  starred="{%if not user_relation.starred%}0{%else%}1{%endif%}" resource-id="{{ resource.id }}" type="button"><span class="glyphicon glyphicon-star{%if not user_relation.starred%}-empty{%endif%}"></span></button>
           </div> -->
           <div class="btn-group" type="button">
-            <a href="/resources/edit/{{resource.id}}">Edit</a>
+            <a href="{% url 'ui_update_resource' resource_id=resource.id %}">Edit</a>
             <!-- <form action="/resources/edit/{{resource.id}}" method="GET">
               <a onclick="$(this).parent().submit();">Edit</a>
             </form> -->
@@ -44,7 +44,7 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
-              <li><a href="/resources/delete/{{resource.id}}" style="color:red">Delete</a></li>
+              <li><a href="{% url 'ui_delete_resource' resource_id=resource.id %}" style="color:red">Delete</a></li>
             </ul>
           </div>
         </div>
@@ -55,11 +55,11 @@
         <h4>Related Topics</h4>
         {% if user_relation.parent_info %}
           {% for parent in user_relation.parent_info|slice:":3" %}          
-            <a href="/resources/{{parent.id}}"><p>{{parent.title|truncatechars:50}}</p></a>
+            <a href="{% url 'ui_get_resource' resource_id=parent.id %}"><p>{{parent.title|truncatechars:50}}</p></a>
           {% endfor %}
         {% else %}
           {% for parent in resource_list|slice:":3" %}          
-            <a href="/resources/{{parent.id}}"><p>{{parent.title|truncatechars:50}}</p></a>
+            <a href="{% url 'ui_get_resource' resource_id=parent.id %}"><p>{{parent.title|truncatechars:50}}</p></a>
           {% endfor %}
         {% endif %}
       </div>

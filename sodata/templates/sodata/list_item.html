@@ -8,7 +8,8 @@
 					<span class="glyphicon glyphicon-pushpin"/>
 				</button>
 			{% elif not pinned %}
-				<form action="/relations/{{parent.id}}/create/{{resource.id}}">
+				<form action="{% url 'ui_create_relation' parent_id=parent.id child_id=resource.id %}">
+					<!-- {# /relations/{{parent.id}}/create/{{resource.id}}" #} -->
 					<button class="flat" type="submit">
 						<span class="glyphicon glyphicon-pushpin"/>
 					</button>
@@ -25,7 +26,7 @@
 			{% endif %}
 		</div>
 		<div class="col-xs-10">
-			<h4><a class="list-item-url" href="/resources/{{ resource.id }}">{{resource.title}}</a></h4>
+			<h4><a class="list-item-url" href="{% url 'ui_get_resource' resource_id=resource.id %}">{{resource.title}}</a></h4>
 			{% if resource.url != None %}
 			<a class="list-item-url" href="{{ resource.url }}" target="_blank">{% if resource.display_url != None %}{{resource.display_url}}{% else %}{{resource.url}}{% endif %}</a>
 			{% endif %}
@@ -40,9 +41,9 @@
 				    </button>
 				    
 				    <ul class="dropdown-menu" role="menu">
-				      <li><a class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
-				      <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
-				      <li><a href="/relations/{{parent.id}}/delete/{{resource.id}}" class="resource-remove-button" id="remove-button-{{resource.id}}" style="color:red" onclick="" resource-id="{{ resource.id }}">{% if parent.author.id == user.id %}Remove from this page{%else%}This doesn't belong here{%endif%}</a></li>
+				      <li><a href="#" class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
+				      <li><a href="#" class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
+				      <li><a href="{% url 'ui_delete_relation_by_resources' parent_id=parent.id child_id=resource.id %}" class="resource-remove-button" id="remove-button-{{resource.id}}" style="color:red" onclick="" resource-id="{{ resource.id }}">{% if parent.author.id == user.id %}Remove from this page{%else%}This doesn't belong here{%endif%}</a></li>
 				      {% if resource.author.id == user.id %}
 				      <li><a href="#" class="resource-delete-button" id="delete-button-{{resource.id}}" style="color:red" onclick="deleteResource(this)" resource-id="{{ resource.id }}" >
 				        Delete</a></li>
@@ -62,9 +63,12 @@
 </div> <!-- col-xs-6 -->
 
 
+{% comment %} 
 <div id="confirm-delete-popup-{{resource.id}}" class="well confirm-delete">
   <h4>Resource dismissed</h4>
-  <form action="/relations/{{parent.id}}/create/{{resource.id}}">
+  <form action="{% url 'ui_create_relation' parent_id=parent.id child_id=resource.id %}">
   	<button class="confirm-delete-popup-{{resource.id}}_close btn btn-default" type="submit">Undo</button>
   </form>
 </div>
+{% endcomment %}
+<!-- Source:  https://groups.google.com/forum/#!topic/google-appengine/JoWsjiCcz2g -->

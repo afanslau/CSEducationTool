@@ -1,4 +1,7 @@
-<form id="new-resource-form" action="/resources/create/{{resource.id}}" method="POST">
+<form id="new-resource-form" action="{% if resource == None %}{% url 'ui_create_resource_in_root' %}{% else %}{% url 'ui_create_resource_in_topic' parent_id=resource.id %}{% endif %}" method="POST"> 
+  <!-- Change this when i fix the search view to create a resource on demand from the query term -->
+  
+  <!-- /resources/create/{{resource.id}} -->
 	{% csrf_token %}
 
 	{% if new_resource_form.non_field_errors %}

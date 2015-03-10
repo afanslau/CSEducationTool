@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_js_reverse',
     'watson',
     'sodata',
 )
@@ -103,7 +104,8 @@ USE_TZ = True
 # Auth
 LOGIN_REDIRECT_URL = '/'
 
-
+# Javascript Reverse URL Lookup
+# JS_REVERSE_SCRIPT_PREFIX = '/knowd/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

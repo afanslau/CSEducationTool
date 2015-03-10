@@ -17,8 +17,9 @@ $('#destination-selector-input').on("keyup",function(event) {
   clearTimeout($.data(this, 'timer'));
   var wait = setTimeout(function() {
     var searchParam  = $('#destination-selector-input').val();
-  var _url = "/autocomplete_search?q=" + encodeURIComponent(searchParam);
-    $.get(_url, function(data) {
+    var _url = Urls.ui_autocomplete_search();
+  	// var _url = "/autocomplete_search?q=" + encodeURIComponent(searchParam);
+    $.get(_url, {"q":searchParam}, function(data) {
       $("#results-list").html(data);
     });
   }, 300);
@@ -28,10 +29,10 @@ $('#destination-selector-input').on("keyup",function(event) {
 $("#results-list").on("click", ".title-item", function(event) {
 	var child = $("#pin-to-popup").attr("resource-id");
 	var parent = $(this).attr("resource-id");
-	var _url = "/relations/"+parent+"/create/"+child;
-  console.log(_url);
+	var _url = Urls.ui_create_relation(parent,child);
+	// var _url = "/relations/"+parent+"/create/"+child;
 	$.post(_url, function() {
-		alert('relation successfully created');
+		console.log('relation successfully created between '+parent+' and '+child);
 	});
 	$("#pin-to-popup").popup('hide');
 });

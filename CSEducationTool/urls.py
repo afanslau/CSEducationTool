@@ -35,10 +35,15 @@ PUT
 
 '''
 
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'CSEducationTool.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+
+
+    url(r'^jsreverse/$', 'django_js_reverse.views.urls_js', name='js_reverse'),
+
 
     # Login Authentication
     url(r'^register$', views.register, name='register'),
@@ -69,7 +74,7 @@ urlpatterns = patterns('',
     url(r'^resources', views.ui_get_resource, name='ui_get_root_resource'),
 
 
-    url(r'^relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.ui_delete_relation_by_resources, name='delete_relation_by_resource'), 
+    url(r'^relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.ui_delete_relation_by_resources, name='ui_delete_relation_by_resources'), 
     url(r'^relations/(?P<parent_id>\d+)/create/(?P<child_id>\d+)$', views.ui_create_relation, name='ui_create_relation'), 
 
 
@@ -84,7 +89,7 @@ urlpatterns = patterns('',
 
     # '''  Create a resource under the given topic 
     # POST /resources/{id}/create ? title, text, url - create a new resource in the given topic '''
-    url(r'^api/resources/create/(?P<resource_id>\d+)$', views.api_create_resource, name='create_resource_in_topic'), 
+    url(r'^api/resources/create/(?P<resource_id>\d+)$', views.api_create_resource, name='api_create_resource_in_topic'), 
 
     # '''  Update a given resource
     # POST /resources/{id}/update ? title, text, url - set data for the given resource '''
@@ -104,7 +109,7 @@ urlpatterns = patterns('',
     
     # ''' Deletes a resource by passing the resource id 
     # HTTP DELETE /resources/delete/{id} - delete the given resource '''
-    url(r'^api/resources/delete/(?P<resource_id>\d+)$', views.api_delete_resource, name='delete_resource'), 
+    url(r'^api/resources/delete/(?P<resource_id>\d+)$', views.api_delete_resource, name='api_delete_resource'), 
 
     # ''' Get all resources matching the specified query
     # GET /resources ? q- get all resources '''
@@ -112,7 +117,7 @@ urlpatterns = patterns('',
 
     # '''  Create a relation 
     # POST /relations/{parent_id}/create/{child_id} - link the parent to the child '''
-    url(r'^api/relations/create/(?P<child_id>\d+)$', views.api_create_relation, name='create_relation'), 
+    url(r'^api/relations/create/(?P<child_id>\d+)$', views.api_create_relation, name='api_create_relation_in_root'), 
 
     # '''  Create a relation 
     # POST /relations/{parent_id}/create/{child_id} - link the parent to the child '''
@@ -120,7 +125,7 @@ urlpatterns = patterns('',
 
     # '''  Delete a relation by passing its connecting resources 
     # HTTP DELETE /relations/{parent_id}/delete/{child_id} - unlink the parent to the child '''
-    url(r'^api/relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.api_delete_relation_by_resources, name='delete_relation_by_resource'), 
+    url(r'^api/relations/(?P<parent_id>\d+)/delete/(?P<child_id>\d+)$', views.api_delete_relation_by_resources, name='api_delete_relation_by_resource'), 
         
     # ''' Deletes a relation by passing the relation id 
     # HTTP DELETE /relations/delete/{id} - delete the given relationship '''
