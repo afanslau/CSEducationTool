@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, Http404, HttpResponseBadRequest, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.db.models import Q
 
@@ -31,7 +32,7 @@ from sodata import TemplateDefaults
 ''' LOGIN AUTHENTICATION VIEWS '''
 def ui_landing_page(request):
     if request.user.is_authenticated():
-        return HttpResponseRedirect("/resources")
+        return HttpResponseRedirect(reverse('ui_get_root_resource'))
     return render(request, 'sodata/landing.html')
 
 
@@ -69,7 +70,7 @@ def register(request):
             logger.info(json.dumps(log_data,cls=LogEncoder))
 
             # Update our variable to tell the template registration was successful.
-            return HttpResponseRedirect('/login?registered=True')
+            return HttpResponseRedirect('%s?registered=True' % reverse('login'))
             # return user_login(HttpRequest(), registered=True)
 
         # Invalid form or forms - mistakes or something else?
@@ -123,7 +124,7 @@ def user_login(request):
                 log_data = {'message':'Login success', 'user':user}
                 logger.info(json.dumps(log_data,cls=LogEncoder))
 
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect(reverse('ui_get_root_resource'))
 
         # Bad login details were provided. So we can't log the user in.
         log_data = {'message':'Login failure', 'user':username}
@@ -137,7 +138,7 @@ def user_login(request):
 ''' GET /resources  '''
 def ui_get_resource(request, resource_id=None):
     if resource_id is None and not request.user.is_authenticated():
-        return HttpResponseRedirect('/')  # Redirect to landing page if user is not logged in
+        return HttpResponseRedirect(reverse('ui_get_root_resource'))  # Redirect to landing page if user is not logged in
 
     data = get_resource(request, resource_id)
     return render(request,'sodata/topic.html', data) #same-as  render(request, 'sodata/index.html', data)
@@ -245,9 +246,9 @@ def ui_create_resource(request, parent_id=None):
         rid = request.POST.get("current_resource_id")
 
         if rid is None:
-            _url = '/resources/%s' % parent_id if parent_id is not None else '/'
+            _url = reverse('ui_get_resource', parent_id) if parent_id is not None else reverse('ui_get_root_resource')
         else:
-            _url = '/resources/%s' % rid
+            _url = reverse('ui_get_resource', rid)
 
         return HttpResponseRedirect(_url)
     elif type(new_resource) is ResourceForm:
@@ -364,7 +365,7 @@ def ui_update_resource(request, resource_id=None):
         updated_resource = update_resource(request, resource_id)
         if update_resource is None:
             return HttpResponse("You do not have permission to edit this resource", status=401)
-        return HttpResponseRedirect('/resources/%s'%resource_id)
+        return HttpResponseRedirect(reverse('ui_get_resource',resource_id))
     else: 
         data = get_resource(request, resource_id)
         data['form'] = ResourceForm(data['resource'].to_dict())
@@ -461,9 +462,9 @@ def ui_delete_resource(request, resource_id=None):
         logger.info(json.dumps(log_data,cls=LogEncoder))
         
         to_delete.delete()
-        return HttpResponseRedirect('/resources')
+        return HttpResponseRedirect(reverse('ui_get_root_resource'))
     else:
-        return HttpResponseRedirect('/resources/%s' % resource_id)
+        return HttpResponseRedirect(reverse('ui_get_resource', resource_id))
 def api_delete_resource(request, resource_id=None):
     if resource_id is None: return HttpResponse()
     resource_id = int(resource_id)
@@ -502,7 +503,7 @@ def api_create_relation(request, parent_id=None, child_id=None):
     return HttpResponse(json.dumps(relation.to_dict()))
 def ui_create_relation(request, parent_id=None, child_id=None):
     create_relation(request, parent_id, child_id)
-    return HttpResponseRedirect('/resources/%s'%parent_id)
+    return HttpResponseRedirect(reverse('ui_get_resource', parent_id))
 def create_relation(request, parent_id, child_id):
     if not request.user.is_authenticated():
         return None
@@ -640,7 +641,7 @@ def api_delete_relation_by_resources(request, parent_id, child_id):
         return HttpResponse("You must be logged in to delete a relation", status=401)
 def ui_delete_relation_by_resources(request, parent_id, child_id):
     api_delete_relation_by_resources(request, parent_id, child_id)
-    return HttpResponseRedirect('/resources/%s'%parent_id)
+    return HttpResponseRedirect(reverse('ui_get_resource',parent_id))
 
 
 
