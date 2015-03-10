@@ -10,58 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from settings import *
-
-
-# BASE_DIR = os.path.dirname(__file__)
-
-
-
-# DB_NAME = "topicdb" # "smallsodata"
-
-# # Quick-start development settings - unsuitable for production
-# # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'xhpdufz^9&6d7f1aek_hgrsozb!c(p4m7&7xz0!_3vm5utx%&q'
-
-# # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# TEMPLATE_DEBUG = True
-
-# ALLOWED_HOSTS = []
-
-
-# # Application definition
-
-# INSTALLED_APPS = (
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-#     'sodata'
-# )
-
-# MIDDLEWARE_CLASSES = (
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-# )
-
-# ROOT_URLCONF = 'CSEducationTool.urls'
-
-# WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
+# from relative_settings import *
+DB_NAME = 'small_temp' # 'topicdb' #Using small_temp for testing the watson search   # Was 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -73,9 +23,27 @@ DATABASES = {
     }
 }
 
+# Javascript Reverse URL Lookup
+JS_REVERSE_SCRIPT_PREFIX = BASE_URL
+
+LOGIN_REDIRECT_URL = BASE_URL
 
 
-# Source:  http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = os.path.join(BASE_URL, 'static/')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)
+
+#Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'sodata/templates/'),
+    os.path.join(BASE_DIR, 'templates/'),
+)
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -92,7 +60,7 @@ LOGGING = {
         'django-core': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs','knowd_system.log'),
+            'filename': os.path.join(BASE_DIR,'logs','knowd_system.log'),
             'formatter': 'verbose'
         },
         'user-activity': {
@@ -114,7 +82,6 @@ LOGGING = {
         },
     }
 }
-
 
 
 # DATABASES['default'] =  dj_database_url.config()

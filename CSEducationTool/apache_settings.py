@@ -11,59 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from settings import *
 
-
-BASE_DIR = os.path.join(os.path.dirname(__file__),'apache')
-
-
 DB_NAME = "myproj_db" # "smallsodata"
-
-# # Quick-start development settings - unsuitable for production
-# # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'xhpdufz^9&6d7f1aek_hgrsozb!c(p4m7&7xz0!_3vm5utx%&q'
-
-# # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu']
-
-# Javascript Reverse URL Lookup
-JS_REVERSE_SCRIPT_PREFIX = '/knowd/'
-
-
-# # Application definition
-
-# INSTALLED_APPS = (
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-#     'sodata'
-# )
-
-# MIDDLEWARE_CLASSES = (
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-# )
-
-# ROOT_URLCONF = 'CSEducationTool.urls'
-
-# WSGI_APPLICATION = 'CSEducationTool.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -74,6 +22,37 @@ DATABASES = {
         "PORT": "",
     }
 }
+
+DEBUG = False
+ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu']
+
+# Override default relative paths
+BASE_DIR = os.path.join(os.path.dirname(__file__),'apache')
+BASE_URL = '/knowd/'
+
+# Find the right way to do this without copying and pasting
+# from relative_settings import *
+# BASE_URL not defined
+
+# Javascript Reverse URL Lookup
+JS_REVERSE_SCRIPT_PREFIX = BASE_URL
+
+LOGIN_REDIRECT_URL = BASE_URL
+
+
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = os.path.join(BASE_URL, 'static/')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)
+
+#Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'sodata/templates/'),
+    os.path.join(BASE_DIR, 'templates/'),
+)
 
 
 LOGGING = {
@@ -141,7 +120,7 @@ LOGGING = {
 # # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 # STATIC_ROOT = 'staticfiles'
-# STATIC_URL = '/static/'
+
 
 # # STATICFILES_DIRS = (
 # #     os.path.join(BASE_DIR, 'sodata/static/'),
