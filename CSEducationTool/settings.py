@@ -105,7 +105,7 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = '/'
 
 # Javascript Reverse URL Lookup
-# JS_REVERSE_SCRIPT_PREFIX = '/knowd/'
+JS_REVERSE_SCRIPT_PREFIX = '/knowd/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
