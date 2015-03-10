@@ -30,6 +30,10 @@ DB_NAME = "myproj_db" # "smallsodata"
 
 ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu']
 
+# Javascript Reverse URL Lookup
+JS_REVERSE_SCRIPT_PREFIX = '/knowd/'
+
+
 # # Application definition
 
 # INSTALLED_APPS = (
