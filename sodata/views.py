@@ -246,9 +246,9 @@ def ui_create_resource(request, parent_id=None):
         rid = request.POST.get("current_resource_id")
 
         if rid is None:
-            _url = reverse('ui_get_resource', parent_id) if parent_id is not None else reverse('ui_get_root_resource')
+            _url = reverse('ui_get_resource', kwargs={'resource_id':parent_id}) if parent_id is not None else reverse('ui_get_root_resource')
         else:
-            _url = reverse('ui_get_resource', rid)
+            _url = reverse('ui_get_resource', kwargs={'resource_id':rid})
 
         return HttpResponseRedirect(_url)
     elif type(new_resource) is ResourceForm:
@@ -365,7 +365,7 @@ def ui_update_resource(request, resource_id=None):
         updated_resource = update_resource(request, resource_id)
         if update_resource is None:
             return HttpResponse("You do not have permission to edit this resource", status=401)
-        return HttpResponseRedirect(reverse('ui_get_resource',resource_id))
+        return HttpResponseRedirect(reverse('ui_get_resource',kwargs={'resource_id':resource_id}))
     else: 
         data = get_resource(request, resource_id)
         data['form'] = ResourceForm(data['resource'].to_dict())
@@ -464,7 +464,7 @@ def ui_delete_resource(request, resource_id=None):
         to_delete.delete()
         return HttpResponseRedirect(reverse('ui_get_root_resource'))
     else:
-        return HttpResponseRedirect(reverse('ui_get_resource', resource_id))
+        return HttpResponseRedirect(reverse('ui_get_resource', kwargs={'resource_id':resource_id}))
 def api_delete_resource(request, resource_id=None):
     if resource_id is None: return HttpResponse()
     resource_id = int(resource_id)
@@ -503,7 +503,7 @@ def api_create_relation(request, parent_id=None, child_id=None):
     return HttpResponse(json.dumps(relation.to_dict()))
 def ui_create_relation(request, parent_id=None, child_id=None):
     create_relation(request, parent_id, child_id)
-    return HttpResponseRedirect(reverse('ui_get_resource', parent_id))
+    return HttpResponseRedirect(reverse('ui_get_resource', kwargs={'resource_id':parent_id}))
 def create_relation(request, parent_id, child_id):
     if not request.user.is_authenticated():
         return None
@@ -641,7 +641,7 @@ def api_delete_relation_by_resources(request, parent_id, child_id):
         return HttpResponse("You must be logged in to delete a relation", status=401)
 def ui_delete_relation_by_resources(request, parent_id, child_id):
     api_delete_relation_by_resources(request, parent_id, child_id)
-    return HttpResponseRedirect(reverse('ui_get_resource',parent_id))
+    return HttpResponseRedirect(reverse('ui_get_resource',kwargs={'resource_id':parent_id}))
 
 
 
