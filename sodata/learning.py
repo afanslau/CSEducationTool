@@ -15,8 +15,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from sklearn.externals import joblib
 
 import os
-from CSEducationTool.settings import BASE_DIR
+# from CSEducationTool.settings import BASE_DIR
+from django.conf import settings
 
+BASE_DIR = settings.BASE_DIR
 
 log_batch_size=10 ** 3
 k_log_text_preview_size = 70 #characters

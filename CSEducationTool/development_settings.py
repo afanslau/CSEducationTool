@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from settings import *
+from CSEducationTool.global_settings import *
 # from relative_settings import *
+
 DB_NAME = 'small_temp' # 'topicdb' #Using small_temp for testing the watson search   # Was 
 DATABASES = {
     "default": {
@@ -22,6 +23,12 @@ DATABASES = {
         "PORT": "",
     }
 }
+
+# Doesn't work. Need to pass BASE_URL as a variable somehow
+# from CSEducationTool.relative_settings import *
+
+
+
 
 # Javascript Reverse URL Lookup
 JS_REVERSE_SCRIPT_PREFIX = BASE_URL
@@ -83,38 +90,3 @@ LOGGING = {
     }
 }
 
-
-# DATABASES['default'] =  dj_database_url.config()
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
-
-# LANGUAGE_CODE = 'en-us'
-
-# TIME_ZONE = 'UTC'
-
-# USE_I18N = True
-
-# USE_L10N = True
-
-# USE_TZ = True
-
-
-# # Static files (CSS, JavaScript, Images)
-# # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
-# STATIC_ROOT = 'staticfiles'
-# STATIC_URL = '/static/'
-
-# # STATICFILES_DIRS = (
-# #     os.path.join(BASE_DIR, 'sodata/static/'),
-# # )
-
-# #Don't actually need this, since the django.template.loaders.app_directories.Loader looks for the templates directory under each running app.
-# TEMPLATE_DIRS = (
-#     os.path.join(BASE_DIR, 'sodata/templates/'),
-# )
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.

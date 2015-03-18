@@ -2,12 +2,12 @@ import urllib, urllib2, base64
 from bs4 import BeautifulSoup as Soup 
 from django.db.models import Count, Sum
 
-from CSEducationTool.settings import BING_USERNAME, BING_PASSWORD, BING_API_BASE
+from django.conf import settings
 
 #To move to settings.py
-# BING_API_BASE = "https://api.datamarket.azure.com/Bing/"
-# BING_USERNAME = 'afanslau@gmail.com'
-# BING_PASSWORD = 'aPA1Hr8rGzCUyPMCEpxFOFWfpHLL0RvisEFc1Q+mJsE'
+BING_API_BASE = settings.BING_API_BASE
+BING_USERNAME = settings.BING_USERNAME
+BING_PASSWORD = settings.BING_PASSWORD
 
 search_add_ons = ['tutorial','example','getting started','learning','how to','essentials']
 def gather_resources(n_resources_per_tag=3):

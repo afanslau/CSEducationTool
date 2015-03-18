@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from sodata import views
-from CSEducationTool import settings
+from django.conf import settings
 
 '''
 

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from settings import *
+from CSEducationTool.global_settings import *
 
 DB_NAME = "myproj_db" # "smallsodata"
 DATABASES = {
