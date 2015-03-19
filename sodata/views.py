@@ -238,8 +238,8 @@ def api_create_resource(request, parent_id=None):
     else:
         return HttpResponse("There was an error processing the create_resource request")
 def ui_create_resource(request, parent_id=None):
-    pid = int(parent_id) if parent_id is not None else None  # I think this is unnecessary. Check when there is time and if so remove
-    new_resource = create_resource(request, pid)
+    # pid = int(parent_id) if parent_id is not None else None  # I think this is unnecessary. Check when there is time and if so remove
+    new_resource = create_resource(request, parent_id)
 
     if type(new_resource) is Resources:
 
@@ -260,8 +260,8 @@ def ui_create_resource(request, parent_id=None):
         return render(request, 'sodata/new_resource_form_container.html', {'new_resource_form':new_resource, 'resource':parent})
     else:
         print 'ui_create_resource:  new_resource:  ', new_resource
-        return HttpResponse("something went wrong here")
-
+        _url = reverse('ui_get_resource', kwargs={'resource_id':parent_id}) if parent_id is not None else reverse('ui_get_root_resource')
+        return HttpResponseRedirect(_url)
 
 def create_resource(request, parent_id=None):
 

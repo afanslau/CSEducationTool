@@ -9,6 +9,11 @@ BING_PASSWORD = 'aPA1Hr8rGzCUyPMCEpxFOFWfpHLL0RvisEFc1Q+mJsE'
 
 # relative_settings default values
 BASE_DIR = os.path.dirname(__file__)
+
+
+print 'BASE_DIR', BASE_DIR
+
+
 BASE_URL = '/'
 
 CSRF_COOKIE_SECURE = False

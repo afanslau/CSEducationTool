@@ -27,7 +27,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['.cs.drew.lan', '.cs.drew.edu']
 
 # Override default relative paths
-BASE_DIR = os.path.join(os.path.dirname(__file__),'apache')
+BASE_DIR = os.path.dirname(__file__)
 BASE_URL = '/knowd/'
 
 # Find the right way to do this without copying and pasting
@@ -71,13 +71,13 @@ LOGGING = {
         'django-core': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,'logs','knowd_system.log'),
+            'filename': os.path.join(BASE_DIR, 'apache','logs','knowd_system.log'),
             'formatter': 'verbose'
         },
         'user-activity': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,'logs','knowd_user_activity.log'),
+            'filename': os.path.join(BASE_DIR,'apache','logs','knowd_user_activity.log'),
             'formatter': 'verbose'
         },
     },
