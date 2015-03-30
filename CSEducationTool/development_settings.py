@@ -12,6 +12,17 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 from CSEducationTool.global_settings import *
 # from relative_settings import *
 
+
+
+
+
+BING_IN_MAIN_SEARCH_BAR = False
+
+
+
+
+
+
 DB_NAME = 'small_temp' # 'topicdb' #Using small_temp for testing the watson search   # Was 
 DATABASES = {
     "default": {

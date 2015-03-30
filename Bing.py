@@ -1,19 +1,55 @@
 import urllib, urllib2, base64
 from bs4 import BeautifulSoup as Soup 
 from django.db.models import Count, Sum
-
+from sodata.models import Resources
+from sodata.models import get_bing_user
 from django.conf import settings
+
+
 
 #To move to settings.py
 BING_API_BASE = settings.BING_API_BASE
 BING_USERNAME = settings.BING_USERNAME
 BING_PASSWORD = settings.BING_PASSWORD
 
+bing_user = get_bing_user()
+
 search_add_ons = ['tutorial','example','getting started','learning','how to','essentials']
 def gather_resources(n_resources_per_tag=3):
 	
 	# Fetch the most interacted with resources
 	Resources.objects.annotate(num_children=Sum('child_resources__confidence')).order_by('-num_children')
+
+
+# Make this better
+def get_resources_for_query(query_term, top=5, skip=0, max=15):
+	res = perform_query(query_term,top,skip)
+	soup = Soup(res)
+	entries = soup.feed.find_all('entry')
+
+	print 'get_resources_for_query   len(entries) = ', len(entries)
+
+	return [get_resource_for_bing_entry(entry) for entry in entries]
+
+
+def get_resource_for_bing_entry(entry):
+	# try:
+		url = entry.content.find('d:url').get_text()
+		new, created = Resources.objects.get_or_create(url=url)
+		if created:
+			new.title = entry.content.find('d:title').get_text()	
+			new.displayurl = entry.content.find('d:displayurl').get_text()
+			new.text = entry.content.find('d:description').get_text()
+			new.author = bing_user
+		
+
+		return new
+	# except Exception:
+	# 	print 'could not get resource from ', str(entry)[:140]
+	# 	return None
+	
+
+
 
 
 

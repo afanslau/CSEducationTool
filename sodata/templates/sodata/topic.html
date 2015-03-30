@@ -43,6 +43,7 @@
               <span class="glyphicon glyphicon-chevron-down"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
+              <li><a href="#" class="savetohome-button" id="savetohome-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to Home</a></li>
               <li><a class="saveto-button" id="saveto-button-{{resource.id}}" resource-id="{{ resource.id }}">Pin to other Topic</a></li>
               <li><a href="{% url 'ui_delete_resource' resource_id=resource.id %}" style="color:red">Delete</a></li>
             </ul>
@@ -53,6 +54,7 @@
         <h4>Author</h4>
         <p>{{resource.author.username}}</p>
         <h4>Related Topics</h4>
+
         {% if user_relation.parent_info %}
           {% for parent in user_relation.parent_info|slice:":3" %}          
             <a href="{% url 'ui_get_resource' resource_id=parent.id %}"><p>{{parent.title|truncatechars:50}}</p></a>

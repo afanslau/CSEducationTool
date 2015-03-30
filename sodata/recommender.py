@@ -24,11 +24,12 @@ def normalize_weights(weights):
 		return weights
 	return {feature : w/total for feature,w in weights.items()}
 weights = normalize_weights({
-	'watson_rank'     					: 20,
-	'text_similarity' 					: 70,
-	'total_views'     					: 10,
-	'relations_context_to_candidate'    : 40,
+	'watson_rank'     					: 60,
+	'text_similarity' 					: 0,
+	'total_views'     					: 0,
+	'relations_context_to_candidate'    : 0,
 	'human_created'    					: 40,
+	'created_by_me'						: 100,
 	# 'recently_used'   					: 40
 })
 
@@ -55,6 +56,9 @@ class RecContext(object):
 
 	def __init__(self, user, resource=None, candidates=None, important_terms=None):
 		super(RecContext, self).__init__()
+
+		# Cache recommended objects
+
 		
 		self.resource = resource
 		self.user = user		
@@ -280,6 +284,17 @@ class RecContext(object):
 		
 
 	def _add_important_terms(self):
+
+		try:
+			title_words = self.resource.title.split(' ')
+			if len(title_words) < 4:
+				self.important_terms = set([' '.join(title_words)]).union(set(title_words))
+				return
+		except Exception:
+			pass
+
+
+
 		tfv = learning.get_tfidfvectorizer()
 		docs = []
 		if not self.resource.is_home:

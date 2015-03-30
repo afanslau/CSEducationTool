@@ -8,6 +8,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.contrib.auth import authenticate, login
 from django.utils import timezone
+from django.conf import settings
+
+
+
+
+
 
 from sodata.models import TopicRelations, Resources, UserRelation, UserActivity
 from sodata.forms import ResourceForm, SignupForm, LoginForm
@@ -662,7 +668,40 @@ def ui_search_resources(request):
         return HttpResponse(json.dumps([{"title":r.title, "id":r.object_id_int} for r in search_results]))
     
     else:
-        search_results = [sr.object for sr in watson.search(term, exclude=(Resources.objects.filter(~Q(author=request.user), is_home=True),)).select_related('object')]
+        
+
+        ### SEARCH EXECUTED HERE ###
+
+        # knowd
+
+        resource = Resources.objects.filter(title=term, author=request.user)
+        if len(resource) == 0:
+            resource = Resources.objects.create(title=term, author=request.user)
+        else:
+            resource = resource[0]
+        return ui_get_resource(request, resource.id)
+
+
+
+        context = RecContext(request.user, resource)
+        search_results = context.recommend()
+        #[sr.object for sr in watson.search(term, exclude=(Resources.objects.filter(~Q(author=request.user), is_home=True),)).select_related('object').order_by('-watson_rank')]
+
+        # bing
+        n=len(search_results)
+        if settings.BING_IN_MAIN_SEARCH_BAR and (n < 20 or (n > 21 and n < 40)):
+            skip = 0 if n < 20 else 20
+            search_results += Bing.get_resources_for_query(term, top=40, skip=skip)
+
+
+        # Fall back to Bing search 
+        #todolater weight external searches lower than 
+        # Create resources for every object that gets searched
+
+
+
+
+
         user_relations = UserRelation.get_relations_by_resource_id(request, search_results)
         data = {'new_resource_form':TemplateDefaults.base['new_resource_form'],
                 'resource':None,
@@ -709,20 +748,19 @@ def api_recommend_resources(request, resource_id=None):
         raise Http404  # I think this might be the default error for ObjectDoesNotExist
 
 
-    full_resource_list = get_recommended(request, resource)
-    page_number = request.GET.get('page')
-    paginator = Paginator(full_resource_list, N_RECOMMENDATIONS_PER_PAGE)
+    resource_list = get_recommended(request, resource)
+    page_number = 1
 
-
-
-    try:
-        resource_list = paginator.page(page_number)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        resource_list = paginator.page(1)
-        page_number = 1
-    except EmptyPage:
-        return None
+    # page_number = request.GET.get('page')
+    # paginator = Paginator(full_resource_list, N_RECOMMENDATIONS_PER_PAGE)
+    # try:
+    #     resource_list = paginator.page(page_number)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     resource_list = paginator.page(1)
+    #     page_number = 1
+    # except EmptyPage:
+    #     return None
 
 
     user_relations = UserRelation.get_relations_by_resource_id(request, resource_list)

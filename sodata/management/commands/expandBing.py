@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 import Bing 
 from bs4 import BeautifulSoup as Soup
 
+import random
+
 class Command(BaseCommand):
 	help = 'Loads wikipedia topics from the api'
 	def handle(self, *args, **options):
@@ -15,29 +17,33 @@ class Command(BaseCommand):
 			# Resources.create_home(bing_user)
 		# system_user,created = User.objects.get_or_create(username="System")
 
+
 		
-		addons = ['what is','tutorial','getting started','learning','how to']
-		tags_to_expand = ['git', 'git commands']#['Ruby on Rails','Git','Source Control','Software Engineering']
+		addons = ['']
+		tags_to_expand = ['pieces of a java program','java hangman tutorial','java class walkthrough', 'learning java','java topics', 'java beginner', 'object oriented programming','objects vs. classes java explained','java method signature','java new keyword explanation']#['Ruby on Rails','Git','Source Control','Software Engineering']
 		for tag in tags_to_expand:
 			for addon in addons:
 
 				tagr,created = Resources.objects.get_or_create(title=tag, author=system_user)
-				res = Bing.perform_query(' '.join([addon, tag]), 3)
-				soup = Soup(res)
-				entries = soup.feed.find_all('entry')
+				
+				results = Bing.get_resources_for_query(' '.join([addon, tag]), top=30)
 
-				counted_errors = 0
-				for entry in entries:
-					# try:
-					url = entry.content.find('d:url').get_text()
-					new, created = Resources.objects.get_or_create(url=url)
-					if created:
-						new.title = entry.content.find('d:title').get_text()	
-						new.displayurl = entry.content.find('d:displayurl').get_text()
-						new.text = entry.content.find('d:description').get_text()
-						new.author = bing_user
+				for new in results[:5]:
+				# soup = Soup(res)
+				# entries = soup.feed.find_all('entry')
+
+				# counted_errors = 0
+				# for entry in entries:
+				# 	# try:
+				# 	url = entry.content.find('d:url').get_text()
+				# 	new, created = Resources.objects.get_or_create(url=url)
+				# 	if created:
+				# 		new.title = entry.content.find('d:title').get_text()	
+				# 		new.displayurl = entry.content.find('d:displayurl').get_text()
+				# 		new.text = entry.content.find('d:description').get_text()
+				# 		new.author = bing_user
 
 					TopicRelations.objects.get_or_create(to_resource=new, from_resource=tagr, perspective_user=bing_user)
 					# except Exception:
 					# 	counted_errors += 1
-					print 'Created resource ', created, new.id, new.title 
+					print 'Created resource ', new.id, new.title 
