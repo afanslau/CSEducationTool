@@ -6,6 +6,9 @@ BING_API_BASE = "https://api.datamarket.azure.com/Bing/"
 BING_USERNAME = 'afanslau@gmail.com'
 BING_PASSWORD = 'aPA1Hr8rGzCUyPMCEpxFOFWfpHLL0RvisEFc1Q+mJsE'
 
+BING_IN_MAIN_SEARCH_BAR = False
+
+
 
 # relative_settings default values
 BASE_DIR = os.path.dirname(__file__)

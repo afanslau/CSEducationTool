@@ -16,7 +16,7 @@ from settings import *
 # BASE_DIR = os.path.dirname(__file__)
 
 
-
+BING_IN_MAIN_SEARCH_BAR = False
 # DB_NAME = "topicdb" # "smallsodata"
 
 # # Quick-start development settings - unsuitable for production

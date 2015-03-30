@@ -16,7 +16,7 @@ from CSEducationTool.global_settings import *
 
 
 
-BING_IN_MAIN_SEARCH_BAR = False
+
 
 
 
