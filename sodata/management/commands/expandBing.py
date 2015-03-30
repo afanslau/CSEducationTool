@@ -24,6 +24,7 @@ class Command(BaseCommand):
 		for tag in tags_to_expand:
 			for addon in addons:
 
+
 				tagr,created = Resources.objects.get_or_create(title=tag, author=system_user)
 				
 				results = Bing.get_resources_for_query(' '.join([addon, tag]), top=30)

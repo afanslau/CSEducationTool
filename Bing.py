@@ -29,11 +29,16 @@ def get_resources_for_query(query_term, top=5, skip=0, max=15):
 
 	print 'get_resources_for_query   len(entries) = ', len(entries)
 
-	return [get_resource_for_bing_entry(entry) for entry in entries]
+	out = []
+	for entry in entries:
+		r = get_resource_for_bing_entry(entry)
+		if r is not None:
+			out.append(r)
+	return out
 
 
 def get_resource_for_bing_entry(entry):
-	# try:
+	try:
 		url = entry.content.find('d:url').get_text()
 		new, created = Resources.objects.get_or_create(url=url)
 		if created:
@@ -41,12 +46,10 @@ def get_resource_for_bing_entry(entry):
 			new.displayurl = entry.content.find('d:displayurl').get_text()
 			new.text = entry.content.find('d:description').get_text()
 			new.author = bing_user
-		
-
 		return new
-	# except Exception:
-	# 	print 'could not get resource from ', str(entry)[:140]
-	# 	return None
+	except Exception:
+		print 'could not get resource from ', str(entry)[:140]
+		return None
 	
 
 
