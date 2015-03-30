@@ -22,7 +22,9 @@ def normalize_weights(weights):
 	total = sum(weights.values())
 	if total==0:
 		return weights
-	return {feature : w/total for feature,w in weights.items()}
+	out = {feature : float(w)/float(total) for feature,w in weights.items()}
+	return out
+
 weights = normalize_weights({
 	'watson_rank'     					: 60,
 	'text_similarity' 					: 0,
@@ -32,8 +34,6 @@ weights = normalize_weights({
 	'created_by_me'						: 100,
 	# 'recently_used'   					: 40
 })
-
-
 
 class RecCandidate(object):
 	def __init__(self, context, resource, path=None):
@@ -82,30 +82,39 @@ class RecContext(object):
 
 		resource = candidate.resource
 
+		score = {}
 		try: 
-			score = weights['watson_rank'] * resource.watson_rank  # Should weight by the importance of the term that it was matched to
+			score['watson_rank'] = weights['watson_rank'] * resource.watson_rank  # Should weight by the importance of the term that it was matched to
 		except AttributeError:
-			score = 0
+			pass
 
 		# Get the textual similarity
 		similarity = learning.get_similarity(self.resource,resource)[0,1]
-		score += weights['text_similarity'] * similarity
+		score['text_similarity'] = weights['text_similarity'] * similarity
 
 		# Get the number of views by all users
 		n_views = UserRelation.objects.filter(resource=resource).aggregate(Sum('num_visits'))['num_visits__sum']
-		score += weights['total_views'] * (1 - 1/n_views) if n_views > 0 else 0
+		score['total_views'] = weights['total_views'] * (1 - 1/n_views) if n_views > 0 else 0
 		# TODO squash between 0 and 1
 
 		# If the resource was created by a human, weight higher
 		if resource.author is not None:
-			score += weights['human_created'] * int(resource.author.is_human())
+			score['human_created'] = weights['human_created'] * int(resource.author.is_human())
 
 		# Count the number of relations where the candidate is a child of the context resource
 		if self.resource is not None:
 			child_role = TopicRelations.objects.filter(from_resource=self.resource, to_resource=resource)
-			score += weights['num_relations_context_to_candidate'] * (1 - 1/len(child_role)) if len(child_role) > 0 else 0
+			score['num_relations_context_to_candidate'] = weights['num_relations_context_to_candidate'] * (1 - 1/len(child_role)) if len(child_role) > 0 else 0
 
 		
+		if resource.author == self.user:
+			score['created_by_me'] = weights['created_by_me']
+
+
+		# print 'get_relevance   ', score
+
+		return sum(score.values())
+
 		# # Get the cost-weighted path length from query
 		# path_sum = 0
 		# for i in range(len(candidate.path)):
@@ -156,7 +165,7 @@ class RecContext(object):
 
 
 		# TO-DO  Implement a text similarity score comparison between self.resource and candidate
-		return score
+		# return score
 
 
 
