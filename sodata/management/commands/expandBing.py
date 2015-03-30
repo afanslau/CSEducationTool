@@ -20,7 +20,8 @@ class Command(BaseCommand):
 
 		
 		addons = ['']
-		tags_to_expand = ['pieces of a java program','java hangman tutorial','java class walkthrough', 'learning java','java topics', 'java beginner', 'object oriented programming','objects vs. classes java explained','java method signature','java new keyword explanation']#['Ruby on Rails','Git','Source Control','Software Engineering']
+		tags_to_expand = ['objects vs. classes java explained','java method signature','java new keyword explanation']
+		# tags_to_expand = ['pieces of a java program','java hangman tutorial','java class walkthrough', 'learning java','java topics', 'java beginner', 'object oriented programming','objects vs. classes java explained','java method signature','java new keyword explanation']
 		for tag in tags_to_expand:
 			for addon in addons:
 
