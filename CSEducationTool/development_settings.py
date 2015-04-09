@@ -23,7 +23,8 @@ from CSEducationTool.global_settings import *
 
 
 
-DB_NAME = 'small_temp' # 'topicdb' #Using small_temp for testing the watson search   # Was 
+DB_NAME = 'small_temp'
+SO_DB_NAME = 'sodata'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -32,8 +33,19 @@ DATABASES = {
         "PASSWORD": "",
         "HOST": "localhost",
         "PORT": "",
+    },
+    "db_stackoverflow": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": SO_DB_NAME,
+        "USER": "afanslau",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
+
+DATABASE_ROUTERS = ['stackoverflow.dbRouter.StackverflowDBRouter']
+INSTALLED_APPS += ('stackoverflow',)
 
 # Doesn't work. Need to pass BASE_URL as a variable somehow
 # from CSEducationTool.relative_settings import *

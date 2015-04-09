@@ -9,7 +9,9 @@ abs_t0 = time() #Time the entire script
 import itertools
 
 #Django
-from CSEducationTool.sodata.models import Posts, TaggedPosts, UniqueTags
+from stackoverflow.models import SOPosts, SOTaggedPosts, SOUniqueTags, SOUsers
+from django.db.models import Count 
+
 from django.db.transaction import atomic
 from django.db.models import Q
 
@@ -50,16 +52,43 @@ verbose=False
 
 '''=== DATA PREPROCESSING ===''' 
 '''Returns a list of document text and the mapping from the list index to their postgres post ids'''
-def vectorize_docs(n_samples = None, log_batch_size=100, verbose=True, qs=None):
+# def vectorize_docs(n_samples = None, log_batch_size=100, verbose=True, qs=None):
+# 	index_map = {} # {post_id:docs_index}
+# 	docs = []
+
+# 	#Loop through all the post objects - Questions and Answers
+# 	if qs is None:
+# 		qs = Posts.objects.filter(post_type_id__in=[1])
+# 	post_samples = qs if n_samples==None else qs[:n_samples]
+
+
+
+
+
+
+
+
+
+
+
+
+
+def vectorize_docs(n_samples = None, log_batch_size=100, verbose=True):
+
+
+	#Loop through all the post objects - Questions and Answers
+	qs = SOPosts.objects.filter(post_type_id__in=[1]) #post_type_id 1 = questions 2 = answers
+	post_samples = qs if n_samples==None else qs[:n_samples]
+	return vectorize_so_posts(post_samples, log_batch_size, verbose)
+
+
+def vectorize_so_posts(post_samples, log_batch_size=100, verbose=True):
+
 	index_map = {} # {post_id:docs_index}
 	docs = []
 
-	#Loop through all the post objects - Questions and Answers
-	if qs is None:
-		qs = Posts.objects.filter(post_type_id__in=[1])
-	post_samples = qs if n_samples==None else qs[:n_samples]
 	for i,question in enumerate(post_samples):  #Temporarily filter to only questions
-
+		# print 'vectorize_so_posts: ',i,question
 		# if question.post_type_id==1: #If the post is a question, get its accepted answer
 		# answer = question.accepted_answer
 		# #Use accepted answer if it has one, otherwise use the top voted answer, otherwise use an empty string
@@ -172,10 +201,19 @@ def flatten_markdown(mkd):
 def simple_tfidf_alldocs():
 	qs = Posts.objects.all()
 	docs,post_index_map = vectorize_docs(n_samples=n_samples,log_batch_size=log_batch_size, qs=qs) #Get the doc bodies
+	
+	tfidf_matrix_scaled = tfidf_for_docs(docs)
+	return tfidf_matrix_scaled, post_index_map
+
+
+def tfidf_for_docs(qs):
 	tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_features = n_features_init,ngram_range=(1,n_gram),max_df=0.8)
 	tfidf_matrix_raw = tfidf_vectorizer.fit_transform(docs) #docs x n-gram-features
 	tfidf_matrix_scaled = scale(tfidf_matrix_raw, with_mean = False) #Can't use sparse matrices unless with_mean=False
-	return tfidf_matrix_scaled, post_index_map
+	return tfidf_matrix_scaled
+
+
+
 
 if __name__=='main':
 	'''===LOAD DOCUMENTS==='''
