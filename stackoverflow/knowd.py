@@ -61,7 +61,7 @@ class KnowdGraph():
 
 		# Data
 		self.docs = [] # Docs
-		self.terms = []
+		self.terms = np.array([])
 		self.tag_docs = [] # Tag lists - for stackoverflow, assumed to be tags created by the author
 		self.user_doc_indices = {} # user_index --> set of associated documents
 		self.vocab = set() # Terms
@@ -73,7 +73,7 @@ class KnowdGraph():
 		self.wtu = None 
 
 
-	def init_data_from_so(self, q_post=None, so_users=None, so_posts=None, n_users=None, n_samples_per_user=100):
+	def init_data_from_so(self, q_post=None, so_users=None, so_posts=None, n_users=None, n_samples_per_user=100, random_post_choice=True):
 		self.n_samples_per_user = n_samples_per_user
 		# Set variables
 		_post_Q=~Q(tags=None)
@@ -104,7 +104,8 @@ class KnowdGraph():
 				_u_posts = SOPosts.objects.filter(post_Q, owner_user=u).order_by('-creation_date')  #.order_by('-score')
 
 			u_posts = list(_u_posts)
-			random.shuffle(u_posts)
+			if random_post_choice:
+				random.shuffle(u_posts)
 			u_posts = u_posts[:n_samples_per_user]
 			# Store documents in memory
 			u_docs, post_index_map = so.vectorize_so_posts(u_posts)
@@ -132,13 +133,13 @@ class KnowdGraph():
 
 		
 
-	def get_subgraph(self, n_samples_per_user=50):
-		if self.n_samples_per_user <= n_samples_per_user:
-			raise ValueError("Sub-graph size must be smaller than the entire graph. Use a smaller value for parameter `n_samples_per_user`") # Should be a deep copy
+	# def get_subgraph(self, n_samples_per_user=50):
+	# 	if self.n_samples_per_user <= n_samples_per_user:
+	# 		raise ValueError("Sub-graph size must be smaller than the entire graph. Use a smaller value for parameter `n_samples_per_user`") # Should be a deep copy
 
-		# Create a new KnowdGraph
-		# For each user, get a sub-set of the documents
-		kg = KnowdGraph()
+	# 	# Create a new KnowdGraph
+	# 	# For each user, get a sub-set of the documents
+	# 	kg = KnowdGraph()
 
 
 
@@ -146,28 +147,41 @@ class KnowdGraph():
 		# sample_posts = SOPosts.objects.filter(owner_user__in=self.users)
 		# print '__init__ sample_posts:  ', len(sample_posts)
 
-	def train_with_so(self, q_post=None, so_users=None, so_posts=None, n_users=20, n_samples_per_user=100, vocab=None):
-		self.init_data_from_so(q_post=q_post,so_users=so_users,so_posts=so_posts,n_users=n_users,n_samples_per_user=n_samples_per_user)
+	def train_with_so(self, q_post=None, so_users=None, so_posts=None, n_users=20, n_samples_per_user=100, vocab=None, random_post_choice=True):
+		self.init_data_from_so(q_post=q_post,so_users=so_users,so_posts=so_posts,n_users=n_users,n_samples_per_user=n_samples_per_user,random_post_choice=random_post_choice)
 
 		# Process data
 		if vocab:
 			self.vocab = vocab
 		self.learn_weights()
+		return self
 
 	def train_with_example(self):
-		terms = ['web','front','back','html','css','js','django','python','ruby','mvc','algorithms','tcp','recursion','unix','graphics','cpu']
+		terms = ['web','django','html','databases','algorithms']
+		# terms = ['web','front','back','html','css',
+		# 		 'js','django','python','ruby','mvc',
+		# 		 'algorithms','tcp','recursion','unix',
+		# 		 'graphics','cpu','server']
 		term_index_map = {k:i for i,k in enumerate(terms)}
 
 		n_terms = len(terms)
 		n_users = 3
 		n_docs = 5
 
+		# tf = np.array([
+		# 	[4,3,5,2,1,1,0,0,1,0,0,0,0,0,0,0,0],		# Overview doc
+		# 	[0,0,0,10,6,11,1,1,0,0,0,0,0,0,0,1],		# Back & Front
+		# 	[0,2,0,9,4,7,0,0,0,0,0,0,0,0,0,0,0],		# mostly front
+		# 	[0,0,0,1,0,5,1,1,4,2,0,0,0,0,0,0,1],		# mostly back
+		# 	[0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,1,3],		# all back
+		# 	])
 		tf = np.array([
-			[4,3,5,2,1,1,0,0,1,0,0,0,0,0,0,0],		# Overview doc
-			[0,0,0,10,6,11,1,1,0,0,0,0,0,0,0,0],	# Back & Front
-			[0,2,0,9,4,7,0,0,0,0,0,0,0,0,0,0],		# mostly front
-			[0,0,0,1,0,5,1,1,4,2,0,0,0,0,0,0],		# mostly back
-			[0,0,0,0,0,0,5,5,5,5,0,0,0,0,0,1],		# all back
+			[5,4,5,1,0],		# Web overview
+			[3,2,2,0,0],		# Web overview
+			[4,1,10,1,0],		# HTML
+			[1,1,7,1,1],		# HTML
+			[1,9,1,8,1],		# Backend
+			[2,7,0,10,0],		# Databases
 			])
 		self.tf = tf
 		# Generate docs from contrived example
@@ -181,13 +195,13 @@ class KnowdGraph():
 
 
 		user_doc_indices = {
-			0:[0], 	# Overview poster
-			1:[1,2],  # Well rounded user
-			2:[3,4]	# Back, learning some front
+			0:[0,2,3], 	# Overview user
+			1:[1,4,5],  # Alice
+			# 2:[4,5]	# Back, learning some front
 		}
 
 
-		self.train_with_data(docs=docs, vocab=terms, user_doc_indices=user_doc_indices, use_tags=False)
+		return self.train_with_data(docs=docs, vocab=terms, user_doc_indices=user_doc_indices, use_tags=False)
 
 
 
@@ -211,6 +225,7 @@ class KnowdGraph():
 
 		# Train
 		self.learn_weights(use_tags=use_tags)
+		return self
 
 	def re_train_vocab(self, n_terms=20):
 		self.vocab = set()
@@ -246,7 +261,7 @@ class KnowdGraph():
 	
 		self.term_index_map = self.tfidf_vectorizer.vocabulary_
 		invterm = {v:k for k,v in self.term_index_map.items()}
-		self.terms = [invterm[i] for i in range(len(invterm))]
+		self.terms = np.array([invterm[i] for i in range(len(invterm))])
 
 
 
@@ -299,7 +314,12 @@ class KnowdGraph():
 		return wu
 
 
+	def sort_users_by_interest_in_term(self, term):
+		return np.argsort(self.wtu[:,self.term_index_map[term]].todense())[:,::-1]
 
+	def sort_terms_by_interest_for_user(self, users=None):
+		# Fix to allow argsorting with 2d matrix
+		return np.argsort(self.wtu[users,:].todense())[:,::-1]
 
 
 
@@ -307,7 +327,7 @@ class KnowdGraph():
 		# Sort all topics by relevance
 		context_i = context_term if type(context_term) is not str else self.term_index_map[context_term]
 		ui = user if type(user) is int else self.user_index_map[user.id]
-		user_param = [1]*self.n_terms if baseline else [self.wtu[ui,ti] for ti in range(self.n_terms)]
+		user_param = [1]*self.n_terms if baseline else [self.wtu[ui,ti] + .001 for ti in range(self.n_terms)]
 		return np.array([self.wtt[ti,context_i] * user_param[ti]  for ti in range(self.n_terms)])
 
 	def predict_all(self, context_term=None, baseline=False, random_predict=False):
@@ -352,7 +372,7 @@ class KnowdGraph():
 
 
 
-	def compare_to_test(self, kg_test, baseline=False, random_predict=True):
+	def compare_to_test(self, kg_test, baseline=False, random_predict=False):
 		y_true = np.array(kg_test.wtu.todense())
 		nz = y_true.nonzero()
 		nz_mean = y_true[nz[0], nz[1]].mean()
@@ -375,12 +395,6 @@ class KnowdGraph():
 			yt = y_true[u,:]
 			ys = y_score[u,:]
 
-
-
-
-			print 'ys.magnitude: ', np.linalg.norm(ys)
-
-
 			if yt.any() and ys.any():
 				ap = average_precision_score(yt, ys)
 			else:
@@ -396,20 +410,20 @@ class KnowdGraph():
 		# Check against test set to see if we were "right"
 
 
-	@classmethod
-	def train_test_with_so(cls, q_train=None, q_test=None, n_terms=500, n_users=100):
-		if q_train is None:
-			q_train = Q(creation_date__lt=datetime.datetime(2010,2,1))
-		if q_test is None:
-			q_train = Q(creation_date__lt=datetime.datetime(2010,4,1))		
+	# @classmethod
+	# def train_test_with_so(cls, q_train=None, q_test=None, n_terms=500, n_users=100):
+	# 	if q_train is None:
+	# 		q_train = Q(creation_date__lt=datetime.datetime(2010,2,1))
+	# 	if q_test is None:
+	# 		q_train = Q(creation_date__lt=datetime.datetime(2010,4,1))		
 
 
-		# Train two graphs with different data sets
-		kg_train = KnowdGraph(n_terms=n_terms)
-		kg_train.train_with_so(q_post=q_train, n_users=n_users)
-		kg_test = KnowdGraph()
-		kg_test.train_with_so(q_post=q_test, n_users=n_users,vocab=kg_train.vocab)
-		return kg_train, kg_test
+	# 	# Train two graphs with different data sets
+	# 	kg_train = KnowdGraph(n_terms=n_terms)
+	# 	kg_train.train_with_so(q_post=q_train, n_users=n_users)
+	# 	kg_test = KnowdGraph()
+	# 	kg_test.train_with_so(q_post=q_test, n_users=n_users,vocab=kg_train.vocab)
+	# 	return kg_train, kg_test
 
 
 
@@ -435,43 +449,48 @@ def pickle_post_ids(filename, users, n_samples_per_user=None, post_q=None):
 		post_q = Q()
 	cached_posts = {}
 	for ui,u in enumerate(users):
-		print 'Fetching posts for user ', ui, u.id
-		u_cached_posts = list(SOPosts.objects.filter(post_q, owner_user=u)[:n_samples_per_user])
-		print '     num_posts for user ', u, ' : ', len(u_cached_posts)
-		cached_posts[u.id] = [p.id for p in u_cached_posts]
+		u_cached_posts = list(SOPosts.objects.filter(post_q, owner_user=u).order_by('-creation_date')[:n_samples_per_user])[::-1]		
+		if len(u_cached_posts) > 20:
+			cached_posts[u.id] = [p.id for p in u_cached_posts]
+			print 'Fetching posts for user ', ui, u.id
+			print '     num_posts for user ', u, ' : ', len(u_cached_posts), len(cached_posts)
 	with open(filename,'w') as f:
 		pickle.dump(cached_posts, f)
+	return cached_posts
 
-def run():
-	'training...'
-	kg_train, kg_test = KnowdGraph.train_test_with_so(n_terms=50, n_users=10)
-	'testing...'
-	precision = kg_train.compare_to_test(kg_test)
-	print 'Precision: ', precision
-	return kg_train, kg_test, precision
+
+def bmatrix(a):
+    """Returns a LaTeX bmatrix
+
+    :a: numpy array
+    :returns: LaTeX bmatrix as a string
+    """
+    if len(a.shape) > 2:
+        raise ValueError('bmatrix can at most display two dimensions')
+    lines = str(a).replace('[', '').replace(']', '').splitlines()
+    rv = [r'\begin{bmatrix}']
+    rv += ['  ' + ' & '.join(l.split()) + r'\\' for l in lines]
+    rv +=  [r'\end{bmatrix}']
+    return '\n'.join(rv)
+
+
+# def run():
+# 	'training...'
+# 	kg_train, kg_test = KnowdGraph.train_test_with_so(n_terms=50, n_users=10)
+# 	'testing...'
+# 	precision = kg_train.compare_to_test(kg_test)
+# 	print 'Precision: ', precision
+# 	return kg_train, kg_test, precision
 
 if __name__ == '__main__':
-	# import sys
-
-	# print sys.argv
-
-	# if len(sys.argv) > 2:
-	# 	n_terms = sys.argv[2]
-	# else:
-	# 	n_terms = 50
-
-	# if len(sys.argv) > 1:
-	# 	n_users = sys.argv[1]
-	# else:
-	# 	n_users = 10
 	try: 
 	# This is supposedly bad practice (to test for the existince of a variable), but for a script I don't see a disadvantage yet 
 	# http://stackoverflow.com/questions/843277/how-do-i-check-if-a-variable-exists-in-python
 		if run_now:
 			print 'loading cache file  \'',pickle_filename,'\'...'	
-			n_users = 10
-			n_train_samples = 100
-			n_test_samples = 500
+			n_users = None
+			n_train_samples = 10
+			n_test_samples = None
 			# so_users = None
 
 			with open(pickle_filename,'r') as f:
@@ -479,15 +498,21 @@ if __name__ == '__main__':
 
 			print 'fetching ',len(user_doc_indices),' users from database...'
 			all_user_ids = user_doc_indices.keys()
-			random.shuffle(all_user_ids)
+			# random.shuffle(all_user_ids)
 			all_user_ids = all_user_ids[:n_users]
 			all_users = SOUsers.objects.filter(id__in=all_user_ids)
 			n_users = len(all_user_ids)
 
 
-			all_post_ids = list(np.array([user_doc_indices[uid] for uid in all_user_ids]).flatten())
-			print 'fetching ', len(all_post_ids), 'posts from database...'
-			all_posts = SOPosts.objects.filter(id__in=all_post_ids)
+			# all_post_ids = sum([user_doc_indices[uid] for uid in all_user_ids],[])
+			# print 'fetching ', len(all_post_ids), 'posts from database...'
+			# all_posts = SOPosts.objects.filter(id__in=all_post_ids)
+			all_posts = {}
+			for ui,u in enumerate(all_users):
+				print 'fetching posts for user: ',ui,u.id
+				all_posts[u.id] = list(SOPosts.objects.filter(id__in=user_doc_indices[u.id]))
+
+
 
 			# so_posts = {}
 			# for p in all_posts:
@@ -498,17 +523,14 @@ if __name__ == '__main__':
 			# 	except KeyError:
 			# 		so_posts[p.owner_user.id] = this_doc
 			# so_users = SOUsers.objects.filter(id__in=)[:n_users]
-			# n_users = len(so_users)
-
-			print 'len(all_users) : ', n_users
-				
+			# n_users = len(so_users)				
 
 			print 'training with ',n_users,' users...'
-			kg_train = KnowdGraph()
-			kg_train.train_with_so(n_users=n_users, so_users=all_users, so_posts=all_posts, n_samples_per_user=n_train_samples)
+			kg_train = KnowdGraph(n_terms=50)
+			kg_train.train_with_so(n_users=n_users, so_users=all_users, so_posts=all_posts, n_samples_per_user=n_train_samples, random_post_choice=False)
 
 			kg_test = KnowdGraph()
-			kg_test.train_with_so(n_users=n_users, so_users=all_users, so_posts=all_posts, n_samples_per_user=n_test_samples, vocab=kg_train.vocab)
+			kg_test.train_with_so(n_users=n_users, so_users=all_users, so_posts=all_posts, n_samples_per_user=n_test_samples, vocab=kg_train.vocab, random_post_choice=False)
 
 			print 'testing...'
 			precision = kg_train.compare_to_test(kg_test)
@@ -528,9 +550,19 @@ if __name__ == '__main__':
 			print 'Paired Samples T-Test  -  ', 'Baseline: ', (baseline_t_statistic, baseline_p_value), 'Random: ', (random_t_statistic, random_p_value)
 
 			# Boxplot
-			plt.boxplot([precision, baseline_precision, random_precision], labels=['Topic Similarity and User Preferences','Topic Similarity Only','Random Predictions'], showmeans=True)
-			plt.ylabel('Average Precision')
-			plt.title('Recommendation Precision for Users with the Most Authored Posts')
+			bpd = plt.boxplot([precision, baseline_precision, random_precision], labels=['Topic Similarity and User Preferences','Topic Similarity Only','Random Predictions'], showmeans=True)
+			plt.ylabel('Average Precision', size=20)
+			plt.title('Recommendation Precision for Users with the Over 20 Posts', size=20)
+			# plt.title('Recommendation Precision for Users with the Most Authored Posts')
+			# plt.title('Recommendation Precision for Users with the Highest Reputation')
+			# plt.title("Recommendation Precision for Users with Posts Tagged as 'django','html','css', or 'javascript'")
+	
+			for line in bpd['medians']:
+				line.set_linewidth(4)
+			locs, labels = plt.xticks()
+			for label in labels:
+				label.set_fontsize(20)
+
 			plt.show()
 
 			

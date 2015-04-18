@@ -24,7 +24,7 @@ from CSEducationTool.global_settings import *
 
 
 DB_NAME = 'small_temp'
-SO_DB_NAME = 'sodata'
+SO_DB_NAME = 'smallalldata'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -45,7 +45,7 @@ DATABASES = {
 }
 
 DATABASE_ROUTERS = ['stackoverflow.dbRouter.StackverflowDBRouter']
-INSTALLED_APPS += ('stackoverflow',)
+INSTALLED_APPS += ('stackoverflow','django_extensions')
 
 # Doesn't work. Need to pass BASE_URL as a variable somehow
 # from CSEducationTool.relative_settings import *

@@ -177,14 +177,7 @@ class SOUniqueTags(models.Model):
         managed = False
         db_table = 'unique_tags'
 
-class SOTaggedPosts(models.Model):
-    id = models.AutoField(primary_key=True)
-    post = models.ForeignKey(SOPosts, blank=True, null=True, db_column='post_id')
-    tag = models.ForeignKey(SOUniqueTags, blank=True, null=True, db_column='tag_id')
 
-    class Meta:
-        managed = False
-        db_table = 'tagged_posts'
 
 
 
@@ -207,6 +200,15 @@ class SOUsers(models.Model):
         managed = False
         db_table = 'users'
 
+class SOTaggedPosts(models.Model):
+    id = models.AutoField(primary_key=True)
+    post = models.ForeignKey(SOPosts, blank=True, null=True, db_column='post_id')
+    tag = models.ForeignKey(SOUniqueTags, blank=True, null=True, db_column='tag_id')
+    user = models.ForeignKey(SOUsers, blank=True, null=True, db_column='user_id')
+
+    class Meta:
+        managed = False
+        db_table = 'tagged_posts'
 
 class SOVotes(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?

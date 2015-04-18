@@ -163,7 +163,7 @@ def create_cooccurrence(td_matrix):
 ''' Returns the indices of the top k in sorted order  '''
 def argtopk(in_list_raw,k=10,should_sort=False):
 	if k > len(in_list_raw) or k < 1-len(in_list_raw):
-		return sorted(in_list_raw) if should_sort else in_list_raw
+		return np.argsort(in_list_raw) if should_sort else in_list_raw
 	#Input Checking for correct Type and Shape
 	inlist = in_list_raw
 	if  type(inlist) is not np.ndarray:
